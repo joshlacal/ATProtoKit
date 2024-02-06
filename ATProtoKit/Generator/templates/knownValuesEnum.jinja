@@ -1,0 +1,11 @@
+        public enum {{ enum_name }}: String, Codable, ATProtocolCodable, ATProtocolValue {
+            {%- for value, description in values %}
+            // {{ description }}
+            case {{ value | convertRefToSwift | lowerCamelCase_with_underscore }} = "{{ value }}"
+            {%- endfor %}
+
+            public func isEqual(to other: any ATProtocolValue) -> Bool {
+                guard let otherEnum = other as? {{ enum_name }} else { return false }
+                return self.rawValue == otherEnum.rawValue
+            }
+        }

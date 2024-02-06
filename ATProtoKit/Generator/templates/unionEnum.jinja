@@ -1,0 +1,75 @@
+            // Union Type
+            public enum {{ name }}: Codable, ATProtocolCodable, ATProtocolValue {
+                {%- for variant in variants %}
+                case {{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}({{ variant | convertRefToSwift }})
+                {%- endfor %}
+                case unexpected(JSONValue)
+
+                public init(from decoder: Decoder) throws {
+                    let container = try decoder.container(keyedBy: CodingKeys.self)
+                    let typeValue = try container.decode(String.self, forKey: .type)
+                    print("{{ name }} decoding: \(typeValue)")
+
+                    switch typeValue {
+                    {%- for variant in variants %}
+                    case "{{ variant }}":
+                        print("Decoding as {{ variant }}")
+                        let value = try {{ variant | convertRefToSwift }}(from: decoder)
+                        self = .{{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}(value)
+                    {%- endfor %}
+                    default:
+                        print("{{ name }} decoding encountered an unexpected type: \(typeValue)")
+                        let unknownValue = try JSONValue(from: decoder)
+                        self = .unexpected(unknownValue)
+                    }
+                }
+
+                public func encode(to encoder: Encoder) throws {
+                    var container = encoder.container(keyedBy: CodingKeys.self)
+
+                    switch self {
+                    {%- for variant in variants %}
+                    case .{{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}(let value):
+                        print("Encoding {{ variant }}")
+                        try container.encode("{{ variant }}", forKey: .type)
+                        try value.encode(to: encoder)
+                    {%- endfor %}
+                    case .unexpected(let jsonValue):
+                        print("{{ name }} encoding unexpected value")
+                        try jsonValue.encode(to: encoder)
+                    }
+                }
+
+                public func hash(into hasher: inout Hasher) {
+                    switch self {
+                    {%- for variant in variants %}
+                    case .{{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}(let value):
+                        hasher.combine("{{ variant }}")
+                        hasher.combine(value)
+                    {%- endfor %}
+                    case .unexpected(let jsonValue):
+                        hasher.combine("unexpected")
+                        hasher.combine(jsonValue)
+                    }
+                }
+
+                private enum CodingKeys: String, CodingKey {
+                    case type = "$type"
+                }
+                
+                public func isEqual(to other: any ATProtocolValue) -> Bool {
+                    guard let otherValue = other as? {{ name }} else { return false }
+
+                    switch (self, otherValue) {
+                        {%- for variant in variants %}
+                        case (.{{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}(let selfValue), 
+                            .{{ variant | convertRefToSwift | lowerCamelCase_with_underscore }}(let otherValue)):
+                            return selfValue == otherValue
+                        {%- endfor %}
+                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                            return selfValue.isEqual(to: otherValue)
+                        default:
+                            return false
+                    }
+                }
+            }
