@@ -1,0 +1,24 @@
+extension ATProtoClient.{{ template_namespace_name }} {
+    /// {{ description }}
+    public func {{ procedure_name | lowerCamelCase }}({% if input_struct_name %}input: {{ input_struct_name }}{% endif %}) async throws -> {% if output_type %}(responseCode: Int, data: {{ output_type }}?){% else %}Int{% endif %} {
+        let endpoint = "{{ endpoint }}"
+        {% if input_struct_name %}
+        let requestData = try JSONEncoder().encode(input)
+        {% else %}
+        let requestData: Data? = nil
+        {% endif %}
+        
+        // Perform the network request
+        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+
+        {% if output_type %}
+        // Decode the response if an output type is expected
+        let decoder = ZippyJSONDecoder()
+        let decodedData = try? decoder.decode({{ output_type }}.self, from: responseData)
+        return (responseCode, decodedData)
+        {% else %}
+        // Return only the response code if no output type is expected
+        return responseCode
+        {% endif %}
+    }
+}

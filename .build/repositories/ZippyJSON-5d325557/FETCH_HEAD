@@ -1,0 +1,58 @@
+1ab389998592d038a60a3ca71aa7554d0e84ab4a	not-for-merge	branch '1.2.4' of https://github.com/michaeleisel/ZippyJSON
+4158ae632c497ccc29fd8ab3ee0f618a45f01d93	not-for-merge	branch 'change-readme' of https://github.com/michaeleisel/ZippyJSON
+47995ded16271d082cdc72e8b7b9fc2754cb75ee	not-for-merge	branch 'coding-key-redo' of https://github.com/michaeleisel/ZippyJSON
+76eb7ee47899d20a7eb19155a8f40cf5b20cc239	not-for-merge	branch 'experiments' of https://github.com/michaeleisel/ZippyJSON
+333703a58a937f9e9067b477c0fa5cbf9be29959	not-for-merge	branch 'faster-containers' of https://github.com/michaeleisel/ZippyJSON
+3a70406c9d17ae2d22acc78161100657a88ff8a7	not-for-merge	branch 'keyed-cache' of https://github.com/michaeleisel/ZippyJSON
+59ea6e42ea1b639150d9fc1cb950694d313654d7	not-for-merge	branch 'm' of https://github.com/michaeleisel/ZippyJSON
+adfde5d0f82a905d945480ebf8ac908995c88f28	not-for-merge	branch 'm-release' of https://github.com/michaeleisel/ZippyJSON
+d25ffa8b0824c9f4a9d6704faa6e2c1434a28175	not-for-merge	branch 'master' of https://github.com/michaeleisel/ZippyJSON
+e69224d4c0e8a52d4c95cb7633340663066738d2	not-for-merge	branch 'me-cache-' of https://github.com/michaeleisel/ZippyJSON
+856b79b243a51c5c772833e8c10e649563edbd30	not-for-merge	branch 'me-coding-path' of https://github.com/michaeleisel/ZippyJSON
+340508e9d0ac4f11bb239fd6959ef29ec1c5b4fc	not-for-merge	branch 'me-fasto' of https://github.com/michaeleisel/ZippyJSON
+e85f428978baeee9cefccf99d283f0aa1e8a3cc9	not-for-merge	branch 'me-fixes' of https://github.com/michaeleisel/ZippyJSON
+f04c8d0735aff556301922ca515a35d2a49e8eb5	not-for-merge	branch 'me-next-try' of https://github.com/michaeleisel/ZippyJSON
+d8159cee3bd8b04b8c9011495d4fa670095fcdbb	not-for-merge	branch 'me-perf-test' of https://github.com/michaeleisel/ZippyJSON
+eac657bc097fe70db973a0170572981b1e8536c1	not-for-merge	branch 'me-simd-3.0' of https://github.com/michaeleisel/ZippyJSON
+8a718da145f5e4672c11d2540f053b679aa3e499	not-for-merge	branch 'me-sub-test' of https://github.com/michaeleisel/ZippyJSON
+4138a92466576936721e648c7b604175c814a0b8	not-for-merge	branch 'me-swift-pm' of https://github.com/michaeleisel/ZippyJSON
+3b09f10615a855bbb38dfc65705a5145352615b5	not-for-merge	branch 'me-swiftpm-798' of https://github.com/michaeleisel/ZippyJSON
+3b09f10615a855bbb38dfc65705a5145352615b5	not-for-merge	branch 'me-swiftpm-799' of https://github.com/michaeleisel/ZippyJSON
+2ad43877658fbbd47480fb07a9ce8de6bd864860	not-for-merge	branch 'me-temp-faster' of https://github.com/michaeleisel/ZippyJSON
+d37975cd1f35be38ce2e2d6ff5c3af971e63d35b	not-for-merge	branch 'me-tests' of https://github.com/michaeleisel/ZippyJSON
+7b433bfeb9c893b9c82e261c553976f6d7597f7f	not-for-merge	branch 'me-v1' of https://github.com/michaeleisel/ZippyJSON
+4138a92466576936721e648c7b604175c814a0b8	not-for-merge	branch 'me-v1-1' of https://github.com/michaeleisel/ZippyJSON
+33924afc3c3a6e3c9712b39ec39cc2724a5d231a	not-for-merge	branch 'me-v1-2' of https://github.com/michaeleisel/ZippyJSON
+e02777c2cf5481945c8847ab89a7de1f8dc9f03d	not-for-merge	branch 'more-coding-shenanigans' of https://github.com/michaeleisel/ZippyJSON
+926bcfa5c04495d2a437a50775d21ad37374dcef	not-for-merge	branch 'more-coding-stuff' of https://github.com/michaeleisel/ZippyJSON
+b9ebad176ee721648734b02f08d6127c8f927550	not-for-merge	'refs/pull/13/head' of https://github.com/michaeleisel/ZippyJSON
+9c18134447384b3c456efd0ead1495a867601e7b	not-for-merge	'refs/pull/22/head' of https://github.com/michaeleisel/ZippyJSON
+777cad20cd29e66ca39cfc1140056c3038e17628	not-for-merge	'refs/pull/27/head' of https://github.com/michaeleisel/ZippyJSON
+18c6cc1bfb1d0c97a79c5b92d9835dd874751718	not-for-merge	'refs/pull/29/head' of https://github.com/michaeleisel/ZippyJSON
+eac657bc097fe70db973a0170572981b1e8536c1	not-for-merge	'refs/pull/33/head' of https://github.com/michaeleisel/ZippyJSON
+2ad43877658fbbd47480fb07a9ce8de6bd864860	not-for-merge	'refs/pull/35/head' of https://github.com/michaeleisel/ZippyJSON
+5a5149a026bfea5eaed04399aa3e2af1e0e57ff7	not-for-merge	'refs/pull/38/head' of https://github.com/michaeleisel/ZippyJSON
+47a1f0a050aea8d9d136f3ba93acb4950acc12a8	not-for-merge	'refs/pull/42/head' of https://github.com/michaeleisel/ZippyJSON
+a489f088c27cfc6a8a8adb645dfbbdb33468151e	not-for-merge	'refs/pull/45/head' of https://github.com/michaeleisel/ZippyJSON
+d6fad75a5d555730ada174180c6f53019cf6aa82	not-for-merge	'refs/pull/57/head' of https://github.com/michaeleisel/ZippyJSON
+90703e7797a7f42eeedcd6317190c3d2e1c99751	not-for-merge	'refs/pull/60/head' of https://github.com/michaeleisel/ZippyJSON
+0c624061ca9846f60649191910228806e5fc182a	not-for-merge	tag '0.0.1' of https://github.com/michaeleisel/ZippyJSON
+1731c50f60b2d0945a71349519e9a54b914dcdb4	not-for-merge	tag '0.0.2' of https://github.com/michaeleisel/ZippyJSON
+0fb7802fbdd4deb30e22de0d3bb105f7c0ac437f	not-for-merge	tag '0.0.3' of https://github.com/michaeleisel/ZippyJSON
+3b8199427c0566975d0f9de15b9dd7ea7c92a1a0	not-for-merge	tag '0.0.4' of https://github.com/michaeleisel/ZippyJSON
+37843d04982af77eb2628a318e5d1d96cab635d3	not-for-merge	tag '0.0.5' of https://github.com/michaeleisel/ZippyJSON
+3d83da7af9fd0327bfdbc3001e08afd9cffaaa8a	not-for-merge	tag '0.6.0' of https://github.com/michaeleisel/ZippyJSON
+2d84749035ee992b8e5473a607e478ec3cf94974	not-for-merge	tag '1.0.0' of https://github.com/michaeleisel/ZippyJSON
+fc51a73242ec6b01bb89728afbdd72c82af7c8ce	not-for-merge	tag '1.0.1' of https://github.com/michaeleisel/ZippyJSON
+e4221408da3fa08f75913af96d5cb798d5f2040f	not-for-merge	tag '1.1.0' of https://github.com/michaeleisel/ZippyJSON
+e69224d4c0e8a52d4c95cb7633340663066738d2	not-for-merge	tag '1.1.1' of https://github.com/michaeleisel/ZippyJSON
+2403a1652fc98e1f00a06ab7e7a77ad0f80bc850	not-for-merge	tag '1.2.0' of https://github.com/michaeleisel/ZippyJSON
+c6ec51357bbb086edd5dac36de44e851fddbfbe3	not-for-merge	tag '1.2.1' of https://github.com/michaeleisel/ZippyJSON
+c4ab804780b64979f19268619dfa563b6be58f7d	not-for-merge	tag '1.2.10' of https://github.com/michaeleisel/ZippyJSON
+33456e45859b327bdb3a4c5b10dd460e616cfccd	not-for-merge	tag '1.2.2' of https://github.com/michaeleisel/ZippyJSON
+5c10feb5161b8e0f78b9bae84b8ec511e4af9407	not-for-merge	tag '1.2.3' of https://github.com/michaeleisel/ZippyJSON
+1ab389998592d038a60a3ca71aa7554d0e84ab4a	not-for-merge	tag '1.2.4' of https://github.com/michaeleisel/ZippyJSON
+31b991dfec66a4489b49142e7e5c0060e434f0ec	not-for-merge	tag '1.2.5' of https://github.com/michaeleisel/ZippyJSON
+404aaee29c06edc3bf2077344972bc16fa66a1db	not-for-merge	tag '1.2.6' of https://github.com/michaeleisel/ZippyJSON
+46be053002bae37d8e00b09a0d51f4c1926fd592	not-for-merge	tag '1.2.6.1' of https://github.com/michaeleisel/ZippyJSON
+4c31bd5f11343109fff7a2162e09dd72ee7a422b	not-for-merge	tag '1.2.9' of https://github.com/michaeleisel/ZippyJSON

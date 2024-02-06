@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/master.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/SnippetBuildCommand.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/SymbolGraph+Snippet.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/URL+Status.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.swiftdeps"
+  }
+}

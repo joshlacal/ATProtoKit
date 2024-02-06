@@ -1,0 +1,20 @@
+extension ATProtoClient.{{ template_namespace_name }} {
+    /// {{ description }} 
+    public func {{ query_name | lowerCamelCase }}({% if input_struct_name %}input: {{ input_struct_name }}{% endif %}) async throws -> (responseCode: Int, data: {{ output_type }}?) {
+        let endpoint = "{{ endpoint }}"
+        
+        {% if input_struct_name %}
+        // Convert input to query items
+        let queryItems = input.asQueryItems()
+        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        {% else %}
+        // Perform a GET request without a body or query items
+        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", body: nil)
+        {% endif %}
+
+        // Decode the response if an output type is expected
+        let decoder = ZippyJSONDecoder()
+        let decodedData = try? decoder.decode({{ output_type }}.self, from: responseData)
+        return (responseCode, decodedData)
+    }
+}

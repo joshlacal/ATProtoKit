@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "jjliso8601dateformatter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/michaeleisel/JJLISO8601DateFormatter",
+      "state" : {
+        "revision" : "ed1d996123688bade6e895aa49595f0d862900e7",
+        "version" : "0.1.7"
+      }
+    },
+    {
+      "identity" : "zippyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/michaeleisel/ZippyJSON",
+      "state" : {
+        "revision" : "c4ab804780b64979f19268619dfa563b6be58f7d",
+        "version" : "1.2.10"
+      }
+    },
+    {
+      "identity" : "zippyjsoncfamily",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/michaeleisel/ZippyJSONCFamily",
+      "state" : {
+        "revision" : "8abdd7a5e943afe68e7b03fdaa63b21c042a3893",
+        "version" : "1.2.9"
+      }
+    }
+  ],
+  "version" : 2
+}

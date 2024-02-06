@@ -1,0 +1,70 @@
+// Union Array Type
+public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, ATProtocolValue {
+    {%- for ref in refs %}
+    case {{ ref.camel_case_label | lowerCamelCase }}({{ ref.swift_ref }})
+    {%- endfor %}
+    case unexpected(JSONValue)
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+
+        switch typeValue {
+        {%- for ref in refs %}
+        case "{{ ref.ref }}":
+            let value = try {{ ref.swift_ref }}(from: decoder)
+            self = .{{ ref.camel_case_label | lowerCamelCase }}(value)
+        {%- endfor %}
+        default:
+            let unknownValue = try JSONValue(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        switch self {
+        {%- for ref in refs %}
+        case .{{ ref.camel_case_label | lowerCamelCase }}(let value):
+            try container.encode("{{ ref.ref }}", forKey: .type)
+            try value.encode(to: encoder)
+        {%- endfor %}
+        case .unexpected(let jsonValue):
+            try jsonValue.encode(to: encoder)
+        }
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        {%- for ref in refs %}
+        case .{{ ref.camel_case_label | lowerCamelCase }}(let value):
+            hasher.combine("{{ ref.ref }}")
+            hasher.combine(value)
+        {%- endfor %}
+        case .unexpected(let jsonValue):
+            hasher.combine("unexpected")
+            hasher.combine(jsonValue)
+        }
+    }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? {{ union_name | convertRefToSwift }} else { return false }
+
+        switch (self, otherValue) {
+        {%- for ref in refs %}
+        case (.{{ ref.camel_case_label | lowerCamelCase }}(let selfValue), 
+              .{{ ref.camel_case_label | lowerCamelCase }}(let otherValue)):
+            return selfValue == otherValue
+        {%- endfor %}
+        case (.unexpected(let selfValue), .unexpected(let otherValue)):
+            return selfValue.isEqual(to: otherValue)
+        default:
+            return false
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+}
