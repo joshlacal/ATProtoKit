@@ -20,8 +20,8 @@ public class ATProtoClient {
     public var baseURL: URL
     public var identifier: String?
     private var password: String?
-    internal var accessJwt: String?
-    internal var refreshJwt: String?
+    var accessJwt: String?
+    var refreshJwt: String?
     public var handle: String?
     public var did: String?
     public var didDoc: DIDDocument?
@@ -31,10 +31,20 @@ public class ATProtoClient {
 
     public init(baseURL: URL) {
         self.baseURL = baseURL
+
+        if let savedURLString = UserDefaults.standard.string(forKey: "baseURL"),
+           let savedURL = URL(string: savedURLString)
+        {
+            self.baseURL = savedURL
+        }
     }
 
     public func setBaseURL(_ url: URL) {
         baseURL = url
+    }
+
+    func saveBaseURL() {
+        UserDefaults.standard.set(baseURL.absoluteString, forKey: "baseURL")
     }
 
     public func setCredentials(identifier: String, password: String) {
@@ -44,7 +54,6 @@ public class ATProtoClient {
 
     public func initializeIfNeeded() async throws {
         if accessJwt == nil || refreshJwt == nil {
-
             accessJwt = try? KeychainManager.retrieve(key: "accessJwt")
             refreshJwt = try? KeychainManager.retrieve(key: "refreshJwt")
 
@@ -72,7 +81,7 @@ public class ATProtoClient {
             didDoc = sessionOutput.data?.didDoc
 
             if let serviceEndpoint = sessionOutput.data?.didDoc?.service.first?.serviceEndpoint {
-                    updateUserBaseURL(endpoint: serviceEndpoint)
+                updateUserBaseURL(endpoint: serviceEndpoint)
             }
 
             do {
@@ -91,6 +100,7 @@ public class ATProtoClient {
     func updateUserBaseURL(endpoint: String) {
         let pdsURL = URL(string: endpoint)
         baseURL = pdsURL ?? baseURL
+        saveBaseURL()
     }
 
     public func hasValidSession() async -> Bool {
@@ -183,11 +193,10 @@ public class ATProtoClient {
         if body != nil {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
-        
+
         if let accessJwt = accessJwt {
             request.setValue("Bearer \(accessJwt)", forHTTPHeaderField: "Authorization")
         }
-
 
         // Set other headers
         headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
@@ -244,11 +253,11 @@ public class ATProtoClient {
         if effectiveHeaders["Content-Type"] == nil, body != nil {
             effectiveHeaders["Content-Type"] = "application/json"
         }
-        
+
         if let accessJwt = accessJwt {
             effectiveHeaders["Authorization"] = "Bearer \(accessJwt)"
         }
-       request.allHTTPHeaderFields = effectiveHeaders
+        request.allHTTPHeaderFields = effectiveHeaders
 
         effectiveHeaders.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         request.httpBody = body
