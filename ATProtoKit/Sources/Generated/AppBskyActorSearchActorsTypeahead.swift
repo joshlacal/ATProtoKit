@@ -21,17 +21,23 @@ public struct Parameters: Parametrizable {
                 self.limit = limit
                 
             }
-        }        
-public struct Output: Codable {
-            public let actors: [AppBskyActorDefs.ProfileViewBasic]
-                                    
-            // Standard public initializer
-            public init(actors: [AppBskyActorDefs.ProfileViewBasic]) {
-                self.actors = actors
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let actors: [AppBskyActorDefs.ProfileViewBasic]
+        
+        
+        // Standard public initializer
+        public init(
+            actors: [AppBskyActorDefs.ProfileViewBasic]
+        ) {
+            
+            self.actors = actors
+            
         }
+    }
+    
 
 
 

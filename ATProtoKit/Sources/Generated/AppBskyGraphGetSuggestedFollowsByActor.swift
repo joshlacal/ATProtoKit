@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.actor = actor
                 
             }
-        }        
-public struct Output: Codable {
-            public let suggestions: [AppBskyActorDefs.ProfileView]
-                                    
-            // Standard public initializer
-            public init(suggestions: [AppBskyActorDefs.ProfileView]) {
-                self.suggestions = suggestions
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let suggestions: [AppBskyActorDefs.ProfileView]
+        
+        
+        // Standard public initializer
+        public init(
+            suggestions: [AppBskyActorDefs.ProfileView]
+        ) {
+            
+            self.suggestions = suggestions
+            
         }
+    }
+    
 
 
 

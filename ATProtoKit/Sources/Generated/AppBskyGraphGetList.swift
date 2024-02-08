@@ -21,21 +21,35 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let list: AppBskyGraphDefs.ListView
-            public let items: [AppBskyGraphDefs.ListItemView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, list: AppBskyGraphDefs.ListView, items: [AppBskyGraphDefs.ListItemView]) {
-                self.cursor = cursor
-                self.list = list
-                self.items = items
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let list: AppBskyGraphDefs.ListView
+        
+        public let items: [AppBskyGraphDefs.ListItemView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            list: AppBskyGraphDefs.ListView, 
+        
+            items: [AppBskyGraphDefs.ListItemView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.list = list
+            
+            self.items = items
+            
         }
+    }
+    
 
 
 

@@ -94,19 +94,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let repos: [Repo]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, repos: [Repo]) {
-                self.cursor = cursor
-                self.repos = repos
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let repos: [Repo]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            repos: [Repo]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.repos = repos
+            
         }
+    }
+    
 
 
 

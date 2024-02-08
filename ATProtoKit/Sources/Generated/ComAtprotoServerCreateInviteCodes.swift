@@ -79,17 +79,23 @@ public struct Input: Codable {
                 self.forAccounts = forAccounts
                 
             }
-        }        
-public struct Output: Codable {
-            public let codes: [AccountCodes]
-                                    
-            // Standard public initializer
-            public init(codes: [AccountCodes]) {
-                self.codes = codes
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let codes: [AccountCodes]
+        
+        
+        // Standard public initializer
+        public init(
+            codes: [AccountCodes]
+        ) {
+            
+            self.codes = codes
+            
         }
+    }
+    
 
 
 

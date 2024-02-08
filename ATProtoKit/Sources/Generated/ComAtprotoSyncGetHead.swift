@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.did = did
                 
             }
-        }        
-public struct Output: Codable {
-            public let root: String
-                                    
-            // Standard public initializer
-            public init(root: String) {
-                self.root = root
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let root: String
+        
+        
+        // Standard public initializer
+        public init(
+            root: String
+        ) {
+            
+            self.root = root
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case headNotFound = "HeadNotFound."
             public var description: String {

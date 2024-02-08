@@ -14,17 +14,23 @@ public struct Input: Codable {
                 self.did = did
                 
             }
-        }        
-public struct Output: Codable {
-            public let signingKey: String
-                                    
-            // Standard public initializer
-            public init(signingKey: String) {
-                self.signingKey = signingKey
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let signingKey: String
+        
+        
+        // Standard public initializer
+        public init(
+            signingKey: String
+        ) {
+            
+            self.signingKey = signingKey
+            
         }
+    }
+    
 
 
 

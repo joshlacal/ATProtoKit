@@ -5,17 +5,23 @@ import ZippyJSON
 
 
 public struct ComAtprotoServerRequestEmailUpdate { 
-    public static let typeIdentifier = "com.atproto.server.requestEmailUpdate"        
-public struct Output: Codable {
-            public let tokenRequired: Bool
-                                    
-            // Standard public initializer
-            public init(tokenRequired: Bool) {
-                self.tokenRequired = tokenRequired
-                
-            }
-
+    public static let typeIdentifier = "com.atproto.server.requestEmailUpdate"    
+    
+public struct Output: Codable { 
+        
+        public let tokenRequired: Bool
+        
+        
+        // Standard public initializer
+        public init(
+            tokenRequired: Bool
+        ) {
+            
+            self.tokenRequired = tokenRequired
+            
         }
+    }
+    
 
 
 

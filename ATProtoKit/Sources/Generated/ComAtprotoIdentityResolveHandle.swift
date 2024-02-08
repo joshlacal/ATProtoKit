@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.handle = handle
                 
             }
-        }        
-public struct Output: Codable {
-            public let did: String
-                                    
-            // Standard public initializer
-            public init(did: String) {
-                self.did = did
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let did: String
+        
+        
+        // Standard public initializer
+        public init(
+            did: String
+        ) {
+            
+            self.did = did
+            
         }
+    }
+    
 
 
 

@@ -22,17 +22,23 @@ public struct Input: Codable {
                 self.comment = comment
                 
             }
-        }        
-public struct Output: Codable {
-            public let sent: Bool
-                                    
-            // Standard public initializer
-            public init(sent: Bool) {
-                self.sent = sent
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let sent: Bool
+        
+        
+        // Standard public initializer
+        public init(
+            sent: Bool
+        ) {
+            
+            self.sent = sent
+            
         }
+    }
+    
 
 
 

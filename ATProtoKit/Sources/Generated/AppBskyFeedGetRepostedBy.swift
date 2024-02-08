@@ -24,23 +24,41 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let uri: ATProtocolURI
-            public let cid: String?
-            public let cursor: String?
-            public let repostedBy: [AppBskyActorDefs.ProfileView]
-                                    
-            // Standard public initializer
-            public init(uri: ATProtocolURI, cid: String? = nil, cursor: String? = nil, repostedBy: [AppBskyActorDefs.ProfileView]) {
-                self.uri = uri
-                self.cid = cid
-                self.cursor = cursor
-                self.repostedBy = repostedBy
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let uri: ATProtocolURI
+        
+        public let cid: String?
+        
+        public let cursor: String?
+        
+        public let repostedBy: [AppBskyActorDefs.ProfileView]
+        
+        
+        // Standard public initializer
+        public init(
+            uri: ATProtocolURI, 
+        
+            cid: String? = nil, 
+        
+            cursor: String? = nil, 
+        
+            repostedBy: [AppBskyActorDefs.ProfileView]
+        ) {
+            
+            self.uri = uri
+            
+            self.cid = cid
+            
+            self.cursor = cursor
+            
+            self.repostedBy = repostedBy
+            
         }
+    }
+    
 
 
 

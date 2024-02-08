@@ -78,21 +78,35 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
             case privacyPolicy
             case termsOfService
         }
-    }        
-public struct Output: Codable {
-            public let inviteCodeRequired: Bool?
-            public let availableUserDomains: [String]
-            public let links: Links?
-                                    
-            // Standard public initializer
-            public init(inviteCodeRequired: Bool? = nil, availableUserDomains: [String], links: Links? = nil) {
-                self.inviteCodeRequired = inviteCodeRequired
-                self.availableUserDomains = availableUserDomains
-                self.links = links
-                
-            }
-
+    }    
+    
+public struct Output: Codable { 
+        
+        public let inviteCodeRequired: Bool?
+        
+        public let availableUserDomains: [String]
+        
+        public let links: Links?
+        
+        
+        // Standard public initializer
+        public init(
+            inviteCodeRequired: Bool? = nil, 
+        
+            availableUserDomains: [String], 
+        
+            links: Links? = nil
+        ) {
+            
+            self.inviteCodeRequired = inviteCodeRequired
+            
+            self.availableUserDomains = availableUserDomains
+            
+            self.links = links
+            
         }
+    }
+    
 
 
 

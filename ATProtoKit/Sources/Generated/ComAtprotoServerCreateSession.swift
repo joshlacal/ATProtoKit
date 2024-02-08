@@ -16,29 +16,59 @@ public struct Input: Codable {
                 self.password = password
                 
             }
-        }        
-public struct Output: Codable {
-            public let accessJwt: String
-            public let refreshJwt: String
-            public let handle: String
-            public let did: String
-            public let didDoc: DIDDocument?
-            public let email: String?
-            public let emailConfirmed: Bool?
-                                    
-            // Standard public initializer
-            public init(accessJwt: String, refreshJwt: String, handle: String, did: String, didDoc: DIDDocument? = nil, email: String? = nil, emailConfirmed: Bool? = nil) {
-                self.accessJwt = accessJwt
-                self.refreshJwt = refreshJwt
-                self.handle = handle
-                self.did = did
-                self.didDoc = didDoc
-                self.email = email
-                self.emailConfirmed = emailConfirmed
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let accessJwt: String
+        
+        public let refreshJwt: String
+        
+        public let handle: String
+        
+        public let did: String
+        
+        public let didDoc: DIDDocument?
+        
+        public let email: String?
+        
+        public let emailConfirmed: Bool?
+        
+        
+        // Standard public initializer
+        public init(
+            accessJwt: String, 
+        
+            refreshJwt: String, 
+        
+            handle: String, 
+        
+            did: String, 
+        
+            didDoc: DIDDocument? = nil, 
+        
+            email: String? = nil, 
+        
+            emailConfirmed: Bool? = nil
+        ) {
+            
+            self.accessJwt = accessJwt
+            
+            self.refreshJwt = refreshJwt
+            
+            self.handle = handle
+            
+            self.did = did
+            
+            self.didDoc = didDoc
+            
+            self.email = email
+            
+            self.emailConfirmed = emailConfirmed
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case accountTakedown = "AccountTakedown."
             public var description: String {

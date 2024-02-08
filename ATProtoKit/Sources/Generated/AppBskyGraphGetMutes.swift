@@ -18,19 +18,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let mutes: [AppBskyActorDefs.ProfileView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, mutes: [AppBskyActorDefs.ProfileView]) {
-                self.cursor = cursor
-                self.mutes = mutes
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let mutes: [AppBskyActorDefs.ProfileView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            mutes: [AppBskyActorDefs.ProfileView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.mutes = mutes
+            
         }
+    }
+    
 
 
 

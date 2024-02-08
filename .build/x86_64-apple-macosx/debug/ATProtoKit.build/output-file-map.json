@@ -8,6 +8,12 @@
     "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient~partial.swiftmodule",
     "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.swiftdeps"
   },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtoClientClasses.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses.swiftdeps"
+  },
   "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorDefs.swift": {
     "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/AppBskyActorDefs.d",
     "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/AppBskyActorDefs.swift.o",

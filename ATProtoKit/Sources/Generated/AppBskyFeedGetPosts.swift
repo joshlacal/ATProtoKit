@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.uris = uris
                 
             }
-        }        
-public struct Output: Codable {
-            public let posts: [AppBskyFeedDefs.PostView]
-                                    
-            // Standard public initializer
-            public init(posts: [AppBskyFeedDefs.PostView]) {
-                self.posts = posts
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let posts: [AppBskyFeedDefs.PostView]
+        
+        
+        // Standard public initializer
+        public init(
+            posts: [AppBskyFeedDefs.PostView]
+        ) {
+            
+            self.posts = posts
+            
         }
+    }
+    
 
 
 

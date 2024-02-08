@@ -21,19 +21,29 @@ public struct Parameters: Parametrizable {
                 self.query = query
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let feeds: [AppBskyFeedDefs.GeneratorView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, feeds: [AppBskyFeedDefs.GeneratorView]) {
-                self.cursor = cursor
-                self.feeds = feeds
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let feeds: [AppBskyFeedDefs.GeneratorView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            feeds: [AppBskyFeedDefs.GeneratorView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.feeds = feeds
+            
         }
+    }
+    
 
 
 

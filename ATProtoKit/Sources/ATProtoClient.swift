@@ -183,6 +183,11 @@ public class ATProtoClient {
         if body != nil {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
+        
+        if let accessJwt = accessJwt {
+            request.setValue("Bearer \(accessJwt)", forHTTPHeaderField: "Authorization")
+        }
+
 
         // Set other headers
         headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
@@ -239,6 +244,11 @@ public class ATProtoClient {
         if effectiveHeaders["Content-Type"] == nil, body != nil {
             effectiveHeaders["Content-Type"] = "application/json"
         }
+        
+        if let accessJwt = accessJwt {
+            effectiveHeaders["Authorization"] = "Bearer \(accessJwt)"
+        }
+       request.allHTTPHeaderFields = effectiveHeaders
 
         effectiveHeaders.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         request.httpBody = body
@@ -304,7 +314,6 @@ public class ATProtoClient {
         queryItems: [URLQueryItem]? = nil
     ) async throws -> Int {
         let headers = ["Content-Type": "multipart/form-data"]
-        // Additional header setup may be necessary depending on your API requirements
         let (_, httpResponse) = try await performNetworkRequest(
             endpoint: endpoint,
             method: method,
@@ -315,7 +324,7 @@ public class ATProtoClient {
         return httpResponse.statusCode
     }
 
-    // Method for uploading raw data (blob)
+    // Method for uploading raw data (blob)?
     func performBlobUploadRequest(
         endpoint: String,
         method: String,

@@ -16,19 +16,29 @@ public struct Input: Codable {
                 self.takedown = takedown
                 
             }
-        }        
-public struct Output: Codable {
-            public let subject: OutputSubjectUnion
-            public let takedown: ComAtprotoAdminDefs.StatusAttr?
-                                    
-            // Standard public initializer
-            public init(subject: OutputSubjectUnion, takedown: ComAtprotoAdminDefs.StatusAttr? = nil) {
-                self.subject = subject
-                self.takedown = takedown
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let subject: OutputSubjectUnion
+        
+        public let takedown: ComAtprotoAdminDefs.StatusAttr?
+        
+        
+        // Standard public initializer
+        public init(
+            subject: OutputSubjectUnion, 
+        
+            takedown: ComAtprotoAdminDefs.StatusAttr? = nil
+        ) {
+            
+            self.subject = subject
+            
+            self.takedown = takedown
+            
         }
+    }
+    
 
 
             // Union Type

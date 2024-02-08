@@ -21,19 +21,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let feed: [AppBskyFeedDefs.SkeletonFeedPost]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, feed: [AppBskyFeedDefs.SkeletonFeedPost]) {
-                self.cursor = cursor
-                self.feed = feed
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let feed: [AppBskyFeedDefs.SkeletonFeedPost]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            feed: [AppBskyFeedDefs.SkeletonFeedPost]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.feed = feed
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case unknownFeed = "UnknownFeed."
             public var description: String {

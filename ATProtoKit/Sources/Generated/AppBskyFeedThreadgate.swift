@@ -142,6 +142,7 @@ public struct FollowingRule: ATProtocolCodable, ATProtocolValue {
             guard let other = other as? Self else { return false }
             return true
         }
+
     }
         
 public struct ListRule: ATProtocolCodable, ATProtocolValue {

@@ -303,8 +303,7 @@ class SwiftCodeGenerator:
         elif prop_type == 'object':
             swift_type = "[String: JSONValue]" 
         elif prop_type == 'unknown':
-            # Check if the key is 'didDoc' to determine if the type should be DIDDocument
-            if name == 'didDoc':  # Assuming 'name' is the key you're checking for.
+            if name == 'didDoc':
                 swift_type = "DIDDocument"
             else:
                 swift_type = "JSONValue"
@@ -366,21 +365,29 @@ class SwiftCodeGenerator:
         if not output_obj:
             return ""
 
-        encoding = output_obj.get('encoding')
-        conformance = ": ATProtocolCodable" if encoding == "application/json" else ""
-        
+        encoding = output_obj.get('encoding', '')
         output_schema = output_obj.get('schema', {})
-        
-        if encoding == "*/*":
-            properties = [{"name": "data", "type": "Data", "optional": False}]
-        elif output_schema.get('type') == 'ref':
-            # Handle reference type
-            ref_type = self.convert_ref_to_swift(output_schema['ref'])
-            properties = [{"name": "data", "type": ref_type, "optional": False}]
-        else:
-            properties = self.generate_properties(output_schema.get('properties', {}), output_schema.get('required', []), "Output")
 
-        return self.output_struct_template.render(properties=properties, conformance=conformance)
+        # Context for template rendering
+        context = {
+            'conformance': ": ATProtocolCodable" if encoding == "application/json" else "",
+            'is_type_alias': False,  # Default to false
+            'properties': [],
+            'type_alias_target': None,
+        }
+
+        if output_schema.get('type') == 'ref':
+            # If the schema is a reference, set to generate a typealias
+            context['is_type_alias'] = True
+            context['type_alias_target'] = self.convert_ref_to_swift(output_schema['ref'])
+        elif encoding == "*/*":
+            # Handle special case where encoding is "*/*"
+            context['properties'] = [{"name": "data", "type": "Data", "optional": False}]
+        else:
+            # Generate properties for the struct
+            context['properties'] = self.generate_properties(output_schema.get('properties', {}), output_schema.get('required', []), "Output")
+
+        return self.output_struct_template.render(**context)
 
     def generate_errors_enum(self, errors: Optional[List[Dict[str, str]]]) -> str:
         if not errors:

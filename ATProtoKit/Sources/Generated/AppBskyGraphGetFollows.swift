@@ -21,21 +21,35 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let subject: AppBskyActorDefs.ProfileView
-            public let cursor: String?
-            public let follows: [AppBskyActorDefs.ProfileView]
-                                    
-            // Standard public initializer
-            public init(subject: AppBskyActorDefs.ProfileView, cursor: String? = nil, follows: [AppBskyActorDefs.ProfileView]) {
-                self.subject = subject
-                self.cursor = cursor
-                self.follows = follows
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let subject: AppBskyActorDefs.ProfileView
+        
+        public let cursor: String?
+        
+        public let follows: [AppBskyActorDefs.ProfileView]
+        
+        
+        // Standard public initializer
+        public init(
+            subject: AppBskyActorDefs.ProfileView, 
+        
+            cursor: String? = nil, 
+        
+            follows: [AppBskyActorDefs.ProfileView]
+        ) {
+            
+            self.subject = subject
+            
+            self.cursor = cursor
+            
+            self.follows = follows
+            
         }
+    }
+    
 
 
 

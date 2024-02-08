@@ -24,19 +24,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let labels: [ComAtprotoLabelDefs.Label]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, labels: [ComAtprotoLabelDefs.Label]) {
-                self.cursor = cursor
-                self.labels = labels
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let labels: [ComAtprotoLabelDefs.Label]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            labels: [ComAtprotoLabelDefs.Label]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.labels = labels
+            
         }
+    }
+    
 
 
 

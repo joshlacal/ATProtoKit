@@ -90,17 +90,9 @@ public struct Input: Codable {
                 self.name = name
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: AppPassword
-                                    
-            // Standard public initializer
-            public init(data: AppPassword) {
-                self.data = data
-                
-            }
-
-        }        
+        }    
+    public typealias Output = AppPassword
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case accountTakedown = "AccountTakedown."
             public var description: String {

@@ -15,17 +15,9 @@ public struct Parameters: Parametrizable {
                 self.id = id
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: ComAtprotoAdminDefs.ModEventViewDetail
-                                    
-            // Standard public initializer
-            public init(data: ComAtprotoAdminDefs.ModEventViewDetail) {
-                self.data = data
-                
-            }
-
-        }
+        }    
+    public typealias Output = ComAtprotoAdminDefs.ModEventViewDetail
+    
 
 
 

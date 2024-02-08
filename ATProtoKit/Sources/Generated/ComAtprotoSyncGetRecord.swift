@@ -24,15 +24,17 @@ public struct Parameters: Parametrizable {
                 self.commit = commit
                 
             }
-        }        
-public struct Output: Codable {
-                                    
-            // Standard public initializer
-            public init() {
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        
+        // Standard public initializer
+        public init() {
+            
         }
+    }
+    
 
 
 

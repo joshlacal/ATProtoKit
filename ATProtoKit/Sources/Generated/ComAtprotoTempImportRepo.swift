@@ -5,15 +5,17 @@ import ZippyJSON
 
 
 public struct ComAtprotoTempImportRepo { 
-    public static let typeIdentifier = "com.atproto.temp.importRepo"        
-public struct Output: Codable {
-                                    
-            // Standard public initializer
-            public init() {
-                
-            }
-
+    public static let typeIdentifier = "com.atproto.temp.importRepo"    
+    
+public struct Output: Codable { 
+        
+        
+        // Standard public initializer
+        public init() {
+            
         }
+    }
+    
 
 
 

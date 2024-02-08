@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.feeds = feeds
                 
             }
-        }        
-public struct Output: Codable {
-            public let feeds: [AppBskyFeedDefs.GeneratorView]
-                                    
-            // Standard public initializer
-            public init(feeds: [AppBskyFeedDefs.GeneratorView]) {
-                self.feeds = feeds
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let feeds: [AppBskyFeedDefs.GeneratorView]
+        
+        
+        // Standard public initializer
+        public init(
+            feeds: [AppBskyFeedDefs.GeneratorView]
+        ) {
+            
+            self.feeds = feeds
+            
         }
+    }
+    
 
 
 

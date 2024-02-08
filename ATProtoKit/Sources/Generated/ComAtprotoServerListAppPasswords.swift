@@ -66,17 +66,23 @@ public struct AppPassword: ATProtocolCodable, ATProtocolValue {
             case name
             case createdAt
         }
-    }        
-public struct Output: Codable {
-            public let passwords: [AppPassword]
-                                    
-            // Standard public initializer
-            public init(passwords: [AppPassword]) {
-                self.passwords = passwords
-                
-            }
-
-        }        
+    }    
+    
+public struct Output: Codable { 
+        
+        public let passwords: [AppPassword]
+        
+        
+        // Standard public initializer
+        public init(
+            passwords: [AppPassword]
+        ) {
+            
+            self.passwords = passwords
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case accountTakedown = "AccountTakedown."
             public var description: String {

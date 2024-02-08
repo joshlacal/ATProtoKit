@@ -15,15 +15,17 @@ public struct Parameters: Parametrizable {
                 self.did = did
                 
             }
-        }        
-public struct Output: Codable {
-                                    
-            // Standard public initializer
-            public init() {
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        
+        // Standard public initializer
+        public init() {
+            
         }
+    }
+    
 
 
 

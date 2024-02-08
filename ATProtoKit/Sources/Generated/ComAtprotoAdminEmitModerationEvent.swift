@@ -20,17 +20,9 @@ public struct Input: Codable {
                 self.createdBy = createdBy
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: ComAtprotoAdminDefs.ModEventView
-                                    
-            // Standard public initializer
-            public init(data: ComAtprotoAdminDefs.ModEventView) {
-                self.data = data
-                
-            }
-
-        }        
+        }    
+    public typealias Output = ComAtprotoAdminDefs.ModEventView
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case subjectHasAction = "SubjectHasAction."
             public var description: String {

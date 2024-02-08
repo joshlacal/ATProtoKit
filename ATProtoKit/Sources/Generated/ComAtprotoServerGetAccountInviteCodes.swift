@@ -18,17 +18,23 @@ public struct Parameters: Parametrizable {
                 self.createAvailable = createAvailable
                 
             }
-        }        
-public struct Output: Codable {
-            public let codes: [ComAtprotoServerDefs.InviteCode]
-                                    
-            // Standard public initializer
-            public init(codes: [ComAtprotoServerDefs.InviteCode]) {
-                self.codes = codes
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let codes: [ComAtprotoServerDefs.InviteCode]
+        
+        
+        // Standard public initializer
+        public init(
+            codes: [ComAtprotoServerDefs.InviteCode]
+        ) {
+            
+            self.codes = codes
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case duplicateCreate = "DuplicateCreate."
             public var description: String {

@@ -5,25 +5,47 @@ import ZippyJSON
 
 
 public struct ComAtprotoServerGetSession { 
-    public static let typeIdentifier = "com.atproto.server.getSession"        
-public struct Output: Codable {
-            public let handle: String
-            public let did: String
-            public let email: String?
-            public let emailConfirmed: Bool?
-            public let didDoc: DIDDocument?
-                                    
-            // Standard public initializer
-            public init(handle: String, did: String, email: String? = nil, emailConfirmed: Bool? = nil, didDoc: DIDDocument? = nil) {
-                self.handle = handle
-                self.did = did
-                self.email = email
-                self.emailConfirmed = emailConfirmed
-                self.didDoc = didDoc
-                
-            }
-
+    public static let typeIdentifier = "com.atproto.server.getSession"    
+    
+public struct Output: Codable { 
+        
+        public let handle: String
+        
+        public let did: String
+        
+        public let email: String?
+        
+        public let emailConfirmed: Bool?
+        
+        public let didDoc: DIDDocument?
+        
+        
+        // Standard public initializer
+        public init(
+            handle: String, 
+        
+            did: String, 
+        
+            email: String? = nil, 
+        
+            emailConfirmed: Bool? = nil, 
+        
+            didDoc: DIDDocument? = nil
+        ) {
+            
+            self.handle = handle
+            
+            self.did = did
+            
+            self.email = email
+            
+            self.emailConfirmed = emailConfirmed
+            
+            self.didDoc = didDoc
+            
         }
+    }
+    
 
 
 

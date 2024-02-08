@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.seenAt = seenAt
                 
             }
-        }        
-public struct Output: Codable {
-            public let count: Int
-                                    
-            // Standard public initializer
-            public init(count: Int) {
-                self.count = count
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let count: Int
+        
+        
+        // Standard public initializer
+        public init(
+            count: Int
+        ) {
+            
+            self.count = count
+            
         }
+    }
+    
 
 
 

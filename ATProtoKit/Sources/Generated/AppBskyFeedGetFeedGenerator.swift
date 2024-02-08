@@ -15,21 +15,35 @@ public struct Parameters: Parametrizable {
                 self.feed = feed
                 
             }
-        }        
-public struct Output: Codable {
-            public let view: AppBskyFeedDefs.GeneratorView
-            public let isOnline: Bool
-            public let isValid: Bool
-                                    
-            // Standard public initializer
-            public init(view: AppBskyFeedDefs.GeneratorView, isOnline: Bool, isValid: Bool) {
-                self.view = view
-                self.isOnline = isOnline
-                self.isValid = isValid
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let view: AppBskyFeedDefs.GeneratorView
+        
+        public let isOnline: Bool
+        
+        public let isValid: Bool
+        
+        
+        // Standard public initializer
+        public init(
+            view: AppBskyFeedDefs.GeneratorView, 
+        
+            isOnline: Bool, 
+        
+            isValid: Bool
+        ) {
+            
+            self.view = view
+            
+            self.isOnline = isOnline
+            
+            self.isValid = isValid
+            
         }
+    }
+    
 
 
 

@@ -12,17 +12,23 @@ public struct Parameters: Parametrizable {
                 ) {
                 
             }
-        }        
-public struct Output: Codable {
-            public let preferences: AppBskyActorDefs.Preferences
-                                    
-            // Standard public initializer
-            public init(preferences: AppBskyActorDefs.Preferences) {
-                self.preferences = preferences
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let preferences: AppBskyActorDefs.Preferences
+        
+        
+        // Standard public initializer
+        public init(
+            preferences: AppBskyActorDefs.Preferences
+        ) {
+            
+            self.preferences = preferences
+            
         }
+    }
+    
 
 
 

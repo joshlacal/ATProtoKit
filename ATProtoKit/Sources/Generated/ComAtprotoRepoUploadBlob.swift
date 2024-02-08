@@ -5,17 +5,23 @@ import ZippyJSON
 
 
 public struct ComAtprotoRepoUploadBlob { 
-    public static let typeIdentifier = "com.atproto.repo.uploadBlob"        
-public struct Output: Codable {
-            public let blob: Blob
-                                    
-            // Standard public initializer
-            public init(blob: Blob) {
-                self.blob = blob
-                
-            }
-
+    public static let typeIdentifier = "com.atproto.repo.uploadBlob"    
+    
+public struct Output: Codable { 
+        
+        public let blob: Blob
+        
+        
+        // Standard public initializer
+        public init(
+            blob: Blob
+        ) {
+            
+            self.blob = blob
+            
         }
+    }
+    
 
 
 

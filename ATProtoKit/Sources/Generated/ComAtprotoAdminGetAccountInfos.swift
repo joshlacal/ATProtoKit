@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.dids = dids
                 
             }
-        }        
-public struct Output: Codable {
-            public let infos: [ComAtprotoAdminDefs.AccountView]
-                                    
-            // Standard public initializer
-            public init(infos: [ComAtprotoAdminDefs.AccountView]) {
-                self.infos = infos
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let infos: [ComAtprotoAdminDefs.AccountView]
+        
+        
+        // Standard public initializer
+        public init(
+            infos: [ComAtprotoAdminDefs.AccountView]
+        ) {
+            
+            self.infos = infos
+            
         }
+    }
+    
 
 
 

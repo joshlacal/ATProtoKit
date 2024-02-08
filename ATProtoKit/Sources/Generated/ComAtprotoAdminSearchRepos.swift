@@ -24,19 +24,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let repos: [ComAtprotoAdminDefs.RepoView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, repos: [ComAtprotoAdminDefs.RepoView]) {
-                self.cursor = cursor
-                self.repos = repos
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let repos: [ComAtprotoAdminDefs.RepoView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            repos: [ComAtprotoAdminDefs.RepoView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.repos = repos
+            
         }
+    }
+    
 
 
 

@@ -18,27 +18,53 @@ public struct Input: Codable {
                 self.subject = subject
                 
             }
-        }        
-public struct Output: Codable {
-            public let id: Int
-            public let reasonType: ComAtprotoModerationDefs.ReasonType
-            public let reason: String?
-            public let subject: OutputSubjectUnion
-            public let reportedBy: String
-            public let createdAt: ATProtocolDate
-                                    
-            // Standard public initializer
-            public init(id: Int, reasonType: ComAtprotoModerationDefs.ReasonType, reason: String? = nil, subject: OutputSubjectUnion, reportedBy: String, createdAt: ATProtocolDate) {
-                self.id = id
-                self.reasonType = reasonType
-                self.reason = reason
-                self.subject = subject
-                self.reportedBy = reportedBy
-                self.createdAt = createdAt
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let id: Int
+        
+        public let reasonType: ComAtprotoModerationDefs.ReasonType
+        
+        public let reason: String?
+        
+        public let subject: OutputSubjectUnion
+        
+        public let reportedBy: String
+        
+        public let createdAt: ATProtocolDate
+        
+        
+        // Standard public initializer
+        public init(
+            id: Int, 
+        
+            reasonType: ComAtprotoModerationDefs.ReasonType, 
+        
+            reason: String? = nil, 
+        
+            subject: OutputSubjectUnion, 
+        
+            reportedBy: String, 
+        
+            createdAt: ATProtocolDate
+        ) {
+            
+            self.id = id
+            
+            self.reasonType = reasonType
+            
+            self.reason = reason
+            
+            self.subject = subject
+            
+            self.reportedBy = reportedBy
+            
+            self.createdAt = createdAt
+            
         }
+    }
+    
 
 
             // Union Type

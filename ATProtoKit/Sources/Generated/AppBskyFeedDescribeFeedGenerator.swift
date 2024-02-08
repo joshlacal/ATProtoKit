@@ -124,21 +124,35 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
             case privacyPolicy
             case termsOfService
         }
-    }        
-public struct Output: Codable {
-            public let did: String
-            public let feeds: [Feed]
-            public let links: Links?
-                                    
-            // Standard public initializer
-            public init(did: String, feeds: [Feed], links: Links? = nil) {
-                self.did = did
-                self.feeds = feeds
-                self.links = links
-                
-            }
-
+    }    
+    
+public struct Output: Codable { 
+        
+        public let did: String
+        
+        public let feeds: [Feed]
+        
+        public let links: Links?
+        
+        
+        // Standard public initializer
+        public init(
+            did: String, 
+        
+            feeds: [Feed], 
+        
+            links: Links? = nil
+        ) {
+            
+            self.did = did
+            
+            self.feeds = feeds
+            
+            self.links = links
+            
         }
+    }
+    
 
 
 

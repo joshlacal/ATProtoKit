@@ -15,19 +15,29 @@ public struct Parameters: Parametrizable {
                 self.did = did
                 
             }
-        }        
-public struct Output: Codable {
-            public let cid: String
-            public let rev: String
-                                    
-            // Standard public initializer
-            public init(cid: String, rev: String) {
-                self.cid = cid
-                self.rev = rev
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cid: String
+        
+        public let rev: String
+        
+        
+        // Standard public initializer
+        public init(
+            cid: String, 
+        
+            rev: String
+        ) {
+            
+            self.cid = cid
+            
+            self.rev = rev
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case repoNotFound = "RepoNotFound."
             public var description: String {

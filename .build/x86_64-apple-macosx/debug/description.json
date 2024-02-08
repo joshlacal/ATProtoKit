@@ -11,8 +11,8 @@
     }
   },
   "generatedSourceTargetSet" : [
-    "Swift_DocC_Preview",
-    "Swift_DocC"
+    "Swift_DocC",
+    "Swift_DocC_Preview"
   ],
   "pluginDescriptions" : [
     {
@@ -106,6 +106,10 @@
         {
           "kind" : "file",
           "name" : "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/ATProtoClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtoClientClasses.swift"
         },
         {
           "kind" : "file",
@@ -701,6 +705,7 @@
       "moduleOutputPath" : "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.swiftmodule",
       "objects" : [
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.swift.o",
+        "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses.swift.o",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/AppBskyActorDefs.swift.o",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/AppBskyActorGetPreferences.swift.o",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/AppBskyActorGetProfile.swift.o",
@@ -907,6 +912,10 @@
         {
           "kind" : "file",
           "name" : "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Generated/ATProtoClientClasses.swift.o"
         },
         {
           "kind" : "file",
@@ -1499,6 +1508,7 @@
       ],
       "sources" : [
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/ATProtoClient.swift",
+        "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtoClientClasses.swift",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorDefs.swift",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetPreferences.swift",
         "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetProfile.swift",
@@ -2461,6 +2471,7 @@
       "-incremental",
       "-c",
       "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/ATProtoClient.swift",
+      "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtoClientClasses.swift",
       "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorDefs.swift",
       "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetPreferences.swift",
       "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetProfile.swift",

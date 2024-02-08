@@ -15,25 +15,47 @@ public struct Parameters: Parametrizable {
                 self.repo = repo
                 
             }
-        }        
-public struct Output: Codable {
-            public let handle: String
-            public let did: String
-            public let didDoc: DIDDocument
-            public let collections: [String]
-            public let handleIsCorrect: Bool
-                                    
-            // Standard public initializer
-            public init(handle: String, did: String, didDoc: DIDDocument, collections: [String], handleIsCorrect: Bool) {
-                self.handle = handle
-                self.did = did
-                self.didDoc = didDoc
-                self.collections = collections
-                self.handleIsCorrect = handleIsCorrect
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let handle: String
+        
+        public let did: String
+        
+        public let didDoc: DIDDocument
+        
+        public let collections: [String]
+        
+        public let handleIsCorrect: Bool
+        
+        
+        // Standard public initializer
+        public init(
+            handle: String, 
+        
+            did: String, 
+        
+            didDoc: DIDDocument, 
+        
+            collections: [String], 
+        
+            handleIsCorrect: Bool
+        ) {
+            
+            self.handle = handle
+            
+            self.did = did
+            
+            self.didDoc = didDoc
+            
+            self.collections = collections
+            
+            self.handleIsCorrect = handleIsCorrect
+            
         }
+    }
+    
 
 
 

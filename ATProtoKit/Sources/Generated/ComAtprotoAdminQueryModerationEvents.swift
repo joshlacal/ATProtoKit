@@ -33,19 +33,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let events: [ComAtprotoAdminDefs.ModEventView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, events: [ComAtprotoAdminDefs.ModEventView]) {
-                self.cursor = cursor
-                self.events = events
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let events: [ComAtprotoAdminDefs.ModEventView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            events: [ComAtprotoAdminDefs.ModEventView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.events = events
+            
         }
+    }
+    
 
 
 

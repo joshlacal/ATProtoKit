@@ -18,15 +18,17 @@ public struct Parameters: Parametrizable {
                 self.since = since
                 
             }
-        }        
-public struct Output: Codable {
-                                    
-            // Standard public initializer
-            public init() {
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        
+        // Standard public initializer
+        public init() {
+            
         }
+    }
+    
 
 
 

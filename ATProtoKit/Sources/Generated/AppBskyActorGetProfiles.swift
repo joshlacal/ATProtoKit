@@ -15,17 +15,23 @@ public struct Parameters: Parametrizable {
                 self.actors = actors
                 
             }
-        }        
-public struct Output: Codable {
-            public let profiles: [AppBskyActorDefs.ProfileViewDetailed]
-                                    
-            // Standard public initializer
-            public init(profiles: [AppBskyActorDefs.ProfileViewDetailed]) {
-                self.profiles = profiles
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let profiles: [AppBskyActorDefs.ProfileViewDetailed]
+        
+        
+        // Standard public initializer
+        public init(
+            profiles: [AppBskyActorDefs.ProfileViewDetailed]
+        ) {
+            
+            self.profiles = profiles
+            
         }
+    }
+    
 
 
 

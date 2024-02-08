@@ -26,19 +26,29 @@ public struct Input: Codable {
                 self.swapCommit = swapCommit
                 
             }
-        }        
-public struct Output: Codable {
-            public let uri: ATProtocolURI
-            public let cid: String
-                                    
-            // Standard public initializer
-            public init(uri: ATProtocolURI, cid: String) {
-                self.uri = uri
-                self.cid = cid
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let uri: ATProtocolURI
+        
+        public let cid: String
+        
+        
+        // Standard public initializer
+        public init(
+            uri: ATProtocolURI, 
+        
+            cid: String
+        ) {
+            
+            self.uri = uri
+            
+            self.cid = cid
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case invalidSwap = "InvalidSwap."
             public var description: String {

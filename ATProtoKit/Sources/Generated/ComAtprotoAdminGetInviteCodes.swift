@@ -21,19 +21,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let codes: [ComAtprotoServerDefs.InviteCode]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, codes: [ComAtprotoServerDefs.InviteCode]) {
-                self.cursor = cursor
-                self.codes = codes
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let codes: [ComAtprotoServerDefs.InviteCode]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            codes: [ComAtprotoServerDefs.InviteCode]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.codes = codes
+            
         }
+    }
+    
 
 
 

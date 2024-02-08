@@ -16,17 +16,23 @@ public struct Input: Codable {
                 self.forAccount = forAccount
                 
             }
-        }        
-public struct Output: Codable {
-            public let code: String
-                                    
-            // Standard public initializer
-            public init(code: String) {
-                self.code = code
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let code: String
+        
+        
+        // Standard public initializer
+        public init(
+            code: String
+        ) {
+            
+            self.code = code
+            
         }
+    }
+    
 
 
 

@@ -24,21 +24,35 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let hitsTotal: Int?
-            public let actors: [AppBskyUnspeccedDefs.SkeletonSearchActor]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, hitsTotal: Int? = nil, actors: [AppBskyUnspeccedDefs.SkeletonSearchActor]) {
-                self.cursor = cursor
-                self.hitsTotal = hitsTotal
-                self.actors = actors
-                
-            }
-
-        }        
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let hitsTotal: Int?
+        
+        public let actors: [AppBskyUnspeccedDefs.SkeletonSearchActor]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            hitsTotal: Int? = nil, 
+        
+            actors: [AppBskyUnspeccedDefs.SkeletonSearchActor]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.hitsTotal = hitsTotal
+            
+            self.actors = actors
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case badQueryString = "BadQueryString."
             public var description: String {

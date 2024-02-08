@@ -60,19 +60,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let subjectStatuses: [ComAtprotoAdminDefs.SubjectStatusView]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, subjectStatuses: [ComAtprotoAdminDefs.SubjectStatusView]) {
-                self.cursor = cursor
-                self.subjectStatuses = subjectStatuses
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let subjectStatuses: [ComAtprotoAdminDefs.SubjectStatusView]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            subjectStatuses: [ComAtprotoAdminDefs.SubjectStatusView]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.subjectStatuses = subjectStatuses
+            
         }
+    }
+    
 
 
 

@@ -5,25 +5,47 @@ import ZippyJSON
 
 
 public struct ComAtprotoServerRefreshSession { 
-    public static let typeIdentifier = "com.atproto.server.refreshSession"        
-public struct Output: Codable {
-            public let accessJwt: String
-            public let refreshJwt: String
-            public let handle: String
-            public let did: String
-            public let didDoc: DIDDocument?
-                                    
-            // Standard public initializer
-            public init(accessJwt: String, refreshJwt: String, handle: String, did: String, didDoc: DIDDocument? = nil) {
-                self.accessJwt = accessJwt
-                self.refreshJwt = refreshJwt
-                self.handle = handle
-                self.did = did
-                self.didDoc = didDoc
-                
-            }
-
-        }        
+    public static let typeIdentifier = "com.atproto.server.refreshSession"    
+    
+public struct Output: Codable { 
+        
+        public let accessJwt: String
+        
+        public let refreshJwt: String
+        
+        public let handle: String
+        
+        public let did: String
+        
+        public let didDoc: DIDDocument?
+        
+        
+        // Standard public initializer
+        public init(
+            accessJwt: String, 
+        
+            refreshJwt: String, 
+        
+            handle: String, 
+        
+            did: String, 
+        
+            didDoc: DIDDocument? = nil
+        ) {
+            
+            self.accessJwt = accessJwt
+            
+            self.refreshJwt = refreshJwt
+            
+            self.handle = handle
+            
+            self.did = did
+            
+            self.didDoc = didDoc
+            
+        }
+    }
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case accountTakedown = "AccountTakedown."
             public var description: String {

@@ -24,19 +24,29 @@ public struct Parameters: Parametrizable {
                 self.cursor = cursor
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let cids: [String]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, cids: [String]) {
-                self.cursor = cursor
-                self.cids = cids
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let cids: [String]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            cids: [String]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.cids = cids
+            
         }
+    }
+    
 
 
 

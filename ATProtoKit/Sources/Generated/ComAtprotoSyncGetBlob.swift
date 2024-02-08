@@ -18,17 +18,23 @@ public struct Parameters: Parametrizable {
                 self.cid = cid
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: Data
-                                    
-            // Standard public initializer
-            public init(data: Data) {
-                self.data = data
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let data: Data
+        
+        
+        // Standard public initializer
+        public init(
+            data: Data
+        ) {
+            
+            self.data = data
+            
         }
+    }
+    
 
 
 

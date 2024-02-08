@@ -18,17 +18,9 @@ public struct Parameters: Parametrizable {
                 self.cid = cid
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: ComAtprotoAdminDefs.RecordViewDetail
-                                    
-            // Standard public initializer
-            public init(data: ComAtprotoAdminDefs.RecordViewDetail) {
-                self.data = data
-                
-            }
-
-        }        
+        }    
+    public typealias Output = ComAtprotoAdminDefs.RecordViewDetail
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case recordNotFound = "RecordNotFound."
             public var description: String {

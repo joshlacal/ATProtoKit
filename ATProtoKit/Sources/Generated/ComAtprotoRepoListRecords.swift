@@ -109,19 +109,29 @@ public struct Parameters: Parametrizable {
                 self.reverse = reverse
                 
             }
-        }        
-public struct Output: Codable {
-            public let cursor: String?
-            public let records: [Record]
-                                    
-            // Standard public initializer
-            public init(cursor: String? = nil, records: [Record]) {
-                self.cursor = cursor
-                self.records = records
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let cursor: String?
+        
+        public let records: [Record]
+        
+        
+        // Standard public initializer
+        public init(
+            cursor: String? = nil, 
+        
+            records: [Record]
+        ) {
+            
+            self.cursor = cursor
+            
+            self.records = records
+            
         }
+    }
+    
 
 
 

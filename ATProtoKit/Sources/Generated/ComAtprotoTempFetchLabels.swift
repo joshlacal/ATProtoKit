@@ -18,17 +18,23 @@ public struct Parameters: Parametrizable {
                 self.limit = limit
                 
             }
-        }        
-public struct Output: Codable {
-            public let labels: [ComAtprotoLabelDefs.Label]
-                                    
-            // Standard public initializer
-            public init(labels: [ComAtprotoLabelDefs.Label]) {
-                self.labels = labels
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let labels: [ComAtprotoLabelDefs.Label]
+        
+        
+        // Standard public initializer
+        public init(
+            labels: [ComAtprotoLabelDefs.Label]
+        ) {
+            
+            self.labels = labels
+            
         }
+    }
+    
 
 
 

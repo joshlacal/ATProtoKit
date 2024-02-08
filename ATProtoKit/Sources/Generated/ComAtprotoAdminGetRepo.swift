@@ -15,17 +15,9 @@ public struct Parameters: Parametrizable {
                 self.did = did
                 
             }
-        }        
-public struct Output: Codable {
-            public let data: ComAtprotoAdminDefs.RepoViewDetail
-                                    
-            // Standard public initializer
-            public init(data: ComAtprotoAdminDefs.RepoViewDetail) {
-                self.data = data
-                
-            }
-
-        }        
+        }    
+    public typealias Output = ComAtprotoAdminDefs.RepoViewDetail
+            
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case repoNotFound = "RepoNotFound."
             public var description: String {

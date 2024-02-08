@@ -24,21 +24,35 @@ public struct Parameters: Parametrizable {
                 self.cid = cid
                 
             }
-        }        
-public struct Output: Codable {
-            public let uri: ATProtocolURI
-            public let cid: String?
-            public let value: JSONValue
-                                    
-            // Standard public initializer
-            public init(uri: ATProtocolURI, cid: String? = nil, value: JSONValue) {
-                self.uri = uri
-                self.cid = cid
-                self.value = value
-                
-            }
-
+        }    
+    
+public struct Output: Codable { 
+        
+        public let uri: ATProtocolURI
+        
+        public let cid: String?
+        
+        public let value: JSONValue
+        
+        
+        // Standard public initializer
+        public init(
+            uri: ATProtocolURI, 
+        
+            cid: String? = nil, 
+        
+            value: JSONValue
+        ) {
+            
+            self.uri = uri
+            
+            self.cid = cid
+            
+            self.value = value
+            
         }
+    }
+    
 
 
 
