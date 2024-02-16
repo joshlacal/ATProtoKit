@@ -16,13 +16,17 @@ public indirect enum JSONValue: Codable, ATProtocolCodable, ATProtocolValue {
         let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
         if let typeName = container.allKeys.first(where: { $0.stringValue == "$type" }),
            let typeValue = try? container.decode(String.self, forKey: typeName) {
+            
+        print("Attempting to decode type: \(typeValue)")
 
         switch typeValue {
             {% for type_key, swift_type in type_cases %}
             case "{{ type_key }}":
+                print("Attempting to decode type: \(typeValue) as {{ swift_type }}")
                 do {
                     let decodedObject = try {{ swift_type }}.init(from: decoder)
                     self = .custom(decodedObject)
+                    print("Successfully decoded \(typeValue) as {{ swift_type }}")
                 } catch {
                     print("Error decoding {{ swift_type }}: \(error)")
                     self = .decodeError("Error decoding {{ swift_type }}: \(error)")
@@ -30,6 +34,7 @@ public indirect enum JSONValue: Codable, ATProtocolCodable, ATProtocolValue {
             {% endfor %}
                 default:
                     do {
+                        print("Attempting to decode an unknown type: \(typeValue)")
                         let unknownObject = try JSONValue.decodeAny(from: container)
                         self = .unknownType(typeValue, unknownObject)
                     } catch {
@@ -38,34 +43,63 @@ public indirect enum JSONValue: Codable, ATProtocolCodable, ATProtocolValue {
 
             }
         } else {
-            do {
-                let container = try decoder.singleValueContainer()
 
-                if let stringValue = try? container.decode(String.self) {
-                    self = .string(stringValue)
-                } else if let intValue = try? container.decode(Int.self) {
+        do {
+            let container = try decoder.singleValueContainer()
+            
+            print("Attempting to decode as String")
+            if let stringValue = try? container.decode(String.self) {
+                self = .string(stringValue)
+                print("Successfully decoded as String")
+            } else {
+                print("Failed to decode as String, attempting to decode as Int")
+                if let intValue = try? container.decode(Int.self) {
                     self = .number(intValue)
-                } else if let bigNumberString = try? container.decode(String.self) {
-                    self = .bigNumber(bigNumberString)
-                } else if let boolValue = try? container.decode(Bool.self) {
-                    self = .bool(boolValue)
-                } else if container.decodeNil() {
-                    self = .null
-                } else if var arrayContainer = try? decoder.unkeyedContainer() {
-                    var array = [JSONValue]()
-                    while !arrayContainer.isAtEnd {
-                        let value = try arrayContainer.decode(JSONValue.self)
-                        array.append(value)
-                    }
-                    self = .array(array)
-                } else if let object = try? container.decode([String: JSONValue].self) {
-                    self = .object(object)
+                    print("Successfully decoded as Int")
                 } else {
-                    throw DecodingError.dataCorruptedError(in: container, debugDescription: "JSONValue cannot be decoded")
+                    print("Failed to decode as Int, attempting to decode as BigNumber")
+                    if let bigNumberString = try? container.decode(String.self) {
+                        self = .bigNumber(bigNumberString)
+                        print("Successfully decoded as BigNumber")
+                    } else {
+                        print("Failed to decode as BigNumber, attempting to decode as Bool")
+                        if let boolValue = try? container.decode(Bool.self) {
+                            self = .bool(boolValue)
+                            print("Successfully decoded as Bool")
+                        } else {
+                            print("Failed to decode as Bool, attempting to decode as Null")
+                            if container.decodeNil() {
+                                self = .null
+                                print("Successfully decoded as Null")
+                            } else {
+                                print("Failed to decode as Null, attempting to decode as Array")
+                                if var arrayContainer = try? decoder.unkeyedContainer() {
+                                    var array = [JSONValue]()
+                                    while !arrayContainer.isAtEnd {
+                                        let value = try arrayContainer.decode(JSONValue.self)
+                                        array.append(value)
+                                    }
+                                    self = .array(array)
+                                    print("Successfully decoded as Array")
+                                } else {
+                                    print("Failed to decode as Array, attempting to decode as Object")
+                                    if let object = try? container.decode([String: JSONValue].self) {
+                                        self = .object(object)
+                                        print("Successfully decoded as Object")
+                                    } else {
+                                        print("Failed to decode as Object, throwing DecodingError.dataCorruptedError")
+                                        throw DecodingError.dataCorruptedError(in: container, debugDescription: "JSONValue cannot be decoded")
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-            } catch {
-                self = .decodeError("Decoding error: \\(error)")
             }
+        } catch {
+            print("Decoding error: \(error)")
+            self = .decodeError("Decoding error: \(error)")
+        }
         }
     }
 

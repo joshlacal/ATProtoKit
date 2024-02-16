@@ -24,12 +24,22 @@ public struct AppPassword: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.name = try container.decode(String.self, forKey: .name)
-            
-            
-            self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            
+            do {
+                
+                self.name = try container.decode(String.self, forKey: .name)
+                
+            } catch {
+                print("Decoding error for property 'name': \(error)")
+                throw error
+            }
+            do {
+                
+                self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

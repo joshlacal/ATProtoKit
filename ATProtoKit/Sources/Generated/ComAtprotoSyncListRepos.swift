@@ -26,15 +26,30 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.did = try container.decode(String.self, forKey: .did)
-            
-            
-            self.head = try container.decode(String.self, forKey: .head)
-            
-            
-            self.rev = try container.decode(String.self, forKey: .rev)
-            
+            do {
+                
+                self.did = try container.decode(String.self, forKey: .did)
+                
+            } catch {
+                print("Decoding error for property 'did': \(error)")
+                throw error
+            }
+            do {
+                
+                self.head = try container.decode(String.self, forKey: .head)
+                
+            } catch {
+                print("Decoding error for property 'head': \(error)")
+                throw error
+            }
+            do {
+                
+                self.rev = try container.decode(String.self, forKey: .rev)
+                
+            } catch {
+                print("Decoding error for property 'rev': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

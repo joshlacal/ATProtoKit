@@ -230,12 +230,22 @@ public struct ReplyRef: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.root = try container.decode(ComAtprotoRepoStrongRef.self, forKey: .root)
-            
-            
-            self.parent = try container.decode(ComAtprotoRepoStrongRef.self, forKey: .parent)
-            
+            do {
+                
+                self.root = try container.decode(ComAtprotoRepoStrongRef.self, forKey: .root)
+                
+            } catch {
+                print("Decoding error for property 'root': \(error)")
+                throw error
+            }
+            do {
+                
+                self.parent = try container.decode(ComAtprotoRepoStrongRef.self, forKey: .parent)
+                
+            } catch {
+                print("Decoding error for property 'parent': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -293,15 +303,30 @@ public struct Entity: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.index = try container.decode(TextSlice.self, forKey: .index)
-            
-            
-            self.type = try container.decode(String.self, forKey: .type)
-            
-            
-            self.value = try container.decode(String.self, forKey: .value)
-            
+            do {
+                
+                self.index = try container.decode(TextSlice.self, forKey: .index)
+                
+            } catch {
+                print("Decoding error for property 'index': \(error)")
+                throw error
+            }
+            do {
+                
+                self.type = try container.decode(String.self, forKey: .type)
+                
+            } catch {
+                print("Decoding error for property 'type': \(error)")
+                throw error
+            }
+            do {
+                
+                self.value = try container.decode(String.self, forKey: .value)
+                
+            } catch {
+                print("Decoding error for property 'value': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -367,12 +392,22 @@ public struct TextSlice: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.start = try container.decode(Int.self, forKey: .start)
-            
-            
-            self.end = try container.decode(Int.self, forKey: .end)
-            
+            do {
+                
+                self.start = try container.decode(Int.self, forKey: .start)
+                
+            } catch {
+                print("Decoding error for property 'start': \(error)")
+                throw error
+            }
+            do {
+                
+                self.end = try container.decode(Int.self, forKey: .end)
+                
+            } catch {
+                print("Decoding error for property 'end': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

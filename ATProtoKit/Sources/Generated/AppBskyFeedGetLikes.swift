@@ -26,15 +26,30 @@ public struct Like: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
-            
-            
-            self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            
-            
-            self.actor = try container.decode(AppBskyActorDefs.ProfileView.self, forKey: .actor)
-            
+            do {
+                
+                self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.actor = try container.decode(AppBskyActorDefs.ProfileView.self, forKey: .actor)
+                
+            } catch {
+                print("Decoding error for property 'actor': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

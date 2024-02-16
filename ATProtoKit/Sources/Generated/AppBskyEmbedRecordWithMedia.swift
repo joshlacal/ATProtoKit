@@ -74,12 +74,22 @@ public struct View: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.record = try container.decode(AppBskyEmbedRecord.View.self, forKey: .record)
-            
-            
-            self.media = try container.decode(ViewMediaUnion.self, forKey: .media)
-            
+            do {
+                
+                self.record = try container.decode(AppBskyEmbedRecord.View.self, forKey: .record)
+                
+            } catch {
+                print("Decoding error for property 'record': \(error)")
+                throw error
+            }
+            do {
+                
+                self.media = try container.decode(ViewMediaUnion.self, forKey: .media)
+                
+            } catch {
+                print("Decoding error for property 'media': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

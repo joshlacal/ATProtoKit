@@ -32,24 +32,54 @@ public struct Label: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.src = try container.decode(String.self, forKey: .src)
-            
-            
-            self.uri = try container.decode(URI.self, forKey: .uri)
-            
-            
-            self.cid = try container.decodeIfPresent(String.self, forKey: .cid)
-            
-            
-            self.val = try container.decode(String.self, forKey: .val)
-            
-            
-            self.neg = try container.decodeIfPresent(Bool.self, forKey: .neg)
-            
-            
-            self.cts = try container.decode(ATProtocolDate.self, forKey: .cts)
-            
+            do {
+                
+                self.src = try container.decode(String.self, forKey: .src)
+                
+            } catch {
+                print("Decoding error for property 'src': \(error)")
+                throw error
+            }
+            do {
+                
+                self.uri = try container.decode(URI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cid = try container.decodeIfPresent(String.self, forKey: .cid)
+                
+            } catch {
+                print("Decoding error for property 'cid': \(error)")
+                throw error
+            }
+            do {
+                
+                self.val = try container.decode(String.self, forKey: .val)
+                
+            } catch {
+                print("Decoding error for property 'val': \(error)")
+                throw error
+            }
+            do {
+                
+                self.neg = try container.decodeIfPresent(Bool.self, forKey: .neg)
+                
+            } catch {
+                print("Decoding error for property 'neg': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cts = try container.decode(ATProtocolDate.self, forKey: .cts)
+                
+            } catch {
+                print("Decoding error for property 'cts': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -155,9 +185,14 @@ public struct SelfLabels: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.values = try container.decode([SelfLabel].self, forKey: .values)
-            
+            do {
+                
+                self.values = try container.decode([SelfLabel].self, forKey: .values)
+                
+            } catch {
+                print("Decoding error for property 'values': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -201,9 +236,14 @@ public struct SelfLabel: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.val = try container.decode(String.self, forKey: .val)
-            
+            do {
+                
+                self.val = try container.decode(String.self, forKey: .val)
+                
+            } catch {
+                print("Decoding error for property 'val': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

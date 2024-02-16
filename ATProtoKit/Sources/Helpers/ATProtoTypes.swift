@@ -13,12 +13,35 @@ public protocol ATProtocolValue: ATProtocolCodable, Codable, Equatable, Hashable
     func isEqual(to other: any ATProtocolValue) -> Bool
 }
 
-// MARK: URIs
+/*
+ // MARK: URIs
+ public typealias ATProtocolURI = String */
+// public typealias URI = String
 
-public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable {
+public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, CustomStringConvertible {
     let authority: String
     let collection: String?
     let recordKey: String?
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let uriString = try container.decode(String.self)
+
+        // Temporarily bypass validation to test decoding
+        // guard uriString.hasPrefix("at://"),
+        //       uriString.utf8.count <= 8192,
+        //       !uriString.contains(".."),
+        //       !uriString.contains("//"),
+        //       !uriString.hasSuffix("/")
+        // else {
+        //     throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid URI format")
+        // }
+
+        let components = uriString.dropFirst("at://".count).split(separator: "/", omittingEmptySubsequences: true)
+        self.authority = String(components.first ?? "")
+        self.collection = components.count > 1 ? String(components[1]) : nil
+        self.recordKey = components.count > 2 ? String(components[2]) : nil
+    }
 
     init?(uriString: String) {
         guard uriString.hasPrefix("at://"),
@@ -40,7 +63,11 @@ public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable {
         self.collection = components.count > 1 ? String(components[1]) : nil
         self.recordKey = components.count > 2 ? String(components[2]) : nil
 
-        // TODO: Additional normalization and validation as per AT Protocol specifications
+        // TODO: Additional normalization and validation
+    }
+
+    public var description: String {
+        return uriString()
     }
 
     func uriString() -> String {
@@ -53,57 +80,88 @@ public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable {
         }
         return uri
     }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherURI = other as? ATProtocolURI else {
+            return false
+        }
+
+        return authority == otherURI.authority &&
+            collection == otherURI.collection &&
+            recordKey == otherURI.recordKey
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        let uriString = self.uriString()
+        try container.encode(uriString)
+    }
 }
 
-public struct URI: Equatable, Codable, Hashable, Sendable {
+public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, CustomStringConvertible {
     let scheme: String
     let authority: String
     let path: String?
     let query: String?
     let fragment: String?
 
-    public init?(uriString: String) {
-        guard uriString.hasPrefix("at://"),
-              uriString.canBeConverted(to: .ascii),
-              uriString.utf8.count <= 8192
-        else {
-            return nil
-        }
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let uriString = try container.decode(String.self)
 
-        var components = uriString.split(separator: "/", maxSplits: 3, omittingEmptySubsequences: true)
+        let urlComponents = URLComponents(string: uriString)
 
-        guard let authorityComponent = components.first else {
-            return nil
-        }
+        self.scheme = urlComponents?.scheme ?? ""
+        self.authority = urlComponents?.host ?? ""
+        self.path = (((urlComponents?.path.isEmpty) == nil)) ? urlComponents?.path : nil
+        self.query = urlComponents?.query
+        self.fragment = urlComponents?.fragment
+    }
 
-        self.scheme = "at"
-        self.authority = String(authorityComponent)
-        components.removeFirst()
+    init(uriString: String) {
+        // Use URLComponents without throwing an error if components are missing
+        let urlComponents = URLComponents(string: uriString)
 
-        let remainingParts = components.joined(separator: "/").split(separator: "?", maxSplits: 1, omittingEmptySubsequences: true)
+        // Default to an empty string if the scheme or host isn't found
+        self.scheme = urlComponents?.scheme ?? ""
+        self.authority = urlComponents?.host ?? ""
+        // Directly assign other components, which can be nil
+        self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
+        self.query = urlComponents?.query
+        self.fragment = urlComponents?.fragment
+    }
 
-        self.path = remainingParts.first.map { String($0) }
-
-        let queryFragment = remainingParts.count > 1 ? remainingParts[1].split(separator: "#", maxSplits: 1, omittingEmptySubsequences: true) : []
-
-        self.query = queryFragment.first.map { String($0) }
-        self.fragment = queryFragment.count > 1 ? String(queryFragment[1]) : nil
-
-        // TODO: Additional parsing and validation logic for DID, handle, and other components needed.
+    public var description: String {
+        return uriString()
     }
 
     public func uriString() -> String {
-        var uri = "\(scheme)://\(authority)"
-        if let path = path {
-            uri += "/\(path)"
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = authority
+        components.path = path ?? ""
+        components.query = query
+        components.fragment = fragment
+
+        return components.string ?? ""
+    }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherURI = other as? URI else {
+            return false
         }
-        if let query = query {
-            uri += "?\(query)"
-        }
-        if let fragment = fragment {
-            uri += "#\(fragment)"
-        }
-        return uri
+
+        return scheme == otherURI.scheme &&
+            authority == otherURI.authority &&
+            path == otherURI.path &&
+            query == otherURI.query &&
+            fragment == otherURI.fragment
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        let uriString = self.uriString()
+        try container.encode(uriString)
     }
 }
 

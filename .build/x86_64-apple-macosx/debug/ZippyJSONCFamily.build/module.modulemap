@@ -1,4 +1,0 @@
-module ZippyJSONCFamily {
-    umbrella "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/checkouts/ZippyJSONCFamily/Sources/ZippyJSONCFamily/include"
-    export *
-}

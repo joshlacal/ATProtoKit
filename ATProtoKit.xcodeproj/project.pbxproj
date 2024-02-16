@@ -157,9 +157,9 @@
 		210EA95B2B5AFD4D00602C46 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9532B5AFD4C00602C46 /* KeychainManager.swift */; };
 		210EA95C2B5AFD4D00602C46 /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9542B5AFD4C00602C46 /* RichText.swift */; };
 		210EA95D2B5AFD4D00602C46 /* DateValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9552B5AFD4C00602C46 /* DateValidation.swift */; };
-		210EA95E2B5AFD4D00602C46 /* DynamicDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9562B5AFD4C00602C46 /* DynamicDecoder.swift */; };
 		210EA95F2B5AFD4D00602C46 /* QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9572B5AFD4C00602C46 /* QueryParameters.swift */; };
 		210EA9612B5AFD6B00602C46 /* ATProtoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */; };
+		214BD3742B790B3000B1625D /* JSONValueHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */; };
 		21628EF52B6F2441001D10E5 /* DIDDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -324,9 +324,9 @@
 		210EA9532B5AFD4C00602C46 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		210EA9542B5AFD4C00602C46 /* RichText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		210EA9552B5AFD4C00602C46 /* DateValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValidation.swift; sourceTree = "<group>"; };
-		210EA9562B5AFD4C00602C46 /* DynamicDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicDecoder.swift; sourceTree = "<group>"; };
 		210EA9572B5AFD4C00602C46 /* QueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryParameters.swift; sourceTree = "<group>"; };
 		210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATProtoClient.swift; sourceTree = "<group>"; };
+		214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueHelpers.swift; sourceTree = "<group>"; };
 		21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -555,7 +555,7 @@
 			children = (
 				210EA9512B5AFD4C00602C46 /* ATProtoTypes.swift */,
 				210EA9552B5AFD4C00602C46 /* DateValidation.swift */,
-				210EA9562B5AFD4C00602C46 /* DynamicDecoder.swift */,
+				214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */,
 				210EA9532B5AFD4C00602C46 /* KeychainManager.swift */,
 				210EA9502B5AFD4C00602C46 /* Languages.swift */,
 				210EA9522B5AFD4C00602C46 /* NetworkError.swift */,
@@ -741,6 +741,7 @@
 				210EA8F22B5AFC9100602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift in Sources */,
 				210EA9442B5AFC9200602C46 /* AppBskyFeedDefs.swift in Sources */,
 				210EA93A2B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift in Sources */,
+				214BD3742B790B3000B1625D /* JSONValueHelpers.swift in Sources */,
 				210EA9472B5AFC9200602C46 /* AppBskyEmbedRecordWithMedia.swift in Sources */,
 				210EA92F2B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift in Sources */,
 				210EA8D22B5AFC9100602C46 /* AppBskyFeedRepost.swift in Sources */,
@@ -823,7 +824,6 @@
 				210EA9262B5AFC9100602C46 /* ComAtprotoSyncGetHead.swift in Sources */,
 				210EA9222B5AFC9100602C46 /* AppBskyGraphList.swift in Sources */,
 				210EA8F62B5AFC9100602C46 /* ComAtprotoAdminDeleteAccount.swift in Sources */,
-				210EA95E2B5AFD4D00602C46 /* DynamicDecoder.swift in Sources */,
 				210EA92C2B5AFC9100602C46 /* ComAtprotoIdentityResolveHandle.swift in Sources */,
 				210EA9332B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift in Sources */,
 				210EA9282B5AFC9100602C46 /* AppBskyNotificationGetUnreadCount.swift in Sources */,

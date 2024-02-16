@@ -26,15 +26,30 @@ public struct Create: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.collection = try container.decode(String.self, forKey: .collection)
-            
-            
-            self.rkey = try container.decodeIfPresent(String.self, forKey: .rkey)
-            
-            
-            self.value = try container.decode(JSONValue.self, forKey: .value)
-            
+            do {
+                
+                self.collection = try container.decode(String.self, forKey: .collection)
+                
+            } catch {
+                print("Decoding error for property 'collection': \(error)")
+                throw error
+            }
+            do {
+                
+                self.rkey = try container.decodeIfPresent(String.self, forKey: .rkey)
+                
+            } catch {
+                print("Decoding error for property 'rkey': \(error)")
+                throw error
+            }
+            do {
+                
+                self.value = try container.decode(JSONValue.self, forKey: .value)
+                
+            } catch {
+                print("Decoding error for property 'value': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -108,15 +123,30 @@ public struct Update: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.collection = try container.decode(String.self, forKey: .collection)
-            
-            
-            self.rkey = try container.decode(String.self, forKey: .rkey)
-            
-            
-            self.value = try container.decode(JSONValue.self, forKey: .value)
-            
+            do {
+                
+                self.collection = try container.decode(String.self, forKey: .collection)
+                
+            } catch {
+                print("Decoding error for property 'collection': \(error)")
+                throw error
+            }
+            do {
+                
+                self.rkey = try container.decode(String.self, forKey: .rkey)
+                
+            } catch {
+                print("Decoding error for property 'rkey': \(error)")
+                throw error
+            }
+            do {
+                
+                self.value = try container.decode(JSONValue.self, forKey: .value)
+                
+            } catch {
+                print("Decoding error for property 'value': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -182,12 +212,22 @@ public struct Delete: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.collection = try container.decode(String.self, forKey: .collection)
-            
-            
-            self.rkey = try container.decode(String.self, forKey: .rkey)
-            
+            do {
+                
+                self.collection = try container.decode(String.self, forKey: .collection)
+                
+            } catch {
+                print("Decoding error for property 'collection': \(error)")
+                throw error
+            }
+            do {
+                
+                self.rkey = try container.decode(String.self, forKey: .rkey)
+                
+            } catch {
+                print("Decoding error for property 'rkey': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

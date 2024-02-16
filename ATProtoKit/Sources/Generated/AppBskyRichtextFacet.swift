@@ -72,9 +72,14 @@ public struct Mention: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.did = try container.decode(String.self, forKey: .did)
-            
+            do {
+                
+                self.did = try container.decode(String.self, forKey: .did)
+                
+            } catch {
+                print("Decoding error for property 'did': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -118,9 +123,14 @@ public struct Link: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(URI.self, forKey: .uri)
-            
+            do {
+                
+                self.uri = try container.decode(URI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -164,9 +174,14 @@ public struct Tag: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.tag = try container.decode(String.self, forKey: .tag)
-            
+            do {
+                
+                self.tag = try container.decode(String.self, forKey: .tag)
+                
+            } catch {
+                print("Decoding error for property 'tag': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -212,12 +227,22 @@ public struct ByteSlice: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.byteStart = try container.decode(Int.self, forKey: .byteStart)
-            
-            
-            self.byteEnd = try container.decode(Int.self, forKey: .byteEnd)
-            
+            do {
+                
+                self.byteStart = try container.decode(Int.self, forKey: .byteStart)
+                
+            } catch {
+                print("Decoding error for property 'byteStart': \(error)")
+                throw error
+            }
+            do {
+                
+                self.byteEnd = try container.decode(Int.self, forKey: .byteEnd)
+                
+            } catch {
+                print("Decoding error for property 'byteEnd': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

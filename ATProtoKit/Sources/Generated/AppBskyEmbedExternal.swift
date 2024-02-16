@@ -65,18 +65,38 @@ public struct External: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(URI.self, forKey: .uri)
-            
-            
-            self.title = try container.decode(String.self, forKey: .title)
-            
-            
-            self.description = try container.decode(String.self, forKey: .description)
-            
-            
-            self.thumb = try container.decodeIfPresent(Blob.self, forKey: .thumb)
-            
+            do {
+                
+                self.uri = try container.decode(URI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.title = try container.decode(String.self, forKey: .title)
+                
+            } catch {
+                print("Decoding error for property 'title': \(error)")
+                throw error
+            }
+            do {
+                
+                self.description = try container.decode(String.self, forKey: .description)
+                
+            } catch {
+                print("Decoding error for property 'description': \(error)")
+                throw error
+            }
+            do {
+                
+                self.thumb = try container.decodeIfPresent(Blob.self, forKey: .thumb)
+                
+            } catch {
+                print("Decoding error for property 'thumb': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -156,9 +176,14 @@ public struct View: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.external = try container.decode(ViewExternal.self, forKey: .external)
-            
+            do {
+                
+                self.external = try container.decode(ViewExternal.self, forKey: .external)
+                
+            } catch {
+                print("Decoding error for property 'external': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -208,18 +233,38 @@ public struct ViewExternal: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(URI.self, forKey: .uri)
-            
-            
-            self.title = try container.decode(String.self, forKey: .title)
-            
-            
-            self.description = try container.decode(String.self, forKey: .description)
-            
-            
-            self.thumb = try container.decodeIfPresent(String.self, forKey: .thumb)
-            
+            do {
+                
+                self.uri = try container.decode(URI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.title = try container.decode(String.self, forKey: .title)
+                
+            } catch {
+                print("Decoding error for property 'title': \(error)")
+                throw error
+            }
+            do {
+                
+                self.description = try container.decode(String.self, forKey: .description)
+                
+            } catch {
+                print("Decoding error for property 'description': \(error)")
+                throw error
+            }
+            do {
+                
+                self.thumb = try container.decodeIfPresent(String.self, forKey: .thumb)
+                
+            } catch {
+                print("Decoding error for property 'thumb': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

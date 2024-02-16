@@ -21,11 +21,16 @@
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             {%- for prop in def_schema.properties %}
-            {% if prop.optional %}
-            self.{{ prop.name }} = try container.decodeIfPresent({{ prop.type }}.self, forKey: .{{ prop.name }})
-            {% else %}
-            self.{{ prop.name }} = try container.decode({{ prop.type }}.self, forKey: .{{ prop.name }})
-            {% endif %}
+            do {
+                {% if prop.optional %}
+                self.{{ prop.name }} = try container.decodeIfPresent({{ prop.type }}.self, forKey: .{{ prop.name }})
+                {% else %}
+                self.{{ prop.name }} = try container.decode({{ prop.type }}.self, forKey: .{{ prop.name }})
+                {% endif %}
+            } catch {
+                print("Decoding error for property '{{ prop.name }}': \(error)")
+                throw error
+            }
             {%- endfor %}
         }
 
@@ -100,11 +105,16 @@
             public init(from decoder: Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 {%- for prop in sub_struct.properties %}
-                {% if prop.optional %}
-                self.{{ prop.name }} = try container.decodeIfPresent({{ prop.type }}.self, forKey: .{{ prop.name }})
-                {% else %}
-                self.{{ prop.name }} = try container.decode({{ prop.type }}.self, forKey: .{{ prop.name }})
-                {% endif %}
+                do {
+                    {% if prop.optional %}
+                    self.{{ prop.name }} = try container.decodeIfPresent({{ prop.type }}.self, forKey: .{{ prop.name }})
+                    {% else %}
+                    self.{{ prop.name }} = try container.decode({{ prop.type }}.self, forKey: .{{ prop.name }})
+                    {% endif %}
+                } catch {
+                    print("Decoding error for sub-struct property '{{ prop.name }}': \(error)")
+                    throw error
+                }
                 {%- endfor %}
             }
             {%- endif %}

@@ -162,9 +162,9 @@ public class ATProtoClient {
     func logRequest(_ request: URLRequest) {
         print("Request URL: \(request.url?.absoluteString ?? "N/A")")
         print("Method: \(request.httpMethod ?? "N/A")")
-        print("Headers: \(request.allHTTPHeaderFields ?? [:])")
+        // print("Headers: \(request.allHTTPHeaderFields ?? [:])")
         if let bodyData = request.httpBody, let bodyString = String(data: bodyData, encoding: .utf8) {
-            print("Body: \(bodyString)")
+            // print("Body: \(bodyString)")
         }
     }
 
@@ -172,9 +172,9 @@ public class ATProtoClient {
     func logResponse(_ response: HTTPURLResponse, data: Data) {
         print("Response URL: \(response.url?.absoluteString ?? "N/A")")
         print("Status Code: \(response.statusCode)")
-        print("Headers: \(response.allHeaderFields)")
+        // print("Headers: \(response.allHeaderFields)")
         if let responseString = String(data: data, encoding: .utf8) {
-            print("Body: \(responseString)")
+            // print("Body: \(responseString)")
         }
     }
 

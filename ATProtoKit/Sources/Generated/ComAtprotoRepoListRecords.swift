@@ -26,15 +26,30 @@ public struct Record: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
-            
-            
-            self.cid = try container.decode(String.self, forKey: .cid)
-            
-            
-            self.value = try container.decode(JSONValue.self, forKey: .value)
-            
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cid = try container.decode(String.self, forKey: .cid)
+                
+            } catch {
+                print("Decoding error for property 'cid': \(error)")
+                throw error
+            }
+            do {
+                
+                self.value = try container.decode(JSONValue.self, forKey: .value)
+                
+            } catch {
+                print("Decoding error for property 'value': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

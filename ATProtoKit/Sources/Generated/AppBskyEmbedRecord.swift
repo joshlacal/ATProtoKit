@@ -59,9 +59,14 @@ public struct View: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.record = try container.decode(ViewRecordUnion.self, forKey: .record)
-            
+            do {
+                
+                self.record = try container.decode(ViewRecordUnion.self, forKey: .record)
+                
+            } catch {
+                print("Decoding error for property 'record': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -117,27 +122,62 @@ public struct ViewRecord: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
-            
-            
-            self.cid = try container.decode(String.self, forKey: .cid)
-            
-            
-            self.author = try container.decode(AppBskyActorDefs.ProfileViewBasic.self, forKey: .author)
-            
-            
-            self.value = try container.decode(JSONValue.self, forKey: .value)
-            
-            
-            self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
-            
-            
-            self.embeds = try container.decodeIfPresent([ViewRecordEmbedsUnion].self, forKey: .embeds)
-            
-            
-            self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
-            
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cid = try container.decode(String.self, forKey: .cid)
+                
+            } catch {
+                print("Decoding error for property 'cid': \(error)")
+                throw error
+            }
+            do {
+                
+                self.author = try container.decode(AppBskyActorDefs.ProfileViewBasic.self, forKey: .author)
+                
+            } catch {
+                print("Decoding error for property 'author': \(error)")
+                throw error
+            }
+            do {
+                
+                self.value = try container.decode(JSONValue.self, forKey: .value)
+                
+            } catch {
+                print("Decoding error for property 'value': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
+            do {
+                
+                self.embeds = try container.decodeIfPresent([ViewRecordEmbedsUnion].self, forKey: .embeds)
+                
+            } catch {
+                print("Decoding error for property 'embeds': \(error)")
+                throw error
+            }
+            do {
+                
+                self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -255,12 +295,22 @@ public struct ViewNotFound: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
-            
-            
-            self.notFound = try container.decode(Bool.self, forKey: .notFound)
-            
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.notFound = try container.decode(Bool.self, forKey: .notFound)
+                
+            } catch {
+                print("Decoding error for property 'notFound': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -318,15 +368,30 @@ public struct ViewBlocked: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
-            
-            
-            self.blocked = try container.decode(Bool.self, forKey: .blocked)
-            
-            
-            self.author = try container.decode(AppBskyFeedDefs.BlockedAuthor.self, forKey: .author)
-            
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.blocked = try container.decode(Bool.self, forKey: .blocked)
+                
+            } catch {
+                print("Decoding error for property 'blocked': \(error)")
+                throw error
+            }
+            do {
+                
+                self.author = try container.decode(AppBskyFeedDefs.BlockedAuthor.self, forKey: .author)
+                
+            } catch {
+                print("Decoding error for property 'author': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

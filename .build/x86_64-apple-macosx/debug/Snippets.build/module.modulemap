@@ -1,4 +1,0 @@
-module Snippets {
-    header "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/Snippets.build/Snippets-Swift.h"
-    requires objc
-}

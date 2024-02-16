@@ -160,9 +160,14 @@ public struct ListRule: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.list = try container.decode(ATProtocolURI.self, forKey: .list)
-            
+            do {
+                
+                self.list = try container.decode(ATProtocolURI.self, forKey: .list)
+                
+            } catch {
+                print("Decoding error for property 'list': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

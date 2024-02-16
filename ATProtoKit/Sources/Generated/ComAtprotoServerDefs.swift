@@ -34,27 +34,62 @@ public struct InviteCode: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.code = try container.decode(String.self, forKey: .code)
-            
-            
-            self.available = try container.decode(Int.self, forKey: .available)
-            
-            
-            self.disabled = try container.decode(Bool.self, forKey: .disabled)
-            
-            
-            self.forAccount = try container.decode(String.self, forKey: .forAccount)
-            
-            
-            self.createdBy = try container.decode(String.self, forKey: .createdBy)
-            
-            
-            self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            
-            
-            self.uses = try container.decode([InviteCodeUse].self, forKey: .uses)
-            
+            do {
+                
+                self.code = try container.decode(String.self, forKey: .code)
+                
+            } catch {
+                print("Decoding error for property 'code': \(error)")
+                throw error
+            }
+            do {
+                
+                self.available = try container.decode(Int.self, forKey: .available)
+                
+            } catch {
+                print("Decoding error for property 'available': \(error)")
+                throw error
+            }
+            do {
+                
+                self.disabled = try container.decode(Bool.self, forKey: .disabled)
+                
+            } catch {
+                print("Decoding error for property 'disabled': \(error)")
+                throw error
+            }
+            do {
+                
+                self.forAccount = try container.decode(String.self, forKey: .forAccount)
+                
+            } catch {
+                print("Decoding error for property 'forAccount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.createdBy = try container.decode(String.self, forKey: .createdBy)
+                
+            } catch {
+                print("Decoding error for property 'createdBy': \(error)")
+                throw error
+            }
+            do {
+                
+                self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.uses = try container.decode([InviteCodeUse].self, forKey: .uses)
+                
+            } catch {
+                print("Decoding error for property 'uses': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -160,12 +195,22 @@ public struct InviteCodeUse: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.usedBy = try container.decode(String.self, forKey: .usedBy)
-            
-            
-            self.usedAt = try container.decode(ATProtocolDate.self, forKey: .usedAt)
-            
+            do {
+                
+                self.usedBy = try container.decode(String.self, forKey: .usedBy)
+                
+            } catch {
+                print("Decoding error for property 'usedBy': \(error)")
+                throw error
+            }
+            do {
+                
+                self.usedAt = try container.decode(ATProtocolDate.self, forKey: .usedAt)
+                
+            } catch {
+                print("Decoding error for property 'usedAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

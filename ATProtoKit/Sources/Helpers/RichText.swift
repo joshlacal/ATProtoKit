@@ -23,7 +23,7 @@ public func processRichTextFacets(_ facets: [AppBskyRichtextFacet]) -> [RichText
     var richTextElements: [RichTextElement] = []
 
     for facet in facets {
-        let startOffset = facet.index.byteStart // These are Int
+        let startOffset = facet.index.byteStart
         let endOffset = facet.index.byteEnd
 
         for feature in facet.features {
@@ -99,7 +99,7 @@ public func createFacets(forMentions mentions: [TextSegment], andLinks links: [T
 
     for link in links {
         let byteSlice = AppBskyRichtextFacet.ByteSlice(byteStart: link.start, byteEnd: link.end)
-        let linkFeature = AppBskyRichtextFacet.Link(uri: URI(uriString: link.value)!)
+        let linkFeature = AppBskyRichtextFacet.Link(uri: URI(uriString: link.value))
         let facet = AppBskyRichtextFacet(index: byteSlice, features: [.appBskyRichtextFacetLink(linkFeature)])
         facets.append(facet)
     }

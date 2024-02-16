@@ -63,6 +63,7 @@ extension ATProtoClient.App.Bsky.Feed {
         // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedGetTimeline.Output.self, from: responseData)
+        print("Raw JSON: \(String(data: responseData, encoding: .utf8) ?? "Invalid JSON")")
         return (responseCode, decodedData)
     }
 }                           

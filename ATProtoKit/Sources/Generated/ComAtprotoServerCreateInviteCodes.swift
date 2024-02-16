@@ -24,12 +24,22 @@ public struct AccountCodes: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.account = try container.decode(String.self, forKey: .account)
-            
-            
-            self.codes = try container.decode([String].self, forKey: .codes)
-            
+            do {
+                
+                self.account = try container.decode(String.self, forKey: .account)
+                
+            } catch {
+                print("Decoding error for property 'account': \(error)")
+                throw error
+            }
+            do {
+                
+                self.codes = try container.decode([String].self, forKey: .codes)
+                
+            } catch {
+                print("Decoding error for property 'codes': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

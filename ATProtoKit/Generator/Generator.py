@@ -123,6 +123,7 @@ class SwiftCodeGenerator:
         if not s:
             return s
         return s[0].lower() + s[1:]
+    
 
     def generate_enum_for_union_array(self, name: str, refs: List[str]) -> None:
         # Create a list to store information about each ref

@@ -32,24 +32,54 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.did = try container.decode(String.self, forKey: .did)
-            
-            
-            self.handle = try container.decode(String.self, forKey: .handle)
-            
-            
-            self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
-            
-            
-            self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
-            
-            
-            self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
-            
-            
-            self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
-            
+            do {
+                
+                self.did = try container.decode(String.self, forKey: .did)
+                
+            } catch {
+                print("Decoding error for property 'did': \(error)")
+                throw error
+            }
+            do {
+                
+                self.handle = try container.decode(String.self, forKey: .handle)
+                
+            } catch {
+                print("Decoding error for property 'handle': \(error)")
+                throw error
+            }
+            do {
+                
+                self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+                
+            } catch {
+                print("Decoding error for property 'displayName': \(error)")
+                throw error
+            }
+            do {
+                
+                self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
+                
+            } catch {
+                print("Decoding error for property 'avatar': \(error)")
+                throw error
+            }
+            do {
+                
+                self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
+                
+            } catch {
+                print("Decoding error for property 'viewer': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -181,30 +211,70 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.did = try container.decode(String.self, forKey: .did)
-            
-            
-            self.handle = try container.decode(String.self, forKey: .handle)
-            
-            
-            self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
-            
-            
-            self.description = try container.decodeIfPresent(String.self, forKey: .description)
-            
-            
-            self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
-            
-            
-            self.indexedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .indexedAt)
-            
-            
-            self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
-            
-            
-            self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
-            
+            do {
+                
+                self.did = try container.decode(String.self, forKey: .did)
+                
+            } catch {
+                print("Decoding error for property 'did': \(error)")
+                throw error
+            }
+            do {
+                
+                self.handle = try container.decode(String.self, forKey: .handle)
+                
+            } catch {
+                print("Decoding error for property 'handle': \(error)")
+                throw error
+            }
+            do {
+                
+                self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+                
+            } catch {
+                print("Decoding error for property 'displayName': \(error)")
+                throw error
+            }
+            do {
+                
+                self.description = try container.decodeIfPresent(String.self, forKey: .description)
+                
+            } catch {
+                print("Decoding error for property 'description': \(error)")
+                throw error
+            }
+            do {
+                
+                self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
+                
+            } catch {
+                print("Decoding error for property 'avatar': \(error)")
+                throw error
+            }
+            do {
+                
+                self.indexedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
+                
+            } catch {
+                print("Decoding error for property 'viewer': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -376,42 +446,102 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.did = try container.decode(String.self, forKey: .did)
-            
-            
-            self.handle = try container.decode(String.self, forKey: .handle)
-            
-            
-            self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
-            
-            
-            self.description = try container.decodeIfPresent(String.self, forKey: .description)
-            
-            
-            self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
-            
-            
-            self.banner = try container.decodeIfPresent(String.self, forKey: .banner)
-            
-            
-            self.followersCount = try container.decodeIfPresent(Int.self, forKey: .followersCount)
-            
-            
-            self.followsCount = try container.decodeIfPresent(Int.self, forKey: .followsCount)
-            
-            
-            self.postsCount = try container.decodeIfPresent(Int.self, forKey: .postsCount)
-            
-            
-            self.indexedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .indexedAt)
-            
-            
-            self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
-            
-            
-            self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
-            
+            do {
+                
+                self.did = try container.decode(String.self, forKey: .did)
+                
+            } catch {
+                print("Decoding error for property 'did': \(error)")
+                throw error
+            }
+            do {
+                
+                self.handle = try container.decode(String.self, forKey: .handle)
+                
+            } catch {
+                print("Decoding error for property 'handle': \(error)")
+                throw error
+            }
+            do {
+                
+                self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+                
+            } catch {
+                print("Decoding error for property 'displayName': \(error)")
+                throw error
+            }
+            do {
+                
+                self.description = try container.decodeIfPresent(String.self, forKey: .description)
+                
+            } catch {
+                print("Decoding error for property 'description': \(error)")
+                throw error
+            }
+            do {
+                
+                self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
+                
+            } catch {
+                print("Decoding error for property 'avatar': \(error)")
+                throw error
+            }
+            do {
+                
+                self.banner = try container.decodeIfPresent(String.self, forKey: .banner)
+                
+            } catch {
+                print("Decoding error for property 'banner': \(error)")
+                throw error
+            }
+            do {
+                
+                self.followersCount = try container.decodeIfPresent(Int.self, forKey: .followersCount)
+                
+            } catch {
+                print("Decoding error for property 'followersCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.followsCount = try container.decodeIfPresent(Int.self, forKey: .followsCount)
+                
+            } catch {
+                print("Decoding error for property 'followsCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.postsCount = try container.decodeIfPresent(Int.self, forKey: .postsCount)
+                
+            } catch {
+                print("Decoding error for property 'postsCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.indexedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
+                
+            } catch {
+                print("Decoding error for property 'viewer': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -637,27 +767,62 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.muted = try container.decodeIfPresent(Bool.self, forKey: .muted)
-            
-            
-            self.mutedByList = try container.decodeIfPresent(AppBskyGraphDefs.ListViewBasic.self, forKey: .mutedByList)
-            
-            
-            self.blockedBy = try container.decodeIfPresent(Bool.self, forKey: .blockedBy)
-            
-            
-            self.blocking = try container.decodeIfPresent(ATProtocolURI.self, forKey: .blocking)
-            
-            
-            self.blockingByList = try container.decodeIfPresent(AppBskyGraphDefs.ListViewBasic.self, forKey: .blockingByList)
-            
-            
-            self.following = try container.decodeIfPresent(ATProtocolURI.self, forKey: .following)
-            
-            
-            self.followedBy = try container.decodeIfPresent(ATProtocolURI.self, forKey: .followedBy)
-            
+            do {
+                
+                self.muted = try container.decodeIfPresent(Bool.self, forKey: .muted)
+                
+            } catch {
+                print("Decoding error for property 'muted': \(error)")
+                throw error
+            }
+            do {
+                
+                self.mutedByList = try container.decodeIfPresent(AppBskyGraphDefs.ListViewBasic.self, forKey: .mutedByList)
+                
+            } catch {
+                print("Decoding error for property 'mutedByList': \(error)")
+                throw error
+            }
+            do {
+                
+                self.blockedBy = try container.decodeIfPresent(Bool.self, forKey: .blockedBy)
+                
+            } catch {
+                print("Decoding error for property 'blockedBy': \(error)")
+                throw error
+            }
+            do {
+                
+                self.blocking = try container.decodeIfPresent(ATProtocolURI.self, forKey: .blocking)
+                
+            } catch {
+                print("Decoding error for property 'blocking': \(error)")
+                throw error
+            }
+            do {
+                
+                self.blockingByList = try container.decodeIfPresent(AppBskyGraphDefs.ListViewBasic.self, forKey: .blockingByList)
+                
+            } catch {
+                print("Decoding error for property 'blockingByList': \(error)")
+                throw error
+            }
+            do {
+                
+                self.following = try container.decodeIfPresent(ATProtocolURI.self, forKey: .following)
+                
+            } catch {
+                print("Decoding error for property 'following': \(error)")
+                throw error
+            }
+            do {
+                
+                self.followedBy = try container.decodeIfPresent(ATProtocolURI.self, forKey: .followedBy)
+                
+            } catch {
+                print("Decoding error for property 'followedBy': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -803,9 +968,14 @@ public struct AdultContentPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.enabled = try container.decode(Bool.self, forKey: .enabled)
-            
+            do {
+                
+                self.enabled = try container.decode(Bool.self, forKey: .enabled)
+                
+            } catch {
+                print("Decoding error for property 'enabled': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -851,12 +1021,22 @@ public struct ContentLabelPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.label = try container.decode(String.self, forKey: .label)
-            
-            
-            self.visibility = try container.decode(String.self, forKey: .visibility)
-            
+            do {
+                
+                self.label = try container.decode(String.self, forKey: .label)
+                
+            } catch {
+                print("Decoding error for property 'label': \(error)")
+                throw error
+            }
+            do {
+                
+                self.visibility = try container.decode(String.self, forKey: .visibility)
+                
+            } catch {
+                print("Decoding error for property 'visibility': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -912,12 +1092,22 @@ public struct SavedFeedsPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.pinned = try container.decode([ATProtocolURI].self, forKey: .pinned)
-            
-            
-            self.saved = try container.decode([ATProtocolURI].self, forKey: .saved)
-            
+            do {
+                
+                self.pinned = try container.decode([ATProtocolURI].self, forKey: .pinned)
+                
+            } catch {
+                print("Decoding error for property 'pinned': \(error)")
+                throw error
+            }
+            do {
+                
+                self.saved = try container.decode([ATProtocolURI].self, forKey: .saved)
+                
+            } catch {
+                print("Decoding error for property 'saved': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -971,9 +1161,14 @@ public struct PersonalDetailsPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.birthDate = try container.decodeIfPresent(ATProtocolDate.self, forKey: .birthDate)
-            
+            do {
+                
+                self.birthDate = try container.decodeIfPresent(ATProtocolDate.self, forKey: .birthDate)
+                
+            } catch {
+                print("Decoding error for property 'birthDate': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -1033,24 +1228,54 @@ public struct FeedViewPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.feed = try container.decode(String.self, forKey: .feed)
-            
-            
-            self.hideReplies = try container.decodeIfPresent(Bool.self, forKey: .hideReplies)
-            
-            
-            self.hideRepliesByUnfollowed = try container.decodeIfPresent(Bool.self, forKey: .hideRepliesByUnfollowed)
-            
-            
-            self.hideRepliesByLikeCount = try container.decodeIfPresent(Int.self, forKey: .hideRepliesByLikeCount)
-            
-            
-            self.hideReposts = try container.decodeIfPresent(Bool.self, forKey: .hideReposts)
-            
-            
-            self.hideQuotePosts = try container.decodeIfPresent(Bool.self, forKey: .hideQuotePosts)
-            
+            do {
+                
+                self.feed = try container.decode(String.self, forKey: .feed)
+                
+            } catch {
+                print("Decoding error for property 'feed': \(error)")
+                throw error
+            }
+            do {
+                
+                self.hideReplies = try container.decodeIfPresent(Bool.self, forKey: .hideReplies)
+                
+            } catch {
+                print("Decoding error for property 'hideReplies': \(error)")
+                throw error
+            }
+            do {
+                
+                self.hideRepliesByUnfollowed = try container.decodeIfPresent(Bool.self, forKey: .hideRepliesByUnfollowed)
+                
+            } catch {
+                print("Decoding error for property 'hideRepliesByUnfollowed': \(error)")
+                throw error
+            }
+            do {
+                
+                self.hideRepliesByLikeCount = try container.decodeIfPresent(Int.self, forKey: .hideRepliesByLikeCount)
+                
+            } catch {
+                print("Decoding error for property 'hideRepliesByLikeCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.hideReposts = try container.decodeIfPresent(Bool.self, forKey: .hideReposts)
+                
+            } catch {
+                print("Decoding error for property 'hideReposts': \(error)")
+                throw error
+            }
+            do {
+                
+                self.hideQuotePosts = try container.decodeIfPresent(Bool.self, forKey: .hideQuotePosts)
+                
+            } catch {
+                print("Decoding error for property 'hideQuotePosts': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -1176,12 +1401,22 @@ public struct ThreadViewPref: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.sort = try container.decodeIfPresent(String.self, forKey: .sort)
-            
-            
-            self.prioritizeFollowedUsers = try container.decodeIfPresent(Bool.self, forKey: .prioritizeFollowedUsers)
-            
+            do {
+                
+                self.sort = try container.decodeIfPresent(String.self, forKey: .sort)
+                
+            } catch {
+                print("Decoding error for property 'sort': \(error)")
+                throw error
+            }
+            do {
+                
+                self.prioritizeFollowedUsers = try container.decodeIfPresent(Bool.self, forKey: .prioritizeFollowedUsers)
+                
+            } catch {
+                print("Decoding error for property 'prioritizeFollowedUsers': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

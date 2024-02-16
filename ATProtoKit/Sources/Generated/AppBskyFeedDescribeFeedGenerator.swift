@@ -22,9 +22,14 @@ public struct Feed: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
-            
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -70,12 +75,22 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.privacyPolicy = try container.decodeIfPresent(String.self, forKey: .privacyPolicy)
-            
-            
-            self.termsOfService = try container.decodeIfPresent(String.self, forKey: .termsOfService)
-            
+            do {
+                
+                self.privacyPolicy = try container.decodeIfPresent(String.self, forKey: .privacyPolicy)
+                
+            } catch {
+                print("Decoding error for property 'privacyPolicy': \(error)")
+                throw error
+            }
+            do {
+                
+                self.termsOfService = try container.decodeIfPresent(String.self, forKey: .termsOfService)
+                
+            } catch {
+                print("Decoding error for property 'termsOfService': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {

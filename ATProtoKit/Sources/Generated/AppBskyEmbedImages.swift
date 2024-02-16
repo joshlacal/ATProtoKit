@@ -63,15 +63,30 @@ public struct Image: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.image = try container.decode(Blob.self, forKey: .image)
-            
-            
-            self.alt = try container.decode(String.self, forKey: .alt)
-            
-            
-            self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
-            
+            do {
+                
+                self.image = try container.decode(Blob.self, forKey: .image)
+                
+            } catch {
+                print("Decoding error for property 'image': \(error)")
+                throw error
+            }
+            do {
+                
+                self.alt = try container.decode(String.self, forKey: .alt)
+                
+            } catch {
+                print("Decoding error for property 'alt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
+                
+            } catch {
+                print("Decoding error for property 'aspectRatio': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -143,12 +158,22 @@ public struct AspectRatio: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.width = try container.decode(Int.self, forKey: .width)
-            
-            
-            self.height = try container.decode(Int.self, forKey: .height)
-            
+            do {
+                
+                self.width = try container.decode(Int.self, forKey: .width)
+                
+            } catch {
+                print("Decoding error for property 'width': \(error)")
+                throw error
+            }
+            do {
+                
+                self.height = try container.decode(Int.self, forKey: .height)
+                
+            } catch {
+                print("Decoding error for property 'height': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -202,9 +227,14 @@ public struct View: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.images = try container.decode([ViewImage].self, forKey: .images)
-            
+            do {
+                
+                self.images = try container.decode([ViewImage].self, forKey: .images)
+                
+            } catch {
+                print("Decoding error for property 'images': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -254,18 +284,38 @@ public struct ViewImage: ATProtocolCodable, ATProtocolValue {
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.thumb = try container.decode(String.self, forKey: .thumb)
-            
-            
-            self.fullsize = try container.decode(String.self, forKey: .fullsize)
-            
-            
-            self.alt = try container.decode(String.self, forKey: .alt)
-            
-            
-            self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
-            
+            do {
+                
+                self.thumb = try container.decode(String.self, forKey: .thumb)
+                
+            } catch {
+                print("Decoding error for property 'thumb': \(error)")
+                throw error
+            }
+            do {
+                
+                self.fullsize = try container.decode(String.self, forKey: .fullsize)
+                
+            } catch {
+                print("Decoding error for property 'fullsize': \(error)")
+                throw error
+            }
+            do {
+                
+                self.alt = try container.decode(String.self, forKey: .alt)
+                
+            } catch {
+                print("Decoding error for property 'alt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
+                
+            } catch {
+                print("Decoding error for property 'aspectRatio': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
