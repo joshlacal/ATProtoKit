@@ -207,7 +207,7 @@ public class ATProtoClient {
     }
 
     public func performRequest(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
-        logRequest(request) // Log the request details
+        //logRequest(request) // Log the request details
         let (responseData, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.unknownError
@@ -231,7 +231,7 @@ public class ATProtoClient {
             }
         }
 
-        logResponse(httpResponse, data: responseData) // Log the response details
+        //logResponse(httpResponse, data: responseData) // Log the response details
         return (responseData, httpResponse)
     }
 

@@ -50,6 +50,11 @@ public struct ComAtprotoRepoStrongRef: ATProtocolCodable, ATProtocolValue {
             }
             return true
         }
+ 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
 
 
         private enum CodingKeys: String, CodingKey {

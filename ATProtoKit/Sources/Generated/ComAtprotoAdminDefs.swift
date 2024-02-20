@@ -44,6 +44,7 @@ public struct StatusAttr: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(applied, forKey: .applied)
             
@@ -78,7 +79,12 @@ public struct StatusAttr: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case applied
             case ref
         }
@@ -181,6 +187,7 @@ public struct ModEventView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(id, forKey: .id)
             
@@ -275,7 +282,12 @@ public struct ModEventView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case id
             case event
             case subject
@@ -364,6 +376,7 @@ public struct ModEventViewDetail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(id, forKey: .id)
             
@@ -428,7 +441,12 @@ public struct ModEventViewDetail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case id
             case event
             case subject
@@ -535,6 +553,7 @@ public struct ReportView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(id, forKey: .id)
             
@@ -629,7 +648,12 @@ public struct ReportView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case id
             case reasonType
             case comment
@@ -818,6 +842,7 @@ public struct SubjectStatusView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(id, forKey: .id)
             
@@ -1038,7 +1063,12 @@ public struct SubjectStatusView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case id
             case subject
             case subjectBlobCids
@@ -1155,6 +1185,7 @@ public struct ReportViewDetail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(id, forKey: .id)
             
@@ -1249,7 +1280,12 @@ public struct ReportViewDetail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case id
             case reasonType
             case comment
@@ -1368,6 +1404,7 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -1483,7 +1520,12 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
             case handle
             case email
@@ -1633,6 +1675,7 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -1793,7 +1836,12 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
             case handle
             case email
@@ -1926,6 +1974,7 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -2068,7 +2117,12 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
             case handle
             case email
@@ -2109,6 +2163,7 @@ public struct RepoViewNotFound: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -2128,7 +2183,12 @@ public struct RepoViewNotFound: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
         }
     }
@@ -2160,6 +2220,7 @@ public struct RepoRef: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -2179,7 +2240,12 @@ public struct RepoRef: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
         }
     }
@@ -2231,6 +2297,7 @@ public struct RepoBlobRef: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -2274,7 +2341,12 @@ public struct RepoBlobRef: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
             case cid
             case recordUri
@@ -2368,6 +2440,7 @@ public struct RecordView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -2441,7 +2514,12 @@ public struct RecordView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
             case cid
             case value
@@ -2549,6 +2627,7 @@ public struct RecordViewDetail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -2637,7 +2716,12 @@ public struct RecordViewDetail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
             case cid
             case value
@@ -2676,6 +2760,7 @@ public struct RecordViewNotFound: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -2695,7 +2780,12 @@ public struct RecordViewNotFound: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
         }
     }
@@ -2727,6 +2817,7 @@ public struct Moderation: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = subjectStatus {
                 try container.encode(value, forKey: .subjectStatus)
@@ -2752,7 +2843,12 @@ public struct Moderation: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case subjectStatus
         }
     }
@@ -2784,6 +2880,7 @@ public struct ModerationDetail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = subjectStatus {
                 try container.encode(value, forKey: .subjectStatus)
@@ -2809,7 +2906,12 @@ public struct ModerationDetail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case subjectStatus
         }
     }
@@ -2891,6 +2993,7 @@ public struct BlobView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(cid, forKey: .cid)
             
@@ -2967,7 +3070,12 @@ public struct BlobView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case cid
             case mimeType
             case size
@@ -3014,6 +3122,7 @@ public struct ImageDetails: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(width, forKey: .width)
             
@@ -3042,7 +3151,12 @@ public struct ImageDetails: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case width
             case height
         }
@@ -3095,6 +3209,7 @@ public struct VideoDetails: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(width, forKey: .width)
             
@@ -3132,7 +3247,12 @@ public struct VideoDetails: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case width
             case height
             case length
@@ -3176,6 +3296,7 @@ public struct ModEventTakedown: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3216,7 +3337,12 @@ public struct ModEventTakedown: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
             case durationInHours
         }
@@ -3249,6 +3375,7 @@ public struct ModEventReverseTakedown: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3274,7 +3401,12 @@ public struct ModEventReverseTakedown: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
         }
     }
@@ -3306,6 +3438,7 @@ public struct ModEventResolveAppeal: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3331,7 +3464,12 @@ public struct ModEventResolveAppeal: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
         }
     }
@@ -3373,6 +3511,7 @@ public struct ModEventComment: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(comment, forKey: .comment)
             
@@ -3407,7 +3546,12 @@ public struct ModEventComment: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
             case sticky
         }
@@ -3450,6 +3594,7 @@ public struct ModEventReport: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3484,7 +3629,12 @@ public struct ModEventReport: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
             case reportType
         }
@@ -3537,6 +3687,7 @@ public struct ModEventLabel: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3580,7 +3731,12 @@ public struct ModEventLabel: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
             case createLabelVals
             case negateLabelVals
@@ -3614,6 +3770,7 @@ public struct ModEventAcknowledge: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3639,7 +3796,12 @@ public struct ModEventAcknowledge: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
         }
     }
@@ -3671,6 +3833,7 @@ public struct ModEventEscalate: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3696,7 +3859,12 @@ public struct ModEventEscalate: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
         }
     }
@@ -3738,6 +3906,7 @@ public struct ModEventMute: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3772,7 +3941,12 @@ public struct ModEventMute: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
             case durationInHours
         }
@@ -3805,6 +3979,7 @@ public struct ModEventUnmute: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = comment {
                 try container.encode(value, forKey: .comment)
@@ -3830,7 +4005,12 @@ public struct ModEventUnmute: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case comment
         }
     }
@@ -3872,6 +4052,7 @@ public struct ModEventEmail: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(subjectLine, forKey: .subjectLine)
             
@@ -3906,7 +4087,12 @@ public struct ModEventEmail: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case subjectLine
             case comment
         }

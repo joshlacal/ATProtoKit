@@ -161,6 +161,7 @@
 		210EA9612B5AFD6B00602C46 /* ATProtoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */; };
 		214BD3742B790B3000B1625D /* JSONValueHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */; };
 		21628EF52B6F2441001D10E5 /* DIDDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */; };
+		21E348792B84D10500542BEC /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = 21E348782B84D10500542BEC /* DomainParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				210EA94E2B5AFD0A00602C46 /* ZippyJSON in Frameworks */,
+				21E348792B84D10500542BEC /* DomainParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +598,7 @@
 			name = ATProtoKit;
 			packageProductDependencies = (
 				210EA94D2B5AFD0A00602C46 /* ZippyJSON */,
+				21E348782B84D10500542BEC /* DomainParser */,
 			);
 			productName = ATProtoKit;
 			productReference = 210EA8192B5AF92800602C46 /* ATProtoKit.framework */;
@@ -648,6 +651,7 @@
 			mainGroup = 210EA80F2B5AF92800602C46;
 			packageReferences = (
 				210EA94C2B5AFD0A00602C46 /* XCRemoteSwiftPackageReference "ZippyJSON" */,
+				21E348772B84D10500542BEC /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
 			);
 			productRefGroup = 210EA81A2B5AF92800602C46 /* Products */;
 			projectDirPath = "";
@@ -1132,6 +1136,14 @@
 				minimumVersion = 1.2.10;
 			};
 		};
+		21E348772B84D10500542BEC /* XCRemoteSwiftPackageReference "SwiftDomainParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dashlane/SwiftDomainParser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1139,6 +1151,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 210EA94C2B5AFD0A00602C46 /* XCRemoteSwiftPackageReference "ZippyJSON" */;
 			productName = ZippyJSON;
+		};
+		21E348782B84D10500542BEC /* DomainParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21E348772B84D10500542BEC /* XCRemoteSwiftPackageReference "SwiftDomainParser" */;
+			productName = DomainParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

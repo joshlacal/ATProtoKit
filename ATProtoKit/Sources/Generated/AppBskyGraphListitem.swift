@@ -12,8 +12,11 @@ public struct AppBskyGraphListitem: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(subject: String, list: ATProtocolURI, createdAt: ATProtocolDate) {
+            
             self.subject = subject
+            
             self.list = list
+            
             self.createdAt = createdAt
             
         }
@@ -29,10 +32,13 @@ public struct AppBskyGraphListitem: ATProtocolCodable, ATProtocolValue {
             
             
             self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            }
+            
+        }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(subject, forKey: .subject)
             
@@ -43,7 +49,7 @@ public struct AppBskyGraphListitem: ATProtocolCodable, ATProtocolValue {
             try container.encode(createdAt, forKey: .createdAt)
             
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -67,7 +73,7 @@ public struct AppBskyGraphListitem: ATProtocolCodable, ATProtocolValue {
             
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             hasher.combine(subject)
@@ -76,6 +82,7 @@ public struct AppBskyGraphListitem: ATProtocolCodable, ATProtocolValue {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case subject
             case list
             case createdAt

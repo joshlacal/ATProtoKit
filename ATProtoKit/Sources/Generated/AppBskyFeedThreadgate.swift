@@ -12,8 +12,11 @@ public struct AppBskyFeedThreadgate: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(post: ATProtocolURI, allow: [AppBskyFeedThreadgateAllowUnion]?, createdAt: ATProtocolDate) {
+            
             self.post = post
+            
             self.allow = allow
+            
             self.createdAt = createdAt
             
         }
@@ -29,10 +32,13 @@ public struct AppBskyFeedThreadgate: ATProtocolCodable, ATProtocolValue {
             
             
             self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            }
+            
+        }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(post, forKey: .post)
             
@@ -45,7 +51,7 @@ public struct AppBskyFeedThreadgate: ATProtocolCodable, ATProtocolValue {
             try container.encode(createdAt, forKey: .createdAt)
             
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -69,7 +75,7 @@ public struct AppBskyFeedThreadgate: ATProtocolCodable, ATProtocolValue {
             
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             hasher.combine(post)
@@ -82,6 +88,7 @@ public struct AppBskyFeedThreadgate: ATProtocolCodable, ATProtocolValue {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case post
             case allow
             case createdAt
@@ -104,6 +111,7 @@ public struct MentionRule: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -114,6 +122,13 @@ public struct MentionRule: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+        }
     }
         
 public struct FollowingRule: ATProtocolCodable, ATProtocolValue {
@@ -133,6 +148,7 @@ public struct FollowingRule: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -143,6 +159,13 @@ public struct FollowingRule: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+        }
     }
         
 public struct ListRule: ATProtocolCodable, ATProtocolValue {
@@ -172,6 +195,7 @@ public struct ListRule: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(list, forKey: .list)
             
@@ -191,7 +215,12 @@ public struct ListRule: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case list
         }
     }

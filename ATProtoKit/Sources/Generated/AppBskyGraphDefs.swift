@@ -94,6 +94,7 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -185,7 +186,12 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
             case cid
             case name
@@ -313,6 +319,7 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -437,7 +444,12 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
             case cid
             case creator
@@ -488,6 +500,7 @@ public struct ListItemView: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -516,7 +529,12 @@ public struct ListItemView: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
             case subject
         }
@@ -559,6 +577,7 @@ public struct ListViewerState: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = muted {
                 try container.encode(value, forKey: .muted)
@@ -599,7 +618,12 @@ public struct ListViewerState: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case muted
             case blocked
         }

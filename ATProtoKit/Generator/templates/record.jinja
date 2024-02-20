@@ -6,7 +6,7 @@
         public init({% for prop in properties -%}
                     {{ prop.name }}: {{ prop.type }}{% if prop.optional %}?{% endif %}{% if not loop.last %}, {% endif %}
                     {%- endfor %}) {
-            {% for prop in properties -%}
+            {% for prop in properties %}
             self.{{ prop.name }} = {{ prop.name }}
             {% endfor %}
         }
@@ -20,11 +20,13 @@
             {% else %}
             self.{{ prop.name }} = try container.decode({{ prop.type }}.self, forKey: .{{ prop.name }})
             {% endif %}
-            {%- endfor -%}
+            {%- endfor %}
         }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             {%- for prop in properties %}
             {% if prop.optional %}
             if let value = {{ prop.name }} {
@@ -35,7 +37,7 @@
             {% endif %}
             {%- endfor %}
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -55,7 +57,7 @@
             {%- endfor %}
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             {%- for prop in properties %}
@@ -72,6 +74,7 @@
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             {%- for prop in properties %}
             case {{ prop.name }}
             {%- endfor %}

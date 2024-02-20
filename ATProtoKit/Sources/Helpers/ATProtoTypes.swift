@@ -13,10 +13,7 @@ public protocol ATProtocolValue: ATProtocolCodable, Codable, Equatable, Hashable
     func isEqual(to other: any ATProtocolValue) -> Bool
 }
 
-/*
  // MARK: URIs
- public typealias ATProtocolURI = String */
-// public typealias URI = String
 
 public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, CustomStringConvertible {
     let authority: String
@@ -44,14 +41,14 @@ public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolV
     }
 
     init?(uriString: String) {
-        guard uriString.hasPrefix("at://"),
-              uriString.utf8.count <= 8192,
-              !uriString.contains(".."),
-              !uriString.contains("//"),
-              !uriString.hasSuffix("/")
-        else {
-            return nil
-        }
+//        guard uriString.hasPrefix("at://"),
+//              uriString.utf8.count <= 8192,
+//              !uriString.contains(".."),
+//              !uriString.contains("//"),
+//              !uriString.hasSuffix("/")
+//        else {
+//            return nil
+//        }
 
         let components = uriString.dropFirst("at://".count).split(separator: "/", omittingEmptySubsequences: true)
 
@@ -113,19 +110,20 @@ public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, Cust
 
         self.scheme = urlComponents?.scheme ?? ""
         self.authority = urlComponents?.host ?? ""
-        self.path = (((urlComponents?.path.isEmpty) == nil)) ? urlComponents?.path : nil
+        if let pathComponent = urlComponents?.path, !pathComponent.isEmpty {
+            self.path = pathComponent
+        } else {
+            self.path = nil
+        }
         self.query = urlComponents?.query
         self.fragment = urlComponents?.fragment
     }
 
     init(uriString: String) {
-        // Use URLComponents without throwing an error if components are missing
         let urlComponents = URLComponents(string: uriString)
 
-        // Default to an empty string if the scheme or host isn't found
         self.scheme = urlComponents?.scheme ?? ""
         self.authority = urlComponents?.host ?? ""
-        // Directly assign other components, which can be nil
         self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
         self.query = urlComponents?.query
         self.fragment = urlComponents?.fragment
@@ -143,19 +141,19 @@ public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, Cust
         components.query = query
         components.fragment = fragment
 
-        return components.string ?? ""
+        let constructedURI = components.string ?? ""
+        return constructedURI
     }
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
         guard let otherURI = other as? URI else {
             return false
         }
-
         return scheme == otherURI.scheme &&
-            authority == otherURI.authority &&
-            path == otherURI.path &&
-            query == otherURI.query &&
-            fragment == otherURI.fragment
+               authority == otherURI.authority &&
+               path == otherURI.path &&
+               query == otherURI.query &&
+               fragment == otherURI.fragment
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -287,11 +285,7 @@ public struct Bytes: Codable, ATProtocolCodable, Hashable, Equatable, Sendable {
     }
 }
 
-extension AppBskyFeedDefs.FeedViewPost: Identifiable, Equatable {
-    public static func == (lhs: AppBskyFeedDefs.FeedViewPost, rhs: AppBskyFeedDefs.FeedViewPost) -> Bool {
-        return lhs.id == rhs.id
-    }
-
+extension AppBskyFeedDefs.FeedViewPost: Identifiable {
     public var id: String {
         if case .appBskyFeedDefsReasonRepost(let reasonRepost) = reason {
             let reposterHandle = reasonRepost.by.handle

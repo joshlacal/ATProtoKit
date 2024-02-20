@@ -50,6 +50,11 @@ public struct AppBskyRichtextFacet: ATProtocolCodable, ATProtocolValue {
             }
             return true
         }
+ 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
 
 
         private enum CodingKeys: String, CodingKey {
@@ -84,6 +89,7 @@ public struct Mention: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -103,7 +109,12 @@ public struct Mention: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
         }
     }
@@ -135,6 +146,7 @@ public struct Link: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(uri, forKey: .uri)
             
@@ -154,7 +166,12 @@ public struct Link: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case uri
         }
     }
@@ -186,6 +203,7 @@ public struct Tag: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(tag, forKey: .tag)
             
@@ -205,7 +223,12 @@ public struct Tag: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case tag
         }
     }
@@ -247,6 +270,7 @@ public struct ByteSlice: ATProtocolCodable, ATProtocolValue {
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(byteStart, forKey: .byteStart)
             
@@ -275,7 +299,12 @@ public struct ByteSlice: ATProtocolCodable, ATProtocolValue {
             return true
         }
 
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case byteStart
             case byteEnd
         }

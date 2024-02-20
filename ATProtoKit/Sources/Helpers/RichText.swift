@@ -61,28 +61,32 @@ public func extractByteSlice(from string: String, byteStart: Int, byteEnd: Int) 
 
 
 
+import Foundation
+
 public struct TextSegment {
     let start: Int
     let end: Int
     let value: String
 }
 
-
-
 public func parseMentionsAndLinks(in text: String) -> ([TextSegment], [TextSegment]) {
     let mentionPattern = "@([a-zA-Z0-9_-]+)"
     let urlPattern = "(https?:\\/\\/[a-zA-Z0-9\\.\\-\\_\\/?=&]+)"
-    
-    let mentionRegex = try! NSRegularExpression(pattern: mentionPattern, options: [])
-    let urlRegex = try! NSRegularExpression(pattern: urlPattern, options: [])
 
-    let nsText = text as NSString
+    let mentions = text.ranges(of: mentionPattern).map { range -> TextSegment in
+        let value = String(text[range])
+        return TextSegment(start: text.distance(from: text.startIndex, to: range.lowerBound),
+                           end: text.distance(from: text.startIndex, to: range.upperBound),
+                           value: value)
+    }
 
-    let mentionMatches = mentionRegex.matches(in: text, options: [], range: NSRange(location: 0, length: nsText.length))
-    let urlMatches = urlRegex.matches(in: text, options: [], range: NSRange(location: 0, length: nsText.length))
-
-    let mentions = mentionMatches.map { TextSegment(start: $0.range.location, end: $0.range.location + $0.range.length, value: nsText.substring(with: $0.range)) }
-    let urls = urlMatches.map { TextSegment(start: $0.range.location, end: $0.range.location + $0.range.length, value: nsText.substring(with: $0.range)) }
+    let urls = text.ranges(of: urlPattern).map { range -> TextSegment in
+        // Extract the match and its range
+        let value = String(text[range])
+        return TextSegment(start: text.distance(from: text.startIndex, to: range.lowerBound),
+                           end: text.distance(from: text.startIndex, to: range.upperBound),
+                           value: value)
+    }
 
     return (mentions, urls)
 }

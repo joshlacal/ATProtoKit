@@ -1453,91 +1453,55 @@ public indirect enum JSONValue: Codable, ATProtocolCodable, ATProtocolValue {
         }
     }
 
-    private static func decodeAny(from container: KeyedDecodingContainer<DynamicCodingKeys>) throws -> JSONValue {
+        private static func decodeAny(from container: KeyedDecodingContainer<DynamicCodingKeys>) throws -> JSONValue {
         var dictionary = [String: JSONValue]()
         for key in container.allKeys {
-            print("Decoding key: \(key.stringValue)")
-
-            // Attempt to decode as an object
-            if let _ = try? container.decodeIfPresent([String: JSONValue].self, forKey: key) {
-                do {
-                    print("Detected an object for key: \(key.stringValue), attempting to decode.")
-                    let nestedContainer = try container.nestedContainer(keyedBy: DynamicCodingKeys.self, forKey: key)
-                    let object = try decodeAny(from: nestedContainer)
-                    dictionary[key.stringValue] = .object([key.stringValue: object])
-                    print("Successfully decoded object for key: \(key.stringValue)")
-                } catch {
-                    print("Failed to decode object for key: \(key.stringValue): \(error)")
-                    // Handle the error or throw if necessary
+            if let boolValue = try? container.decode(Bool.self, forKey: key) {
+                dictionary[key.stringValue] = .bool(boolValue)
+            } else if let intValue = try? container.decode(Int.self, forKey: key) {
+                dictionary[key.stringValue] = .number(intValue)
+            } else if let doubleValue = try? container.decode(Double.self, forKey: key) {
+                dictionary[key.stringValue] = .bigNumber(String(doubleValue))
+            } else if let stringValue = try? container.decode(String.self, forKey: key) {
+                dictionary[key.stringValue] = .string(stringValue)
+            } else if let nestedContainer = try? container.nestedContainer(keyedBy: DynamicCodingKeys.self, forKey: key) {
+                dictionary[key.stringValue] = try decodeAny(from: nestedContainer)
+            } else if var arrayContainer = try? container.nestedUnkeyedContainer(forKey: key) {
+                var array = [JSONValue]()
+                while !arrayContainer.isAtEnd {
+                    let value = try arrayContainer.decode(JSONValue.self)
+                    array.append(value)
                 }
-            }
-            // Attempt to decode as an array
-            else if var arrayContainer = try? container.nestedUnkeyedContainer(forKey: key) {
-                do {
-                    print("Detected an array for key: \(key.stringValue), attempting to decode.")
-                    var array = [JSONValue]()
-                    while !arrayContainer.isAtEnd {
-                        let value = try arrayContainer.decode(JSONValue.self)
-                        array.append(value)
-                    }
-                    dictionary[key.stringValue] = .array(array)
-                    print("Successfully decoded array for key: \(key.stringValue)")
-                } catch {
-                    print("Failed to decode array for key: \(key.stringValue): \(error)")
-                    // Handle the error or throw if necessary
-                }
-            }
-            // Fallback for other types
-            else {
-                print("Attempting to decode value for key: \(key.stringValue) as a primitive type.")
-                if let boolValue = try? container.decodeIfPresent(Bool.self, forKey: key) {
-                    dictionary[key.stringValue] = .bool(boolValue)
-                    print("Successfully decoded Bool for key: \(key.stringValue)")
-                } else if let intValue = try? container.decodeIfPresent(Int.self, forKey: key) {
-                    dictionary[key.stringValue] = .number(intValue)
-                    print("Successfully decoded Int for key: \(key.stringValue)")
-                } else if let stringValue = try? container.decodeIfPresent(String.self, forKey: key) {
-                    dictionary[key.stringValue] = .string(stringValue)
-                    print("Successfully decoded String for key: \(key.stringValue)")
-                } else {
-                    print("Failed to decode known type for key: \(key.stringValue), marking as unknown.")
-                    dictionary[key.stringValue] = .unknownType(key.stringValue, .null) // Or handle this case as you see fit
-                }
+                dictionary[key.stringValue] = .array(array)
+            } else {
+                throw DecodingError.dataCorruptedError(forKey: key, in: container, debugDescription: "Cannot decode value")
             }
         }
         return .object(dictionary)
     }
 
-
-    private static func decodeAny(from unkeyedContainer: inout UnkeyedDecodingContainer) throws -> [JSONValue] {
-        var array = [JSONValue]()
+    private static func decodeAny(from unkeyedContainer: inout UnkeyedDecodingContainer) throws -> [Any] {
+        // For decoding arrays
+        var array = [Any]()
         while !unkeyedContainer.isAtEnd {
-            print("Attempting to decode array element.")
             if let value = try? unkeyedContainer.decode(Bool.self) {
-                array.append(.bool(value))
-                print("Successfully decoded Bool.")
+                array.append(value)
             } else if let value = try? unkeyedContainer.decode(Int.self) {
-                array.append(.number(value))
-                print("Successfully decoded Int.")
+                array.append(value)
             } else if let value = try? unkeyedContainer.decode(Double.self) {
-                array.append(.bigNumber(String(value)))
-                print("Successfully decoded Double as BigNumber.")
+                array.append(value)
             } else if let value = try? unkeyedContainer.decode(String.self) {
-                array.append(.string(value))
-                print("Successfully decoded String.")
+                array.append(value)
             } else if let nestedContainer = try? unkeyedContainer.nestedContainer(keyedBy: DynamicCodingKeys.self) {
-                let nestedObject = try decodeAny(from: nestedContainer)
-                array.append(nestedObject)
-                print("Successfully decoded nested object.")
+                array.append(try decodeAny(from: nestedContainer))
             } else if var nestedArrayContainer = try? unkeyedContainer.nestedUnkeyedContainer() {
-                let nestedArray = try decodeAny(from: &nestedArrayContainer)
-                array.append(.array(nestedArray))
-                print("Successfully decoded nested array.")
+                array.append(try decodeAny(from: &nestedArrayContainer))
             } else {
-                throw DecodingError.dataCorruptedError(in: unkeyedContainer, debugDescription: "Cannot decode array element.")
+                throw DecodingError.dataCorruptedError(in: unkeyedContainer, debugDescription: "Cannot decode array element")
             }
         }
         return array
     }
+
 
 }

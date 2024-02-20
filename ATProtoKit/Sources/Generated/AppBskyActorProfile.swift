@@ -14,10 +14,15 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(displayName: String?, description: String?, avatar: Blob?, banner: Blob?, labels: AppBskyActorProfileLabelsUnion?) {
+            
             self.displayName = displayName
+            
             self.description = description
+            
             self.avatar = avatar
+            
             self.banner = banner
+            
             self.labels = labels
             
         }
@@ -39,10 +44,13 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             
             
             self.labels = try container.decodeIfPresent(AppBskyActorProfileLabelsUnion.self, forKey: .labels)
-            }
+            
+        }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             if let value = displayName {
                 try container.encode(value, forKey: .displayName)
@@ -69,7 +77,7 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             }
             
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -103,7 +111,7 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             if let value = displayName {
@@ -134,6 +142,7 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case displayName
             case description
             case avatar

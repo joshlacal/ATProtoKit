@@ -16,12 +16,19 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(did: String, displayName: String, description: String?, descriptionFacets: [AppBskyRichtextFacet]?, avatar: Blob?, labels: AppBskyFeedGeneratorLabelsUnion?, createdAt: ATProtocolDate) {
+            
             self.did = did
+            
             self.displayName = displayName
+            
             self.description = description
+            
             self.descriptionFacets = descriptionFacets
+            
             self.avatar = avatar
+            
             self.labels = labels
+            
             self.createdAt = createdAt
             
         }
@@ -49,10 +56,13 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
             
             
             self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            }
+            
+        }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(did, forKey: .did)
             
@@ -83,7 +93,7 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
             try container.encode(createdAt, forKey: .createdAt)
             
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -127,7 +137,7 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
             
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             hasher.combine(did)
@@ -156,6 +166,7 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case did
             case displayName
             case description

@@ -11,7 +11,9 @@ public struct AppBskyFeedRepost: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(subject: ComAtprotoRepoStrongRef, createdAt: ATProtocolDate) {
+            
             self.subject = subject
+            
             self.createdAt = createdAt
             
         }
@@ -24,10 +26,13 @@ public struct AppBskyFeedRepost: ATProtocolCodable, ATProtocolValue {
             
             
             self.createdAt = try container.decode(ATProtocolDate.self, forKey: .createdAt)
-            }
+            
+        }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode the $type field
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
             try container.encode(subject, forKey: .subject)
             
@@ -35,7 +40,7 @@ public struct AppBskyFeedRepost: ATProtocolCodable, ATProtocolValue {
             try container.encode(createdAt, forKey: .createdAt)
             
         }
-                                        
+                                            
         public static func == (lhs: Self, rhs: Self) -> Bool {
             return lhs.isEqual(to: rhs)
         }
@@ -54,7 +59,7 @@ public struct AppBskyFeedRepost: ATProtocolCodable, ATProtocolValue {
             
             return true
         }
-
+        
 
         public func hash(into hasher: inout Hasher) {
             hasher.combine(subject)
@@ -62,6 +67,7 @@ public struct AppBskyFeedRepost: ATProtocolCodable, ATProtocolValue {
         }
 
         private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
             case subject
             case createdAt
         }
