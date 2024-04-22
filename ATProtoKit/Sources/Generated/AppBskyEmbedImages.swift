@@ -288,14 +288,14 @@ public struct View: ATProtocolCodable, ATProtocolValue {
         
 public struct ViewImage: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "app.bsky.embed.images#viewImage"
-            public let thumb: String
-            public let fullsize: String
+            public let thumb: URI
+            public let fullsize: URI
             public let alt: String
             public let aspectRatio: AspectRatio?
 
         // Standard initializer
         public init(
-            thumb: String, fullsize: String, alt: String, aspectRatio: AspectRatio?
+            thumb: URI, fullsize: URI, alt: String, aspectRatio: AspectRatio?
         ) {
             
             self.thumb = thumb
@@ -309,7 +309,7 @@ public struct ViewImage: ATProtocolCodable, ATProtocolValue {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             do {
                 
-                self.thumb = try container.decode(String.self, forKey: .thumb)
+                self.thumb = try container.decode(URI.self, forKey: .thumb)
                 
             } catch {
                 print("Decoding error for property 'thumb': \(error)")
@@ -317,7 +317,7 @@ public struct ViewImage: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.fullsize = try container.decode(String.self, forKey: .fullsize)
+                self.fullsize = try container.decode(URI.self, forKey: .fullsize)
                 
             } catch {
                 print("Decoding error for property 'fullsize': \(error)")

@@ -1,7 +1,7 @@
     {% if is_type_alias %}
     public typealias Output = {{ type_alias_target }}
     {% else %}
-    public struct Output: Codable { 
+    public struct Output: ATProtocolCodable { 
         {% for prop in properties %}
         public let {{ prop.name }}: {{ prop.type }}{% if prop.optional %}?{% endif %}
         {% endfor %}

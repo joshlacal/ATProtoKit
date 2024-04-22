@@ -26,7 +26,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         
         // Standard public initializer
@@ -41,17 +41,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.Com.Atproto.Sync {
-    /// Get blocks needed for existence or non-existence of record. 
+    /// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
     public func getRecord(input: ComAtprotoSyncGetRecord.Parameters) async throws -> (responseCode: Int, data: ComAtprotoSyncGetRecord.Output?) {
         let endpoint = "/com.atproto.sync.getRecord"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoSyncGetRecord.Output.self, from: responseData)
         return (responseCode, decodedData)

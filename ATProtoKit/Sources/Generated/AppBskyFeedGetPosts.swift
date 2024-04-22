@@ -17,7 +17,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let posts: [AppBskyFeedDefs.PostView]
         
@@ -38,17 +38,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Feed {
-    /// Get a view of an actor's feed. 
+    /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
     public func getPosts(input: AppBskyFeedGetPosts.Parameters) async throws -> (responseCode: Int, data: AppBskyFeedGetPosts.Output?) {
         let endpoint = "/app.bsky.feed.getPosts"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedGetPosts.Output.self, from: responseData)
         return (responseCode, decodedData)

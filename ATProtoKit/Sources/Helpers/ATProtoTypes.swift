@@ -7,15 +7,17 @@
 
 import Foundation
 
-public protocol ATProtocolCodable: Codable, Equatable, Hashable, Sendable {}
+public protocol ATProtocolCodable: Codable, Sendable {}
 
-public protocol ATProtocolValue: ATProtocolCodable, Codable, Equatable, Hashable {
+public protocol ATProtocolValue: ATProtocolCodable, Equatable, Hashable {
     func isEqual(to other: any ATProtocolValue) -> Bool
 }
 
  // MARK: URIs
 
-public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, CustomStringConvertible {
+public struct ATProtocolURI: ATProtocolValue, CustomStringConvertible, QueryParameterConvertible {
+    
+    
     let authority: String
     let collection: String?
     let recordKey: String?
@@ -40,7 +42,7 @@ public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolV
         self.recordKey = components.count > 2 ? String(components[2]) : nil
     }
 
-    init?(uriString: String) {
+    public init?(uriString: String) {
 //        guard uriString.hasPrefix("at://"),
 //              uriString.utf8.count <= 8192,
 //              !uriString.contains(".."),
@@ -93,14 +95,24 @@ public struct ATProtocolURI: Equatable, Codable, Hashable, Sendable, ATProtocolV
         let uriString = self.uriString()
         try container.encode(uriString)
     }
+    
+    func asQueryItem(name: String) -> URLQueryItem? {
+        return URLQueryItem(name: name, value: self.uriString())
+    }
+
 }
 
-public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, CustomStringConvertible {
+public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConvertible, ExpressibleByStringLiteral {
     let scheme: String
     let authority: String
     let path: String?
     let query: String?
     let fragment: String?
+    
+    enum URIError: Error {
+        case invalidScheme
+        case invalidURI
+    }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -122,28 +134,58 @@ public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, Cust
     init(uriString: String) {
         let urlComponents = URLComponents(string: uriString)
 
-        self.scheme = urlComponents?.scheme ?? ""
+        // Fallback to a default scheme if necessary or handle the error appropriately.
+        let defaultScheme = "https"
+        self.scheme = urlComponents?.scheme ?? defaultScheme
         self.authority = urlComponents?.host ?? ""
         self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
         self.query = urlComponents?.query
         self.fragment = urlComponents?.fragment
     }
 
-    public var description: String {
-        return uriString()
+    func isValid() -> Bool {
+        // Ensure the scheme and authority are not empty as a basic validation
+        // You can add more validation rules as needed.
+        return !scheme.isEmpty && !authority.isEmpty
+    }
+
+    func asQueryItem(name: String) -> URLQueryItem? {
+        // Validate the URI before converting it to a string.
+        guard self.isValid() else {
+            return nil
+        }
+        // Since uriString is not throwing, we can use it directly.
+        return URLQueryItem(name: name, value: self.uriString())
     }
 
     public func uriString() -> String {
+        // Construct the URI string without error throwing.
+        // This will use the existing logic but won't throw errors.
         var components = URLComponents()
-        components.scheme = scheme
+        components.scheme = scheme.isEmpty ? nil : scheme
         components.host = authority
         components.path = path ?? ""
         components.query = query
         components.fragment = fragment
-
-        let constructedURI = components.string ?? ""
-        return constructedURI
+        // If the URI components are not valid, return an empty string or some form of indication.
+        return components.string ?? "invalid-uri"
     }
+
+    // Conform to ExpressibleByStringLiteral
+    public init(stringLiteral value: String) {
+        self.init(uriString: value)
+    }
+
+    // Conform to LosslessStringConvertible
+    public init?(_ description: String) {
+        self.init(uriString: description)
+    }
+
+    // Update the description property to return the uriString directly
+    public var description: String {
+        return uriString()
+    }
+
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
         guard let otherURI = other as? URI else {
@@ -161,6 +203,8 @@ public struct URI: Equatable, Codable, Hashable, Sendable, ATProtocolValue, Cust
         let uriString = self.uriString()
         try container.encode(uriString)
     }
+    
+
 }
 
 // MARK: Blob
@@ -307,8 +351,8 @@ extension AppBskyFeedDefs.FeedViewPost: Identifiable {
             return notFoundPost.uri.uriString()
         case .appBskyFeedDefsBlockedPost(let blockedPost):
             return blockedPost.uri.uriString()
-        case .unexpected(let jsonValue):
-            return jsonValue.textRepresentation
+        case .unexpected(let ATProtocolValueContainer):
+            return ATProtocolValueContainer.hashValue.description
         }
     }
 
@@ -320,16 +364,16 @@ extension AppBskyFeedDefs.FeedViewPost: Identifiable {
             return notFoundPost.uri.uriString()
         case .appBskyFeedDefsBlockedPost(let blockedPost):
             return blockedPost.uri.uriString()
-        case .unexpected(let jsonValue):
-            return jsonValue.textRepresentation
+        case .unexpected(let ATProtocolValueContainer):
+            return ATProtocolValueContainer.hashValue.description
         }
     }
 }
-
-extension JSONValue: Equatable {
-    public static func == (lhs: JSONValue, rhs: JSONValue) -> Bool {
+/*
+extension ATProtocolValueContainer: Equatable {
+    public static func == (lhs: ATProtocolValueContainer, rhs: ATProtocolValueContainer) -> Bool {
         switch (lhs, rhs) {
-        case (.custom(let lhsValue), .custom(let rhsValue)):
+        case (.knownType(let lhsValue), .knownType(let rhsValue)):
             return lhsValue.isEqual(to: rhsValue)
         case (.string(let lhsValue), .string(let rhsValue)):
             return lhsValue == rhsValue
@@ -359,12 +403,12 @@ extension JSONValue: Equatable {
     }
 }
 
-public extension JSONValue {
+public extension ATProtocolValueContainer {
     func isEqual(to other: any ATProtocolValue) -> Bool {
-        guard let otherValue = other as? JSONValue else { return false }
+        guard let otherValue = other as? ATProtocolValueContainer else { return false }
 
         switch (self, otherValue) {
-        case (.custom(let lhsValue), .custom(let rhsValue)):
+        case (.knownType(let lhsValue), .knownType(let rhsValue)):
             return lhsValue.isEqual(to: rhsValue)
         case (.string(let lhsValue), .string(let rhsValue)):
             return lhsValue == rhsValue
@@ -394,10 +438,10 @@ public extension JSONValue {
     }
 }
 
-extension JSONValue: Hashable {
+extension ATProtocolValueContainer: Hashable {
     public func hash(into hasher: inout Hasher) {
         switch self {
-        case .custom(let customValue):
+        case .knownType(let customValue):
             customValue.hash(into: &hasher)
         case .string(let stringValue):
             hasher.combine("string")
@@ -435,3 +479,4 @@ extension JSONValue: Hashable {
         }
     }
 }
+ */

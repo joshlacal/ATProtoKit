@@ -317,7 +317,7 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
                 case appBskyRichtextFacetMention(AppBskyRichtextFacet.Mention)
                 case appBskyRichtextFacetLink(AppBskyRichtextFacet.Link)
                 case appBskyRichtextFacetTag(AppBskyRichtextFacet.Tag)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -339,7 +339,7 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
                         self = .appBskyRichtextFacetTag(value)
                     default:
                         print("AppBskyRichtextFacetFeaturesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -360,9 +360,9 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
                         print("Encoding app.bsky.richtext.facet#tag")
                         try container.encode("app.bsky.richtext.facet#tag", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyRichtextFacetFeaturesUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -377,9 +377,9 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
                     case .appBskyRichtextFacetTag(let value):
                         hasher.combine("app.bsky.richtext.facet#tag")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -407,6 +407,7 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
                     }
                 }
             }
+
 
 
 }

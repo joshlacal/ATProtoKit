@@ -23,7 +23,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -50,17 +50,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Feed {
-    /// Get a view of the actor's home timeline. 
+    /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
     public func getTimeline(input: AppBskyFeedGetTimeline.Parameters) async throws -> (responseCode: Int, data: AppBskyFeedGetTimeline.Output?) {
         let endpoint = "/app.bsky.feed.getTimeline"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedGetTimeline.Output.self, from: responseData)
         return (responseCode, decodedData)

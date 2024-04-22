@@ -84,7 +84,7 @@ public struct AppPassword: ATProtocolCodable, ATProtocolValue {
         }
     }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let passwords: [AppPassword]
         
@@ -111,16 +111,23 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 
 extension ATProtoClient.Com.Atproto.Server {
-    /// List all App Passwords. 
+    /// List all App Passwords.
     public func listAppPasswords() async throws -> (responseCode: Int, data: ComAtprotoServerListAppPasswords.Output?) {
         let endpoint = "/com.atproto.server.listAppPasswords"
         
         
-        // Perform a GET request without a body or query items
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", body: nil)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint,
+            method: "GET",
+            headers: [:],
+            body: nil,
+            queryItems: nil
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerListAppPasswords.Output.self, from: responseData)
         return (responseCode, decodedData)

@@ -153,7 +153,7 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
         }
     }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let did: String
         
@@ -186,16 +186,23 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Feed {
-    /// Get information about a feed generator, including policies and offered feed URIs. 
+    /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
     public func describeFeedGenerator() async throws -> (responseCode: Int, data: AppBskyFeedDescribeFeedGenerator.Output?) {
         let endpoint = "/app.bsky.feed.describeFeedGenerator"
         
         
-        // Perform a GET request without a body or query items
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", body: nil)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint,
+            method: "GET",
+            headers: [:],
+            body: nil,
+            queryItems: nil
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedDescribeFeedGenerator.Output.self, from: responseData)
         return (responseCode, decodedData)

@@ -6,21 +6,25 @@ import ZippyJSON
 
 public struct ComAtprotoServerCreateAccount { 
     public static let typeIdentifier = "com.atproto.server.createAccount"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let email: String?
             public let handle: String
             public let did: String?
             public let inviteCode: String?
+            public let verificationCode: String?
+            public let verificationPhone: String?
             public let password: String?
             public let recoveryKey: String?
-            public let plcOp: JSONValue?
+            public let plcOp: ATProtocolValueContainer?
 
             // Standard public initializer
-            public init(email: String? = nil, handle: String, did: String? = nil, inviteCode: String? = nil, password: String? = nil, recoveryKey: String? = nil, plcOp: JSONValue? = nil) {
+            public init(email: String? = nil, handle: String, did: String? = nil, inviteCode: String? = nil, verificationCode: String? = nil, verificationPhone: String? = nil, password: String? = nil, recoveryKey: String? = nil, plcOp: ATProtocolValueContainer? = nil) {
                 self.email = email
                 self.handle = handle
                 self.did = did
                 self.inviteCode = inviteCode
+                self.verificationCode = verificationCode
+                self.verificationPhone = verificationPhone
                 self.password = password
                 self.recoveryKey = recoveryKey
                 self.plcOp = plcOp
@@ -28,7 +32,7 @@ public struct Input: Codable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let accessJwt: String
         
@@ -84,18 +88,26 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 
 }
 extension ATProtoClient.Com.Atproto.Server {
-    /// Create an account.
+    /// Create an account. Implemented by PDS.
     public func createAccount(input: ComAtprotoServerCreateAccount.Input) async throws -> (responseCode: Int, data: ComAtprotoServerCreateAccount.Output?) {
         let endpoint = "/com.atproto.server.createAccount"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerCreateAccount.Output.self, from: responseData)
         return (responseCode, decodedData)

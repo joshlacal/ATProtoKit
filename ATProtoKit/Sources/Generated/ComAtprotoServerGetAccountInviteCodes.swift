@@ -20,7 +20,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let codes: [ComAtprotoServerDefs.InviteCode]
         
@@ -47,17 +47,24 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 
 extension ATProtoClient.Com.Atproto.Server {
-    /// Get all invite codes for a given account. 
+    /// Get all invite codes for the current account. Requires auth.
     public func getAccountInviteCodes(input: ComAtprotoServerGetAccountInviteCodes.Parameters) async throws -> (responseCode: Int, data: ComAtprotoServerGetAccountInviteCodes.Output?) {
         let endpoint = "/com.atproto.server.getAccountInviteCodes"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerGetAccountInviteCodes.Output.self, from: responseData)
         return (responseCode, decodedData)

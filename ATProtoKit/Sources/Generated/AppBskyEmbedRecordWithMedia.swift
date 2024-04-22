@@ -145,7 +145,7 @@ public struct View: ATProtocolCodable, ATProtocolValue {
 public enum ViewMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyEmbedImagesView(AppBskyEmbedImages.View)
                 case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -163,7 +163,7 @@ public enum ViewMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .appBskyEmbedExternalView(value)
                     default:
                         print("ViewMediaUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -180,9 +180,9 @@ public enum ViewMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding app.bsky.embed.external#view")
                         try container.encode("app.bsky.embed.external#view", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("ViewMediaUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -194,9 +194,9 @@ public enum ViewMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .appBskyEmbedExternalView(let value):
                         hasher.combine("app.bsky.embed.external#view")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -227,7 +227,7 @@ public enum ViewMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
 public enum AppBskyEmbedRecordWithMediaMediaUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyEmbedImages(AppBskyEmbedImages)
                 case appBskyEmbedExternal(AppBskyEmbedExternal)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -245,7 +245,7 @@ public enum AppBskyEmbedRecordWithMediaMediaUnion: Codable, ATProtocolCodable, A
                         self = .appBskyEmbedExternal(value)
                     default:
                         print("AppBskyEmbedRecordWithMediaMediaUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -262,9 +262,9 @@ public enum AppBskyEmbedRecordWithMediaMediaUnion: Codable, ATProtocolCodable, A
                         print("Encoding app.bsky.embed.external")
                         try container.encode("app.bsky.embed.external", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyEmbedRecordWithMediaMediaUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -276,9 +276,9 @@ public enum AppBskyEmbedRecordWithMediaMediaUnion: Codable, ATProtocolCodable, A
                     case .appBskyEmbedExternal(let value):
                         hasher.combine("app.bsky.embed.external")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

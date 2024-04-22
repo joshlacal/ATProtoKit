@@ -11,19 +11,19 @@ public struct ComAtprotoModerationDefs {
         
 public enum ReasonType: String, Codable, ATProtocolCodable, ATProtocolValue {
             // 
-            case comAtprotoModerationDefsReasonSpam = "com.atproto.moderation.defs#reasonSpam"
+            case Comatprotomoderationdefsreasonspam = "com.atproto.moderation.defs#reasonSpam"
             // 
-            case comAtprotoModerationDefsReasonViolation = "com.atproto.moderation.defs#reasonViolation"
+            case Comatprotomoderationdefsreasonviolation = "com.atproto.moderation.defs#reasonViolation"
             // 
-            case comAtprotoModerationDefsReasonMisleading = "com.atproto.moderation.defs#reasonMisleading"
+            case Comatprotomoderationdefsreasonmisleading = "com.atproto.moderation.defs#reasonMisleading"
             // 
-            case comAtprotoModerationDefsReasonSexual = "com.atproto.moderation.defs#reasonSexual"
+            case Comatprotomoderationdefsreasonsexual = "com.atproto.moderation.defs#reasonSexual"
             // 
-            case comAtprotoModerationDefsReasonRude = "com.atproto.moderation.defs#reasonRude"
+            case Comatprotomoderationdefsreasonrude = "com.atproto.moderation.defs#reasonRude"
             // 
-            case comAtprotoModerationDefsReasonOther = "com.atproto.moderation.defs#reasonOther"
+            case Comatprotomoderationdefsreasonother = "com.atproto.moderation.defs#reasonOther"
             // 
-            case comAtprotoModerationDefsReasonAppeal = "com.atproto.moderation.defs#reasonAppeal"
+            case Comatprotomoderationdefsreasonappeal = "com.atproto.moderation.defs#reasonAppeal"
 
             public func isEqual(to other: any ATProtocolValue) -> Bool {
                 guard let otherEnum = other as? ReasonType else { return false }

@@ -485,7 +485,7 @@ public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolVal
                 case appBskyEmbedExternal(AppBskyEmbedExternal)
                 case appBskyEmbedRecord(AppBskyEmbedRecord)
                 case appBskyEmbedRecordWithMedia(AppBskyEmbedRecordWithMedia)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -511,7 +511,7 @@ public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolVal
                         self = .appBskyEmbedRecordWithMedia(value)
                     default:
                         print("AppBskyFeedPostEmbedUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -536,9 +536,9 @@ public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolVal
                         print("Encoding app.bsky.embed.recordWithMedia")
                         try container.encode("app.bsky.embed.recordWithMedia", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyFeedPostEmbedUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -556,9 +556,9 @@ public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolVal
                     case .appBskyEmbedRecordWithMedia(let value):
                         hasher.combine("app.bsky.embed.recordWithMedia")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -594,7 +594,7 @@ public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolVal
             
 public enum AppBskyFeedPostLabelsUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -608,7 +608,7 @@ public enum AppBskyFeedPostLabelsUnion: Codable, ATProtocolCodable, ATProtocolVa
                         self = .comAtprotoLabelDefsSelfLabels(value)
                     default:
                         print("AppBskyFeedPostLabelsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -621,9 +621,9 @@ public enum AppBskyFeedPostLabelsUnion: Codable, ATProtocolCodable, ATProtocolVa
                         print("Encoding com.atproto.label.defs#selfLabels")
                         try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyFeedPostLabelsUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -632,9 +632,9 @@ public enum AppBskyFeedPostLabelsUnion: Codable, ATProtocolCodable, ATProtocolVa
                     case .comAtprotoLabelDefsSelfLabels(let value):
                         hasher.combine("com.atproto.label.defs#selfLabels")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

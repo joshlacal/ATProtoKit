@@ -3,6 +3,7 @@ import jinja2
 from typing import Dict, List, Any, Optional
 import re
 import os
+import concurrent.futures
 
 class SwiftCodeGenerator:
     def __init__(self, lexicon: Dict[str, Any]):
@@ -19,10 +20,14 @@ class SwiftCodeGenerator:
         self.generated_unions = set()
         self.token_descriptions = {}
         self.generated_tokens = set()
-        self.env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+        templates_dir = os.path.join(script_dir, 'templates')
+        self.env = jinja2.Environment(loader=jinja2.FileSystemLoader(templates_dir))
+
         self.env.filters['lowerCamelCase'] = self.lowerCamelCase
         self.env.filters['convertRefToSwift'] = self.convert_ref_to_swift
-        
+        self.env.filters['enum_case'] = self.enum_case_filter
+
         # Initialize Jinja2 templates
         self.main_template = self.init_main_template()
         self.properties_template = self.init_properties_template()
@@ -74,6 +79,24 @@ class SwiftCodeGenerator:
         else:
             # Handle the case without '#'
             return self.convert_to_camel_case(ref)
+        
+    def enum_case_filter(self, value: str) -> str:
+        # Replace invalid characters with underscores or appropriate alternatives
+        value = re.sub(r'[!]', 'exclamation', value)
+        value = re.sub(r'[\-]', 'Dash', value)
+
+        # Replace any other non-alphanumeric characters (excluding underscores)
+        value = re.sub(r'[^a-zA-Z0-9_]', '', value)
+
+        # Ensure it doesn't start with a number
+        if value[0].isdigit():
+            value = 'Number' + value
+
+        # CamelCase the result if you prefer it to be more idiomatic Swift enum cases
+        value = ''.join(word.capitalize() for word in value.split('_'))
+
+        return value
+
 
     def init_properties_template(self):
         return self.env.get_template('properties.jinja')
@@ -302,12 +325,12 @@ class SwiftCodeGenerator:
         elif prop_type == 'boolean':
             swift_type = "Bool" 
         elif prop_type == 'object':
-            swift_type = "[String: JSONValue]" 
+            swift_type = "[String: ATProtocolValueContainer]" 
         elif prop_type == 'unknown':
             if name == 'didDoc':
                 swift_type = "DIDDocument"
             else:
-                swift_type = "JSONValue"
+                swift_type = "ATProtocolValueContainer"
         elif prop_type == 'union':
             union_name = f"{self.convert_to_camel_case(current_struct_name)}{self.convert_to_camel_case(name)}Union"
             refs = prop.get('refs', [])
@@ -610,6 +633,7 @@ def convert_ref(ref: str) -> str:
         return convert_to_camel_case(ref)
 
 
+
 def generate_swift_from_lexicons_recursive(folder_path: str, output_folder: str):
     type_dict = {}
     namespace_hierarchy = {}
@@ -618,56 +642,61 @@ def generate_swift_from_lexicons_recursive(folder_path: str, output_folder: str)
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     
-    for root, dirs, files in os.walk(folder_path):
-        for filename in files:
-            if filename.endswith('.json'):
-                filepath = os.path.join(root, filename)
-                with open(filepath, 'r') as f:
-                    lexicon = json.load(f)
-                    lexicon_id = lexicon.get('id', '')
+    def process_lexicon(filepath):
+        with open(filepath, 'r') as f:
+            lexicon = json.load(f)
+            lexicon_id = lexicon.get('id', '')
 
-                    # Skip files where lexicon_id contains 'subscribe'
-                    if 'subscribe' in lexicon_id:
-                        continue
+            # Skip files where lexicon_id contains 'subscribe'
+            if 'subscribe' in lexicon_id:
+                return
 
-                    defs = lexicon.get('defs', {})
+            defs = lexicon.get('defs', {})
 
-                    # Extract and organize the namespace information
-                    namespace_parts = lexicon_id.split('.')[:3]
-                    current_level = namespace_hierarchy
-                    for part in namespace_parts:
-                        if part not in current_level:
-                            current_level[part] = {}
-                        current_level = current_level[part]
+            # Extract and organize the namespace information
+            namespace_parts = lexicon_id.split('.')[:3]
+            current_level = namespace_hierarchy
+            for part in namespace_parts:
+                if part not in current_level:
+                    current_level[part] = {}
+                current_level = current_level[part]
 
 
-                    # Process types for the type dictionary
-                    for type_name, type_info in defs.items():
-                        type_kind = type_info.get('type', '')
-                        swift_lex_id = convert_to_camel_case(lexicon_id)
-                        swift_type_name = "." + convert_ref(type_name) if type_name != 'main' else ""
-                        if type_kind in ['object', 'record', 'union', 'array']:
-                            type_key = f"{lexicon_id}#{type_name}" if type_name != 'main' else lexicon_id
-                            type_dict[type_key] = f"{swift_lex_id}{swift_type_name}"
+            # Process types for the type dictionary
+            for type_name, type_info in defs.items():
+                type_kind = type_info.get('type', '')
+                swift_lex_id = convert_to_camel_case(lexicon_id)
+                swift_type_name = "." + convert_ref(type_name) if type_name != 'main' else ""
+                if type_kind in ['object', 'record', 'union', 'array']:
+                    type_key = f"{lexicon_id}#{type_name}" if type_name != 'main' else lexicon_id
+                    type_dict[type_key] = f"{swift_lex_id}{swift_type_name}"
 
-                    # Convert JSON to Swift
-                    swift_code = SwiftCodeGenerator(lexicon).convert()
+            # Convert JSON to Swift
+            swift_code = SwiftCodeGenerator(lexicon).convert()
 
-                    # Define the output file name and save the Swift code
-                    output_filename = f"{convert_to_camel_case(lexicon_id)}.swift"
-                    output_file_path = os.path.join(output_folder, output_filename)
-                    with open(output_file_path, 'w') as swift_file:
-                        swift_file.write(swift_code)
+            # Define the output file name and save the Swift code
+            output_filename = f"{convert_to_camel_case(lexicon_id)}.swift"
+            output_file_path = os.path.join(output_folder, output_filename)
+            with open(output_file_path, 'w') as swift_file:
+                swift_file.write(swift_code)
+
+    # Process lexicons concurrently with threads
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        for root, dirs, files in os.walk(folder_path):
+            for filename in files:
+                if filename.endswith('.json'):
+                    filepath = os.path.join(root, filename)
+                    executor.submit(process_lexicon, filepath)
 
     # Generate the type factory code using the type dictionary
-    type_factory_code = generate_JSONValue_enum(type_dict)
+    type_factory_code = generate_ATProtocolValueContainer_enum(type_dict)
 
     # Generate Swift classes from the namespace hierarchy
     swift_namespace_classes = generate_swift_namespace_classes(namespace_hierarchy)
 
 
     # Save the type factory code to a Swift file
-    type_factory_file_path = os.path.join(output_folder, 'JSONValue.swift')
+    type_factory_file_path = os.path.join(output_folder, 'ATProtocolValueContainer.swift')
     with open(type_factory_file_path, 'w') as type_factory_file:
         type_factory_file.write(type_factory_code)
 
@@ -676,9 +705,11 @@ def generate_swift_from_lexicons_recursive(folder_path: str, output_folder: str)
     with open(class_factory_file_path, 'w') as class_factory_file:
         class_factory_file.write(swift_namespace_classes)
 
-def generate_JSONValue_enum(type_dict):
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates/'))
-    template = env.get_template('JSONValue.jinja')
+def generate_ATProtocolValueContainer_enum(type_dict):
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    templates_dir = os.path.join(script_dir, 'templates')
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(templates_dir))
+    template = env.get_template('ATProtocolValueContainer.jinja')
     type_cases = []
     for type_key, swift_type in type_dict.items():
         type_cases.append((type_key, swift_type))
@@ -698,7 +729,7 @@ def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient"
             swift_code += f"public lazy var {namespace.lower()}: {namespace_class} = {{\n"
             swift_code += f"    return {namespace_class}(parent: self)\n}}()\n\n"
             # Also generate the top-level class definition
-            swift_code += f"public class {namespace_class} {{\n"
+            swift_code += f"public final class {namespace_class}: @unchecked Sendable {{\n"
             swift_code += f"    internal unowned let parent: {parent}\n"
             swift_code += f"    internal init(parent: {parent}) {{\n"
             swift_code += f"        self.parent = parent\n    }}\n\n"
@@ -712,7 +743,7 @@ def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient"
             # Correction: Generate a lazy var for this namespace in its parent
             swift_code += f"{indent}public lazy var {namespace.lower()}: {class_name} = {{\n"
             swift_code += f"{indent}    return {class_name}(parent: self)\n{indent}}}()\n\n"
-            swift_code += f"{indent}public class {class_name} {{\n"
+            swift_code += f"{indent}public final class {class_name}: @unchecked Sendable {{\n"
             swift_code += f"{indent}    internal unowned let parent: {parent}\n"
             swift_code += f"{indent}    internal init(parent: {parent}) {{\n"
             swift_code += f"{indent}        self.parent = parent\n{indent}    }}\n\n"
@@ -725,5 +756,5 @@ def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient"
 
 
 # Usage example
-generate_swift_from_lexicons_recursive('/Users/joshlacalamito/Downloads/atproto-main-4/lexicons', '/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated')
+generate_swift_from_lexicons_recursive('/Users/joshlacalamito/Downloads/atproto-main/lexicons', '/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated')
 

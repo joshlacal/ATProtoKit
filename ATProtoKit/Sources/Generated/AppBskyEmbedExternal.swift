@@ -234,11 +234,11 @@ public struct ViewExternal: ATProtocolCodable, ATProtocolValue {
             public let uri: URI
             public let title: String
             public let description: String
-            public let thumb: String?
+            public let thumb: URI?
 
         // Standard initializer
         public init(
-            uri: URI, title: String, description: String, thumb: String?
+            uri: URI, title: String, description: String, thumb: URI?
         ) {
             
             self.uri = uri
@@ -276,7 +276,7 @@ public struct ViewExternal: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.thumb = try container.decodeIfPresent(String.self, forKey: .thumb)
+                self.thumb = try container.decodeIfPresent(URI.self, forKey: .thumb)
                 
             } catch {
                 print("Decoding error for property 'thumb': \(error)")

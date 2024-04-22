@@ -20,7 +20,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -47,17 +47,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Graph {
-    /// Get lists that the actor is muting. 
+    /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
     public func getListMutes(input: AppBskyGraphGetListMutes.Parameters) async throws -> (responseCode: Int, data: AppBskyGraphGetListMutes.Output?) {
         let endpoint = "/app.bsky.graph.getListMutes"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyGraphGetListMutes.Output.self, from: responseData)
         return (responseCode, decodedData)

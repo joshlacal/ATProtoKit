@@ -3,7 +3,7 @@ public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, AT
     {%- for ref in refs %}
     case {{ ref.camel_case_label | lowerCamelCase }}({{ ref.swift_ref }})
     {%- endfor %}
-    case unexpected(JSONValue)
+    case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -16,7 +16,7 @@ public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, AT
             self = .{{ ref.camel_case_label | lowerCamelCase }}(value)
         {%- endfor %}
         default:
-            let unknownValue = try JSONValue(from: decoder)
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
             self = .unexpected(unknownValue)
         }
     }
@@ -30,8 +30,8 @@ public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, AT
             try container.encode("{{ ref.ref }}", forKey: .type)
             try value.encode(to: encoder)
         {%- endfor %}
-        case .unexpected(let jsonValue):
-            try jsonValue.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            try ATProtocolValueContainer.encode(to: encoder)
         }
     }
 
@@ -42,9 +42,9 @@ public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, AT
             hasher.combine("{{ ref.ref }}")
             hasher.combine(value)
         {%- endfor %}
-        case .unexpected(let jsonValue):
+        case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
-            hasher.combine(jsonValue)
+            hasher.combine(ATProtocolValueContainer)
         }
     }
 

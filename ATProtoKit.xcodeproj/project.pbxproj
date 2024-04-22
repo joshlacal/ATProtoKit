@@ -13,143 +13,6 @@
 		210EA82A2B5AF92900602C46 /* ATProtoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 210EA81C2B5AF92800602C46 /* ATProtoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		210EA8382B5AFB2300602C46 /* templates in Resources */ = {isa = PBXBuildFile; fileRef = 210EA8362B5AFB2300602C46 /* templates */; };
 		210EA8392B5AFB2300602C46 /* Generator.py in Resources */ = {isa = PBXBuildFile; fileRef = 210EA8372B5AFB2300602C46 /* Generator.py */; };
-		210EA8C32B5AFC9100602C46 /* AppBskyGraphGetLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83A2B5AFC8E00602C46 /* AppBskyGraphGetLists.swift */; };
-		210EA8C42B5AFC9100602C46 /* ComAtprotoServerCreateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83B2B5AFC8E00602C46 /* ComAtprotoServerCreateSession.swift */; };
-		210EA8C52B5AFC9100602C46 /* AppBskyActorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83C2B5AFC8E00602C46 /* AppBskyActorProfile.swift */; };
-		210EA8C62B5AFC9100602C46 /* AppBskyNotificationRegisterPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83D2B5AFC8E00602C46 /* AppBskyNotificationRegisterPush.swift */; };
-		210EA8C72B5AFC9100602C46 /* AppBskyEmbedRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83E2B5AFC8E00602C46 /* AppBskyEmbedRecord.swift */; };
-		210EA8C82B5AFC9100602C46 /* AppBskyFeedGetActorFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA83F2B5AFC8E00602C46 /* AppBskyFeedGetActorFeeds.swift */; };
-		210EA8C92B5AFC9100602C46 /* ComAtprotoAdminGetInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8402B5AFC8E00602C46 /* ComAtprotoAdminGetInviteCodes.swift */; };
-		210EA8CA2B5AFC9100602C46 /* ComAtprotoServerCreateInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8412B5AFC8F00602C46 /* ComAtprotoServerCreateInviteCodes.swift */; };
-		210EA8CB2B5AFC9100602C46 /* ComAtprotoServerRequestAccountDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8422B5AFC8F00602C46 /* ComAtprotoServerRequestAccountDelete.swift */; };
-		210EA8CC2B5AFC9100602C46 /* AppBskyFeedGetSuggestedFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8432B5AFC8F00602C46 /* AppBskyFeedGetSuggestedFeeds.swift */; };
-		210EA8CD2B5AFC9100602C46 /* AppBskyFeedDescribeFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8442B5AFC8F00602C46 /* AppBskyFeedDescribeFeedGenerator.swift */; };
-		210EA8CE2B5AFC9100602C46 /* ComAtprotoAdminDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8452B5AFC8F00602C46 /* ComAtprotoAdminDefs.swift */; };
-		210EA8CF2B5AFC9100602C46 /* ComAtprotoSyncListRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8462B5AFC8F00602C46 /* ComAtprotoSyncListRepos.swift */; };
-		210EA8D02B5AFC9100602C46 /* AppBskyGraphGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8472B5AFC8F00602C46 /* AppBskyGraphGetList.swift */; };
-		210EA8D12B5AFC9100602C46 /* AppBskyEmbedExternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8482B5AFC8F00602C46 /* AppBskyEmbedExternal.swift */; };
-		210EA8D22B5AFC9100602C46 /* AppBskyFeedRepost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8492B5AFC8F00602C46 /* AppBskyFeedRepost.swift */; };
-		210EA8D32B5AFC9100602C46 /* ComAtprotoSyncGetCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84A2B5AFC8F00602C46 /* ComAtprotoSyncGetCheckout.swift */; };
-		210EA8D42B5AFC9100602C46 /* ComAtprotoAdminEnableAccountInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84B2B5AFC8F00602C46 /* ComAtprotoAdminEnableAccountInvites.swift */; };
-		210EA8D52B5AFC9100602C46 /* ComAtprotoSyncNotifyOfUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84C2B5AFC8F00602C46 /* ComAtprotoSyncNotifyOfUpdate.swift */; };
-		210EA8D62B5AFC9100602C46 /* ComAtprotoAdminQueryModerationEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationEvents.swift */; };
-		210EA8D72B5AFC9100602C46 /* AppBskyGraphBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84E2B5AFC8F00602C46 /* AppBskyGraphBlock.swift */; };
-		210EA8D82B5AFC9100602C46 /* AppBskyFeedGetLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA84F2B5AFC8F00602C46 /* AppBskyFeedGetLikes.swift */; };
-		210EA8D92B5AFC9100602C46 /* ComAtprotoSyncGetLatestCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8502B5AFC8F00602C46 /* ComAtprotoSyncGetLatestCommit.swift */; };
-		210EA8DA2B5AFC9100602C46 /* ComAtprotoServerGetAccountInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8512B5AFC8F00602C46 /* ComAtprotoServerGetAccountInviteCodes.swift */; };
-		210EA8DB2B5AFC9100602C46 /* ComAtprotoRepoStrongRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8522B5AFC8F00602C46 /* ComAtprotoRepoStrongRef.swift */; };
-		210EA8DC2B5AFC9100602C46 /* ComAtprotoServerDeleteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8532B5AFC8F00602C46 /* ComAtprotoServerDeleteSession.swift */; };
-		210EA8DD2B5AFC9100602C46 /* ComAtprotoRepoListRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8542B5AFC8F00602C46 /* ComAtprotoRepoListRecords.swift */; };
-		210EA8DE2B5AFC9100602C46 /* ComAtprotoServerConfirmEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8552B5AFC8F00602C46 /* ComAtprotoServerConfirmEmail.swift */; };
-		210EA8DF2B5AFC9100602C46 /* AppBskyActorGetProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8562B5AFC8F00602C46 /* AppBskyActorGetProfiles.swift */; };
-		210EA8E02B5AFC9100602C46 /* AppBskyGraphDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8572B5AFC8F00602C46 /* AppBskyGraphDefs.swift */; };
-		210EA8E12B5AFC9100602C46 /* AppBskyFeedThreadgate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8582B5AFC8F00602C46 /* AppBskyFeedThreadgate.swift */; };
-		210EA8E22B5AFC9100602C46 /* ComAtprotoAdminGetAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8592B5AFC8F00602C46 /* ComAtprotoAdminGetAccountInfo.swift */; };
-		210EA8E32B5AFC9100602C46 /* ComAtprotoTempFetchLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85A2B5AFC8F00602C46 /* ComAtprotoTempFetchLabels.swift */; };
-		210EA8E42B5AFC9100602C46 /* ComAtprotoModerationCreateReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85B2B5AFC8F00602C46 /* ComAtprotoModerationCreateReport.swift */; };
-		210EA8E52B5AFC9100602C46 /* ComAtprotoServerGetSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85C2B5AFC8F00602C46 /* ComAtprotoServerGetSession.swift */; };
-		210EA8E62B5AFC9100602C46 /* ComAtprotoAdminQueryModerationStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationStatuses.swift */; };
-		210EA8E72B5AFC9100602C46 /* ComAtprotoRepoUploadBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85E2B5AFC8F00602C46 /* ComAtprotoRepoUploadBlob.swift */; };
-		210EA8E82B5AFC9100602C46 /* ComAtprotoAdminGetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA85F2B5AFC8F00602C46 /* ComAtprotoAdminGetRepo.swift */; };
-		210EA8E92B5AFC9100602C46 /* AppBskyFeedSearchPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8602B5AFC8F00602C46 /* AppBskyFeedSearchPosts.swift */; };
-		210EA8EA2B5AFC9100602C46 /* ComAtprotoAdminSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8612B5AFC8F00602C46 /* ComAtprotoAdminSearchRepos.swift */; };
-		210EA8EB2B5AFC9100602C46 /* ComAtprotoRepoCreateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8622B5AFC8F00602C46 /* ComAtprotoRepoCreateRecord.swift */; };
-		210EA8EC2B5AFC9100602C46 /* AppBskyGraphGetListBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8632B5AFC8F00602C46 /* AppBskyGraphGetListBlocks.swift */; };
-		210EA8ED2B5AFC9100602C46 /* AppBskyGraphGetSuggestedFollowsByActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8642B5AFC8F00602C46 /* AppBskyGraphGetSuggestedFollowsByActor.swift */; };
-		210EA8EE2B5AFC9100602C46 /* AppBskyGraphUnmuteActorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8652B5AFC8F00602C46 /* AppBskyGraphUnmuteActorList.swift */; };
-		210EA8EF2B5AFC9100602C46 /* AppBskyFeedGetRepostedBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8662B5AFC8F00602C46 /* AppBskyFeedGetRepostedBy.swift */; };
-		210EA8F02B5AFC9100602C46 /* AppBskyGraphGetBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8672B5AFC8F00602C46 /* AppBskyGraphGetBlocks.swift */; };
-		210EA8F12B5AFC9100602C46 /* AppBskyGraphFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8682B5AFC8F00602C46 /* AppBskyGraphFollow.swift */; };
-		210EA8F22B5AFC9100602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8692B5AFC8F00602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift */; };
-		210EA8F32B5AFC9100602C46 /* ComAtprotoServerRequestEmailUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86A2B5AFC8F00602C46 /* ComAtprotoServerRequestEmailUpdate.swift */; };
-		210EA8F42B5AFC9100602C46 /* AppBskyFeedGetPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86B2B5AFC8F00602C46 /* AppBskyFeedGetPosts.swift */; };
-		210EA8F52B5AFC9100602C46 /* ComAtprotoSyncGetBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86C2B5AFC8F00602C46 /* ComAtprotoSyncGetBlocks.swift */; };
-		210EA8F62B5AFC9100602C46 /* ComAtprotoAdminDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86D2B5AFC8F00602C46 /* ComAtprotoAdminDeleteAccount.swift */; };
-		210EA8F72B5AFC9100602C46 /* AppBskyFeedGetFeedGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86E2B5AFC9000602C46 /* AppBskyFeedGetFeedGenerators.swift */; };
-		210EA8F82B5AFC9100602C46 /* ComAtprotoAdminEmitModerationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA86F2B5AFC9000602C46 /* ComAtprotoAdminEmitModerationEvent.swift */; };
-		210EA8F92B5AFC9100602C46 /* ComAtprotoLabelQueryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8702B5AFC9000602C46 /* ComAtprotoLabelQueryLabels.swift */; };
-		210EA8FA2B5AFC9100602C46 /* ComAtprotoAdminDisableInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8712B5AFC9000602C46 /* ComAtprotoAdminDisableInviteCodes.swift */; };
-		210EA8FB2B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8722B5AFC9000602C46 /* ComAtprotoAdminUpdateAccountHandle.swift */; };
-		210EA8FC2B5AFC9100602C46 /* ComAtprotoServerRefreshSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8732B5AFC9000602C46 /* ComAtprotoServerRefreshSession.swift */; };
-		210EA8FD2B5AFC9100602C46 /* AppBskyActorGetProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8742B5AFC9000602C46 /* AppBskyActorGetProfile.swift */; };
-		210EA8FE2B5AFC9100602C46 /* AppBskyGraphMuteActorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8752B5AFC9000602C46 /* AppBskyGraphMuteActorList.swift */; };
-		210EA8FF2B5AFC9100602C46 /* ComAtprotoServerRequestEmailConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8762B5AFC9000602C46 /* ComAtprotoServerRequestEmailConfirmation.swift */; };
-		210EA9002B5AFC9100602C46 /* AppBskyUnspeccedGetTimelineSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8772B5AFC9000602C46 /* AppBskyUnspeccedGetTimelineSkeleton.swift */; };
-		210EA9012B5AFC9100602C46 /* AppBskyGraphGetMutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8782B5AFC9000602C46 /* AppBskyGraphGetMutes.swift */; };
-		210EA9022B5AFC9100602C46 /* AppBskyActorSearchActors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8792B5AFC9000602C46 /* AppBskyActorSearchActors.swift */; };
-		210EA9032B5AFC9100602C46 /* AppBskyGraphGetListMutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87A2B5AFC9000602C46 /* AppBskyGraphGetListMutes.swift */; };
-		210EA9042B5AFC9100602C46 /* ComAtprotoServerReserveSigningKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87B2B5AFC9000602C46 /* ComAtprotoServerReserveSigningKey.swift */; };
-		210EA9052B5AFC9100602C46 /* AppBskyGraphMuteActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87C2B5AFC9000602C46 /* AppBskyGraphMuteActor.swift */; };
-		210EA9062B5AFC9100602C46 /* ComAtprotoServerListAppPasswords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87D2B5AFC9000602C46 /* ComAtprotoServerListAppPasswords.swift */; };
-		210EA9072B5AFC9100602C46 /* AppBskyActorPutPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87E2B5AFC9000602C46 /* AppBskyActorPutPreferences.swift */; };
-		210EA9082B5AFC9100602C46 /* AppBskyActorDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA87F2B5AFC9000602C46 /* AppBskyActorDefs.swift */; };
-		210EA9092B5AFC9100602C46 /* ComAtprotoServerCreateAppPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8802B5AFC9000602C46 /* ComAtprotoServerCreateAppPassword.swift */; };
-		210EA90A2B5AFC9100602C46 /* AppBskyGraphGetFollowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8812B5AFC9000602C46 /* AppBskyGraphGetFollowers.swift */; };
-		210EA90B2B5AFC9100602C46 /* ComAtprotoServerRequestPasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8822B5AFC9000602C46 /* ComAtprotoServerRequestPasswordReset.swift */; };
-		210EA90C2B5AFC9100602C46 /* AppBskyUnspeccedDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8832B5AFC9000602C46 /* AppBskyUnspeccedDefs.swift */; };
-		210EA90D2B5AFC9100602C46 /* ComAtprotoSyncGetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8842B5AFC9000602C46 /* ComAtprotoSyncGetRepo.swift */; };
-		210EA90E2B5AFC9100602C46 /* ComAtprotoRepoDeleteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8852B5AFC9000602C46 /* ComAtprotoRepoDeleteRecord.swift */; };
-		210EA90F2B5AFC9100602C46 /* AppBskyFeedGetAuthorFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8862B5AFC9000602C46 /* AppBskyFeedGetAuthorFeed.swift */; };
-		210EA9102B5AFC9100602C46 /* ComAtprotoSyncGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8872B5AFC9000602C46 /* ComAtprotoSyncGetRecord.swift */; };
-		210EA9112B5AFC9100602C46 /* AppBskyGraphGetFollows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8882B5AFC9000602C46 /* AppBskyGraphGetFollows.swift */; };
-		210EA9122B5AFC9100602C46 /* AppBskyNotificationUpdateSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8892B5AFC9000602C46 /* AppBskyNotificationUpdateSeen.swift */; };
-		210EA9132B5AFC9100602C46 /* ComAtprotoAdminGetSubjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88A2B5AFC9000602C46 /* ComAtprotoAdminGetSubjectStatus.swift */; };
-		210EA9142B5AFC9100602C46 /* AppBskyFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88B2B5AFC9000602C46 /* AppBskyFeedPost.swift */; };
-		210EA9152B5AFC9100602C46 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88C2B5AFC9000602C46 /* JSONValue.swift */; };
-		210EA9162B5AFC9100602C46 /* AppBskyGraphListitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88D2B5AFC9000602C46 /* AppBskyGraphListitem.swift */; };
-		210EA9172B5AFC9100602C46 /* AppBskyUnspeccedGetPopularFeedGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88E2B5AFC9000602C46 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */; };
-		210EA9182B5AFC9100602C46 /* ComAtprotoTempTransferAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA88F2B5AFC9000602C46 /* ComAtprotoTempTransferAccount.swift */; };
-		210EA9192B5AFC9100602C46 /* ComAtprotoRepoApplyWrites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8902B5AFC9000602C46 /* ComAtprotoRepoApplyWrites.swift */; };
-		210EA91A2B5AFC9100602C46 /* ComAtprotoSyncRequestCrawl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8912B5AFC9000602C46 /* ComAtprotoSyncRequestCrawl.swift */; };
-		210EA91B2B5AFC9100602C46 /* AppBskyRichtextFacet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8922B5AFC9000602C46 /* AppBskyRichtextFacet.swift */; };
-		210EA91C2B5AFC9100602C46 /* ComAtprotoServerCreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8932B5AFC9000602C46 /* ComAtprotoServerCreateAccount.swift */; };
-		210EA91D2B5AFC9100602C46 /* ComAtprotoAdminGetAccountInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8942B5AFC9000602C46 /* ComAtprotoAdminGetAccountInfos.swift */; };
-		210EA91E2B5AFC9100602C46 /* AppBskyUnspeccedSearchPostsSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8952B5AFC9000602C46 /* AppBskyUnspeccedSearchPostsSkeleton.swift */; };
-		210EA91F2B5AFC9100602C46 /* AppBskyFeedGetTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8962B5AFC9000602C46 /* AppBskyFeedGetTimeline.swift */; };
-		210EA9202B5AFC9100602C46 /* ComAtprotoIdentityUpdateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8972B5AFC9000602C46 /* ComAtprotoIdentityUpdateHandle.swift */; };
-		210EA9212B5AFC9100602C46 /* AppBskyFeedGetFeedSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8982B5AFC9000602C46 /* AppBskyFeedGetFeedSkeleton.swift */; };
-		210EA9222B5AFC9100602C46 /* AppBskyGraphList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8992B5AFC9000602C46 /* AppBskyGraphList.swift */; };
-		210EA9232B5AFC9100602C46 /* ComAtprotoAdminSendEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89A2B5AFC9000602C46 /* ComAtprotoAdminSendEmail.swift */; };
-		210EA9242B5AFC9100602C46 /* ComAtprotoTempImportRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89B2B5AFC9000602C46 /* ComAtprotoTempImportRepo.swift */; };
-		210EA9252B5AFC9100602C46 /* ComAtprotoRepoDescribeRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89C2B5AFC9000602C46 /* ComAtprotoRepoDescribeRepo.swift */; };
-		210EA9262B5AFC9100602C46 /* ComAtprotoSyncGetHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89D2B5AFC9000602C46 /* ComAtprotoSyncGetHead.swift */; };
-		210EA9272B5AFC9100602C46 /* ComAtprotoServerDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89E2B5AFC9000602C46 /* ComAtprotoServerDeleteAccount.swift */; };
-		210EA9282B5AFC9100602C46 /* AppBskyNotificationGetUnreadCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA89F2B5AFC9000602C46 /* AppBskyNotificationGetUnreadCount.swift */; };
-		210EA9292B5AFC9100602C46 /* AppBskyFeedGetPostThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A02B5AFC9000602C46 /* AppBskyFeedGetPostThread.swift */; };
-		210EA92A2B5AFC9100602C46 /* AppBskyGraphUnmuteActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A12B5AFC9000602C46 /* AppBskyGraphUnmuteActor.swift */; };
-		210EA92B2B5AFC9100602C46 /* AppBskyFeedGetFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A22B5AFC9000602C46 /* AppBskyFeedGetFeed.swift */; };
-		210EA92C2B5AFC9100602C46 /* ComAtprotoIdentityResolveHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A32B5AFC9000602C46 /* ComAtprotoIdentityResolveHandle.swift */; };
-		210EA92D2B5AFC9100602C46 /* AppBskyGraphListblock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A42B5AFC9000602C46 /* AppBskyGraphListblock.swift */; };
-		210EA92E2B5AFC9100602C46 /* AppBskyFeedLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A52B5AFC9100602C46 /* AppBskyFeedLike.swift */; };
-		210EA92F2B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A62B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift */; };
-		210EA9302B5AFC9100602C46 /* AppBskyNotificationListNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A72B5AFC9100602C46 /* AppBskyNotificationListNotifications.swift */; };
-		210EA9312B5AFC9100602C46 /* AppBskyFeedGetActorLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A82B5AFC9100602C46 /* AppBskyFeedGetActorLikes.swift */; };
-		210EA9322B5AFC9100602C46 /* ComAtprotoServerResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8A92B5AFC9100602C46 /* ComAtprotoServerResetPassword.swift */; };
-		210EA9332B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AA2B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift */; };
-		210EA9342B5AFC9100602C46 /* ComAtprotoAdminUpdateSubjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AB2B5AFC9100602C46 /* ComAtprotoAdminUpdateSubjectStatus.swift */; };
-		210EA9352B5AFC9100602C46 /* ComAtprotoRepoPutRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AC2B5AFC9100602C46 /* ComAtprotoRepoPutRecord.swift */; };
-		210EA9362B5AFC9100602C46 /* AppBskyFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AD2B5AFC9100602C46 /* AppBskyFeedGenerator.swift */; };
-		210EA9372B5AFC9100602C46 /* ComAtprotoServerDescribeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AE2B5AFC9100602C46 /* ComAtprotoServerDescribeServer.swift */; };
-		210EA9382B5AFC9100602C46 /* ComAtprotoSyncListBlobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8AF2B5AFC9100602C46 /* ComAtprotoSyncListBlobs.swift */; };
-		210EA9392B5AFC9100602C46 /* ComAtprotoAdminGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B02B5AFC9100602C46 /* ComAtprotoAdminGetRecord.swift */; };
-		210EA93A2B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B12B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift */; };
-		210EA93B2B5AFC9100602C46 /* AppBskyActorGetPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B22B5AFC9100602C46 /* AppBskyActorGetPreferences.swift */; };
-		210EA93C2B5AFC9100602C46 /* AppBskyFeedGetFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B32B5AFC9100602C46 /* AppBskyFeedGetFeedGenerator.swift */; };
-		210EA93D2B5AFC9200602C46 /* ComAtprotoServerUpdateEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B42B5AFC9100602C46 /* ComAtprotoServerUpdateEmail.swift */; };
-		210EA93E2B5AFC9200602C46 /* AppBskyActorGetSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B52B5AFC9100602C46 /* AppBskyActorGetSuggestions.swift */; };
-		210EA93F2B5AFC9200602C46 /* ComAtprotoModerationDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B62B5AFC9100602C46 /* ComAtprotoModerationDefs.swift */; };
-		210EA9402B5AFC9200602C46 /* AppBskyActorSearchActorsTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B72B5AFC9100602C46 /* AppBskyActorSearchActorsTypeahead.swift */; };
-		210EA9412B5AFC9200602C46 /* ComAtprotoSyncGetBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B82B5AFC9100602C46 /* ComAtprotoSyncGetBlob.swift */; };
-		210EA9422B5AFC9200602C46 /* ComAtprotoServerDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8B92B5AFC9100602C46 /* ComAtprotoServerDefs.swift */; };
-		210EA9432B5AFC9200602C46 /* AppBskyFeedGetListFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BA2B5AFC9100602C46 /* AppBskyFeedGetListFeed.swift */; };
-		210EA9442B5AFC9200602C46 /* AppBskyFeedDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BB2B5AFC9100602C46 /* AppBskyFeedDefs.swift */; };
-		210EA9452B5AFC9200602C46 /* ComAtprotoLabelDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BC2B5AFC9100602C46 /* ComAtprotoLabelDefs.swift */; };
-		210EA9462B5AFC9200602C46 /* ComAtprotoServerCreateInviteCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BD2B5AFC9100602C46 /* ComAtprotoServerCreateInviteCode.swift */; };
-		210EA9472B5AFC9200602C46 /* AppBskyEmbedRecordWithMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BE2B5AFC9100602C46 /* AppBskyEmbedRecordWithMedia.swift */; };
-		210EA9482B5AFC9200602C46 /* ComAtprotoAdminDisableAccountInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8BF2B5AFC9100602C46 /* ComAtprotoAdminDisableAccountInvites.swift */; };
-		210EA9492B5AFC9200602C46 /* AppBskyEmbedImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8C02B5AFC9100602C46 /* AppBskyEmbedImages.swift */; };
-		210EA94A2B5AFC9200602C46 /* ComAtprotoAdminGetModerationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8C12B5AFC9100602C46 /* ComAtprotoAdminGetModerationEvent.swift */; };
-		210EA94B2B5AFC9200602C46 /* ComAtprotoRepoGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA8C22B5AFC9100602C46 /* ComAtprotoRepoGetRecord.swift */; };
 		210EA94E2B5AFD0A00602C46 /* ZippyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 210EA94D2B5AFD0A00602C46 /* ZippyJSON */; };
 		210EA9582B5AFD4D00602C46 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9502B5AFD4C00602C46 /* Languages.swift */; };
 		210EA9592B5AFD4D00602C46 /* ATProtoTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9512B5AFD4C00602C46 /* ATProtoTypes.swift */; };
@@ -159,8 +22,173 @@
 		210EA95D2B5AFD4D00602C46 /* DateValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9552B5AFD4C00602C46 /* DateValidation.swift */; };
 		210EA95F2B5AFD4D00602C46 /* QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9572B5AFD4C00602C46 /* QueryParameters.swift */; };
 		210EA9612B5AFD6B00602C46 /* ATProtoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */; };
-		214BD3742B790B3000B1625D /* JSONValueHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */; };
+		214BD3742B790B3000B1625D /* ATProtocolValueContainerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BD3732B790B2F00B1625D /* ATProtocolValueContainerHelpers.swift */; };
 		21628EF52B6F2441001D10E5 /* DIDDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */; };
+		21C8A9D12BBE4C6500832F22 /* ComAtprotoSyncGetLatestCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A98F2BBE4C6200832F22 /* ComAtprotoSyncGetLatestCommit.swift */; };
+		21C8A9D22BBE4C6500832F22 /* ComAtprotoSyncGetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9902BBE4C6200832F22 /* ComAtprotoSyncGetRepo.swift */; };
+		21C8A9D32BBE4C6500832F22 /* ComAtprotoServerGetSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9912BBE4C6200832F22 /* ComAtprotoServerGetSession.swift */; };
+		21C8A9D42BBE4C6500832F22 /* ComAtprotoServerReserveSigningKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9922BBE4C6200832F22 /* ComAtprotoServerReserveSigningKey.swift */; };
+		21C8A9D52BBE4C6500832F22 /* ComAtprotoAdminGetInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9932BBE4C6200832F22 /* ComAtprotoAdminGetInviteCodes.swift */; };
+		21C8A9D62BBE4C6500832F22 /* ATProtocolValueContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9942BBE4C6200832F22 /* ATProtocolValueContainer.swift */; };
+		21C8A9D72BBE4C6500832F22 /* ComAtprotoModerationCreateReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9952BBE4C6200832F22 /* ComAtprotoModerationCreateReport.swift */; };
+		21C8A9D82BBE4C6500832F22 /* ComAtprotoAdminGetSubjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9962BBE4C6200832F22 /* ComAtprotoAdminGetSubjectStatus.swift */; };
+		21C8A9D92BBE4C6500832F22 /* ComAtprotoRepoDescribeRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9972BBE4C6200832F22 /* ComAtprotoRepoDescribeRepo.swift */; };
+		21C8A9DA2BBE4C6500832F22 /* ComAtprotoServerResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9982BBE4C6300832F22 /* ComAtprotoServerResetPassword.swift */; };
+		21C8A9DB2BBE4C6500832F22 /* ComAtprotoAdminDisableAccountInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9992BBE4C6300832F22 /* ComAtprotoAdminDisableAccountInvites.swift */; };
+		21C8A9DC2BBE4C6500832F22 /* ComAtprotoAdminDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99A2BBE4C6300832F22 /* ComAtprotoAdminDefs.swift */; };
+		21C8A9DD2BBE4C6500832F22 /* ComAtprotoServerRequestPasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99B2BBE4C6300832F22 /* ComAtprotoServerRequestPasswordReset.swift */; };
+		21C8A9DE2BBE4C6500832F22 /* ComAtprotoAdminDisableInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99C2BBE4C6300832F22 /* ComAtprotoAdminDisableInviteCodes.swift */; };
+		21C8A9DF2BBE4C6500832F22 /* ComAtprotoSyncGetCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99D2BBE4C6300832F22 /* ComAtprotoSyncGetCheckout.swift */; };
+		21C8A9E02BBE4C6500832F22 /* ComAtprotoSyncListBlobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99E2BBE4C6300832F22 /* ComAtprotoSyncListBlobs.swift */; };
+		21C8A9E12BBE4C6500832F22 /* ComAtprotoServerDeleteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A99F2BBE4C6300832F22 /* ComAtprotoServerDeleteSession.swift */; };
+		21C8A9E22BBE4C6500832F22 /* ComAtprotoLabelQueryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A02BBE4C6300832F22 /* ComAtprotoLabelQueryLabels.swift */; };
+		21C8A9E32BBE4C6500832F22 /* ComAtprotoAdminUpdateAccountHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A12BBE4C6300832F22 /* ComAtprotoAdminUpdateAccountHandle.swift */; };
+		21C8A9E42BBE4C6500832F22 /* ComAtprotoRepoListMissingBlobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A22BBE4C6300832F22 /* ComAtprotoRepoListMissingBlobs.swift */; };
+		21C8A9E52BBE4C6500832F22 /* ComAtprotoServerRevokeAppPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A32BBE4C6300832F22 /* ComAtprotoServerRevokeAppPassword.swift */; };
+		21C8A9E62BBE4C6500832F22 /* ComAtprotoAdminSendEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A42BBE4C6300832F22 /* ComAtprotoAdminSendEmail.swift */; };
+		21C8A9E72BBE4C6500832F22 /* ComAtprotoServerListAppPasswords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A52BBE4C6300832F22 /* ComAtprotoServerListAppPasswords.swift */; };
+		21C8A9E82BBE4C6500832F22 /* ComAtprotoAdminDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A62BBE4C6300832F22 /* ComAtprotoAdminDeleteAccount.swift */; };
+		21C8A9E92BBE4C6500832F22 /* ComAtprotoRepoCreateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A72BBE4C6300832F22 /* ComAtprotoRepoCreateRecord.swift */; };
+		21C8A9EA2BBE4C6500832F22 /* ComAtprotoSyncNotifyOfUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A82BBE4C6300832F22 /* ComAtprotoSyncNotifyOfUpdate.swift */; };
+		21C8A9EB2BBE4C6500832F22 /* ComAtprotoServerGetAccountInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9A92BBE4C6300832F22 /* ComAtprotoServerGetAccountInviteCodes.swift */; };
+		21C8A9EC2BBE4C6500832F22 /* ComAtprotoSyncGetBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AA2BBE4C6300832F22 /* ComAtprotoSyncGetBlob.swift */; };
+		21C8A9ED2BBE4C6500832F22 /* ComAtprotoServerCreateAppPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AB2BBE4C6300832F22 /* ComAtprotoServerCreateAppPassword.swift */; };
+		21C8A9EE2BBE4C6500832F22 /* ComAtprotoRepoGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AC2BBE4C6300832F22 /* ComAtprotoRepoGetRecord.swift */; };
+		21C8A9EF2BBE4C6500832F22 /* ComAtprotoRepoStrongRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AD2BBE4C6300832F22 /* ComAtprotoRepoStrongRef.swift */; };
+		21C8A9F02BBE4C6500832F22 /* ComAtprotoServerGetServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AE2BBE4C6300832F22 /* ComAtprotoServerGetServiceAuth.swift */; };
+		21C8A9F12BBE4C6500832F22 /* ComAtprotoServerRequestEmailUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9AF2BBE4C6300832F22 /* ComAtprotoServerRequestEmailUpdate.swift */; };
+		21C8A9F22BBE4C6500832F22 /* ComAtprotoSyncGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B02BBE4C6300832F22 /* ComAtprotoSyncGetRecord.swift */; };
+		21C8A9F32BBE4C6500832F22 /* ComAtprotoServerCreateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B12BBE4C6400832F22 /* ComAtprotoServerCreateSession.swift */; };
+		21C8A9F42BBE4C6500832F22 /* ComAtprotoServerRequestAccountDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B22BBE4C6400832F22 /* ComAtprotoServerRequestAccountDelete.swift */; };
+		21C8A9F52BBE4C6500832F22 /* ComAtprotoModerationDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B32BBE4C6400832F22 /* ComAtprotoModerationDefs.swift */; };
+		21C8A9F62BBE4C6500832F22 /* ComAtprotoSyncListRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B42BBE4C6400832F22 /* ComAtprotoSyncListRepos.swift */; };
+		21C8A9F72BBE4C6500832F22 /* ComAtprotoLabelDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B52BBE4C6400832F22 /* ComAtprotoLabelDefs.swift */; };
+		21C8A9F82BBE4C6500832F22 /* ComAtprotoSyncRequestCrawl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B62BBE4C6400832F22 /* ComAtprotoSyncRequestCrawl.swift */; };
+		21C8A9F92BBE4C6500832F22 /* ComAtprotoRepoUploadBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B72BBE4C6400832F22 /* ComAtprotoRepoUploadBlob.swift */; };
+		21C8A9FA2BBE4C6500832F22 /* ComAtprotoServerCreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B82BBE4C6400832F22 /* ComAtprotoServerCreateAccount.swift */; };
+		21C8A9FB2BBE4C6500832F22 /* ComAtprotoServerDeactivateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9B92BBE4C6400832F22 /* ComAtprotoServerDeactivateAccount.swift */; };
+		21C8A9FC2BBE4C6500832F22 /* ComAtprotoRepoApplyWrites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BA2BBE4C6400832F22 /* ComAtprotoRepoApplyWrites.swift */; };
+		21C8A9FD2BBE4C6500832F22 /* ComAtprotoSyncGetHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BB2BBE4C6400832F22 /* ComAtprotoSyncGetHead.swift */; };
+		21C8A9FE2BBE4C6500832F22 /* ComAtprotoSyncGetBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BC2BBE4C6400832F22 /* ComAtprotoSyncGetBlocks.swift */; };
+		21C8A9FF2BBE4C6500832F22 /* ComAtprotoRepoListRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BD2BBE4C6400832F22 /* ComAtprotoRepoListRecords.swift */; };
+		21C8AA002BBE4C6500832F22 /* ComAtprotoServerDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BE2BBE4C6400832F22 /* ComAtprotoServerDefs.swift */; };
+		21C8AA012BBE4C6500832F22 /* ComAtprotoServerActivateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9BF2BBE4C6400832F22 /* ComAtprotoServerActivateAccount.swift */; };
+		21C8AA022BBE4C6500832F22 /* ComAtprotoServerDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C02BBE4C6400832F22 /* ComAtprotoServerDeleteAccount.swift */; };
+		21C8AA032BBE4C6500832F22 /* ComAtprotoAdminGetAccountInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C12BBE4C6400832F22 /* ComAtprotoAdminGetAccountInfos.swift */; };
+		21C8AA042BBE4C6500832F22 /* ComAtprotoServerConfirmEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C22BBE4C6400832F22 /* ComAtprotoServerConfirmEmail.swift */; };
+		21C8AA052BBE4C6500832F22 /* ComAtprotoServerCreateInviteCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C32BBE4C6400832F22 /* ComAtprotoServerCreateInviteCode.swift */; };
+		21C8AA062BBE4C6500832F22 /* ComAtprotoServerCreateInviteCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C42BBE4C6400832F22 /* ComAtprotoServerCreateInviteCodes.swift */; };
+		21C8AA072BBE4C6500832F22 /* ComAtprotoAdminUpdateAccountPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C52BBE4C6400832F22 /* ComAtprotoAdminUpdateAccountPassword.swift */; };
+		21C8AA082BBE4C6500832F22 /* ComAtprotoServerUpdateEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C62BBE4C6500832F22 /* ComAtprotoServerUpdateEmail.swift */; };
+		21C8AA092BBE4C6500832F22 /* ComAtprotoAdminUpdateSubjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C72BBE4C6500832F22 /* ComAtprotoAdminUpdateSubjectStatus.swift */; };
+		21C8AA0A2BBE4C6500832F22 /* ComAtprotoServerRefreshSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C82BBE4C6500832F22 /* ComAtprotoServerRefreshSession.swift */; };
+		21C8AA0B2BBE4C6500832F22 /* ComAtprotoRepoDeleteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9C92BBE4C6500832F22 /* ComAtprotoRepoDeleteRecord.swift */; };
+		21C8AA0C2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CA2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift */; };
+		21C8AA0D2BBE4C6500832F22 /* ComAtprotoAdminEnableAccountInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CB2BBE4C6500832F22 /* ComAtprotoAdminEnableAccountInvites.swift */; };
+		21C8AA0E2BBE4C6500832F22 /* ATProtoClientClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CC2BBE4C6500832F22 /* ATProtoClientClasses.swift */; };
+		21C8AA0F2BBE4C6500832F22 /* ComAtprotoServerDescribeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CD2BBE4C6500832F22 /* ComAtprotoServerDescribeServer.swift */; };
+		21C8AA102BBE4C6500832F22 /* ComAtprotoRepoPutRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CE2BBE4C6500832F22 /* ComAtprotoRepoPutRecord.swift */; };
+		21C8AA112BBE4C6500832F22 /* ComAtprotoRepoImportRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9CF2BBE4C6500832F22 /* ComAtprotoRepoImportRepo.swift */; };
+		21C8AA122BBE4C6500832F22 /* ComAtprotoServerCheckAccountStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8A9D02BBE4C6500832F22 /* ComAtprotoServerCheckAccountStatus.swift */; };
+		21C8AA6F2BBE4C9000832F22 /* AppBskyGraphGetFollowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA132BBE4C8B00832F22 /* AppBskyGraphGetFollowers.swift */; };
+		21C8AA702BBE4C9000832F22 /* ToolsOzoneModerationEmitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA142BBE4C8B00832F22 /* ToolsOzoneModerationEmitEvent.swift */; };
+		21C8AA712BBE4C9000832F22 /* AppBskyNotificationUpdateSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA152BBE4C8B00832F22 /* AppBskyNotificationUpdateSeen.swift */; };
+		21C8AA722BBE4C9000832F22 /* AppBskyUnspeccedSearchActorsSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA162BBE4C8B00832F22 /* AppBskyUnspeccedSearchActorsSkeleton.swift */; };
+		21C8AA732BBE4C9000832F22 /* ComAtprotoTempRequestPhoneVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA172BBE4C8B00832F22 /* ComAtprotoTempRequestPhoneVerification.swift */; };
+		21C8AA742BBE4C9000832F22 /* AppBskyFeedSearchPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA182BBE4C8B00832F22 /* AppBskyFeedSearchPosts.swift */; };
+		21C8AA752BBE4C9000832F22 /* AppBskyNotificationGetUnreadCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA192BBE4C8B00832F22 /* AppBskyNotificationGetUnreadCount.swift */; };
+		21C8AA762BBE4C9000832F22 /* AppBskyFeedGetRepostedBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1A2BBE4C8B00832F22 /* AppBskyFeedGetRepostedBy.swift */; };
+		21C8AA772BBE4C9000832F22 /* ToolsOzoneModerationGetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1B2BBE4C8B00832F22 /* ToolsOzoneModerationGetRecord.swift */; };
+		21C8AA782BBE4C9000832F22 /* AppBskyFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1C2BBE4C8B00832F22 /* AppBskyFeedPost.swift */; };
+		21C8AA792BBE4C9000832F22 /* AppBskyActorGetPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1D2BBE4C8B00832F22 /* AppBskyActorGetPreferences.swift */; };
+		21C8AA7A2BBE4C9000832F22 /* AppBskyActorGetProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1E2BBE4C8B00832F22 /* AppBskyActorGetProfiles.swift */; };
+		21C8AA7B2BBE4C9000832F22 /* AppBskyFeedGetListFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA1F2BBE4C8B00832F22 /* AppBskyFeedGetListFeed.swift */; };
+		21C8AA7C2BBE4C9000832F22 /* AppBskyActorDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA202BBE4C8B00832F22 /* AppBskyActorDefs.swift */; };
+		21C8AA7D2BBE4C9000832F22 /* AppBskyActorPutPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA212BBE4C8C00832F22 /* AppBskyActorPutPreferences.swift */; };
+		21C8AA7E2BBE4C9000832F22 /* AppBskyNotificationRegisterPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA222BBE4C8C00832F22 /* AppBskyNotificationRegisterPush.swift */; };
+		21C8AA7F2BBE4C9000832F22 /* AppBskyUnspeccedDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA232BBE4C8C00832F22 /* AppBskyUnspeccedDefs.swift */; };
+		21C8AA802BBE4C9000832F22 /* ComAtprotoAdminUpdateAccountEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA242BBE4C8C00832F22 /* ComAtprotoAdminUpdateAccountEmail.swift */; };
+		21C8AA812BBE4C9000832F22 /* AppBskyEmbedExternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA252BBE4C8C00832F22 /* AppBskyEmbedExternal.swift */; };
+		21C8AA822BBE4C9000832F22 /* AppBskyGraphGetFollows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA262BBE4C8C00832F22 /* AppBskyGraphGetFollows.swift */; };
+		21C8AA832BBE4C9000832F22 /* AppBskyFeedGetSuggestedFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA272BBE4C8C00832F22 /* AppBskyFeedGetSuggestedFeeds.swift */; };
+		21C8AA842BBE4C9000832F22 /* AppBskyFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA282BBE4C8C00832F22 /* AppBskyFeedGenerator.swift */; };
+		21C8AA852BBE4C9000832F22 /* AppBskyEmbedRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA292BBE4C8C00832F22 /* AppBskyEmbedRecord.swift */; };
+		21C8AA862BBE4C9000832F22 /* AppBskyFeedGetActorFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2A2BBE4C8C00832F22 /* AppBskyFeedGetActorFeeds.swift */; };
+		21C8AA872BBE4C9000832F22 /* AppBskyFeedThreadgate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2B2BBE4C8C00832F22 /* AppBskyFeedThreadgate.swift */; };
+		21C8AA882BBE4C9000832F22 /* AppBskyLabelerGetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2C2BBE4C8C00832F22 /* AppBskyLabelerGetServices.swift */; };
+		21C8AA892BBE4C9000832F22 /* AppBskyFeedRepost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2D2BBE4C8C00832F22 /* AppBskyFeedRepost.swift */; };
+		21C8AA8A2BBE4C9000832F22 /* AppBskyActorSearchActors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2E2BBE4C8C00832F22 /* AppBskyActorSearchActors.swift */; };
+		21C8AA8B2BBE4C9000832F22 /* AppBskyGraphMuteActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA2F2BBE4C8C00832F22 /* AppBskyGraphMuteActor.swift */; };
+		21C8AA8C2BBE4C9000832F22 /* ComAtprotoIdentityGetRecommendedDidCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA302BBE4C8C00832F22 /* ComAtprotoIdentityGetRecommendedDidCredentials.swift */; };
+		21C8AA8D2BBE4C9000832F22 /* ComAtprotoIdentitySignPlcOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA312BBE4C8C00832F22 /* ComAtprotoIdentitySignPlcOperation.swift */; };
+		21C8AA8E2BBE4C9000832F22 /* ComAtprotoIdentitySubmitPlcOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA322BBE4C8D00832F22 /* ComAtprotoIdentitySubmitPlcOperation.swift */; };
+		21C8AA8F2BBE4C9000832F22 /* ToolsOzoneCommunicationDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA332BBE4C8D00832F22 /* ToolsOzoneCommunicationDefs.swift */; };
+		21C8AA902BBE4C9000832F22 /* AppBskyGraphUnmuteActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA342BBE4C8D00832F22 /* AppBskyGraphUnmuteActor.swift */; };
+		21C8AA912BBE4C9000832F22 /* ToolsOzoneModerationGetEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA352BBE4C8D00832F22 /* ToolsOzoneModerationGetEvent.swift */; };
+		21C8AA922BBE4C9000832F22 /* AppBskyFeedGetFeedSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA362BBE4C8D00832F22 /* AppBskyFeedGetFeedSkeleton.swift */; };
+		21C8AA932BBE4C9000832F22 /* ToolsOzoneModerationGetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA372BBE4C8D00832F22 /* ToolsOzoneModerationGetRepo.swift */; };
+		21C8AA942BBE4C9000832F22 /* AppBskyLabelerDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA382BBE4C8D00832F22 /* AppBskyLabelerDefs.swift */; };
+		21C8AA952BBE4C9000832F22 /* ToolsOzoneCommunicationCreateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA392BBE4C8D00832F22 /* ToolsOzoneCommunicationCreateTemplate.swift */; };
+		21C8AA962BBE4C9000832F22 /* ToolsOzoneModerationQueryStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3A2BBE4C8D00832F22 /* ToolsOzoneModerationQueryStatuses.swift */; };
+		21C8AA972BBE4C9000832F22 /* ToolsOzoneModerationSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3B2BBE4C8D00832F22 /* ToolsOzoneModerationSearchRepos.swift */; };
+		21C8AA982BBE4C9000832F22 /* AppBskyGraphGetLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3C2BBE4C8D00832F22 /* AppBskyGraphGetLists.swift */; };
+		21C8AA992BBE4C9000832F22 /* AppBskyGraphDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3D2BBE4C8D00832F22 /* AppBskyGraphDefs.swift */; };
+		21C8AA9A2BBE4C9000832F22 /* AppBskyGraphGetMutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3E2BBE4C8D00832F22 /* AppBskyGraphGetMutes.swift */; };
+		21C8AA9B2BBE4C9000832F22 /* AppBskyGraphListitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA3F2BBE4C8D00832F22 /* AppBskyGraphListitem.swift */; };
+		21C8AA9C2BBE4C9000832F22 /* ToolsOzoneCommunicationDeleteTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA402BBE4C8D00832F22 /* ToolsOzoneCommunicationDeleteTemplate.swift */; };
+		21C8AA9D2BBE4C9000832F22 /* AppBskyGraphList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA412BBE4C8D00832F22 /* AppBskyGraphList.swift */; };
+		21C8AA9E2BBE4C9000832F22 /* ToolsOzoneCommunicationUpdateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA422BBE4C8D00832F22 /* ToolsOzoneCommunicationUpdateTemplate.swift */; };
+		21C8AA9F2BBE4C9000832F22 /* AppBskyUnspeccedGetTaggedSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA432BBE4C8E00832F22 /* AppBskyUnspeccedGetTaggedSuggestions.swift */; };
+		21C8AAA02BBE4C9000832F22 /* AppBskyActorGetSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA442BBE4C8E00832F22 /* AppBskyActorGetSuggestions.swift */; };
+		21C8AAA12BBE4C9000832F22 /* AppBskyFeedGetActorLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA452BBE4C8E00832F22 /* AppBskyFeedGetActorLikes.swift */; };
+		21C8AAA22BBE4C9000832F22 /* AppBskyFeedGetPostThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA462BBE4C8E00832F22 /* AppBskyFeedGetPostThread.swift */; };
+		21C8AAA32BBE4C9000832F22 /* AppBskyActorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA472BBE4C8E00832F22 /* AppBskyActorProfile.swift */; };
+		21C8AAA42BBE4C9000832F22 /* AppBskyEmbedRecordWithMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA482BBE4C8E00832F22 /* AppBskyEmbedRecordWithMedia.swift */; };
+		21C8AAA52BBE4C9000832F22 /* AppBskyFeedGetLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA492BBE4C8E00832F22 /* AppBskyFeedGetLikes.swift */; };
+		21C8AAA62BBE4C9000832F22 /* AppBskyFeedGetTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4A2BBE4C8E00832F22 /* AppBskyFeedGetTimeline.swift */; };
+		21C8AAA72BBE4C9000832F22 /* AppBskyGraphGetBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4B2BBE4C8E00832F22 /* AppBskyGraphGetBlocks.swift */; };
+		21C8AAA82BBE4C9000832F22 /* ToolsOzoneModerationDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4C2BBE4C8E00832F22 /* ToolsOzoneModerationDefs.swift */; };
+		21C8AAA92BBE4C9000832F22 /* AppBskyFeedGetFeedGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4D2BBE4C8E00832F22 /* AppBskyFeedGetFeedGenerators.swift */; };
+		21C8AAAA2BBE4C9000832F22 /* AppBskyGraphFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4E2BBE4C8E00832F22 /* AppBskyGraphFollow.swift */; };
+		21C8AAAB2BBE4C9000832F22 /* ToolsOzoneModerationQueryEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA4F2BBE4C8E00832F22 /* ToolsOzoneModerationQueryEvents.swift */; };
+		21C8AAAC2BBE4C9000832F22 /* AppBskyGraphGetListBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA502BBE4C8E00832F22 /* AppBskyGraphGetListBlocks.swift */; };
+		21C8AAAD2BBE4C9000832F22 /* AppBskyGraphGetListMutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA512BBE4C8E00832F22 /* AppBskyGraphGetListMutes.swift */; };
+		21C8AAAE2BBE4C9000832F22 /* AppBskyGraphMuteActorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA522BBE4C8E00832F22 /* AppBskyGraphMuteActorList.swift */; };
+		21C8AAAF2BBE4C9000832F22 /* ComAtprotoTempFetchLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA532BBE4C8E00832F22 /* ComAtprotoTempFetchLabels.swift */; };
+		21C8AAB02BBE4C9000832F22 /* AppBskyActorGetProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA542BBE4C8E00832F22 /* AppBskyActorGetProfile.swift */; };
+		21C8AAB12BBE4C9000832F22 /* AppBskyFeedGetFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA552BBE4C8E00832F22 /* AppBskyFeedGetFeed.swift */; };
+		21C8AAB22BBE4C9000832F22 /* AppBskyUnspeccedSearchPostsSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA562BBE4C8E00832F22 /* AppBskyUnspeccedSearchPostsSkeleton.swift */; };
+		21C8AAB32BBE4C9000832F22 /* AppBskyGraphGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA572BBE4C8E00832F22 /* AppBskyGraphGetList.swift */; };
+		21C8AAB42BBE4C9000832F22 /* ComAtprotoAdminGetAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA582BBE4C8F00832F22 /* ComAtprotoAdminGetAccountInfo.swift */; };
+		21C8AAB52BBE4C9000832F22 /* AppBskyGraphGetRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA592BBE4C8F00832F22 /* AppBskyGraphGetRelationships.swift */; };
+		21C8AAB62BBE4C9000832F22 /* AppBskyFeedDescribeFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5A2BBE4C8F00832F22 /* AppBskyFeedDescribeFeedGenerator.swift */; };
+		21C8AAB72BBE4C9000832F22 /* AppBskyFeedGetPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5B2BBE4C8F00832F22 /* AppBskyFeedGetPosts.swift */; };
+		21C8AAB82BBE4C9000832F22 /* AppBskyGraphGetSuggestedFollowsByActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5C2BBE4C8F00832F22 /* AppBskyGraphGetSuggestedFollowsByActor.swift */; };
+		21C8AAB92BBE4C9000832F22 /* AppBskyFeedGetFeedGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5D2BBE4C8F00832F22 /* AppBskyFeedGetFeedGenerator.swift */; };
+		21C8AABA2BBE4C9000832F22 /* AppBskyGraphListblock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5E2BBE4C8F00832F22 /* AppBskyGraphListblock.swift */; };
+		21C8AABB2BBE4C9000832F22 /* AppBskyUnspeccedGetPopularFeedGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA5F2BBE4C8F00832F22 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */; };
+		21C8AABC2BBE4C9000832F22 /* ComAtprotoIdentityResolveHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA602BBE4C8F00832F22 /* ComAtprotoIdentityResolveHandle.swift */; };
+		21C8AABD2BBE4C9000832F22 /* ComAtprotoTempCheckSignupQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA612BBE4C8F00832F22 /* ComAtprotoTempCheckSignupQueue.swift */; };
+		21C8AABE2BBE4C9000832F22 /* AppBskyEmbedImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA622BBE4C8F00832F22 /* AppBskyEmbedImages.swift */; };
+		21C8AABF2BBE4C9000832F22 /* ComAtprotoIdentityUpdateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA632BBE4C8F00832F22 /* ComAtprotoIdentityUpdateHandle.swift */; };
+		21C8AAC02BBE4C9000832F22 /* AppBskyLabelerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA642BBE4C8F00832F22 /* AppBskyLabelerService.swift */; };
+		21C8AAC12BBE4C9000832F22 /* AppBskyGraphBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA652BBE4C8F00832F22 /* AppBskyGraphBlock.swift */; };
+		21C8AAC22BBE4C9000832F22 /* ToolsOzoneCommunicationListTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA662BBE4C8F00832F22 /* ToolsOzoneCommunicationListTemplates.swift */; };
+		21C8AAC32BBE4C9000832F22 /* AppBskyFeedDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA672BBE4C8F00832F22 /* AppBskyFeedDefs.swift */; };
+		21C8AAC42BBE4C9000832F22 /* AppBskyGraphUnmuteActorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA682BBE4C8F00832F22 /* AppBskyGraphUnmuteActorList.swift */; };
+		21C8AAC52BBE4C9000832F22 /* AppBskyRichtextFacet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA692BBE4C8F00832F22 /* AppBskyRichtextFacet.swift */; };
+		21C8AAC62BBE4C9000832F22 /* ComAtprotoIdentityRequestPlcOperationSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA6A2BBE4C8F00832F22 /* ComAtprotoIdentityRequestPlcOperationSignature.swift */; };
+		21C8AAC72BBE4C9000832F22 /* AppBskyActorSearchActorsTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA6B2BBE4C8F00832F22 /* AppBskyActorSearchActorsTypeahead.swift */; };
+		21C8AAC82BBE4C9000832F22 /* AppBskyFeedLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA6C2BBE4C8F00832F22 /* AppBskyFeedLike.swift */; };
+		21C8AAC92BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA6D2BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift */; };
+		21C8AACA2BBE4C9000832F22 /* AppBskyFeedGetAuthorFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8AA6E2BBE4C9000832F22 /* AppBskyFeedGetAuthorFeed.swift */; };
+		21D78D922BD54C64005609CF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D912BD54C64005609CF /* AuthenticationManager.swift */; };
+		21D78D942BD54C97005609CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D932BD54C97005609CF /* NetworkManager.swift */; };
+		21D78D982BD54D96005609CF /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D972BD54D96005609CF /* LogManager.swift */; };
+		21D78D9A2BD54DB7005609CF /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D992BD54DB7005609CF /* ConfigurationManager.swift */; };
+		21D78D9C2BD552D2005609CF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9B2BD552D2005609CF /* SessionManager.swift */; };
+		21D78D9E2BD55A23005609CF /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9D2BD55A23005609CF /* TokenManager.swift */; };
+		21D78DA02BD58E54005609CF /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9F2BD58E54005609CF /* Middleware.swift */; };
 		21E348792B84D10500542BEC /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = 21E348782B84D10500542BEC /* DomainParser */; };
 /* End PBXBuildFile section */
 
@@ -182,143 +210,6 @@
 		210EA8282B5AF92900602C46 /* ATProtoKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATProtoKitTests.swift; sourceTree = "<group>"; };
 		210EA8362B5AFB2300602C46 /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = templates; sourceTree = "<group>"; };
 		210EA8372B5AFB2300602C46 /* Generator.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Generator.py; sourceTree = "<group>"; };
-		210EA83A2B5AFC8E00602C46 /* AppBskyGraphGetLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetLists.swift; sourceTree = "<group>"; };
-		210EA83B2B5AFC8E00602C46 /* ComAtprotoServerCreateSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateSession.swift; sourceTree = "<group>"; };
-		210EA83C2B5AFC8E00602C46 /* AppBskyActorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorProfile.swift; sourceTree = "<group>"; };
-		210EA83D2B5AFC8E00602C46 /* AppBskyNotificationRegisterPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationRegisterPush.swift; sourceTree = "<group>"; };
-		210EA83E2B5AFC8E00602C46 /* AppBskyEmbedRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedRecord.swift; sourceTree = "<group>"; };
-		210EA83F2B5AFC8E00602C46 /* AppBskyFeedGetActorFeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetActorFeeds.swift; sourceTree = "<group>"; };
-		210EA8402B5AFC8E00602C46 /* ComAtprotoAdminGetInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetInviteCodes.swift; sourceTree = "<group>"; };
-		210EA8412B5AFC8F00602C46 /* ComAtprotoServerCreateInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateInviteCodes.swift; sourceTree = "<group>"; };
-		210EA8422B5AFC8F00602C46 /* ComAtprotoServerRequestAccountDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestAccountDelete.swift; sourceTree = "<group>"; };
-		210EA8432B5AFC8F00602C46 /* AppBskyFeedGetSuggestedFeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetSuggestedFeeds.swift; sourceTree = "<group>"; };
-		210EA8442B5AFC8F00602C46 /* AppBskyFeedDescribeFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedDescribeFeedGenerator.swift; sourceTree = "<group>"; };
-		210EA8452B5AFC8F00602C46 /* ComAtprotoAdminDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDefs.swift; sourceTree = "<group>"; };
-		210EA8462B5AFC8F00602C46 /* ComAtprotoSyncListRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncListRepos.swift; sourceTree = "<group>"; };
-		210EA8472B5AFC8F00602C46 /* AppBskyGraphGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetList.swift; sourceTree = "<group>"; };
-		210EA8482B5AFC8F00602C46 /* AppBskyEmbedExternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedExternal.swift; sourceTree = "<group>"; };
-		210EA8492B5AFC8F00602C46 /* AppBskyFeedRepost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedRepost.swift; sourceTree = "<group>"; };
-		210EA84A2B5AFC8F00602C46 /* ComAtprotoSyncGetCheckout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetCheckout.swift; sourceTree = "<group>"; };
-		210EA84B2B5AFC8F00602C46 /* ComAtprotoAdminEnableAccountInvites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminEnableAccountInvites.swift; sourceTree = "<group>"; };
-		210EA84C2B5AFC8F00602C46 /* ComAtprotoSyncNotifyOfUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncNotifyOfUpdate.swift; sourceTree = "<group>"; };
-		210EA84D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminQueryModerationEvents.swift; sourceTree = "<group>"; };
-		210EA84E2B5AFC8F00602C46 /* AppBskyGraphBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphBlock.swift; sourceTree = "<group>"; };
-		210EA84F2B5AFC8F00602C46 /* AppBskyFeedGetLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetLikes.swift; sourceTree = "<group>"; };
-		210EA8502B5AFC8F00602C46 /* ComAtprotoSyncGetLatestCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetLatestCommit.swift; sourceTree = "<group>"; };
-		210EA8512B5AFC8F00602C46 /* ComAtprotoServerGetAccountInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerGetAccountInviteCodes.swift; sourceTree = "<group>"; };
-		210EA8522B5AFC8F00602C46 /* ComAtprotoRepoStrongRef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoStrongRef.swift; sourceTree = "<group>"; };
-		210EA8532B5AFC8F00602C46 /* ComAtprotoServerDeleteSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDeleteSession.swift; sourceTree = "<group>"; };
-		210EA8542B5AFC8F00602C46 /* ComAtprotoRepoListRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoListRecords.swift; sourceTree = "<group>"; };
-		210EA8552B5AFC8F00602C46 /* ComAtprotoServerConfirmEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerConfirmEmail.swift; sourceTree = "<group>"; };
-		210EA8562B5AFC8F00602C46 /* AppBskyActorGetProfiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetProfiles.swift; sourceTree = "<group>"; };
-		210EA8572B5AFC8F00602C46 /* AppBskyGraphDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphDefs.swift; sourceTree = "<group>"; };
-		210EA8582B5AFC8F00602C46 /* AppBskyFeedThreadgate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedThreadgate.swift; sourceTree = "<group>"; };
-		210EA8592B5AFC8F00602C46 /* ComAtprotoAdminGetAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetAccountInfo.swift; sourceTree = "<group>"; };
-		210EA85A2B5AFC8F00602C46 /* ComAtprotoTempFetchLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempFetchLabels.swift; sourceTree = "<group>"; };
-		210EA85B2B5AFC8F00602C46 /* ComAtprotoModerationCreateReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoModerationCreateReport.swift; sourceTree = "<group>"; };
-		210EA85C2B5AFC8F00602C46 /* ComAtprotoServerGetSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerGetSession.swift; sourceTree = "<group>"; };
-		210EA85D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationStatuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminQueryModerationStatuses.swift; sourceTree = "<group>"; };
-		210EA85E2B5AFC8F00602C46 /* ComAtprotoRepoUploadBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoUploadBlob.swift; sourceTree = "<group>"; };
-		210EA85F2B5AFC8F00602C46 /* ComAtprotoAdminGetRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetRepo.swift; sourceTree = "<group>"; };
-		210EA8602B5AFC8F00602C46 /* AppBskyFeedSearchPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedSearchPosts.swift; sourceTree = "<group>"; };
-		210EA8612B5AFC8F00602C46 /* ComAtprotoAdminSearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminSearchRepos.swift; sourceTree = "<group>"; };
-		210EA8622B5AFC8F00602C46 /* ComAtprotoRepoCreateRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoCreateRecord.swift; sourceTree = "<group>"; };
-		210EA8632B5AFC8F00602C46 /* AppBskyGraphGetListBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetListBlocks.swift; sourceTree = "<group>"; };
-		210EA8642B5AFC8F00602C46 /* AppBskyGraphGetSuggestedFollowsByActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetSuggestedFollowsByActor.swift; sourceTree = "<group>"; };
-		210EA8652B5AFC8F00602C46 /* AppBskyGraphUnmuteActorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphUnmuteActorList.swift; sourceTree = "<group>"; };
-		210EA8662B5AFC8F00602C46 /* AppBskyFeedGetRepostedBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetRepostedBy.swift; sourceTree = "<group>"; };
-		210EA8672B5AFC8F00602C46 /* AppBskyGraphGetBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetBlocks.swift; sourceTree = "<group>"; };
-		210EA8682B5AFC8F00602C46 /* AppBskyGraphFollow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphFollow.swift; sourceTree = "<group>"; };
-		210EA8692B5AFC8F00602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedSearchActorsSkeleton.swift; sourceTree = "<group>"; };
-		210EA86A2B5AFC8F00602C46 /* ComAtprotoServerRequestEmailUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestEmailUpdate.swift; sourceTree = "<group>"; };
-		210EA86B2B5AFC8F00602C46 /* AppBskyFeedGetPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetPosts.swift; sourceTree = "<group>"; };
-		210EA86C2B5AFC8F00602C46 /* ComAtprotoSyncGetBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetBlocks.swift; sourceTree = "<group>"; };
-		210EA86D2B5AFC8F00602C46 /* ComAtprotoAdminDeleteAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDeleteAccount.swift; sourceTree = "<group>"; };
-		210EA86E2B5AFC9000602C46 /* AppBskyFeedGetFeedGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedGenerators.swift; sourceTree = "<group>"; };
-		210EA86F2B5AFC9000602C46 /* ComAtprotoAdminEmitModerationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminEmitModerationEvent.swift; sourceTree = "<group>"; };
-		210EA8702B5AFC9000602C46 /* ComAtprotoLabelQueryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoLabelQueryLabels.swift; sourceTree = "<group>"; };
-		210EA8712B5AFC9000602C46 /* ComAtprotoAdminDisableInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDisableInviteCodes.swift; sourceTree = "<group>"; };
-		210EA8722B5AFC9000602C46 /* ComAtprotoAdminUpdateAccountHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateAccountHandle.swift; sourceTree = "<group>"; };
-		210EA8732B5AFC9000602C46 /* ComAtprotoServerRefreshSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRefreshSession.swift; sourceTree = "<group>"; };
-		210EA8742B5AFC9000602C46 /* AppBskyActorGetProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetProfile.swift; sourceTree = "<group>"; };
-		210EA8752B5AFC9000602C46 /* AppBskyGraphMuteActorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphMuteActorList.swift; sourceTree = "<group>"; };
-		210EA8762B5AFC9000602C46 /* ComAtprotoServerRequestEmailConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestEmailConfirmation.swift; sourceTree = "<group>"; };
-		210EA8772B5AFC9000602C46 /* AppBskyUnspeccedGetTimelineSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedGetTimelineSkeleton.swift; sourceTree = "<group>"; };
-		210EA8782B5AFC9000602C46 /* AppBskyGraphGetMutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetMutes.swift; sourceTree = "<group>"; };
-		210EA8792B5AFC9000602C46 /* AppBskyActorSearchActors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorSearchActors.swift; sourceTree = "<group>"; };
-		210EA87A2B5AFC9000602C46 /* AppBskyGraphGetListMutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetListMutes.swift; sourceTree = "<group>"; };
-		210EA87B2B5AFC9000602C46 /* ComAtprotoServerReserveSigningKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerReserveSigningKey.swift; sourceTree = "<group>"; };
-		210EA87C2B5AFC9000602C46 /* AppBskyGraphMuteActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphMuteActor.swift; sourceTree = "<group>"; };
-		210EA87D2B5AFC9000602C46 /* ComAtprotoServerListAppPasswords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerListAppPasswords.swift; sourceTree = "<group>"; };
-		210EA87E2B5AFC9000602C46 /* AppBskyActorPutPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorPutPreferences.swift; sourceTree = "<group>"; };
-		210EA87F2B5AFC9000602C46 /* AppBskyActorDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorDefs.swift; sourceTree = "<group>"; };
-		210EA8802B5AFC9000602C46 /* ComAtprotoServerCreateAppPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateAppPassword.swift; sourceTree = "<group>"; };
-		210EA8812B5AFC9000602C46 /* AppBskyGraphGetFollowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetFollowers.swift; sourceTree = "<group>"; };
-		210EA8822B5AFC9000602C46 /* ComAtprotoServerRequestPasswordReset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestPasswordReset.swift; sourceTree = "<group>"; };
-		210EA8832B5AFC9000602C46 /* AppBskyUnspeccedDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedDefs.swift; sourceTree = "<group>"; };
-		210EA8842B5AFC9000602C46 /* ComAtprotoSyncGetRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetRepo.swift; sourceTree = "<group>"; };
-		210EA8852B5AFC9000602C46 /* ComAtprotoRepoDeleteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoDeleteRecord.swift; sourceTree = "<group>"; };
-		210EA8862B5AFC9000602C46 /* AppBskyFeedGetAuthorFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetAuthorFeed.swift; sourceTree = "<group>"; };
-		210EA8872B5AFC9000602C46 /* ComAtprotoSyncGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetRecord.swift; sourceTree = "<group>"; };
-		210EA8882B5AFC9000602C46 /* AppBskyGraphGetFollows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetFollows.swift; sourceTree = "<group>"; };
-		210EA8892B5AFC9000602C46 /* AppBskyNotificationUpdateSeen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationUpdateSeen.swift; sourceTree = "<group>"; };
-		210EA88A2B5AFC9000602C46 /* ComAtprotoAdminGetSubjectStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetSubjectStatus.swift; sourceTree = "<group>"; };
-		210EA88B2B5AFC9000602C46 /* AppBskyFeedPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedPost.swift; sourceTree = "<group>"; };
-		210EA88C2B5AFC9000602C46 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
-		210EA88D2B5AFC9000602C46 /* AppBskyGraphListitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphListitem.swift; sourceTree = "<group>"; };
-		210EA88E2B5AFC9000602C46 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedGetPopularFeedGenerators.swift; sourceTree = "<group>"; };
-		210EA88F2B5AFC9000602C46 /* ComAtprotoTempTransferAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempTransferAccount.swift; sourceTree = "<group>"; };
-		210EA8902B5AFC9000602C46 /* ComAtprotoRepoApplyWrites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoApplyWrites.swift; sourceTree = "<group>"; };
-		210EA8912B5AFC9000602C46 /* ComAtprotoSyncRequestCrawl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncRequestCrawl.swift; sourceTree = "<group>"; };
-		210EA8922B5AFC9000602C46 /* AppBskyRichtextFacet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyRichtextFacet.swift; sourceTree = "<group>"; };
-		210EA8932B5AFC9000602C46 /* ComAtprotoServerCreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateAccount.swift; sourceTree = "<group>"; };
-		210EA8942B5AFC9000602C46 /* ComAtprotoAdminGetAccountInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetAccountInfos.swift; sourceTree = "<group>"; };
-		210EA8952B5AFC9000602C46 /* AppBskyUnspeccedSearchPostsSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedSearchPostsSkeleton.swift; sourceTree = "<group>"; };
-		210EA8962B5AFC9000602C46 /* AppBskyFeedGetTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetTimeline.swift; sourceTree = "<group>"; };
-		210EA8972B5AFC9000602C46 /* ComAtprotoIdentityUpdateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityUpdateHandle.swift; sourceTree = "<group>"; };
-		210EA8982B5AFC9000602C46 /* AppBskyFeedGetFeedSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedSkeleton.swift; sourceTree = "<group>"; };
-		210EA8992B5AFC9000602C46 /* AppBskyGraphList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphList.swift; sourceTree = "<group>"; };
-		210EA89A2B5AFC9000602C46 /* ComAtprotoAdminSendEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminSendEmail.swift; sourceTree = "<group>"; };
-		210EA89B2B5AFC9000602C46 /* ComAtprotoTempImportRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempImportRepo.swift; sourceTree = "<group>"; };
-		210EA89C2B5AFC9000602C46 /* ComAtprotoRepoDescribeRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoDescribeRepo.swift; sourceTree = "<group>"; };
-		210EA89D2B5AFC9000602C46 /* ComAtprotoSyncGetHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetHead.swift; sourceTree = "<group>"; };
-		210EA89E2B5AFC9000602C46 /* ComAtprotoServerDeleteAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDeleteAccount.swift; sourceTree = "<group>"; };
-		210EA89F2B5AFC9000602C46 /* AppBskyNotificationGetUnreadCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationGetUnreadCount.swift; sourceTree = "<group>"; };
-		210EA8A02B5AFC9000602C46 /* AppBskyFeedGetPostThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetPostThread.swift; sourceTree = "<group>"; };
-		210EA8A12B5AFC9000602C46 /* AppBskyGraphUnmuteActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphUnmuteActor.swift; sourceTree = "<group>"; };
-		210EA8A22B5AFC9000602C46 /* AppBskyFeedGetFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeed.swift; sourceTree = "<group>"; };
-		210EA8A32B5AFC9000602C46 /* ComAtprotoIdentityResolveHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityResolveHandle.swift; sourceTree = "<group>"; };
-		210EA8A42B5AFC9000602C46 /* AppBskyGraphListblock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphListblock.swift; sourceTree = "<group>"; };
-		210EA8A52B5AFC9100602C46 /* AppBskyFeedLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedLike.swift; sourceTree = "<group>"; };
-		210EA8A62B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempPushBlob.swift; sourceTree = "<group>"; };
-		210EA8A72B5AFC9100602C46 /* AppBskyNotificationListNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationListNotifications.swift; sourceTree = "<group>"; };
-		210EA8A82B5AFC9100602C46 /* AppBskyFeedGetActorLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetActorLikes.swift; sourceTree = "<group>"; };
-		210EA8A92B5AFC9100602C46 /* ComAtprotoServerResetPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerResetPassword.swift; sourceTree = "<group>"; };
-		210EA8AA2B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRevokeAppPassword.swift; sourceTree = "<group>"; };
-		210EA8AB2B5AFC9100602C46 /* ComAtprotoAdminUpdateSubjectStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateSubjectStatus.swift; sourceTree = "<group>"; };
-		210EA8AC2B5AFC9100602C46 /* ComAtprotoRepoPutRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoPutRecord.swift; sourceTree = "<group>"; };
-		210EA8AD2B5AFC9100602C46 /* AppBskyFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGenerator.swift; sourceTree = "<group>"; };
-		210EA8AE2B5AFC9100602C46 /* ComAtprotoServerDescribeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDescribeServer.swift; sourceTree = "<group>"; };
-		210EA8AF2B5AFC9100602C46 /* ComAtprotoSyncListBlobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncListBlobs.swift; sourceTree = "<group>"; };
-		210EA8B02B5AFC9100602C46 /* ComAtprotoAdminGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetRecord.swift; sourceTree = "<group>"; };
-		210EA8B12B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateAccountEmail.swift; sourceTree = "<group>"; };
-		210EA8B22B5AFC9100602C46 /* AppBskyActorGetPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetPreferences.swift; sourceTree = "<group>"; };
-		210EA8B32B5AFC9100602C46 /* AppBskyFeedGetFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedGenerator.swift; sourceTree = "<group>"; };
-		210EA8B42B5AFC9100602C46 /* ComAtprotoServerUpdateEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerUpdateEmail.swift; sourceTree = "<group>"; };
-		210EA8B52B5AFC9100602C46 /* AppBskyActorGetSuggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetSuggestions.swift; sourceTree = "<group>"; };
-		210EA8B62B5AFC9100602C46 /* ComAtprotoModerationDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoModerationDefs.swift; sourceTree = "<group>"; };
-		210EA8B72B5AFC9100602C46 /* AppBskyActorSearchActorsTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorSearchActorsTypeahead.swift; sourceTree = "<group>"; };
-		210EA8B82B5AFC9100602C46 /* ComAtprotoSyncGetBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetBlob.swift; sourceTree = "<group>"; };
-		210EA8B92B5AFC9100602C46 /* ComAtprotoServerDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDefs.swift; sourceTree = "<group>"; };
-		210EA8BA2B5AFC9100602C46 /* AppBskyFeedGetListFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetListFeed.swift; sourceTree = "<group>"; };
-		210EA8BB2B5AFC9100602C46 /* AppBskyFeedDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedDefs.swift; sourceTree = "<group>"; };
-		210EA8BC2B5AFC9100602C46 /* ComAtprotoLabelDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoLabelDefs.swift; sourceTree = "<group>"; };
-		210EA8BD2B5AFC9100602C46 /* ComAtprotoServerCreateInviteCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateInviteCode.swift; sourceTree = "<group>"; };
-		210EA8BE2B5AFC9100602C46 /* AppBskyEmbedRecordWithMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedRecordWithMedia.swift; sourceTree = "<group>"; };
-		210EA8BF2B5AFC9100602C46 /* ComAtprotoAdminDisableAccountInvites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDisableAccountInvites.swift; sourceTree = "<group>"; };
-		210EA8C02B5AFC9100602C46 /* AppBskyEmbedImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedImages.swift; sourceTree = "<group>"; };
-		210EA8C12B5AFC9100602C46 /* ComAtprotoAdminGetModerationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetModerationEvent.swift; sourceTree = "<group>"; };
-		210EA8C22B5AFC9100602C46 /* ComAtprotoRepoGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoGetRecord.swift; sourceTree = "<group>"; };
 		210EA9502B5AFD4C00602C46 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		210EA9512B5AFD4C00602C46 /* ATProtoTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATProtoTypes.swift; sourceTree = "<group>"; };
 		210EA9522B5AFD4C00602C46 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -327,8 +218,173 @@
 		210EA9552B5AFD4C00602C46 /* DateValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValidation.swift; sourceTree = "<group>"; };
 		210EA9572B5AFD4C00602C46 /* QueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryParameters.swift; sourceTree = "<group>"; };
 		210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATProtoClient.swift; sourceTree = "<group>"; };
-		214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueHelpers.swift; sourceTree = "<group>"; };
+		214BD3732B790B2F00B1625D /* ATProtocolValueContainerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATProtocolValueContainerHelpers.swift; sourceTree = "<group>"; };
 		21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocHandler.swift; sourceTree = "<group>"; };
+		21C8A98F2BBE4C6200832F22 /* ComAtprotoSyncGetLatestCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetLatestCommit.swift; sourceTree = "<group>"; };
+		21C8A9902BBE4C6200832F22 /* ComAtprotoSyncGetRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetRepo.swift; sourceTree = "<group>"; };
+		21C8A9912BBE4C6200832F22 /* ComAtprotoServerGetSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerGetSession.swift; sourceTree = "<group>"; };
+		21C8A9922BBE4C6200832F22 /* ComAtprotoServerReserveSigningKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerReserveSigningKey.swift; sourceTree = "<group>"; };
+		21C8A9932BBE4C6200832F22 /* ComAtprotoAdminGetInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetInviteCodes.swift; sourceTree = "<group>"; };
+		21C8A9942BBE4C6200832F22 /* ATProtocolValueContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATProtocolValueContainer.swift; sourceTree = "<group>"; };
+		21C8A9952BBE4C6200832F22 /* ComAtprotoModerationCreateReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoModerationCreateReport.swift; sourceTree = "<group>"; };
+		21C8A9962BBE4C6200832F22 /* ComAtprotoAdminGetSubjectStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetSubjectStatus.swift; sourceTree = "<group>"; };
+		21C8A9972BBE4C6200832F22 /* ComAtprotoRepoDescribeRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoDescribeRepo.swift; sourceTree = "<group>"; };
+		21C8A9982BBE4C6300832F22 /* ComAtprotoServerResetPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerResetPassword.swift; sourceTree = "<group>"; };
+		21C8A9992BBE4C6300832F22 /* ComAtprotoAdminDisableAccountInvites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDisableAccountInvites.swift; sourceTree = "<group>"; };
+		21C8A99A2BBE4C6300832F22 /* ComAtprotoAdminDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDefs.swift; sourceTree = "<group>"; };
+		21C8A99B2BBE4C6300832F22 /* ComAtprotoServerRequestPasswordReset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestPasswordReset.swift; sourceTree = "<group>"; };
+		21C8A99C2BBE4C6300832F22 /* ComAtprotoAdminDisableInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDisableInviteCodes.swift; sourceTree = "<group>"; };
+		21C8A99D2BBE4C6300832F22 /* ComAtprotoSyncGetCheckout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetCheckout.swift; sourceTree = "<group>"; };
+		21C8A99E2BBE4C6300832F22 /* ComAtprotoSyncListBlobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncListBlobs.swift; sourceTree = "<group>"; };
+		21C8A99F2BBE4C6300832F22 /* ComAtprotoServerDeleteSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDeleteSession.swift; sourceTree = "<group>"; };
+		21C8A9A02BBE4C6300832F22 /* ComAtprotoLabelQueryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoLabelQueryLabels.swift; sourceTree = "<group>"; };
+		21C8A9A12BBE4C6300832F22 /* ComAtprotoAdminUpdateAccountHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateAccountHandle.swift; sourceTree = "<group>"; };
+		21C8A9A22BBE4C6300832F22 /* ComAtprotoRepoListMissingBlobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoListMissingBlobs.swift; sourceTree = "<group>"; };
+		21C8A9A32BBE4C6300832F22 /* ComAtprotoServerRevokeAppPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRevokeAppPassword.swift; sourceTree = "<group>"; };
+		21C8A9A42BBE4C6300832F22 /* ComAtprotoAdminSendEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminSendEmail.swift; sourceTree = "<group>"; };
+		21C8A9A52BBE4C6300832F22 /* ComAtprotoServerListAppPasswords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerListAppPasswords.swift; sourceTree = "<group>"; };
+		21C8A9A62BBE4C6300832F22 /* ComAtprotoAdminDeleteAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminDeleteAccount.swift; sourceTree = "<group>"; };
+		21C8A9A72BBE4C6300832F22 /* ComAtprotoRepoCreateRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoCreateRecord.swift; sourceTree = "<group>"; };
+		21C8A9A82BBE4C6300832F22 /* ComAtprotoSyncNotifyOfUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncNotifyOfUpdate.swift; sourceTree = "<group>"; };
+		21C8A9A92BBE4C6300832F22 /* ComAtprotoServerGetAccountInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerGetAccountInviteCodes.swift; sourceTree = "<group>"; };
+		21C8A9AA2BBE4C6300832F22 /* ComAtprotoSyncGetBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetBlob.swift; sourceTree = "<group>"; };
+		21C8A9AB2BBE4C6300832F22 /* ComAtprotoServerCreateAppPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateAppPassword.swift; sourceTree = "<group>"; };
+		21C8A9AC2BBE4C6300832F22 /* ComAtprotoRepoGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoGetRecord.swift; sourceTree = "<group>"; };
+		21C8A9AD2BBE4C6300832F22 /* ComAtprotoRepoStrongRef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoStrongRef.swift; sourceTree = "<group>"; };
+		21C8A9AE2BBE4C6300832F22 /* ComAtprotoServerGetServiceAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerGetServiceAuth.swift; sourceTree = "<group>"; };
+		21C8A9AF2BBE4C6300832F22 /* ComAtprotoServerRequestEmailUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestEmailUpdate.swift; sourceTree = "<group>"; };
+		21C8A9B02BBE4C6300832F22 /* ComAtprotoSyncGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetRecord.swift; sourceTree = "<group>"; };
+		21C8A9B12BBE4C6400832F22 /* ComAtprotoServerCreateSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateSession.swift; sourceTree = "<group>"; };
+		21C8A9B22BBE4C6400832F22 /* ComAtprotoServerRequestAccountDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestAccountDelete.swift; sourceTree = "<group>"; };
+		21C8A9B32BBE4C6400832F22 /* ComAtprotoModerationDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoModerationDefs.swift; sourceTree = "<group>"; };
+		21C8A9B42BBE4C6400832F22 /* ComAtprotoSyncListRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncListRepos.swift; sourceTree = "<group>"; };
+		21C8A9B52BBE4C6400832F22 /* ComAtprotoLabelDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoLabelDefs.swift; sourceTree = "<group>"; };
+		21C8A9B62BBE4C6400832F22 /* ComAtprotoSyncRequestCrawl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncRequestCrawl.swift; sourceTree = "<group>"; };
+		21C8A9B72BBE4C6400832F22 /* ComAtprotoRepoUploadBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoUploadBlob.swift; sourceTree = "<group>"; };
+		21C8A9B82BBE4C6400832F22 /* ComAtprotoServerCreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateAccount.swift; sourceTree = "<group>"; };
+		21C8A9B92BBE4C6400832F22 /* ComAtprotoServerDeactivateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDeactivateAccount.swift; sourceTree = "<group>"; };
+		21C8A9BA2BBE4C6400832F22 /* ComAtprotoRepoApplyWrites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoApplyWrites.swift; sourceTree = "<group>"; };
+		21C8A9BB2BBE4C6400832F22 /* ComAtprotoSyncGetHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetHead.swift; sourceTree = "<group>"; };
+		21C8A9BC2BBE4C6400832F22 /* ComAtprotoSyncGetBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoSyncGetBlocks.swift; sourceTree = "<group>"; };
+		21C8A9BD2BBE4C6400832F22 /* ComAtprotoRepoListRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoListRecords.swift; sourceTree = "<group>"; };
+		21C8A9BE2BBE4C6400832F22 /* ComAtprotoServerDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDefs.swift; sourceTree = "<group>"; };
+		21C8A9BF2BBE4C6400832F22 /* ComAtprotoServerActivateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerActivateAccount.swift; sourceTree = "<group>"; };
+		21C8A9C02BBE4C6400832F22 /* ComAtprotoServerDeleteAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDeleteAccount.swift; sourceTree = "<group>"; };
+		21C8A9C12BBE4C6400832F22 /* ComAtprotoAdminGetAccountInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetAccountInfos.swift; sourceTree = "<group>"; };
+		21C8A9C22BBE4C6400832F22 /* ComAtprotoServerConfirmEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerConfirmEmail.swift; sourceTree = "<group>"; };
+		21C8A9C32BBE4C6400832F22 /* ComAtprotoServerCreateInviteCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateInviteCode.swift; sourceTree = "<group>"; };
+		21C8A9C42BBE4C6400832F22 /* ComAtprotoServerCreateInviteCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCreateInviteCodes.swift; sourceTree = "<group>"; };
+		21C8A9C52BBE4C6400832F22 /* ComAtprotoAdminUpdateAccountPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateAccountPassword.swift; sourceTree = "<group>"; };
+		21C8A9C62BBE4C6500832F22 /* ComAtprotoServerUpdateEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerUpdateEmail.swift; sourceTree = "<group>"; };
+		21C8A9C72BBE4C6500832F22 /* ComAtprotoAdminUpdateSubjectStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateSubjectStatus.swift; sourceTree = "<group>"; };
+		21C8A9C82BBE4C6500832F22 /* ComAtprotoServerRefreshSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRefreshSession.swift; sourceTree = "<group>"; };
+		21C8A9C92BBE4C6500832F22 /* ComAtprotoRepoDeleteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoDeleteRecord.swift; sourceTree = "<group>"; };
+		21C8A9CA2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerRequestEmailConfirmation.swift; sourceTree = "<group>"; };
+		21C8A9CB2BBE4C6500832F22 /* ComAtprotoAdminEnableAccountInvites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminEnableAccountInvites.swift; sourceTree = "<group>"; };
+		21C8A9CC2BBE4C6500832F22 /* ATProtoClientClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATProtoClientClasses.swift; sourceTree = "<group>"; };
+		21C8A9CD2BBE4C6500832F22 /* ComAtprotoServerDescribeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerDescribeServer.swift; sourceTree = "<group>"; };
+		21C8A9CE2BBE4C6500832F22 /* ComAtprotoRepoPutRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoPutRecord.swift; sourceTree = "<group>"; };
+		21C8A9CF2BBE4C6500832F22 /* ComAtprotoRepoImportRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoRepoImportRepo.swift; sourceTree = "<group>"; };
+		21C8A9D02BBE4C6500832F22 /* ComAtprotoServerCheckAccountStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoServerCheckAccountStatus.swift; sourceTree = "<group>"; };
+		21C8AA132BBE4C8B00832F22 /* AppBskyGraphGetFollowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetFollowers.swift; sourceTree = "<group>"; };
+		21C8AA142BBE4C8B00832F22 /* ToolsOzoneModerationEmitEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationEmitEvent.swift; sourceTree = "<group>"; };
+		21C8AA152BBE4C8B00832F22 /* AppBskyNotificationUpdateSeen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationUpdateSeen.swift; sourceTree = "<group>"; };
+		21C8AA162BBE4C8B00832F22 /* AppBskyUnspeccedSearchActorsSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedSearchActorsSkeleton.swift; sourceTree = "<group>"; };
+		21C8AA172BBE4C8B00832F22 /* ComAtprotoTempRequestPhoneVerification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempRequestPhoneVerification.swift; sourceTree = "<group>"; };
+		21C8AA182BBE4C8B00832F22 /* AppBskyFeedSearchPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedSearchPosts.swift; sourceTree = "<group>"; };
+		21C8AA192BBE4C8B00832F22 /* AppBskyNotificationGetUnreadCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationGetUnreadCount.swift; sourceTree = "<group>"; };
+		21C8AA1A2BBE4C8B00832F22 /* AppBskyFeedGetRepostedBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetRepostedBy.swift; sourceTree = "<group>"; };
+		21C8AA1B2BBE4C8B00832F22 /* ToolsOzoneModerationGetRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationGetRecord.swift; sourceTree = "<group>"; };
+		21C8AA1C2BBE4C8B00832F22 /* AppBskyFeedPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedPost.swift; sourceTree = "<group>"; };
+		21C8AA1D2BBE4C8B00832F22 /* AppBskyActorGetPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetPreferences.swift; sourceTree = "<group>"; };
+		21C8AA1E2BBE4C8B00832F22 /* AppBskyActorGetProfiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetProfiles.swift; sourceTree = "<group>"; };
+		21C8AA1F2BBE4C8B00832F22 /* AppBskyFeedGetListFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetListFeed.swift; sourceTree = "<group>"; };
+		21C8AA202BBE4C8B00832F22 /* AppBskyActorDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorDefs.swift; sourceTree = "<group>"; };
+		21C8AA212BBE4C8C00832F22 /* AppBskyActorPutPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorPutPreferences.swift; sourceTree = "<group>"; };
+		21C8AA222BBE4C8C00832F22 /* AppBskyNotificationRegisterPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationRegisterPush.swift; sourceTree = "<group>"; };
+		21C8AA232BBE4C8C00832F22 /* AppBskyUnspeccedDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedDefs.swift; sourceTree = "<group>"; };
+		21C8AA242BBE4C8C00832F22 /* ComAtprotoAdminUpdateAccountEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminUpdateAccountEmail.swift; sourceTree = "<group>"; };
+		21C8AA252BBE4C8C00832F22 /* AppBskyEmbedExternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedExternal.swift; sourceTree = "<group>"; };
+		21C8AA262BBE4C8C00832F22 /* AppBskyGraphGetFollows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetFollows.swift; sourceTree = "<group>"; };
+		21C8AA272BBE4C8C00832F22 /* AppBskyFeedGetSuggestedFeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetSuggestedFeeds.swift; sourceTree = "<group>"; };
+		21C8AA282BBE4C8C00832F22 /* AppBskyFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGenerator.swift; sourceTree = "<group>"; };
+		21C8AA292BBE4C8C00832F22 /* AppBskyEmbedRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedRecord.swift; sourceTree = "<group>"; };
+		21C8AA2A2BBE4C8C00832F22 /* AppBskyFeedGetActorFeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetActorFeeds.swift; sourceTree = "<group>"; };
+		21C8AA2B2BBE4C8C00832F22 /* AppBskyFeedThreadgate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedThreadgate.swift; sourceTree = "<group>"; };
+		21C8AA2C2BBE4C8C00832F22 /* AppBskyLabelerGetServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyLabelerGetServices.swift; sourceTree = "<group>"; };
+		21C8AA2D2BBE4C8C00832F22 /* AppBskyFeedRepost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedRepost.swift; sourceTree = "<group>"; };
+		21C8AA2E2BBE4C8C00832F22 /* AppBskyActorSearchActors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorSearchActors.swift; sourceTree = "<group>"; };
+		21C8AA2F2BBE4C8C00832F22 /* AppBskyGraphMuteActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphMuteActor.swift; sourceTree = "<group>"; };
+		21C8AA302BBE4C8C00832F22 /* ComAtprotoIdentityGetRecommendedDidCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityGetRecommendedDidCredentials.swift; sourceTree = "<group>"; };
+		21C8AA312BBE4C8C00832F22 /* ComAtprotoIdentitySignPlcOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentitySignPlcOperation.swift; sourceTree = "<group>"; };
+		21C8AA322BBE4C8D00832F22 /* ComAtprotoIdentitySubmitPlcOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentitySubmitPlcOperation.swift; sourceTree = "<group>"; };
+		21C8AA332BBE4C8D00832F22 /* ToolsOzoneCommunicationDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneCommunicationDefs.swift; sourceTree = "<group>"; };
+		21C8AA342BBE4C8D00832F22 /* AppBskyGraphUnmuteActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphUnmuteActor.swift; sourceTree = "<group>"; };
+		21C8AA352BBE4C8D00832F22 /* ToolsOzoneModerationGetEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationGetEvent.swift; sourceTree = "<group>"; };
+		21C8AA362BBE4C8D00832F22 /* AppBskyFeedGetFeedSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedSkeleton.swift; sourceTree = "<group>"; };
+		21C8AA372BBE4C8D00832F22 /* ToolsOzoneModerationGetRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationGetRepo.swift; sourceTree = "<group>"; };
+		21C8AA382BBE4C8D00832F22 /* AppBskyLabelerDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyLabelerDefs.swift; sourceTree = "<group>"; };
+		21C8AA392BBE4C8D00832F22 /* ToolsOzoneCommunicationCreateTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneCommunicationCreateTemplate.swift; sourceTree = "<group>"; };
+		21C8AA3A2BBE4C8D00832F22 /* ToolsOzoneModerationQueryStatuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationQueryStatuses.swift; sourceTree = "<group>"; };
+		21C8AA3B2BBE4C8D00832F22 /* ToolsOzoneModerationSearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationSearchRepos.swift; sourceTree = "<group>"; };
+		21C8AA3C2BBE4C8D00832F22 /* AppBskyGraphGetLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetLists.swift; sourceTree = "<group>"; };
+		21C8AA3D2BBE4C8D00832F22 /* AppBskyGraphDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphDefs.swift; sourceTree = "<group>"; };
+		21C8AA3E2BBE4C8D00832F22 /* AppBskyGraphGetMutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetMutes.swift; sourceTree = "<group>"; };
+		21C8AA3F2BBE4C8D00832F22 /* AppBskyGraphListitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphListitem.swift; sourceTree = "<group>"; };
+		21C8AA402BBE4C8D00832F22 /* ToolsOzoneCommunicationDeleteTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneCommunicationDeleteTemplate.swift; sourceTree = "<group>"; };
+		21C8AA412BBE4C8D00832F22 /* AppBskyGraphList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphList.swift; sourceTree = "<group>"; };
+		21C8AA422BBE4C8D00832F22 /* ToolsOzoneCommunicationUpdateTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneCommunicationUpdateTemplate.swift; sourceTree = "<group>"; };
+		21C8AA432BBE4C8E00832F22 /* AppBskyUnspeccedGetTaggedSuggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedGetTaggedSuggestions.swift; sourceTree = "<group>"; };
+		21C8AA442BBE4C8E00832F22 /* AppBskyActorGetSuggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetSuggestions.swift; sourceTree = "<group>"; };
+		21C8AA452BBE4C8E00832F22 /* AppBskyFeedGetActorLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetActorLikes.swift; sourceTree = "<group>"; };
+		21C8AA462BBE4C8E00832F22 /* AppBskyFeedGetPostThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetPostThread.swift; sourceTree = "<group>"; };
+		21C8AA472BBE4C8E00832F22 /* AppBskyActorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorProfile.swift; sourceTree = "<group>"; };
+		21C8AA482BBE4C8E00832F22 /* AppBskyEmbedRecordWithMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedRecordWithMedia.swift; sourceTree = "<group>"; };
+		21C8AA492BBE4C8E00832F22 /* AppBskyFeedGetLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetLikes.swift; sourceTree = "<group>"; };
+		21C8AA4A2BBE4C8E00832F22 /* AppBskyFeedGetTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetTimeline.swift; sourceTree = "<group>"; };
+		21C8AA4B2BBE4C8E00832F22 /* AppBskyGraphGetBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetBlocks.swift; sourceTree = "<group>"; };
+		21C8AA4C2BBE4C8E00832F22 /* ToolsOzoneModerationDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationDefs.swift; sourceTree = "<group>"; };
+		21C8AA4D2BBE4C8E00832F22 /* AppBskyFeedGetFeedGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedGenerators.swift; sourceTree = "<group>"; };
+		21C8AA4E2BBE4C8E00832F22 /* AppBskyGraphFollow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphFollow.swift; sourceTree = "<group>"; };
+		21C8AA4F2BBE4C8E00832F22 /* ToolsOzoneModerationQueryEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneModerationQueryEvents.swift; sourceTree = "<group>"; };
+		21C8AA502BBE4C8E00832F22 /* AppBskyGraphGetListBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetListBlocks.swift; sourceTree = "<group>"; };
+		21C8AA512BBE4C8E00832F22 /* AppBskyGraphGetListMutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetListMutes.swift; sourceTree = "<group>"; };
+		21C8AA522BBE4C8E00832F22 /* AppBskyGraphMuteActorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphMuteActorList.swift; sourceTree = "<group>"; };
+		21C8AA532BBE4C8E00832F22 /* ComAtprotoTempFetchLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempFetchLabels.swift; sourceTree = "<group>"; };
+		21C8AA542BBE4C8E00832F22 /* AppBskyActorGetProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorGetProfile.swift; sourceTree = "<group>"; };
+		21C8AA552BBE4C8E00832F22 /* AppBskyFeedGetFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeed.swift; sourceTree = "<group>"; };
+		21C8AA562BBE4C8E00832F22 /* AppBskyUnspeccedSearchPostsSkeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedSearchPostsSkeleton.swift; sourceTree = "<group>"; };
+		21C8AA572BBE4C8E00832F22 /* AppBskyGraphGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetList.swift; sourceTree = "<group>"; };
+		21C8AA582BBE4C8F00832F22 /* ComAtprotoAdminGetAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoAdminGetAccountInfo.swift; sourceTree = "<group>"; };
+		21C8AA592BBE4C8F00832F22 /* AppBskyGraphGetRelationships.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetRelationships.swift; sourceTree = "<group>"; };
+		21C8AA5A2BBE4C8F00832F22 /* AppBskyFeedDescribeFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedDescribeFeedGenerator.swift; sourceTree = "<group>"; };
+		21C8AA5B2BBE4C8F00832F22 /* AppBskyFeedGetPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetPosts.swift; sourceTree = "<group>"; };
+		21C8AA5C2BBE4C8F00832F22 /* AppBskyGraphGetSuggestedFollowsByActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphGetSuggestedFollowsByActor.swift; sourceTree = "<group>"; };
+		21C8AA5D2BBE4C8F00832F22 /* AppBskyFeedGetFeedGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetFeedGenerator.swift; sourceTree = "<group>"; };
+		21C8AA5E2BBE4C8F00832F22 /* AppBskyGraphListblock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphListblock.swift; sourceTree = "<group>"; };
+		21C8AA5F2BBE4C8F00832F22 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyUnspeccedGetPopularFeedGenerators.swift; sourceTree = "<group>"; };
+		21C8AA602BBE4C8F00832F22 /* ComAtprotoIdentityResolveHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityResolveHandle.swift; sourceTree = "<group>"; };
+		21C8AA612BBE4C8F00832F22 /* ComAtprotoTempCheckSignupQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoTempCheckSignupQueue.swift; sourceTree = "<group>"; };
+		21C8AA622BBE4C8F00832F22 /* AppBskyEmbedImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyEmbedImages.swift; sourceTree = "<group>"; };
+		21C8AA632BBE4C8F00832F22 /* ComAtprotoIdentityUpdateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityUpdateHandle.swift; sourceTree = "<group>"; };
+		21C8AA642BBE4C8F00832F22 /* AppBskyLabelerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyLabelerService.swift; sourceTree = "<group>"; };
+		21C8AA652BBE4C8F00832F22 /* AppBskyGraphBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphBlock.swift; sourceTree = "<group>"; };
+		21C8AA662BBE4C8F00832F22 /* ToolsOzoneCommunicationListTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsOzoneCommunicationListTemplates.swift; sourceTree = "<group>"; };
+		21C8AA672BBE4C8F00832F22 /* AppBskyFeedDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedDefs.swift; sourceTree = "<group>"; };
+		21C8AA682BBE4C8F00832F22 /* AppBskyGraphUnmuteActorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyGraphUnmuteActorList.swift; sourceTree = "<group>"; };
+		21C8AA692BBE4C8F00832F22 /* AppBskyRichtextFacet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyRichtextFacet.swift; sourceTree = "<group>"; };
+		21C8AA6A2BBE4C8F00832F22 /* ComAtprotoIdentityRequestPlcOperationSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComAtprotoIdentityRequestPlcOperationSignature.swift; sourceTree = "<group>"; };
+		21C8AA6B2BBE4C8F00832F22 /* AppBskyActorSearchActorsTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyActorSearchActorsTypeahead.swift; sourceTree = "<group>"; };
+		21C8AA6C2BBE4C8F00832F22 /* AppBskyFeedLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedLike.swift; sourceTree = "<group>"; };
+		21C8AA6D2BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyNotificationListNotifications.swift; sourceTree = "<group>"; };
+		21C8AA6E2BBE4C9000832F22 /* AppBskyFeedGetAuthorFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBskyFeedGetAuthorFeed.swift; sourceTree = "<group>"; };
+		21D78D912BD54C64005609CF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		21D78D932BD54C97005609CF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		21D78D972BD54D96005609CF /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		21D78D992BD54DB7005609CF /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		21D78D9B2BD552D2005609CF /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		21D78D9D2BD55A23005609CF /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		21D78D9F2BD58E54005609CF /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,9 +448,10 @@
 		210EA8332B5AF9C200602C46 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */,
+				21D78D902BD54C4D005609CF /* Managerial */,
 				210EA94F2B5AFD3800602C46 /* Helpers */,
 				210EA8342B5AF9D600602C46 /* Generated */,
-				210EA9602B5AFD6B00602C46 /* ATProtoClient.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -402,143 +459,164 @@
 		210EA8342B5AF9D600602C46 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				210EA87F2B5AFC9000602C46 /* AppBskyActorDefs.swift */,
-				210EA8B22B5AFC9100602C46 /* AppBskyActorGetPreferences.swift */,
-				210EA8742B5AFC9000602C46 /* AppBskyActorGetProfile.swift */,
-				210EA8562B5AFC8F00602C46 /* AppBskyActorGetProfiles.swift */,
-				210EA8B52B5AFC9100602C46 /* AppBskyActorGetSuggestions.swift */,
-				210EA83C2B5AFC8E00602C46 /* AppBskyActorProfile.swift */,
-				210EA87E2B5AFC9000602C46 /* AppBskyActorPutPreferences.swift */,
-				210EA8792B5AFC9000602C46 /* AppBskyActorSearchActors.swift */,
-				210EA8B72B5AFC9100602C46 /* AppBskyActorSearchActorsTypeahead.swift */,
-				210EA8482B5AFC8F00602C46 /* AppBskyEmbedExternal.swift */,
-				210EA8C02B5AFC9100602C46 /* AppBskyEmbedImages.swift */,
-				210EA83E2B5AFC8E00602C46 /* AppBskyEmbedRecord.swift */,
-				210EA8BE2B5AFC9100602C46 /* AppBskyEmbedRecordWithMedia.swift */,
-				210EA8BB2B5AFC9100602C46 /* AppBskyFeedDefs.swift */,
-				210EA8442B5AFC8F00602C46 /* AppBskyFeedDescribeFeedGenerator.swift */,
-				210EA8AD2B5AFC9100602C46 /* AppBskyFeedGenerator.swift */,
-				210EA83F2B5AFC8E00602C46 /* AppBskyFeedGetActorFeeds.swift */,
-				210EA8A82B5AFC9100602C46 /* AppBskyFeedGetActorLikes.swift */,
-				210EA8862B5AFC9000602C46 /* AppBskyFeedGetAuthorFeed.swift */,
-				210EA8A22B5AFC9000602C46 /* AppBskyFeedGetFeed.swift */,
-				210EA8B32B5AFC9100602C46 /* AppBskyFeedGetFeedGenerator.swift */,
-				210EA86E2B5AFC9000602C46 /* AppBskyFeedGetFeedGenerators.swift */,
-				210EA8982B5AFC9000602C46 /* AppBskyFeedGetFeedSkeleton.swift */,
-				210EA84F2B5AFC8F00602C46 /* AppBskyFeedGetLikes.swift */,
-				210EA8BA2B5AFC9100602C46 /* AppBskyFeedGetListFeed.swift */,
-				210EA86B2B5AFC8F00602C46 /* AppBskyFeedGetPosts.swift */,
-				210EA8A02B5AFC9000602C46 /* AppBskyFeedGetPostThread.swift */,
-				210EA8662B5AFC8F00602C46 /* AppBskyFeedGetRepostedBy.swift */,
-				210EA8432B5AFC8F00602C46 /* AppBskyFeedGetSuggestedFeeds.swift */,
-				210EA8962B5AFC9000602C46 /* AppBskyFeedGetTimeline.swift */,
-				210EA8A52B5AFC9100602C46 /* AppBskyFeedLike.swift */,
-				210EA88B2B5AFC9000602C46 /* AppBskyFeedPost.swift */,
-				210EA8492B5AFC8F00602C46 /* AppBskyFeedRepost.swift */,
-				210EA8602B5AFC8F00602C46 /* AppBskyFeedSearchPosts.swift */,
-				210EA8582B5AFC8F00602C46 /* AppBskyFeedThreadgate.swift */,
-				210EA84E2B5AFC8F00602C46 /* AppBskyGraphBlock.swift */,
-				210EA8572B5AFC8F00602C46 /* AppBskyGraphDefs.swift */,
-				210EA8682B5AFC8F00602C46 /* AppBskyGraphFollow.swift */,
-				210EA8672B5AFC8F00602C46 /* AppBskyGraphGetBlocks.swift */,
-				210EA8812B5AFC9000602C46 /* AppBskyGraphGetFollowers.swift */,
-				210EA8882B5AFC9000602C46 /* AppBskyGraphGetFollows.swift */,
-				210EA8472B5AFC8F00602C46 /* AppBskyGraphGetList.swift */,
-				210EA8632B5AFC8F00602C46 /* AppBskyGraphGetListBlocks.swift */,
-				210EA87A2B5AFC9000602C46 /* AppBskyGraphGetListMutes.swift */,
-				210EA83A2B5AFC8E00602C46 /* AppBskyGraphGetLists.swift */,
-				210EA8782B5AFC9000602C46 /* AppBskyGraphGetMutes.swift */,
-				210EA8642B5AFC8F00602C46 /* AppBskyGraphGetSuggestedFollowsByActor.swift */,
-				210EA8992B5AFC9000602C46 /* AppBskyGraphList.swift */,
-				210EA8A42B5AFC9000602C46 /* AppBskyGraphListblock.swift */,
-				210EA88D2B5AFC9000602C46 /* AppBskyGraphListitem.swift */,
-				210EA87C2B5AFC9000602C46 /* AppBskyGraphMuteActor.swift */,
-				210EA8752B5AFC9000602C46 /* AppBskyGraphMuteActorList.swift */,
-				210EA8A12B5AFC9000602C46 /* AppBskyGraphUnmuteActor.swift */,
-				210EA8652B5AFC8F00602C46 /* AppBskyGraphUnmuteActorList.swift */,
-				210EA89F2B5AFC9000602C46 /* AppBskyNotificationGetUnreadCount.swift */,
-				210EA8A72B5AFC9100602C46 /* AppBskyNotificationListNotifications.swift */,
-				210EA83D2B5AFC8E00602C46 /* AppBskyNotificationRegisterPush.swift */,
-				210EA8892B5AFC9000602C46 /* AppBskyNotificationUpdateSeen.swift */,
-				210EA8922B5AFC9000602C46 /* AppBskyRichtextFacet.swift */,
-				210EA8832B5AFC9000602C46 /* AppBskyUnspeccedDefs.swift */,
-				210EA88E2B5AFC9000602C46 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */,
-				210EA8772B5AFC9000602C46 /* AppBskyUnspeccedGetTimelineSkeleton.swift */,
-				210EA8692B5AFC8F00602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift */,
-				210EA8952B5AFC9000602C46 /* AppBskyUnspeccedSearchPostsSkeleton.swift */,
-				210EA8452B5AFC8F00602C46 /* ComAtprotoAdminDefs.swift */,
-				210EA86D2B5AFC8F00602C46 /* ComAtprotoAdminDeleteAccount.swift */,
-				210EA8BF2B5AFC9100602C46 /* ComAtprotoAdminDisableAccountInvites.swift */,
-				210EA8712B5AFC9000602C46 /* ComAtprotoAdminDisableInviteCodes.swift */,
-				210EA86F2B5AFC9000602C46 /* ComAtprotoAdminEmitModerationEvent.swift */,
-				210EA84B2B5AFC8F00602C46 /* ComAtprotoAdminEnableAccountInvites.swift */,
-				210EA8592B5AFC8F00602C46 /* ComAtprotoAdminGetAccountInfo.swift */,
-				210EA8942B5AFC9000602C46 /* ComAtprotoAdminGetAccountInfos.swift */,
-				210EA8402B5AFC8E00602C46 /* ComAtprotoAdminGetInviteCodes.swift */,
-				210EA8C12B5AFC9100602C46 /* ComAtprotoAdminGetModerationEvent.swift */,
-				210EA8B02B5AFC9100602C46 /* ComAtprotoAdminGetRecord.swift */,
-				210EA85F2B5AFC8F00602C46 /* ComAtprotoAdminGetRepo.swift */,
-				210EA88A2B5AFC9000602C46 /* ComAtprotoAdminGetSubjectStatus.swift */,
-				210EA84D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationEvents.swift */,
-				210EA85D2B5AFC8F00602C46 /* ComAtprotoAdminQueryModerationStatuses.swift */,
-				210EA8612B5AFC8F00602C46 /* ComAtprotoAdminSearchRepos.swift */,
-				210EA89A2B5AFC9000602C46 /* ComAtprotoAdminSendEmail.swift */,
-				210EA8B12B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift */,
-				210EA8722B5AFC9000602C46 /* ComAtprotoAdminUpdateAccountHandle.swift */,
-				210EA8AB2B5AFC9100602C46 /* ComAtprotoAdminUpdateSubjectStatus.swift */,
-				210EA8A32B5AFC9000602C46 /* ComAtprotoIdentityResolveHandle.swift */,
-				210EA8972B5AFC9000602C46 /* ComAtprotoIdentityUpdateHandle.swift */,
-				210EA8BC2B5AFC9100602C46 /* ComAtprotoLabelDefs.swift */,
-				210EA8702B5AFC9000602C46 /* ComAtprotoLabelQueryLabels.swift */,
-				210EA85B2B5AFC8F00602C46 /* ComAtprotoModerationCreateReport.swift */,
-				210EA8B62B5AFC9100602C46 /* ComAtprotoModerationDefs.swift */,
-				210EA8902B5AFC9000602C46 /* ComAtprotoRepoApplyWrites.swift */,
-				210EA8622B5AFC8F00602C46 /* ComAtprotoRepoCreateRecord.swift */,
-				210EA8852B5AFC9000602C46 /* ComAtprotoRepoDeleteRecord.swift */,
-				210EA89C2B5AFC9000602C46 /* ComAtprotoRepoDescribeRepo.swift */,
-				210EA8C22B5AFC9100602C46 /* ComAtprotoRepoGetRecord.swift */,
-				210EA8542B5AFC8F00602C46 /* ComAtprotoRepoListRecords.swift */,
-				210EA8AC2B5AFC9100602C46 /* ComAtprotoRepoPutRecord.swift */,
-				210EA8522B5AFC8F00602C46 /* ComAtprotoRepoStrongRef.swift */,
-				210EA85E2B5AFC8F00602C46 /* ComAtprotoRepoUploadBlob.swift */,
-				210EA8552B5AFC8F00602C46 /* ComAtprotoServerConfirmEmail.swift */,
-				210EA8932B5AFC9000602C46 /* ComAtprotoServerCreateAccount.swift */,
-				210EA8802B5AFC9000602C46 /* ComAtprotoServerCreateAppPassword.swift */,
-				210EA8BD2B5AFC9100602C46 /* ComAtprotoServerCreateInviteCode.swift */,
-				210EA8412B5AFC8F00602C46 /* ComAtprotoServerCreateInviteCodes.swift */,
-				210EA83B2B5AFC8E00602C46 /* ComAtprotoServerCreateSession.swift */,
-				210EA8B92B5AFC9100602C46 /* ComAtprotoServerDefs.swift */,
-				210EA89E2B5AFC9000602C46 /* ComAtprotoServerDeleteAccount.swift */,
-				210EA8532B5AFC8F00602C46 /* ComAtprotoServerDeleteSession.swift */,
-				210EA8AE2B5AFC9100602C46 /* ComAtprotoServerDescribeServer.swift */,
-				210EA8512B5AFC8F00602C46 /* ComAtprotoServerGetAccountInviteCodes.swift */,
-				210EA85C2B5AFC8F00602C46 /* ComAtprotoServerGetSession.swift */,
-				210EA87D2B5AFC9000602C46 /* ComAtprotoServerListAppPasswords.swift */,
-				210EA8732B5AFC9000602C46 /* ComAtprotoServerRefreshSession.swift */,
-				210EA8422B5AFC8F00602C46 /* ComAtprotoServerRequestAccountDelete.swift */,
-				210EA8762B5AFC9000602C46 /* ComAtprotoServerRequestEmailConfirmation.swift */,
-				210EA86A2B5AFC8F00602C46 /* ComAtprotoServerRequestEmailUpdate.swift */,
-				210EA8822B5AFC9000602C46 /* ComAtprotoServerRequestPasswordReset.swift */,
-				210EA87B2B5AFC9000602C46 /* ComAtprotoServerReserveSigningKey.swift */,
-				210EA8A92B5AFC9100602C46 /* ComAtprotoServerResetPassword.swift */,
-				210EA8AA2B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift */,
-				210EA8B42B5AFC9100602C46 /* ComAtprotoServerUpdateEmail.swift */,
-				210EA8B82B5AFC9100602C46 /* ComAtprotoSyncGetBlob.swift */,
-				210EA86C2B5AFC8F00602C46 /* ComAtprotoSyncGetBlocks.swift */,
-				210EA84A2B5AFC8F00602C46 /* ComAtprotoSyncGetCheckout.swift */,
-				210EA89D2B5AFC9000602C46 /* ComAtprotoSyncGetHead.swift */,
-				210EA8502B5AFC8F00602C46 /* ComAtprotoSyncGetLatestCommit.swift */,
-				210EA8872B5AFC9000602C46 /* ComAtprotoSyncGetRecord.swift */,
-				210EA8842B5AFC9000602C46 /* ComAtprotoSyncGetRepo.swift */,
-				210EA8AF2B5AFC9100602C46 /* ComAtprotoSyncListBlobs.swift */,
-				210EA8462B5AFC8F00602C46 /* ComAtprotoSyncListRepos.swift */,
-				210EA84C2B5AFC8F00602C46 /* ComAtprotoSyncNotifyOfUpdate.swift */,
-				210EA8912B5AFC9000602C46 /* ComAtprotoSyncRequestCrawl.swift */,
-				210EA85A2B5AFC8F00602C46 /* ComAtprotoTempFetchLabels.swift */,
-				210EA89B2B5AFC9000602C46 /* ComAtprotoTempImportRepo.swift */,
-				210EA8A62B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift */,
-				210EA88F2B5AFC9000602C46 /* ComAtprotoTempTransferAccount.swift */,
-				210EA88C2B5AFC9000602C46 /* JSONValue.swift */,
+				21C8AA202BBE4C8B00832F22 /* AppBskyActorDefs.swift */,
+				21C8AA1D2BBE4C8B00832F22 /* AppBskyActorGetPreferences.swift */,
+				21C8AA542BBE4C8E00832F22 /* AppBskyActorGetProfile.swift */,
+				21C8AA1E2BBE4C8B00832F22 /* AppBskyActorGetProfiles.swift */,
+				21C8AA442BBE4C8E00832F22 /* AppBskyActorGetSuggestions.swift */,
+				21C8AA472BBE4C8E00832F22 /* AppBskyActorProfile.swift */,
+				21C8AA212BBE4C8C00832F22 /* AppBskyActorPutPreferences.swift */,
+				21C8AA2E2BBE4C8C00832F22 /* AppBskyActorSearchActors.swift */,
+				21C8AA6B2BBE4C8F00832F22 /* AppBskyActorSearchActorsTypeahead.swift */,
+				21C8AA252BBE4C8C00832F22 /* AppBskyEmbedExternal.swift */,
+				21C8AA622BBE4C8F00832F22 /* AppBskyEmbedImages.swift */,
+				21C8AA292BBE4C8C00832F22 /* AppBskyEmbedRecord.swift */,
+				21C8AA482BBE4C8E00832F22 /* AppBskyEmbedRecordWithMedia.swift */,
+				21C8AA672BBE4C8F00832F22 /* AppBskyFeedDefs.swift */,
+				21C8AA5A2BBE4C8F00832F22 /* AppBskyFeedDescribeFeedGenerator.swift */,
+				21C8AA282BBE4C8C00832F22 /* AppBskyFeedGenerator.swift */,
+				21C8AA2A2BBE4C8C00832F22 /* AppBskyFeedGetActorFeeds.swift */,
+				21C8AA452BBE4C8E00832F22 /* AppBskyFeedGetActorLikes.swift */,
+				21C8AA6E2BBE4C9000832F22 /* AppBskyFeedGetAuthorFeed.swift */,
+				21C8AA552BBE4C8E00832F22 /* AppBskyFeedGetFeed.swift */,
+				21C8AA5D2BBE4C8F00832F22 /* AppBskyFeedGetFeedGenerator.swift */,
+				21C8AA4D2BBE4C8E00832F22 /* AppBskyFeedGetFeedGenerators.swift */,
+				21C8AA362BBE4C8D00832F22 /* AppBskyFeedGetFeedSkeleton.swift */,
+				21C8AA492BBE4C8E00832F22 /* AppBskyFeedGetLikes.swift */,
+				21C8AA1F2BBE4C8B00832F22 /* AppBskyFeedGetListFeed.swift */,
+				21C8AA5B2BBE4C8F00832F22 /* AppBskyFeedGetPosts.swift */,
+				21C8AA462BBE4C8E00832F22 /* AppBskyFeedGetPostThread.swift */,
+				21C8AA1A2BBE4C8B00832F22 /* AppBskyFeedGetRepostedBy.swift */,
+				21C8AA272BBE4C8C00832F22 /* AppBskyFeedGetSuggestedFeeds.swift */,
+				21C8AA4A2BBE4C8E00832F22 /* AppBskyFeedGetTimeline.swift */,
+				21C8AA6C2BBE4C8F00832F22 /* AppBskyFeedLike.swift */,
+				21C8AA1C2BBE4C8B00832F22 /* AppBskyFeedPost.swift */,
+				21C8AA2D2BBE4C8C00832F22 /* AppBskyFeedRepost.swift */,
+				21C8AA182BBE4C8B00832F22 /* AppBskyFeedSearchPosts.swift */,
+				21C8AA2B2BBE4C8C00832F22 /* AppBskyFeedThreadgate.swift */,
+				21C8AA652BBE4C8F00832F22 /* AppBskyGraphBlock.swift */,
+				21C8AA3D2BBE4C8D00832F22 /* AppBskyGraphDefs.swift */,
+				21C8AA4E2BBE4C8E00832F22 /* AppBskyGraphFollow.swift */,
+				21C8AA4B2BBE4C8E00832F22 /* AppBskyGraphGetBlocks.swift */,
+				21C8AA132BBE4C8B00832F22 /* AppBskyGraphGetFollowers.swift */,
+				21C8AA262BBE4C8C00832F22 /* AppBskyGraphGetFollows.swift */,
+				21C8AA572BBE4C8E00832F22 /* AppBskyGraphGetList.swift */,
+				21C8AA502BBE4C8E00832F22 /* AppBskyGraphGetListBlocks.swift */,
+				21C8AA512BBE4C8E00832F22 /* AppBskyGraphGetListMutes.swift */,
+				21C8AA3C2BBE4C8D00832F22 /* AppBskyGraphGetLists.swift */,
+				21C8AA3E2BBE4C8D00832F22 /* AppBskyGraphGetMutes.swift */,
+				21C8AA592BBE4C8F00832F22 /* AppBskyGraphGetRelationships.swift */,
+				21C8AA5C2BBE4C8F00832F22 /* AppBskyGraphGetSuggestedFollowsByActor.swift */,
+				21C8AA412BBE4C8D00832F22 /* AppBskyGraphList.swift */,
+				21C8AA5E2BBE4C8F00832F22 /* AppBskyGraphListblock.swift */,
+				21C8AA3F2BBE4C8D00832F22 /* AppBskyGraphListitem.swift */,
+				21C8AA2F2BBE4C8C00832F22 /* AppBskyGraphMuteActor.swift */,
+				21C8AA522BBE4C8E00832F22 /* AppBskyGraphMuteActorList.swift */,
+				21C8AA342BBE4C8D00832F22 /* AppBskyGraphUnmuteActor.swift */,
+				21C8AA682BBE4C8F00832F22 /* AppBskyGraphUnmuteActorList.swift */,
+				21C8AA382BBE4C8D00832F22 /* AppBskyLabelerDefs.swift */,
+				21C8AA2C2BBE4C8C00832F22 /* AppBskyLabelerGetServices.swift */,
+				21C8AA642BBE4C8F00832F22 /* AppBskyLabelerService.swift */,
+				21C8AA192BBE4C8B00832F22 /* AppBskyNotificationGetUnreadCount.swift */,
+				21C8AA6D2BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift */,
+				21C8AA222BBE4C8C00832F22 /* AppBskyNotificationRegisterPush.swift */,
+				21C8AA152BBE4C8B00832F22 /* AppBskyNotificationUpdateSeen.swift */,
+				21C8AA692BBE4C8F00832F22 /* AppBskyRichtextFacet.swift */,
+				21C8AA232BBE4C8C00832F22 /* AppBskyUnspeccedDefs.swift */,
+				21C8AA5F2BBE4C8F00832F22 /* AppBskyUnspeccedGetPopularFeedGenerators.swift */,
+				21C8AA432BBE4C8E00832F22 /* AppBskyUnspeccedGetTaggedSuggestions.swift */,
+				21C8AA162BBE4C8B00832F22 /* AppBskyUnspeccedSearchActorsSkeleton.swift */,
+				21C8AA562BBE4C8E00832F22 /* AppBskyUnspeccedSearchPostsSkeleton.swift */,
+				21C8AA582BBE4C8F00832F22 /* ComAtprotoAdminGetAccountInfo.swift */,
+				21C8AA242BBE4C8C00832F22 /* ComAtprotoAdminUpdateAccountEmail.swift */,
+				21C8AA302BBE4C8C00832F22 /* ComAtprotoIdentityGetRecommendedDidCredentials.swift */,
+				21C8AA6A2BBE4C8F00832F22 /* ComAtprotoIdentityRequestPlcOperationSignature.swift */,
+				21C8AA602BBE4C8F00832F22 /* ComAtprotoIdentityResolveHandle.swift */,
+				21C8AA312BBE4C8C00832F22 /* ComAtprotoIdentitySignPlcOperation.swift */,
+				21C8AA322BBE4C8D00832F22 /* ComAtprotoIdentitySubmitPlcOperation.swift */,
+				21C8AA632BBE4C8F00832F22 /* ComAtprotoIdentityUpdateHandle.swift */,
+				21C8AA612BBE4C8F00832F22 /* ComAtprotoTempCheckSignupQueue.swift */,
+				21C8AA532BBE4C8E00832F22 /* ComAtprotoTempFetchLabels.swift */,
+				21C8AA172BBE4C8B00832F22 /* ComAtprotoTempRequestPhoneVerification.swift */,
+				21C8AA392BBE4C8D00832F22 /* ToolsOzoneCommunicationCreateTemplate.swift */,
+				21C8AA332BBE4C8D00832F22 /* ToolsOzoneCommunicationDefs.swift */,
+				21C8AA402BBE4C8D00832F22 /* ToolsOzoneCommunicationDeleteTemplate.swift */,
+				21C8AA662BBE4C8F00832F22 /* ToolsOzoneCommunicationListTemplates.swift */,
+				21C8AA422BBE4C8D00832F22 /* ToolsOzoneCommunicationUpdateTemplate.swift */,
+				21C8AA4C2BBE4C8E00832F22 /* ToolsOzoneModerationDefs.swift */,
+				21C8AA142BBE4C8B00832F22 /* ToolsOzoneModerationEmitEvent.swift */,
+				21C8AA352BBE4C8D00832F22 /* ToolsOzoneModerationGetEvent.swift */,
+				21C8AA1B2BBE4C8B00832F22 /* ToolsOzoneModerationGetRecord.swift */,
+				21C8AA372BBE4C8D00832F22 /* ToolsOzoneModerationGetRepo.swift */,
+				21C8AA4F2BBE4C8E00832F22 /* ToolsOzoneModerationQueryEvents.swift */,
+				21C8AA3A2BBE4C8D00832F22 /* ToolsOzoneModerationQueryStatuses.swift */,
+				21C8AA3B2BBE4C8D00832F22 /* ToolsOzoneModerationSearchRepos.swift */,
+				21C8A9CC2BBE4C6500832F22 /* ATProtoClientClasses.swift */,
+				21C8A99A2BBE4C6300832F22 /* ComAtprotoAdminDefs.swift */,
+				21C8A9A62BBE4C6300832F22 /* ComAtprotoAdminDeleteAccount.swift */,
+				21C8A9992BBE4C6300832F22 /* ComAtprotoAdminDisableAccountInvites.swift */,
+				21C8A99C2BBE4C6300832F22 /* ComAtprotoAdminDisableInviteCodes.swift */,
+				21C8A9CB2BBE4C6500832F22 /* ComAtprotoAdminEnableAccountInvites.swift */,
+				21C8A9C12BBE4C6400832F22 /* ComAtprotoAdminGetAccountInfos.swift */,
+				21C8A9932BBE4C6200832F22 /* ComAtprotoAdminGetInviteCodes.swift */,
+				21C8A9962BBE4C6200832F22 /* ComAtprotoAdminGetSubjectStatus.swift */,
+				21C8A9A42BBE4C6300832F22 /* ComAtprotoAdminSendEmail.swift */,
+				21C8A9A12BBE4C6300832F22 /* ComAtprotoAdminUpdateAccountHandle.swift */,
+				21C8A9C52BBE4C6400832F22 /* ComAtprotoAdminUpdateAccountPassword.swift */,
+				21C8A9C72BBE4C6500832F22 /* ComAtprotoAdminUpdateSubjectStatus.swift */,
+				21C8A9B52BBE4C6400832F22 /* ComAtprotoLabelDefs.swift */,
+				21C8A9A02BBE4C6300832F22 /* ComAtprotoLabelQueryLabels.swift */,
+				21C8A9952BBE4C6200832F22 /* ComAtprotoModerationCreateReport.swift */,
+				21C8A9B32BBE4C6400832F22 /* ComAtprotoModerationDefs.swift */,
+				21C8A9BA2BBE4C6400832F22 /* ComAtprotoRepoApplyWrites.swift */,
+				21C8A9A72BBE4C6300832F22 /* ComAtprotoRepoCreateRecord.swift */,
+				21C8A9C92BBE4C6500832F22 /* ComAtprotoRepoDeleteRecord.swift */,
+				21C8A9972BBE4C6200832F22 /* ComAtprotoRepoDescribeRepo.swift */,
+				21C8A9AC2BBE4C6300832F22 /* ComAtprotoRepoGetRecord.swift */,
+				21C8A9CF2BBE4C6500832F22 /* ComAtprotoRepoImportRepo.swift */,
+				21C8A9A22BBE4C6300832F22 /* ComAtprotoRepoListMissingBlobs.swift */,
+				21C8A9BD2BBE4C6400832F22 /* ComAtprotoRepoListRecords.swift */,
+				21C8A9CE2BBE4C6500832F22 /* ComAtprotoRepoPutRecord.swift */,
+				21C8A9AD2BBE4C6300832F22 /* ComAtprotoRepoStrongRef.swift */,
+				21C8A9B72BBE4C6400832F22 /* ComAtprotoRepoUploadBlob.swift */,
+				21C8A9BF2BBE4C6400832F22 /* ComAtprotoServerActivateAccount.swift */,
+				21C8A9D02BBE4C6500832F22 /* ComAtprotoServerCheckAccountStatus.swift */,
+				21C8A9C22BBE4C6400832F22 /* ComAtprotoServerConfirmEmail.swift */,
+				21C8A9B82BBE4C6400832F22 /* ComAtprotoServerCreateAccount.swift */,
+				21C8A9AB2BBE4C6300832F22 /* ComAtprotoServerCreateAppPassword.swift */,
+				21C8A9C32BBE4C6400832F22 /* ComAtprotoServerCreateInviteCode.swift */,
+				21C8A9C42BBE4C6400832F22 /* ComAtprotoServerCreateInviteCodes.swift */,
+				21C8A9B12BBE4C6400832F22 /* ComAtprotoServerCreateSession.swift */,
+				21C8A9B92BBE4C6400832F22 /* ComAtprotoServerDeactivateAccount.swift */,
+				21C8A9BE2BBE4C6400832F22 /* ComAtprotoServerDefs.swift */,
+				21C8A9C02BBE4C6400832F22 /* ComAtprotoServerDeleteAccount.swift */,
+				21C8A99F2BBE4C6300832F22 /* ComAtprotoServerDeleteSession.swift */,
+				21C8A9CD2BBE4C6500832F22 /* ComAtprotoServerDescribeServer.swift */,
+				21C8A9A92BBE4C6300832F22 /* ComAtprotoServerGetAccountInviteCodes.swift */,
+				21C8A9AE2BBE4C6300832F22 /* ComAtprotoServerGetServiceAuth.swift */,
+				21C8A9912BBE4C6200832F22 /* ComAtprotoServerGetSession.swift */,
+				21C8A9A52BBE4C6300832F22 /* ComAtprotoServerListAppPasswords.swift */,
+				21C8A9C82BBE4C6500832F22 /* ComAtprotoServerRefreshSession.swift */,
+				21C8A9B22BBE4C6400832F22 /* ComAtprotoServerRequestAccountDelete.swift */,
+				21C8A9CA2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift */,
+				21C8A9AF2BBE4C6300832F22 /* ComAtprotoServerRequestEmailUpdate.swift */,
+				21C8A99B2BBE4C6300832F22 /* ComAtprotoServerRequestPasswordReset.swift */,
+				21C8A9922BBE4C6200832F22 /* ComAtprotoServerReserveSigningKey.swift */,
+				21C8A9982BBE4C6300832F22 /* ComAtprotoServerResetPassword.swift */,
+				21C8A9A32BBE4C6300832F22 /* ComAtprotoServerRevokeAppPassword.swift */,
+				21C8A9C62BBE4C6500832F22 /* ComAtprotoServerUpdateEmail.swift */,
+				21C8A9AA2BBE4C6300832F22 /* ComAtprotoSyncGetBlob.swift */,
+				21C8A9BC2BBE4C6400832F22 /* ComAtprotoSyncGetBlocks.swift */,
+				21C8A99D2BBE4C6300832F22 /* ComAtprotoSyncGetCheckout.swift */,
+				21C8A9BB2BBE4C6400832F22 /* ComAtprotoSyncGetHead.swift */,
+				21C8A98F2BBE4C6200832F22 /* ComAtprotoSyncGetLatestCommit.swift */,
+				21C8A9B02BBE4C6300832F22 /* ComAtprotoSyncGetRecord.swift */,
+				21C8A9902BBE4C6200832F22 /* ComAtprotoSyncGetRepo.swift */,
+				21C8A99E2BBE4C6300832F22 /* ComAtprotoSyncListBlobs.swift */,
+				21C8A9B42BBE4C6400832F22 /* ComAtprotoSyncListRepos.swift */,
+				21C8A9A82BBE4C6300832F22 /* ComAtprotoSyncNotifyOfUpdate.swift */,
+				21C8A9B62BBE4C6400832F22 /* ComAtprotoSyncRequestCrawl.swift */,
+				21C8A9942BBE4C6200832F22 /* ATProtocolValueContainer.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -557,8 +635,7 @@
 			children = (
 				210EA9512B5AFD4C00602C46 /* ATProtoTypes.swift */,
 				210EA9552B5AFD4C00602C46 /* DateValidation.swift */,
-				214BD3732B790B2F00B1625D /* JSONValueHelpers.swift */,
-				210EA9532B5AFD4C00602C46 /* KeychainManager.swift */,
+				214BD3732B790B2F00B1625D /* ATProtocolValueContainerHelpers.swift */,
 				210EA9502B5AFD4C00602C46 /* Languages.swift */,
 				210EA9522B5AFD4C00602C46 /* NetworkError.swift */,
 				210EA9572B5AFD4C00602C46 /* QueryParameters.swift */,
@@ -566,6 +643,21 @@
 				21628EF42B6F2441001D10E5 /* DIDDocHandler.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		21D78D902BD54C4D005609CF /* Managerial */ = {
+			isa = PBXGroup;
+			children = (
+				21D78D992BD54DB7005609CF /* ConfigurationManager.swift */,
+				21D78D9B2BD552D2005609CF /* SessionManager.swift */,
+				21D78D912BD54C64005609CF /* AuthenticationManager.swift */,
+				210EA9532B5AFD4C00602C46 /* KeychainManager.swift */,
+				21D78D9D2BD55A23005609CF /* TokenManager.swift */,
+				21D78D932BD54C97005609CF /* NetworkManager.swift */,
+				21D78D9F2BD58E54005609CF /* Middleware.swift */,
+				21D78D972BD54D96005609CF /* LogManager.swift */,
+			);
+			path = Managerial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,7 +722,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					210EA8182B5AF92800602C46 = {
 						CreatedOnToolsVersion = 15.2;
@@ -687,154 +779,182 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				210EA9382B5AFC9100602C46 /* ComAtprotoSyncListBlobs.swift in Sources */,
-				210EA8FA2B5AFC9100602C46 /* ComAtprotoAdminDisableInviteCodes.swift in Sources */,
-				210EA9162B5AFC9100602C46 /* AppBskyGraphListitem.swift in Sources */,
-				210EA9352B5AFC9100602C46 /* ComAtprotoRepoPutRecord.swift in Sources */,
-				210EA91F2B5AFC9100602C46 /* AppBskyFeedGetTimeline.swift in Sources */,
-				210EA9092B5AFC9100602C46 /* ComAtprotoServerCreateAppPassword.swift in Sources */,
-				210EA9402B5AFC9200602C46 /* AppBskyActorSearchActorsTypeahead.swift in Sources */,
-				210EA8C52B5AFC9100602C46 /* AppBskyActorProfile.swift in Sources */,
+				21D78D942BD54C97005609CF /* NetworkManager.swift in Sources */,
+				21C8AAAC2BBE4C9000832F22 /* AppBskyGraphGetListBlocks.swift in Sources */,
+				21C8A9E92BBE4C6500832F22 /* ComAtprotoRepoCreateRecord.swift in Sources */,
+				21C8A9EE2BBE4C6500832F22 /* ComAtprotoRepoGetRecord.swift in Sources */,
+				21C8AA042BBE4C6500832F22 /* ComAtprotoServerConfirmEmail.swift in Sources */,
+				21C8AABC2BBE4C9000832F22 /* ComAtprotoIdentityResolveHandle.swift in Sources */,
+				21C8A9E32BBE4C6500832F22 /* ComAtprotoAdminUpdateAccountHandle.swift in Sources */,
+				21C8AA9B2BBE4C9000832F22 /* AppBskyGraphListitem.swift in Sources */,
+				21C8AACA2BBE4C9000832F22 /* AppBskyFeedGetAuthorFeed.swift in Sources */,
+				21C8A9E52BBE4C6500832F22 /* ComAtprotoServerRevokeAppPassword.swift in Sources */,
+				21C8A9F82BBE4C6500832F22 /* ComAtprotoSyncRequestCrawl.swift in Sources */,
+				21C8AAC12BBE4C9000832F22 /* AppBskyGraphBlock.swift in Sources */,
+				21C8A9E42BBE4C6500832F22 /* ComAtprotoRepoListMissingBlobs.swift in Sources */,
+				21C8AA992BBE4C9000832F22 /* AppBskyGraphDefs.swift in Sources */,
+				21C8AA742BBE4C9000832F22 /* AppBskyFeedSearchPosts.swift in Sources */,
+				21C8AA072BBE4C6500832F22 /* ComAtprotoAdminUpdateAccountPassword.swift in Sources */,
+				21D78D982BD54D96005609CF /* LogManager.swift in Sources */,
+				21C8AA972BBE4C9000832F22 /* ToolsOzoneModerationSearchRepos.swift in Sources */,
+				21C8A9E62BBE4C6500832F22 /* ComAtprotoAdminSendEmail.swift in Sources */,
+				21C8AA122BBE4C6500832F22 /* ComAtprotoServerCheckAccountStatus.swift in Sources */,
+				21C8A9F02BBE4C6500832F22 /* ComAtprotoServerGetServiceAuth.swift in Sources */,
+				21C8AAAE2BBE4C9000832F22 /* AppBskyGraphMuteActorList.swift in Sources */,
+				21C8AA9E2BBE4C9000832F22 /* ToolsOzoneCommunicationUpdateTemplate.swift in Sources */,
+				21C8AA0E2BBE4C6500832F22 /* ATProtoClientClasses.swift in Sources */,
+				21C8AA892BBE4C9000832F22 /* AppBskyFeedRepost.swift in Sources */,
+				21C8A9D42BBE4C6500832F22 /* ComAtprotoServerReserveSigningKey.swift in Sources */,
+				21C8A9DC2BBE4C6500832F22 /* ComAtprotoAdminDefs.swift in Sources */,
+				21C8AA842BBE4C9000832F22 /* AppBskyFeedGenerator.swift in Sources */,
+				21C8AA922BBE4C9000832F22 /* AppBskyFeedGetFeedSkeleton.swift in Sources */,
+				21C8AA082BBE4C6500832F22 /* ComAtprotoServerUpdateEmail.swift in Sources */,
 				210EA9582B5AFD4D00602C46 /* Languages.swift in Sources */,
-				210EA9072B5AFC9100602C46 /* AppBskyActorPutPreferences.swift in Sources */,
-				210EA8F82B5AFC9100602C46 /* ComAtprotoAdminEmitModerationEvent.swift in Sources */,
-				210EA8D92B5AFC9100602C46 /* ComAtprotoSyncGetLatestCommit.swift in Sources */,
-				210EA8C72B5AFC9100602C46 /* AppBskyEmbedRecord.swift in Sources */,
-				210EA8EE2B5AFC9100602C46 /* AppBskyGraphUnmuteActorList.swift in Sources */,
-				210EA8C32B5AFC9100602C46 /* AppBskyGraphGetLists.swift in Sources */,
-				210EA8E92B5AFC9100602C46 /* AppBskyFeedSearchPosts.swift in Sources */,
-				210EA8F32B5AFC9100602C46 /* ComAtprotoServerRequestEmailUpdate.swift in Sources */,
-				210EA91A2B5AFC9100602C46 /* ComAtprotoSyncRequestCrawl.swift in Sources */,
-				210EA8E52B5AFC9100602C46 /* ComAtprotoServerGetSession.swift in Sources */,
-				210EA8EB2B5AFC9100602C46 /* ComAtprotoRepoCreateRecord.swift in Sources */,
-				210EA92A2B5AFC9100602C46 /* AppBskyGraphUnmuteActor.swift in Sources */,
-				210EA8DE2B5AFC9100602C46 /* ComAtprotoServerConfirmEmail.swift in Sources */,
-				210EA93B2B5AFC9100602C46 /* AppBskyActorGetPreferences.swift in Sources */,
+				21C8AA0B2BBE4C6500832F22 /* ComAtprotoRepoDeleteRecord.swift in Sources */,
+				21C8AAC02BBE4C9000832F22 /* AppBskyLabelerService.swift in Sources */,
+				21C8AAA82BBE4C9000832F22 /* ToolsOzoneModerationDefs.swift in Sources */,
+				21C8AA7A2BBE4C9000832F22 /* AppBskyActorGetProfiles.swift in Sources */,
+				21C8AA732BBE4C9000832F22 /* ComAtprotoTempRequestPhoneVerification.swift in Sources */,
+				21C8AA722BBE4C9000832F22 /* AppBskyUnspeccedSearchActorsSkeleton.swift in Sources */,
+				21C8A9DE2BBE4C6500832F22 /* ComAtprotoAdminDisableInviteCodes.swift in Sources */,
+				21C8A9ED2BBE4C6500832F22 /* ComAtprotoServerCreateAppPassword.swift in Sources */,
+				21C8AAC92BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift in Sources */,
+				21C8AA7F2BBE4C9000832F22 /* AppBskyUnspeccedDefs.swift in Sources */,
+				21C8A9DD2BBE4C6500832F22 /* ComAtprotoServerRequestPasswordReset.swift in Sources */,
+				21C8A9EC2BBE4C6500832F22 /* ComAtprotoSyncGetBlob.swift in Sources */,
+				21C8AAC82BBE4C9000832F22 /* AppBskyFeedLike.swift in Sources */,
+				21C8AA7E2BBE4C9000832F22 /* AppBskyNotificationRegisterPush.swift in Sources */,
+				21C8AAB62BBE4C9000832F22 /* AppBskyFeedDescribeFeedGenerator.swift in Sources */,
+				21C8AAB82BBE4C9000832F22 /* AppBskyGraphGetSuggestedFollowsByActor.swift in Sources */,
+				21C8A9D12BBE4C6500832F22 /* ComAtprotoSyncGetLatestCommit.swift in Sources */,
+				21C8AAB32BBE4C9000832F22 /* AppBskyGraphGetList.swift in Sources */,
+				21C8A9EA2BBE4C6500832F22 /* ComAtprotoSyncNotifyOfUpdate.swift in Sources */,
+				21C8AA9F2BBE4C9000832F22 /* AppBskyUnspeccedGetTaggedSuggestions.swift in Sources */,
+				21C8A9F42BBE4C6500832F22 /* ComAtprotoServerRequestAccountDelete.swift in Sources */,
 				210EA9592B5AFD4D00602C46 /* ATProtoTypes.swift in Sources */,
-				210EA8D52B5AFC9100602C46 /* ComAtprotoSyncNotifyOfUpdate.swift in Sources */,
-				210EA9002B5AFC9100602C46 /* AppBskyUnspeccedGetTimelineSkeleton.swift in Sources */,
-				210EA90C2B5AFC9100602C46 /* AppBskyUnspeccedDefs.swift in Sources */,
-				210EA92E2B5AFC9100602C46 /* AppBskyFeedLike.swift in Sources */,
-				210EA8DC2B5AFC9100602C46 /* ComAtprotoServerDeleteSession.swift in Sources */,
-				210EA93D2B5AFC9200602C46 /* ComAtprotoServerUpdateEmail.swift in Sources */,
-				210EA9292B5AFC9100602C46 /* AppBskyFeedGetPostThread.swift in Sources */,
-				210EA9012B5AFC9100602C46 /* AppBskyGraphGetMutes.swift in Sources */,
-				210EA94A2B5AFC9200602C46 /* ComAtprotoAdminGetModerationEvent.swift in Sources */,
-				210EA8E02B5AFC9100602C46 /* AppBskyGraphDefs.swift in Sources */,
-				210EA8D32B5AFC9100602C46 /* ComAtprotoSyncGetCheckout.swift in Sources */,
-				210EA90E2B5AFC9100602C46 /* ComAtprotoRepoDeleteRecord.swift in Sources */,
+				21C8A9F32BBE4C6500832F22 /* ComAtprotoServerCreateSession.swift in Sources */,
+				21C8AA702BBE4C9000832F22 /* ToolsOzoneModerationEmitEvent.swift in Sources */,
+				21C8AABF2BBE4C9000832F22 /* ComAtprotoIdentityUpdateHandle.swift in Sources */,
 				210EA9612B5AFD6B00602C46 /* ATProtoClient.swift in Sources */,
+				21D78DA02BD58E54005609CF /* Middleware.swift in Sources */,
+				21C8AAA72BBE4C9000832F22 /* AppBskyGraphGetBlocks.swift in Sources */,
+				21C8AABD2BBE4C9000832F22 /* ComAtprotoTempCheckSignupQueue.swift in Sources */,
+				21C8AA8B2BBE4C9000832F22 /* AppBskyGraphMuteActor.swift in Sources */,
+				21C8A9FD2BBE4C6500832F22 /* ComAtprotoSyncGetHead.swift in Sources */,
+				21C8A9F12BBE4C6500832F22 /* ComAtprotoServerRequestEmailUpdate.swift in Sources */,
+				21C8AA7D2BBE4C9000832F22 /* AppBskyActorPutPreferences.swift in Sources */,
+				21C8A9F52BBE4C6500832F22 /* ComAtprotoModerationDefs.swift in Sources */,
+				21C8AA092BBE4C6500832F22 /* ComAtprotoAdminUpdateSubjectStatus.swift in Sources */,
+				21C8AAB22BBE4C9000832F22 /* AppBskyUnspeccedSearchPostsSkeleton.swift in Sources */,
+				21C8AABE2BBE4C9000832F22 /* AppBskyEmbedImages.swift in Sources */,
+				21C8AA942BBE4C9000832F22 /* AppBskyLabelerDefs.swift in Sources */,
+				21D78D9A2BD54DB7005609CF /* ConfigurationManager.swift in Sources */,
+				21C8AA752BBE4C9000832F22 /* AppBskyNotificationGetUnreadCount.swift in Sources */,
+				21C8A9D82BBE4C6500832F22 /* ComAtprotoAdminGetSubjectStatus.swift in Sources */,
+				21C8A9EF2BBE4C6500832F22 /* ComAtprotoRepoStrongRef.swift in Sources */,
+				21C8AA8A2BBE4C9000832F22 /* AppBskyActorSearchActors.swift in Sources */,
+				21C8AA962BBE4C9000832F22 /* ToolsOzoneModerationQueryStatuses.swift in Sources */,
+				21C8AAA52BBE4C9000832F22 /* AppBskyFeedGetLikes.swift in Sources */,
+				21C8AAAB2BBE4C9000832F22 /* ToolsOzoneModerationQueryEvents.swift in Sources */,
+				21C8AA9A2BBE4C9000832F22 /* AppBskyGraphGetMutes.swift in Sources */,
 				210EA81E2B5AF92800602C46 /* ATProtoKit.docc in Sources */,
-				210EA8EC2B5AFC9100602C46 /* AppBskyGraphGetListBlocks.swift in Sources */,
-				210EA9302B5AFC9100602C46 /* AppBskyNotificationListNotifications.swift in Sources */,
-				210EA8D62B5AFC9100602C46 /* ComAtprotoAdminQueryModerationEvents.swift in Sources */,
+				21C8AAA12BBE4C9000832F22 /* AppBskyFeedGetActorLikes.swift in Sources */,
 				210EA95D2B5AFD4D00602C46 /* DateValidation.swift in Sources */,
-				210EA9362B5AFC9100602C46 /* AppBskyFeedGenerator.swift in Sources */,
-				210EA9252B5AFC9100602C46 /* ComAtprotoRepoDescribeRepo.swift in Sources */,
-				210EA9112B5AFC9100602C46 /* AppBskyGraphGetFollows.swift in Sources */,
-				210EA8DB2B5AFC9100602C46 /* ComAtprotoRepoStrongRef.swift in Sources */,
-				210EA8C92B5AFC9100602C46 /* ComAtprotoAdminGetInviteCodes.swift in Sources */,
-				210EA8F52B5AFC9100602C46 /* ComAtprotoSyncGetBlocks.swift in Sources */,
-				210EA8C42B5AFC9100602C46 /* ComAtprotoServerCreateSession.swift in Sources */,
-				210EA8E72B5AFC9100602C46 /* ComAtprotoRepoUploadBlob.swift in Sources */,
-				210EA91E2B5AFC9100602C46 /* AppBskyUnspeccedSearchPostsSkeleton.swift in Sources */,
-				210EA90D2B5AFC9100602C46 /* ComAtprotoSyncGetRepo.swift in Sources */,
-				210EA9342B5AFC9100602C46 /* ComAtprotoAdminUpdateSubjectStatus.swift in Sources */,
+				21C8AA9C2BBE4C9000832F22 /* ToolsOzoneCommunicationDeleteTemplate.swift in Sources */,
+				21C8AA792BBE4C9000832F22 /* AppBskyActorGetPreferences.swift in Sources */,
+				21C8AA032BBE4C6500832F22 /* ComAtprotoAdminGetAccountInfos.swift in Sources */,
+				21C8AAB92BBE4C9000832F22 /* AppBskyFeedGetFeedGenerator.swift in Sources */,
+				21C8AA002BBE4C6500832F22 /* ComAtprotoServerDefs.swift in Sources */,
+				21C8AA812BBE4C9000832F22 /* AppBskyEmbedExternal.swift in Sources */,
+				21C8A9FF2BBE4C6500832F22 /* ComAtprotoRepoListRecords.swift in Sources */,
+				21C8A9D92BBE4C6500832F22 /* ComAtprotoRepoDescribeRepo.swift in Sources */,
+				21C8A9E12BBE4C6500832F22 /* ComAtprotoServerDeleteSession.swift in Sources */,
+				21C8AAB52BBE4C9000832F22 /* AppBskyGraphGetRelationships.swift in Sources */,
+				21C8AAC22BBE4C9000832F22 /* ToolsOzoneCommunicationListTemplates.swift in Sources */,
+				21C8AA902BBE4C9000832F22 /* AppBskyGraphUnmuteActor.swift in Sources */,
+				21D78D9C2BD552D2005609CF /* SessionManager.swift in Sources */,
+				21C8A9D32BBE4C6500832F22 /* ComAtprotoServerGetSession.swift in Sources */,
+				21C8AA112BBE4C6500832F22 /* ComAtprotoRepoImportRepo.swift in Sources */,
+				21C8A9FA2BBE4C6500832F22 /* ComAtprotoServerCreateAccount.swift in Sources */,
+				21C8AA8F2BBE4C9000832F22 /* ToolsOzoneCommunicationDefs.swift in Sources */,
+				21D78D9E2BD55A23005609CF /* TokenManager.swift in Sources */,
+				21C8A9E82BBE4C6500832F22 /* ComAtprotoAdminDeleteAccount.swift in Sources */,
+				21C8AAA62BBE4C9000832F22 /* AppBskyFeedGetTimeline.swift in Sources */,
+				21C8A9EB2BBE4C6500832F22 /* ComAtprotoServerGetAccountInviteCodes.swift in Sources */,
+				21C8A9DF2BBE4C6500832F22 /* ComAtprotoSyncGetCheckout.swift in Sources */,
+				21C8A9F22BBE4C6500832F22 /* ComAtprotoSyncGetRecord.swift in Sources */,
 				210EA95F2B5AFD4D00602C46 /* QueryParameters.swift in Sources */,
-				210EA9102B5AFC9100602C46 /* ComAtprotoSyncGetRecord.swift in Sources */,
-				210EA8F22B5AFC9100602C46 /* AppBskyUnspeccedSearchActorsSkeleton.swift in Sources */,
-				210EA9442B5AFC9200602C46 /* AppBskyFeedDefs.swift in Sources */,
-				210EA93A2B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountEmail.swift in Sources */,
-				214BD3742B790B3000B1625D /* JSONValueHelpers.swift in Sources */,
-				210EA9472B5AFC9200602C46 /* AppBskyEmbedRecordWithMedia.swift in Sources */,
-				210EA92F2B5AFC9100602C46 /* ComAtprotoTempPushBlob.swift in Sources */,
-				210EA8D22B5AFC9100602C46 /* AppBskyFeedRepost.swift in Sources */,
-				210EA9452B5AFC9200602C46 /* ComAtprotoLabelDefs.swift in Sources */,
-				210EA91B2B5AFC9100602C46 /* AppBskyRichtextFacet.swift in Sources */,
-				210EA8CF2B5AFC9100602C46 /* ComAtprotoSyncListRepos.swift in Sources */,
-				210EA9462B5AFC9200602C46 /* ComAtprotoServerCreateInviteCode.swift in Sources */,
-				210EA8CC2B5AFC9100602C46 /* AppBskyFeedGetSuggestedFeeds.swift in Sources */,
-				210EA90A2B5AFC9100602C46 /* AppBskyGraphGetFollowers.swift in Sources */,
-				210EA8FF2B5AFC9100602C46 /* ComAtprotoServerRequestEmailConfirmation.swift in Sources */,
-				210EA94B2B5AFC9200602C46 /* ComAtprotoRepoGetRecord.swift in Sources */,
-				210EA9412B5AFC9200602C46 /* ComAtprotoSyncGetBlob.swift in Sources */,
-				210EA8C82B5AFC9100602C46 /* AppBskyFeedGetActorFeeds.swift in Sources */,
-				210EA9482B5AFC9200602C46 /* ComAtprotoAdminDisableAccountInvites.swift in Sources */,
-				210EA8EF2B5AFC9100602C46 /* AppBskyFeedGetRepostedBy.swift in Sources */,
-				210EA8FB2B5AFC9100602C46 /* ComAtprotoAdminUpdateAccountHandle.swift in Sources */,
-				210EA8DF2B5AFC9100602C46 /* AppBskyActorGetProfiles.swift in Sources */,
-				210EA8FE2B5AFC9100602C46 /* AppBskyGraphMuteActorList.swift in Sources */,
-				210EA9042B5AFC9100602C46 /* ComAtprotoServerReserveSigningKey.swift in Sources */,
-				210EA91D2B5AFC9100602C46 /* ComAtprotoAdminGetAccountInfos.swift in Sources */,
-				210EA8CE2B5AFC9100602C46 /* ComAtprotoAdminDefs.swift in Sources */,
-				210EA9272B5AFC9100602C46 /* ComAtprotoServerDeleteAccount.swift in Sources */,
-				210EA8D82B5AFC9100602C46 /* AppBskyFeedGetLikes.swift in Sources */,
-				210EA8F92B5AFC9100602C46 /* ComAtprotoLabelQueryLabels.swift in Sources */,
-				210EA90F2B5AFC9100602C46 /* AppBskyFeedGetAuthorFeed.swift in Sources */,
-				210EA9322B5AFC9100602C46 /* ComAtprotoServerResetPassword.swift in Sources */,
-				210EA8FC2B5AFC9100602C46 /* ComAtprotoServerRefreshSession.swift in Sources */,
-				210EA8D02B5AFC9100602C46 /* AppBskyGraphGetList.swift in Sources */,
-				210EA9032B5AFC9100602C46 /* AppBskyGraphGetListMutes.swift in Sources */,
-				210EA8D72B5AFC9100602C46 /* AppBskyGraphBlock.swift in Sources */,
-				210EA91C2B5AFC9100602C46 /* ComAtprotoServerCreateAccount.swift in Sources */,
-				210EA8F02B5AFC9100602C46 /* AppBskyGraphGetBlocks.swift in Sources */,
-				210EA8E32B5AFC9100602C46 /* ComAtprotoTempFetchLabels.swift in Sources */,
-				210EA8F72B5AFC9100602C46 /* AppBskyFeedGetFeedGenerators.swift in Sources */,
-				210EA8CB2B5AFC9100602C46 /* ComAtprotoServerRequestAccountDelete.swift in Sources */,
+				21C8AA912BBE4C9000832F22 /* ToolsOzoneModerationGetEvent.swift in Sources */,
+				21C8AAC52BBE4C9000832F22 /* AppBskyRichtextFacet.swift in Sources */,
+				21C8AAAA2BBE4C9000832F22 /* AppBskyGraphFollow.swift in Sources */,
+				21C8AAB12BBE4C9000832F22 /* AppBskyFeedGetFeed.swift in Sources */,
+				21C8AA8E2BBE4C9000832F22 /* ComAtprotoIdentitySubmitPlcOperation.swift in Sources */,
+				214BD3742B790B3000B1625D /* ATProtocolValueContainerHelpers.swift in Sources */,
+				21C8AAAF2BBE4C9000832F22 /* ComAtprotoTempFetchLabels.swift in Sources */,
+				21C8AA852BBE4C9000832F22 /* AppBskyEmbedRecord.swift in Sources */,
+				21C8AA062BBE4C6500832F22 /* ComAtprotoServerCreateInviteCodes.swift in Sources */,
+				21C8A9E02BBE4C6500832F22 /* ComAtprotoSyncListBlobs.swift in Sources */,
+				21C8AA0C2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift in Sources */,
+				21C8AAC32BBE4C9000832F22 /* AppBskyFeedDefs.swift in Sources */,
+				21C8AAC62BBE4C9000832F22 /* ComAtprotoIdentityRequestPlcOperationSignature.swift in Sources */,
+				21C8AA712BBE4C9000832F22 /* AppBskyNotificationUpdateSeen.swift in Sources */,
+				21C8AA022BBE4C6500832F22 /* ComAtprotoServerDeleteAccount.swift in Sources */,
+				21C8AA772BBE4C9000832F22 /* ToolsOzoneModerationGetRecord.swift in Sources */,
+				21C8A9FC2BBE4C6500832F22 /* ComAtprotoRepoApplyWrites.swift in Sources */,
+				21C8AA0A2BBE4C6500832F22 /* ComAtprotoServerRefreshSession.swift in Sources */,
+				21C8A9D62BBE4C6500832F22 /* ATProtocolValueContainer.swift in Sources */,
+				21C8AA982BBE4C9000832F22 /* AppBskyGraphGetLists.swift in Sources */,
+				21C8AA822BBE4C9000832F22 /* AppBskyGraphGetFollows.swift in Sources */,
+				21C8AA862BBE4C9000832F22 /* AppBskyFeedGetActorFeeds.swift in Sources */,
+				21C8AA9D2BBE4C9000832F22 /* AppBskyGraphList.swift in Sources */,
+				21C8AA802BBE4C9000832F22 /* ComAtprotoAdminUpdateAccountEmail.swift in Sources */,
+				21C8A9FE2BBE4C6500832F22 /* ComAtprotoSyncGetBlocks.swift in Sources */,
+				21C8AA8D2BBE4C9000832F22 /* ComAtprotoIdentitySignPlcOperation.swift in Sources */,
+				21C8AA932BBE4C9000832F22 /* ToolsOzoneModerationGetRepo.swift in Sources */,
+				21C8A9E72BBE4C6500832F22 /* ComAtprotoServerListAppPasswords.swift in Sources */,
+				21C8AA7B2BBE4C9000832F22 /* AppBskyFeedGetListFeed.swift in Sources */,
+				21C8AA012BBE4C6500832F22 /* ComAtprotoServerActivateAccount.swift in Sources */,
+				21C8AA782BBE4C9000832F22 /* AppBskyFeedPost.swift in Sources */,
+				21C8A9D72BBE4C6500832F22 /* ComAtprotoModerationCreateReport.swift in Sources */,
+				21C8AAA32BBE4C9000832F22 /* AppBskyActorProfile.swift in Sources */,
+				21C8AAB72BBE4C9000832F22 /* AppBskyFeedGetPosts.swift in Sources */,
+				21C8AA6F2BBE4C9000832F22 /* AppBskyGraphGetFollowers.swift in Sources */,
+				21C8AA952BBE4C9000832F22 /* ToolsOzoneCommunicationCreateTemplate.swift in Sources */,
 				210EA95A2B5AFD4D00602C46 /* NetworkError.swift in Sources */,
-				210EA9152B5AFC9100602C46 /* JSONValue.swift in Sources */,
-				210EA8CA2B5AFC9100602C46 /* ComAtprotoServerCreateInviteCodes.swift in Sources */,
-				210EA93F2B5AFC9200602C46 /* ComAtprotoModerationDefs.swift in Sources */,
-				210EA9192B5AFC9100602C46 /* ComAtprotoRepoApplyWrites.swift in Sources */,
-				210EA9202B5AFC9100602C46 /* ComAtprotoIdentityUpdateHandle.swift in Sources */,
-				210EA9212B5AFC9100602C46 /* AppBskyFeedGetFeedSkeleton.swift in Sources */,
+				21C8A9DB2BBE4C6500832F22 /* ComAtprotoAdminDisableAccountInvites.swift in Sources */,
+				21C8A9F62BBE4C6500832F22 /* ComAtprotoSyncListRepos.swift in Sources */,
+				21C8A9F72BBE4C6500832F22 /* ComAtprotoLabelDefs.swift in Sources */,
+				21C8AABB2BBE4C9000832F22 /* AppBskyUnspeccedGetPopularFeedGenerators.swift in Sources */,
 				210EA95C2B5AFD4D00602C46 /* RichText.swift in Sources */,
-				210EA8F12B5AFC9100602C46 /* AppBskyGraphFollow.swift in Sources */,
-				210EA9132B5AFC9100602C46 /* ComAtprotoAdminGetSubjectStatus.swift in Sources */,
+				21C8AA882BBE4C9000832F22 /* AppBskyLabelerGetServices.swift in Sources */,
+				21C8AA762BBE4C9000832F22 /* AppBskyFeedGetRepostedBy.swift in Sources */,
+				21C8A9D52BBE4C6500832F22 /* ComAtprotoAdminGetInviteCodes.swift in Sources */,
+				21C8AA0F2BBE4C6500832F22 /* ComAtprotoServerDescribeServer.swift in Sources */,
+				21C8A9E22BBE4C6500832F22 /* ComAtprotoLabelQueryLabels.swift in Sources */,
+				21C8AAA42BBE4C9000832F22 /* AppBskyEmbedRecordWithMedia.swift in Sources */,
+				21C8AA8C2BBE4C9000832F22 /* ComAtprotoIdentityGetRecommendedDidCredentials.swift in Sources */,
+				21C8AAA22BBE4C9000832F22 /* AppBskyFeedGetPostThread.swift in Sources */,
+				21C8AA102BBE4C6500832F22 /* ComAtprotoRepoPutRecord.swift in Sources */,
+				21C8A9F92BBE4C6500832F22 /* ComAtprotoRepoUploadBlob.swift in Sources */,
+				21C8AAAD2BBE4C9000832F22 /* AppBskyGraphGetListMutes.swift in Sources */,
 				210EA95B2B5AFD4D00602C46 /* KeychainManager.swift in Sources */,
-				210EA92B2B5AFC9100602C46 /* AppBskyFeedGetFeed.swift in Sources */,
-				210EA8C62B5AFC9100602C46 /* AppBskyNotificationRegisterPush.swift in Sources */,
-				210EA9242B5AFC9100602C46 /* ComAtprotoTempImportRepo.swift in Sources */,
-				210EA8E22B5AFC9100602C46 /* ComAtprotoAdminGetAccountInfo.swift in Sources */,
-				210EA9142B5AFC9100602C46 /* AppBskyFeedPost.swift in Sources */,
-				210EA9062B5AFC9100602C46 /* ComAtprotoServerListAppPasswords.swift in Sources */,
-				210EA8E82B5AFC9100602C46 /* ComAtprotoAdminGetRepo.swift in Sources */,
-				210EA8D42B5AFC9100602C46 /* ComAtprotoAdminEnableAccountInvites.swift in Sources */,
-				210EA8CD2B5AFC9100602C46 /* AppBskyFeedDescribeFeedGenerator.swift in Sources */,
-				210EA90B2B5AFC9100602C46 /* ComAtprotoServerRequestPasswordReset.swift in Sources */,
-				210EA9312B5AFC9100602C46 /* AppBskyFeedGetActorLikes.swift in Sources */,
-				210EA93E2B5AFC9200602C46 /* AppBskyActorGetSuggestions.swift in Sources */,
-				210EA8DA2B5AFC9100602C46 /* ComAtprotoServerGetAccountInviteCodes.swift in Sources */,
-				210EA8E62B5AFC9100602C46 /* ComAtprotoAdminQueryModerationStatuses.swift in Sources */,
-				210EA8EA2B5AFC9100602C46 /* ComAtprotoAdminSearchRepos.swift in Sources */,
+				21C8AAB02BBE4C9000832F22 /* AppBskyActorGetProfile.swift in Sources */,
+				21C8AAA92BBE4C9000832F22 /* AppBskyFeedGetFeedGenerators.swift in Sources */,
+				21C8A9FB2BBE4C6500832F22 /* ComAtprotoServerDeactivateAccount.swift in Sources */,
+				21C8AAB42BBE4C9000832F22 /* ComAtprotoAdminGetAccountInfo.swift in Sources */,
+				21C8AABA2BBE4C9000832F22 /* AppBskyGraphListblock.swift in Sources */,
+				21C8AA0D2BBE4C6500832F22 /* ComAtprotoAdminEnableAccountInvites.swift in Sources */,
+				21C8AA7C2BBE4C9000832F22 /* AppBskyActorDefs.swift in Sources */,
+				21C8AAC42BBE4C9000832F22 /* AppBskyGraphUnmuteActorList.swift in Sources */,
+				21C8A9D22BBE4C6500832F22 /* ComAtprotoSyncGetRepo.swift in Sources */,
+				21C8A9DA2BBE4C6500832F22 /* ComAtprotoServerResetPassword.swift in Sources */,
+				21D78D922BD54C64005609CF /* AuthenticationManager.swift in Sources */,
+				21C8AAA02BBE4C9000832F22 /* AppBskyActorGetSuggestions.swift in Sources */,
+				21C8AA832BBE4C9000832F22 /* AppBskyFeedGetSuggestedFeeds.swift in Sources */,
+				21C8AAC72BBE4C9000832F22 /* AppBskyActorSearchActorsTypeahead.swift in Sources */,
+				21C8AA872BBE4C9000832F22 /* AppBskyFeedThreadgate.swift in Sources */,
+				21C8AA052BBE4C6500832F22 /* ComAtprotoServerCreateInviteCode.swift in Sources */,
 				21628EF52B6F2441001D10E5 /* DIDDocHandler.swift in Sources */,
-				210EA9422B5AFC9200602C46 /* ComAtprotoServerDefs.swift in Sources */,
-				210EA9392B5AFC9100602C46 /* ComAtprotoAdminGetRecord.swift in Sources */,
-				210EA9052B5AFC9100602C46 /* AppBskyGraphMuteActor.swift in Sources */,
-				210EA9492B5AFC9200602C46 /* AppBskyEmbedImages.swift in Sources */,
-				210EA92D2B5AFC9100602C46 /* AppBskyGraphListblock.swift in Sources */,
-				210EA9122B5AFC9100602C46 /* AppBskyNotificationUpdateSeen.swift in Sources */,
-				210EA9232B5AFC9100602C46 /* ComAtprotoAdminSendEmail.swift in Sources */,
-				210EA8F42B5AFC9100602C46 /* AppBskyFeedGetPosts.swift in Sources */,
-				210EA8E12B5AFC9100602C46 /* AppBskyFeedThreadgate.swift in Sources */,
-				210EA9372B5AFC9100602C46 /* ComAtprotoServerDescribeServer.swift in Sources */,
-				210EA8ED2B5AFC9100602C46 /* AppBskyGraphGetSuggestedFollowsByActor.swift in Sources */,
-				210EA9082B5AFC9100602C46 /* AppBskyActorDefs.swift in Sources */,
-				210EA8FD2B5AFC9100602C46 /* AppBskyActorGetProfile.swift in Sources */,
-				210EA9172B5AFC9100602C46 /* AppBskyUnspeccedGetPopularFeedGenerators.swift in Sources */,
-				210EA9432B5AFC9200602C46 /* AppBskyFeedGetListFeed.swift in Sources */,
-				210EA9182B5AFC9100602C46 /* ComAtprotoTempTransferAccount.swift in Sources */,
-				210EA8DD2B5AFC9100602C46 /* ComAtprotoRepoListRecords.swift in Sources */,
-				210EA9262B5AFC9100602C46 /* ComAtprotoSyncGetHead.swift in Sources */,
-				210EA9222B5AFC9100602C46 /* AppBskyGraphList.swift in Sources */,
-				210EA8F62B5AFC9100602C46 /* ComAtprotoAdminDeleteAccount.swift in Sources */,
-				210EA92C2B5AFC9100602C46 /* ComAtprotoIdentityResolveHandle.swift in Sources */,
-				210EA9332B5AFC9100602C46 /* ComAtprotoServerRevokeAppPassword.swift in Sources */,
-				210EA9282B5AFC9100602C46 /* AppBskyNotificationGetUnreadCount.swift in Sources */,
-				210EA8D12B5AFC9100602C46 /* AppBskyEmbedExternal.swift in Sources */,
-				210EA8E42B5AFC9100602C46 /* ComAtprotoModerationCreateReport.swift in Sources */,
-				210EA93C2B5AFC9100602C46 /* AppBskyFeedGetFeedGenerator.swift in Sources */,
-				210EA9022B5AFC9100602C46 /* AppBskyActorSearchActors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +1012,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -916,6 +1037,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -956,6 +1078,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -972,6 +1095,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -980,8 +1104,10 @@
 		210EA82E2B5AF92900602C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 65LZ8ARPWB;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1018,8 +1144,10 @@
 		210EA82F2B5AF92900602C46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 65LZ8ARPWB;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1059,6 +1187,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 65LZ8ARPWB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
@@ -1080,6 +1209,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 65LZ8ARPWB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;

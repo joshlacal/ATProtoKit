@@ -11,11 +11,11 @@ public struct Create: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "com.atproto.repo.applyWrites#create"
             public let collection: String
             public let rkey: String?
-            public let value: JSONValue
+            public let value: ATProtocolValueContainer
 
         // Standard initializer
         public init(
-            collection: String, rkey: String?, value: JSONValue
+            collection: String, rkey: String?, value: ATProtocolValueContainer
         ) {
             
             self.collection = collection
@@ -44,7 +44,7 @@ public struct Create: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.value = try container.decode(JSONValue.self, forKey: .value)
+                self.value = try container.decode(ATProtocolValueContainer.self, forKey: .value)
                 
             } catch {
                 print("Decoding error for property 'value': \(error)")
@@ -114,11 +114,11 @@ public struct Update: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "com.atproto.repo.applyWrites#update"
             public let collection: String
             public let rkey: String
-            public let value: JSONValue
+            public let value: ATProtocolValueContainer
 
         // Standard initializer
         public init(
-            collection: String, rkey: String, value: JSONValue
+            collection: String, rkey: String, value: ATProtocolValueContainer
         ) {
             
             self.collection = collection
@@ -147,7 +147,7 @@ public struct Update: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.value = try container.decode(JSONValue.self, forKey: .value)
+                self.value = try container.decode(ATProtocolValueContainer.self, forKey: .value)
                 
             } catch {
                 print("Decoding error for property 'value': \(error)")
@@ -283,7 +283,7 @@ public struct Delete: ATProtocolCodable, ATProtocolValue {
             case rkey
         }
     }        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let repo: String
             public let validate: Bool?
             public let writes: [InputWritesUnion]
@@ -299,7 +299,7 @@ public struct Input: Codable {
             }
         }        
 public enum Error: String, Swift.Error, CustomStringConvertible {
-                case invalidSwap = "InvalidSwap."
+                case invalidSwap = "InvalidSwap.Indicates that the 'swapCommit' parameter did not match current commit."
             public var description: String {
                 return self.rawValue
             }
@@ -312,7 +312,7 @@ public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case comAtprotoRepoApplyWritesCreate(ComAtprotoRepoApplyWrites.Create)
                 case comAtprotoRepoApplyWritesUpdate(ComAtprotoRepoApplyWrites.Update)
                 case comAtprotoRepoApplyWritesDelete(ComAtprotoRepoApplyWrites.Delete)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -334,7 +334,7 @@ public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .comAtprotoRepoApplyWritesDelete(value)
                     default:
                         print("InputWritesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -355,9 +355,9 @@ public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding com.atproto.repo.applyWrites#delete")
                         try container.encode("com.atproto.repo.applyWrites#delete", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("InputWritesUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -372,9 +372,9 @@ public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .comAtprotoRepoApplyWritesDelete(let value):
                         hasher.combine("com.atproto.repo.applyWrites#delete")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -406,15 +406,24 @@ public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
 
 }
 extension ATProtoClient.Com.Atproto.Repo {
-    /// Apply a batch transaction of creates, updates, and deletes.
+    /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
     public func applyWrites(input: ComAtprotoRepoApplyWrites.Input) async throws -> Int {
         let endpoint = "/com.atproto.repo.applyWrites"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

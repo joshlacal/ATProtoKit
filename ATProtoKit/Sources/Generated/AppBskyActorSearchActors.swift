@@ -26,7 +26,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -53,17 +53,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Actor {
-    /// Find actors (profiles) matching search criteria. 
+    /// Find actors (profiles) matching search criteria. Does not require auth.
     public func searchActors(input: AppBskyActorSearchActors.Parameters) async throws -> (responseCode: Int, data: AppBskyActorSearchActors.Output?) {
         let endpoint = "/app.bsky.actor.searchActors"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyActorSearchActors.Output.self, from: responseData)
         return (responseCode, decodedData)

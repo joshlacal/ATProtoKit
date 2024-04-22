@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoServerReserveSigningKey { 
     public static let typeIdentifier = "com.atproto.server.reserveSigningKey"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let did: String?
 
             // Standard public initializer
@@ -16,7 +16,7 @@ public struct Input: Codable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let signingKey: String
         
@@ -36,18 +36,26 @@ public struct Output: Codable {
 
 }
 extension ATProtoClient.Com.Atproto.Server {
-    /// Reserve a repo signing key for account creation.
+    /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
     public func reserveSigningKey(input: ComAtprotoServerReserveSigningKey.Input) async throws -> (responseCode: Int, data: ComAtprotoServerReserveSigningKey.Output?) {
         let endpoint = "/com.atproto.server.reserveSigningKey"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerReserveSigningKey.Output.self, from: responseData)
         return (responseCode, decodedData)

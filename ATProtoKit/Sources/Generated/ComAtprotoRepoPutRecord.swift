@@ -6,17 +6,17 @@ import ZippyJSON
 
 public struct ComAtprotoRepoPutRecord { 
     public static let typeIdentifier = "com.atproto.repo.putRecord"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let repo: String
             public let collection: String
             public let rkey: String
             public let validate: Bool?
-            public let record: JSONValue
+            public let record: ATProtocolValueContainer
             public let swapRecord: String?
             public let swapCommit: String?
 
             // Standard public initializer
-            public init(repo: String, collection: String, rkey: String, validate: Bool? = nil, record: JSONValue, swapRecord: String? = nil, swapCommit: String? = nil) {
+            public init(repo: String, collection: String, rkey: String, validate: Bool? = nil, record: ATProtocolValueContainer, swapRecord: String? = nil, swapCommit: String? = nil) {
                 self.repo = repo
                 self.collection = collection
                 self.rkey = rkey
@@ -28,7 +28,7 @@ public struct Input: Codable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let uri: ATProtocolURI
         
@@ -60,18 +60,26 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 
 }
 extension ATProtoClient.Com.Atproto.Repo {
-    /// Write a record, creating or updating it as needed.
+    /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
     public func putRecord(input: ComAtprotoRepoPutRecord.Input) async throws -> (responseCode: Int, data: ComAtprotoRepoPutRecord.Output?) {
         let endpoint = "/com.atproto.repo.putRecord"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoRepoPutRecord.Output.self, from: responseData)
         return (responseCode, decodedData)

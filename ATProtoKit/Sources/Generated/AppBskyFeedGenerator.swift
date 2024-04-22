@@ -181,7 +181,7 @@ public struct AppBskyFeedGenerator: ATProtocolCodable, ATProtocolValue {
             
 public enum AppBskyFeedGeneratorLabelsUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -195,7 +195,7 @@ public enum AppBskyFeedGeneratorLabelsUnion: Codable, ATProtocolCodable, ATProto
                         self = .comAtprotoLabelDefsSelfLabels(value)
                     default:
                         print("AppBskyFeedGeneratorLabelsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -208,9 +208,9 @@ public enum AppBskyFeedGeneratorLabelsUnion: Codable, ATProtocolCodable, ATProto
                         print("Encoding com.atproto.label.defs#selfLabels")
                         try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyFeedGeneratorLabelsUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -219,9 +219,9 @@ public enum AppBskyFeedGeneratorLabelsUnion: Codable, ATProtocolCodable, ATProto
                     case .comAtprotoLabelDefsSelfLabels(let value):
                         hasher.combine("com.atproto.label.defs#selfLabels")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

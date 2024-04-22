@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoSyncNotifyOfUpdate { 
     public static let typeIdentifier = "com.atproto.sync.notifyOfUpdate"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let hostname: String
 
             // Standard public initializer
@@ -20,15 +20,24 @@ public struct Input: Codable {
 
 }
 extension ATProtoClient.Com.Atproto.Sync {
-    /// Notify a crawling service of a recent update; often when a long break between updates causes the connection with the crawling service to break.
+    /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
     public func notifyOfUpdate(input: ComAtprotoSyncNotifyOfUpdate.Input) async throws -> Int {
         let endpoint = "/com.atproto.sync.notifyOfUpdate"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

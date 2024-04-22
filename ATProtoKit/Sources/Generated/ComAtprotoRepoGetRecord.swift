@@ -26,13 +26,13 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let uri: ATProtocolURI
         
         public let cid: String?
         
-        public let value: JSONValue
+        public let value: ATProtocolValueContainer
         
         
         // Standard public initializer
@@ -41,7 +41,7 @@ public struct Output: Codable {
         
             cid: String? = nil, 
         
-            value: JSONValue
+            value: ATProtocolValueContainer
         ) {
             
             self.uri = uri
@@ -59,17 +59,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.Com.Atproto.Repo {
-    /// Get a record. 
+    /// Get a single record from a repository. Does not require auth.
     public func getRecord(input: ComAtprotoRepoGetRecord.Parameters) async throws -> (responseCode: Int, data: ComAtprotoRepoGetRecord.Output?) {
         let endpoint = "/com.atproto.repo.getRecord"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoRepoGetRecord.Output.self, from: responseData)
         return (responseCode, decodedData)

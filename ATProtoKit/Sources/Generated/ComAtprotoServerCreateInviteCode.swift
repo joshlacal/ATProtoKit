@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoServerCreateInviteCode { 
     public static let typeIdentifier = "com.atproto.server.createInviteCode"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let useCount: Int
             public let forAccount: String?
 
@@ -18,7 +18,7 @@ public struct Input: Codable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let code: String
         
@@ -42,14 +42,22 @@ extension ATProtoClient.Com.Atproto.Server {
     public func createInviteCode(input: ComAtprotoServerCreateInviteCode.Input) async throws -> (responseCode: Int, data: ComAtprotoServerCreateInviteCode.Output?) {
         let endpoint = "/com.atproto.server.createInviteCode"
         
+        
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerCreateInviteCode.Output.self, from: responseData)
         return (responseCode, decodedData)

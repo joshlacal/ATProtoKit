@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoRepoDeleteRecord { 
     public static let typeIdentifier = "com.atproto.repo.deleteRecord"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let repo: String
             public let collection: String
             public let rkey: String
@@ -34,15 +34,24 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 
 }
 extension ATProtoClient.Com.Atproto.Repo {
-    /// Delete a record, or ensure it doesn't exist.
+    /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
     public func deleteRecord(input: ComAtprotoRepoDeleteRecord.Input) async throws -> Int {
         let endpoint = "/com.atproto.repo.deleteRecord"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

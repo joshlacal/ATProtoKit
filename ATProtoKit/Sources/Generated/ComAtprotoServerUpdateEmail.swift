@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoServerUpdateEmail { 
     public static let typeIdentifier = "com.atproto.server.updateEmail"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let email: String
             public let token: String?
 
@@ -34,11 +34,20 @@ extension ATProtoClient.Com.Atproto.Server {
     public func updateEmail(input: ComAtprotoServerUpdateEmail.Input) async throws -> Int {
         let endpoint = "/com.atproto.server.updateEmail"
         
+        
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

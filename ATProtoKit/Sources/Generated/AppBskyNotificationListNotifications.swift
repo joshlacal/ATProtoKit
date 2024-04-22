@@ -14,14 +14,14 @@ public struct Notification: ATProtocolCodable, ATProtocolValue {
             public let author: AppBskyActorDefs.ProfileView
             public let reason: String
             public let reasonSubject: ATProtocolURI?
-            public let record: JSONValue
+            public let record: ATProtocolValueContainer
             public let isRead: Bool
             public let indexedAt: ATProtocolDate
             public let labels: [ComAtprotoLabelDefs.Label]?
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, author: AppBskyActorDefs.ProfileView, reason: String, reasonSubject: ATProtocolURI?, record: JSONValue, isRead: Bool, indexedAt: ATProtocolDate, labels: [ComAtprotoLabelDefs.Label]?
+            uri: ATProtocolURI, cid: String, author: AppBskyActorDefs.ProfileView, reason: String, reasonSubject: ATProtocolURI?, record: ATProtocolValueContainer, isRead: Bool, indexedAt: ATProtocolDate, labels: [ComAtprotoLabelDefs.Label]?
         ) {
             
             self.uri = uri
@@ -80,7 +80,7 @@ public struct Notification: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.record = try container.decode(JSONValue.self, forKey: .record)
+                self.record = try container.decode(ATProtocolValueContainer.self, forKey: .record)
                 
             } catch {
                 print("Decoding error for property 'record': \(error)")
@@ -252,7 +252,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -285,17 +285,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.App.Bsky.Notification {
-    /// Get a list of notifications. 
+    /// Enumerate notifications for the requesting account. Requires auth.
     public func listNotifications(input: AppBskyNotificationListNotifications.Parameters) async throws -> (responseCode: Int, data: AppBskyNotificationListNotifications.Output?) {
         let endpoint = "/app.bsky.notification.listNotifications"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyNotificationListNotifications.Output.self, from: responseData)
         return (responseCode, decodedData)

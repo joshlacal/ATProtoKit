@@ -9,12 +9,12 @@ public struct ComAtprotoServerDescribeServer {
         
 public struct Links: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "com.atproto.server.describeServer#links"
-            public let privacyPolicy: String?
-            public let termsOfService: String?
+            public let privacyPolicy: URI?
+            public let termsOfService: URI?
 
         // Standard initializer
         public init(
-            privacyPolicy: String?, termsOfService: String?
+            privacyPolicy: URI?, termsOfService: URI?
         ) {
             
             self.privacyPolicy = privacyPolicy
@@ -26,7 +26,7 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             do {
                 
-                self.privacyPolicy = try container.decodeIfPresent(String.self, forKey: .privacyPolicy)
+                self.privacyPolicy = try container.decodeIfPresent(URI.self, forKey: .privacyPolicy)
                 
             } catch {
                 print("Decoding error for property 'privacyPolicy': \(error)")
@@ -34,7 +34,7 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.termsOfService = try container.decodeIfPresent(String.self, forKey: .termsOfService)
+                self.termsOfService = try container.decodeIfPresent(URI.self, forKey: .termsOfService)
                 
             } catch {
                 print("Decoding error for property 'termsOfService': \(error)")
@@ -94,31 +94,112 @@ public struct Links: ATProtocolCodable, ATProtocolValue {
             case privacyPolicy
             case termsOfService
         }
+    }
+        
+public struct Contact: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "com.atproto.server.describeServer#contact"
+            public let email: String?
+
+        // Standard initializer
+        public init(
+            email: String?
+        ) {
+            
+            self.email = email
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.email = try container.decodeIfPresent(String.self, forKey: .email)
+                
+            } catch {
+                print("Decoding error for property 'email': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            if let value = email {
+                try container.encode(value, forKey: .email)
+            }
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            if let value = email {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if email != other.email {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case email
+        }
     }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let inviteCodeRequired: Bool?
+        
+        public let phoneVerificationRequired: Bool?
         
         public let availableUserDomains: [String]
         
         public let links: Links?
+        
+        public let contact: Contact?
+        
+        public let did: String
         
         
         // Standard public initializer
         public init(
             inviteCodeRequired: Bool? = nil, 
         
+            phoneVerificationRequired: Bool? = nil, 
+        
             availableUserDomains: [String], 
         
-            links: Links? = nil
+            links: Links? = nil, 
+        
+            contact: Contact? = nil, 
+        
+            did: String
         ) {
             
             self.inviteCodeRequired = inviteCodeRequired
             
+            self.phoneVerificationRequired = phoneVerificationRequired
+            
             self.availableUserDomains = availableUserDomains
             
             self.links = links
+            
+            self.contact = contact
+            
+            self.did = did
             
         }
     }
@@ -129,16 +210,23 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.Com.Atproto.Server {
-    /// Get a document describing the service's accounts configuration. 
+    /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
     public func describeServer() async throws -> (responseCode: Int, data: ComAtprotoServerDescribeServer.Output?) {
         let endpoint = "/com.atproto.server.describeServer"
         
         
-        // Perform a GET request without a body or query items
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", body: nil)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint,
+            method: "GET",
+            headers: [:],
+            body: nil,
+            queryItems: nil
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerDescribeServer.Output.self, from: responseData)
         return (responseCode, decodedData)

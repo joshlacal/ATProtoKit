@@ -11,11 +11,11 @@ public struct Record: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "com.atproto.repo.listRecords#record"
             public let uri: ATProtocolURI
             public let cid: String
-            public let value: JSONValue
+            public let value: ATProtocolValueContainer
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, value: JSONValue
+            uri: ATProtocolURI, cid: String, value: ATProtocolValueContainer
         ) {
             
             self.uri = uri
@@ -44,7 +44,7 @@ public struct Record: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.value = try container.decode(JSONValue.self, forKey: .value)
+                self.value = try container.decode(ATProtocolValueContainer.self, forKey: .value)
                 
             } catch {
                 print("Decoding error for property 'value': \(error)")
@@ -132,7 +132,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -159,17 +159,24 @@ public struct Output: Codable {
 }
 
 extension ATProtoClient.Com.Atproto.Repo {
-    /// List a range of records in a collection. 
+    /// List a range of records in a repository, matching a specific collection. Does not require auth.
     public func listRecords(input: ComAtprotoRepoListRecords.Parameters) async throws -> (responseCode: Int, data: ComAtprotoRepoListRecords.Output?) {
         let endpoint = "/com.atproto.repo.listRecords"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoRepoListRecords.Output.self, from: responseData)
         return (responseCode, decodedData)

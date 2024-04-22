@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct ComAtprotoServerDeleteAccount { 
     public static let typeIdentifier = "com.atproto.server.deleteAccount"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let did: String
             public let password: String
             public let token: String
@@ -31,15 +31,24 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 
 }
 extension ATProtoClient.Com.Atproto.Server {
-    /// Delete an actor's account with a token and password.
+    /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
     public func deleteAccount(input: ComAtprotoServerDeleteAccount.Input) async throws -> Int {
         let endpoint = "/com.atproto.server.deleteAccount"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

@@ -23,7 +23,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let cursor: String?
         
@@ -56,17 +56,24 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 
 extension ATProtoClient.App.Bsky.Feed {
-    /// Get a view of a recent posts from actors in a list. 
+    /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
     public func getListFeed(input: AppBskyFeedGetListFeed.Parameters) async throws -> (responseCode: Int, data: AppBskyFeedGetListFeed.Output?) {
         let endpoint = "/app.bsky.feed.getListFeed"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedGetListFeed.Output.self, from: responseData)
         return (responseCode, decodedData)

@@ -1,4 +1,4 @@
-        public struct Input: Codable {
+        public struct Input: ATProtocolCodable {
         {%- for prop in properties %}
             public let {{ prop.name }}: {{ prop.type }}{% if prop.optional %}?{% endif %}
         {%- endfor %}

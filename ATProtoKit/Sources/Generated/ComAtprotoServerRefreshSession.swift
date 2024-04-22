@@ -7,7 +7,7 @@ import ZippyJSON
 public struct ComAtprotoServerRefreshSession { 
     public static let typeIdentifier = "com.atproto.server.refreshSession"    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let accessJwt: String
         
@@ -57,18 +57,26 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 
 }
 extension ATProtoClient.Com.Atproto.Server {
-    /// Refresh an authentication session.
+    /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
     public func refreshSession() async throws -> (responseCode: Int, data: ComAtprotoServerRefreshSession.Output?) {
         let endpoint = "/com.atproto.server.refreshSession"
+        
         
         let requestData: Data? = nil
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: responseData)
         return (responseCode, decodedData)

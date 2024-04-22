@@ -6,7 +6,7 @@ import ZippyJSON
 
 public struct AppBskyGraphMuteActor { 
     public static let typeIdentifier = "app.bsky.graph.muteActor"        
-public struct Input: Codable {
+public struct Input: ATProtocolCodable {
             public let actor: String
 
             // Standard public initializer
@@ -20,15 +20,24 @@ public struct Input: Codable {
 
 }
 extension ATProtoClient.App.Bsky.Graph {
-    /// Mute an actor by DID or handle.
+    /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
     public func muteActor(input: AppBskyGraphMuteActor.Input) async throws -> Int {
         let endpoint = "/app.bsky.graph.muteActor"
+        
         
         let requestData = try JSONEncoder().encode(input)
         
         
-        // Perform the network request
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "POST", body: requestData)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": "application/json"], 
+            body: requestData,
+            queryItems: nil
+        )
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
         
         // Return only the response code if no output type is expected

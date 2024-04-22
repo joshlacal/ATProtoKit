@@ -12,7 +12,7 @@ public struct PostView: ATProtocolCodable, ATProtocolValue {
             public let uri: ATProtocolURI
             public let cid: String
             public let author: AppBskyActorDefs.ProfileViewBasic
-            public let record: JSONValue
+            public let record: ATProtocolValueContainer
             public let embed: PostViewEmbedUnion?
             public let replyCount: Int?
             public let repostCount: Int?
@@ -24,7 +24,7 @@ public struct PostView: ATProtocolCodable, ATProtocolValue {
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, author: AppBskyActorDefs.ProfileViewBasic, record: JSONValue, embed: PostViewEmbedUnion?, replyCount: Int?, repostCount: Int?, likeCount: Int?, indexedAt: ATProtocolDate, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?, threadgate: ThreadgateView?
+            uri: ATProtocolURI, cid: String, author: AppBskyActorDefs.ProfileViewBasic, record: ATProtocolValueContainer, embed: PostViewEmbedUnion?, replyCount: Int?, repostCount: Int?, likeCount: Int?, indexedAt: ATProtocolDate, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?, threadgate: ThreadgateView?
         ) {
             
             self.uri = uri
@@ -70,7 +70,7 @@ public struct PostView: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.record = try container.decode(JSONValue.self, forKey: .record)
+                self.record = try container.decode(ATProtocolValueContainer.self, forKey: .record)
                 
             } catch {
                 print("Decoding error for property 'record': \(error)")
@@ -1079,14 +1079,15 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             public let displayName: String
             public let description: String?
             public let descriptionFacets: [AppBskyRichtextFacet]?
-            public let avatar: String?
+            public let avatar: URI?
             public let likeCount: Int?
+            public let labels: [ComAtprotoLabelDefs.Label]?
             public let viewer: GeneratorViewerState?
             public let indexedAt: ATProtocolDate
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, did: String, creator: AppBskyActorDefs.ProfileView, displayName: String, description: String?, descriptionFacets: [AppBskyRichtextFacet]?, avatar: String?, likeCount: Int?, viewer: GeneratorViewerState?, indexedAt: ATProtocolDate
+            uri: ATProtocolURI, cid: String, did: String, creator: AppBskyActorDefs.ProfileView, displayName: String, description: String?, descriptionFacets: [AppBskyRichtextFacet]?, avatar: URI?, likeCount: Int?, labels: [ComAtprotoLabelDefs.Label]?, viewer: GeneratorViewerState?, indexedAt: ATProtocolDate
         ) {
             
             self.uri = uri
@@ -1098,6 +1099,7 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             self.descriptionFacets = descriptionFacets
             self.avatar = avatar
             self.likeCount = likeCount
+            self.labels = labels
             self.viewer = viewer
             self.indexedAt = indexedAt
         }
@@ -1163,7 +1165,7 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.avatar = try container.decodeIfPresent(String.self, forKey: .avatar)
+                self.avatar = try container.decodeIfPresent(URI.self, forKey: .avatar)
                 
             } catch {
                 print("Decoding error for property 'avatar': \(error)")
@@ -1175,6 +1177,14 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
                 
             } catch {
                 print("Decoding error for property 'likeCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
                 throw error
             }
             do {
@@ -1234,6 +1244,11 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = labels {
+                try container.encode(value, forKey: .labels)
+            }
+            
+            
             if let value = viewer {
                 try container.encode(value, forKey: .viewer)
             }
@@ -1265,6 +1280,11 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = likeCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = labels {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -1325,6 +1345,11 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if labels != other.labels {
+                return false
+            }
+            
+            
             if viewer != other.viewer {
                 return false
             }
@@ -1352,6 +1377,7 @@ public struct GeneratorView: ATProtocolCodable, ATProtocolValue {
             case descriptionFacets
             case avatar
             case likeCount
+            case labels
             case viewer
             case indexedAt
         }
@@ -1564,12 +1590,12 @@ public struct ThreadgateView: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "app.bsky.feed.defs#threadgateView"
             public let uri: ATProtocolURI?
             public let cid: String?
-            public let record: JSONValue?
+            public let record: ATProtocolValueContainer?
             public let lists: [AppBskyGraphDefs.ListViewBasic]?
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI?, cid: String?, record: JSONValue?, lists: [AppBskyGraphDefs.ListViewBasic]?
+            uri: ATProtocolURI?, cid: String?, record: ATProtocolValueContainer?, lists: [AppBskyGraphDefs.ListViewBasic]?
         ) {
             
             self.uri = uri
@@ -1599,7 +1625,7 @@ public struct ThreadgateView: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
-                self.record = try container.decodeIfPresent(JSONValue.self, forKey: .record)
+                self.record = try container.decodeIfPresent(ATProtocolValueContainer.self, forKey: .record)
                 
             } catch {
                 print("Decoding error for property 'record': \(error)")
@@ -1709,7 +1735,7 @@ public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
                 case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
                 case appBskyEmbedRecordWithMediaView(AppBskyEmbedRecordWithMedia.View)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -1735,7 +1761,7 @@ public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .appBskyEmbedRecordWithMediaView(value)
                     default:
                         print("PostViewEmbedUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -1760,9 +1786,9 @@ public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding app.bsky.embed.recordWithMedia#view")
                         try container.encode("app.bsky.embed.recordWithMedia#view", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("PostViewEmbedUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -1780,9 +1806,9 @@ public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .appBskyEmbedRecordWithMediaView(let value):
                         hasher.combine("app.bsky.embed.recordWithMedia#view")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -1818,7 +1844,7 @@ public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
             
 public enum FeedViewPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyFeedDefsReasonRepost(AppBskyFeedDefs.ReasonRepost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -1832,7 +1858,7 @@ public enum FeedViewPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue
                         self = .appBskyFeedDefsReasonRepost(value)
                     default:
                         print("FeedViewPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -1845,9 +1871,9 @@ public enum FeedViewPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue
                         print("Encoding app.bsky.feed.defs#reasonRepost")
                         try container.encode("app.bsky.feed.defs#reasonRepost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("FeedViewPostReasonUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -1856,9 +1882,9 @@ public enum FeedViewPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue
                     case .appBskyFeedDefsReasonRepost(let value):
                         hasher.combine("app.bsky.feed.defs#reasonRepost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -1887,7 +1913,7 @@ public enum ReplyRefRootUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
                 case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
                 case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -1909,7 +1935,7 @@ public enum ReplyRefRootUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .appBskyFeedDefsBlockedPost(value)
                     default:
                         print("ReplyRefRootUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -1930,9 +1956,9 @@ public enum ReplyRefRootUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding app.bsky.feed.defs#blockedPost")
                         try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("ReplyRefRootUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -1947,9 +1973,9 @@ public enum ReplyRefRootUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .appBskyFeedDefsBlockedPost(let value):
                         hasher.combine("app.bsky.feed.defs#blockedPost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -1984,7 +2010,7 @@ public enum ReplyRefParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
                 case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
                 case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -2006,7 +2032,7 @@ public enum ReplyRefParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .appBskyFeedDefsBlockedPost(value)
                     default:
                         print("ReplyRefParentUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -2027,9 +2053,9 @@ public enum ReplyRefParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding app.bsky.feed.defs#blockedPost")
                         try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("ReplyRefParentUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -2044,9 +2070,9 @@ public enum ReplyRefParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .appBskyFeedDefsBlockedPost(let value):
                         hasher.combine("app.bsky.feed.defs#blockedPost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -2081,7 +2107,7 @@ public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATPr
                 case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
                 case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
                 case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -2103,7 +2129,7 @@ public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATPr
                         self = .appBskyFeedDefsBlockedPost(value)
                     default:
                         print("ThreadViewPostParentUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -2124,9 +2150,9 @@ public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATPr
                         print("Encoding app.bsky.feed.defs#blockedPost")
                         try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("ThreadViewPostParentUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -2141,9 +2167,9 @@ public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATPr
                     case .appBskyFeedDefsBlockedPost(let value):
                         hasher.combine("app.bsky.feed.defs#blockedPost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -2178,7 +2204,7 @@ public enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolVa
                 case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
                 case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
                 case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -2200,7 +2226,7 @@ public enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolVa
                         self = .appBskyFeedDefsBlockedPost(value)
                     default:
                         print("ThreadViewPostRepliesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -2221,9 +2247,9 @@ public enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolVa
                         print("Encoding app.bsky.feed.defs#blockedPost")
                         try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("ThreadViewPostRepliesUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -2238,9 +2264,9 @@ public enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolVa
                     case .appBskyFeedDefsBlockedPost(let value):
                         hasher.combine("app.bsky.feed.defs#blockedPost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -2273,7 +2299,7 @@ public enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolVa
             
 public enum SkeletonFeedPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case appBskyFeedDefsSkeletonReasonRepost(AppBskyFeedDefs.SkeletonReasonRepost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -2287,7 +2313,7 @@ public enum SkeletonFeedPostReasonUnion: Codable, ATProtocolCodable, ATProtocolV
                         self = .appBskyFeedDefsSkeletonReasonRepost(value)
                     default:
                         print("SkeletonFeedPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -2300,9 +2326,9 @@ public enum SkeletonFeedPostReasonUnion: Codable, ATProtocolCodable, ATProtocolV
                         print("Encoding app.bsky.feed.defs#skeletonReasonRepost")
                         try container.encode("app.bsky.feed.defs#skeletonReasonRepost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("SkeletonFeedPostReasonUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -2311,9 +2337,9 @@ public enum SkeletonFeedPostReasonUnion: Codable, ATProtocolCodable, ATProtocolV
                     case .appBskyFeedDefsSkeletonReasonRepost(let value):
                         hasher.combine("app.bsky.feed.defs#skeletonReasonRepost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

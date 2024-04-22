@@ -24,17 +24,24 @@ public struct Parameters: Parametrizable {
 }
 
 extension ATProtoClient.App.Bsky.Actor {
-    /// Get detailed profile view of an actor. 
+    /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
     public func getProfile(input: AppBskyActorGetProfile.Parameters) async throws -> (responseCode: Int, data: AppBskyActorGetProfile.Output?) {
         let endpoint = "/app.bsky.actor.getProfile"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyActorGetProfile.Output.self, from: responseData)
         return (responseCode, decodedData)

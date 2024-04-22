@@ -3,7 +3,7 @@
                 {%- for variant in variants %}
                 case {{ variant | convertRefToSwift | lowerCamelCase }}({{ variant | convertRefToSwift }})
                 {%- endfor %}
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -19,7 +19,7 @@
                     {%- endfor %}
                     default:
                         print("{{ name }} decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -34,9 +34,9 @@
                         try container.encode("{{ variant }}", forKey: .type)
                         try value.encode(to: encoder)
                     {%- endfor %}
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("{{ name }} encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -47,9 +47,9 @@
                         hasher.combine("{{ variant }}")
                         hasher.combine(value)
                     {%- endfor %}
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

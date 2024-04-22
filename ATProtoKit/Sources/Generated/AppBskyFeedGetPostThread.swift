@@ -23,7 +23,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let thread: OutputThreadUnion
         
@@ -52,7 +52,7 @@ public indirect enum OutputThreadUnion: Codable, ATProtocolCodable, ATProtocolVa
                 case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
                 case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
                 case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -74,7 +74,7 @@ public indirect enum OutputThreadUnion: Codable, ATProtocolCodable, ATProtocolVa
                         self = .appBskyFeedDefsBlockedPost(value)
                     default:
                         print("OutputThreadUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -95,9 +95,9 @@ public indirect enum OutputThreadUnion: Codable, ATProtocolCodable, ATProtocolVa
                         print("Encoding app.bsky.feed.defs#blockedPost")
                         try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("OutputThreadUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -112,9 +112,9 @@ public indirect enum OutputThreadUnion: Codable, ATProtocolCodable, ATProtocolVa
                     case .appBskyFeedDefsBlockedPost(let value):
                         hasher.combine("app.bsky.feed.defs#blockedPost")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -147,17 +147,24 @@ public indirect enum OutputThreadUnion: Codable, ATProtocolCodable, ATProtocolVa
 }
 
 extension ATProtoClient.App.Bsky.Feed {
-    /// Get posts in a thread. 
+    /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
     public func getPostThread(input: AppBskyFeedGetPostThread.Parameters) async throws -> (responseCode: Int, data: AppBskyFeedGetPostThread.Output?) {
         let endpoint = "/app.bsky.feed.getPostThread"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedGetPostThread.Output.self, from: responseData)
         return (responseCode, decodedData)

@@ -232,7 +232,7 @@ public enum AppBskyFeedThreadgateAllowUnion: Codable, ATProtocolCodable, ATProto
                 case appBskyFeedThreadgateMentionRule(AppBskyFeedThreadgate.MentionRule)
                 case appBskyFeedThreadgateFollowingRule(AppBskyFeedThreadgate.FollowingRule)
                 case appBskyFeedThreadgateListRule(AppBskyFeedThreadgate.ListRule)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -254,7 +254,7 @@ public enum AppBskyFeedThreadgateAllowUnion: Codable, ATProtocolCodable, ATProto
                         self = .appBskyFeedThreadgateListRule(value)
                     default:
                         print("AppBskyFeedThreadgateAllowUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -275,9 +275,9 @@ public enum AppBskyFeedThreadgateAllowUnion: Codable, ATProtocolCodable, ATProto
                         print("Encoding app.bsky.feed.threadgate#listRule")
                         try container.encode("app.bsky.feed.threadgate#listRule", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("AppBskyFeedThreadgateAllowUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -292,9 +292,9 @@ public enum AppBskyFeedThreadgateAllowUnion: Codable, ATProtocolCodable, ATProto
                     case .appBskyFeedThreadgateListRule(let value):
                         hasher.combine("app.bsky.feed.threadgate#listRule")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 

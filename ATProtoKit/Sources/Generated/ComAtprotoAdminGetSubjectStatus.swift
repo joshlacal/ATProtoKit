@@ -23,7 +23,7 @@ public struct Parameters: Parametrizable {
             }
         }    
     
-public struct Output: Codable { 
+public struct Output: ATProtocolCodable { 
         
         public let subject: OutputSubjectUnion
         
@@ -52,7 +52,7 @@ public enum OutputSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 case comAtprotoAdminDefsRepoRef(ComAtprotoAdminDefs.RepoRef)
                 case comAtprotoRepoStrongRef(ComAtprotoRepoStrongRef)
                 case comAtprotoAdminDefsRepoBlobRef(ComAtprotoAdminDefs.RepoBlobRef)
-                case unexpected(JSONValue)
+                case unexpected(ATProtocolValueContainer)
 
                 public init(from decoder: Decoder) throws {
                     let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -74,7 +74,7 @@ public enum OutputSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         self = .comAtprotoAdminDefsRepoBlobRef(value)
                     default:
                         print("OutputSubjectUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try JSONValue(from: decoder)
+                        let unknownValue = try ATProtocolValueContainer(from: decoder)
                         self = .unexpected(unknownValue)
                     }
                 }
@@ -95,9 +95,9 @@ public enum OutputSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
                         print("Encoding com.atproto.admin.defs#repoBlobRef")
                         try container.encode("com.atproto.admin.defs#repoBlobRef", forKey: .type)
                         try value.encode(to: encoder)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         print("OutputSubjectUnion encoding unexpected value")
-                        try jsonValue.encode(to: encoder)
+                        try ATProtocolValueContainer.encode(to: encoder)
                     }
                 }
 
@@ -112,9 +112,9 @@ public enum OutputSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
                     case .comAtprotoAdminDefsRepoBlobRef(let value):
                         hasher.combine("com.atproto.admin.defs#repoBlobRef")
                         hasher.combine(value)
-                    case .unexpected(let jsonValue):
+                    case .unexpected(let ATProtocolValueContainer):
                         hasher.combine("unexpected")
-                        hasher.combine(jsonValue)
+                        hasher.combine(ATProtocolValueContainer)
                     }
                 }
 
@@ -147,17 +147,24 @@ public enum OutputSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
 }
 
 extension ATProtoClient.Com.Atproto.Admin {
-    /// Get the service-specific admin status of a subject (account, record, or blob). 
+    /// Get the service-specific admin status of a subject (account, record, or blob).
     public func getSubjectStatus(input: ComAtprotoAdminGetSubjectStatus.Parameters) async throws -> (responseCode: Int, data: ComAtprotoAdminGetSubjectStatus.Output?) {
         let endpoint = "/com.atproto.admin.getSubjectStatus"
         
         
-        // Convert input to query items
         let queryItems = input.asQueryItems()
-        let (responseCode, responseData) = try await parent.parent.parent.performRequestForData(endpoint: endpoint, method: "GET", queryItems: queryItems)
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "GET", 
+            headers: [:], // Typically, GET requests do not have a body
+            body: nil, 
+            queryItems: queryItems
+        )
         
+        
+        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let responseCode = response.statusCode
 
-        // Decode the response if an output type is expected
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoAdminGetSubjectStatus.Output.self, from: responseData)
         return (responseCode, decodedData)
