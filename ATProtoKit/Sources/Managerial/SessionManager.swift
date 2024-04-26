@@ -7,67 +7,133 @@
 
 import Foundation
 
-protocol SessionManaging {
+protocol SessionManaging: AnyActor {
     func hasValidSession() async -> Bool
     func initializeIfNeeded() async throws
     func clearSession() async
+    func setSessionDelegate(with delegate: SessionDelegate) async
 }
+
+protocol SessionDelegate: AnyObject {
+    func sessionRequiresReauthentication(sessionManager: SessionManager) async throws
+}
+
 
 actor SessionManager: SessionManaging {
     private var tokenManager: TokenManaging
-    private weak var authManager: AuthenticationManaging?
+    private var authService: AuthenticationService
     private var sessionState: SessionState = .uninitialized
+    weak var sessionDelegate: SessionDelegate?
 
-    init(tokenManager: TokenManaging) {
+    init(tokenManager: TokenManaging, authService: AuthenticationService) {
         self.tokenManager = tokenManager
+        self.authService = authService
     }
     
-    func setAuthManager(_ manager: AuthenticationManaging) {
-        self.authManager = manager
+    func setSessionDelegate(with delegate: SessionDelegate) {
+        self.sessionDelegate = delegate
     }
 
-    public enum SessionState {
+    public enum SessionState: Equatable {
         case uninitialized
         case initializing
         case valid
         case expired
+        case failed(Error)
+
+        public static func == (lhs: SessionState, rhs: SessionState) -> Bool {
+            switch (lhs, rhs) {
+            case (.uninitialized, .uninitialized),
+                 (.initializing, .initializing),
+                 (.valid, .valid),
+                 (.expired, .expired):
+                return true
+            case (.failed(let lhsError), .failed(let rhsError)):
+                return lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                return false
+            }
+        }
     }
 
-    public func initializeIfNeeded() async throws {
-        switch sessionState {
-        case .valid:
-            print("Session is already valid.")
+    public enum SessionError: Error {
+        case tokenRefreshFailed
+        case tokenUnavailable
+    }
+
+    private var initializationTask: Task<Void, Error>?
+
+    func initializeIfNeeded() async throws {
+        LogManager.logDebug("SessionManager - Initializing session if needed. Current state: \(sessionState)")
+        guard sessionState != .valid else {
+            LogManager.logDebug("SessionManager - Session already valid, no initialization needed.")
             return
-        case .initializing:
-            print("Session initialization is in progress...")
-            return
-        case .uninitialized, .expired:
-            sessionState = .initializing
-            try await validateAndRefreshTokens()
         }
+
+        if sessionState == .initializing {
+            LogManager.logDebug("SessionManager - Waiting for ongoing session initialization to complete.")
+            try await initializationTask?.value
+            return
+        }
+
+        sessionState = .initializing
+        initializationTask = Task {
+            do {
+                try await validateAndRefreshTokens()
+                sessionState = .valid
+            } catch {
+                sessionState = .failed(error)
+                LogManager.logError("SessionManager - Initialization failed with error: \(error)")
+                throw error
+            }
+        }
+        try await initializationTask?.value
     }
 
     private func validateAndRefreshTokens() async throws {
-        if await !(tokenManager.hasValidTokens()) {
-            print("No valid tokens. Need to authenticate.")
-            try await authManager?.reauthenticate()
+        let tokensValid = await tokenManager.hasValidTokens()
+        if !tokensValid {
+            LogManager.logInfo("Tokens are invalid, attempting refresh.")
+            try await handleTokenRefresh()
         } else {
-            print("Tokens are valid. Session is now valid.")
+            LogManager.logInfo("Tokens are valid, session marked as valid.")
             sessionState = .valid
         }
     }
-    
+
+    private func handleTokenRefresh() async throws {
+        if await tokenManager.shouldRefreshTokens() {
+            do {
+                let refreshed = try await authService.refreshTokenIfNeeded()
+                if !refreshed {
+                    LogManager.logError("Token refresh attempted but failed.")
+                    sessionState = .expired
+                    throw SessionError.tokenRefreshFailed
+                }
+            } catch {
+                LogManager.logError("Error during token refresh: \(error)")
+                sessionState = .failed(error)
+                throw error
+            }
+        } else {
+            LogManager.logInfo("Refresh not required or possible, reauthentication needed.")
+            sessionState = .expired
+            throw SessionError.tokenUnavailable
+        }
+    }
+
     public func hasValidSession() async -> Bool {
         return sessionState == .valid
     }
 
     public func clearSession() async {
+        LogManager.logInfo("Clearing session")
         do {
             try await tokenManager.deleteTokens()
             sessionState = .uninitialized
-            print("Session cleared successfully.")
+            LogManager.logInfo("Session cleared successfully")
         } catch {
-            print("Failed to clear tokens: \(error)")
+            LogManager.logError("Failed to clear tokens: \(error)")
         }
     }
 }

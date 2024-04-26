@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol ConfigurationManaging: AnyActor {
+    func updateUserConfiguration(did: String, serviceEndpoint: String) async throws
+}
+
 actor ConfigurationManager: ConfigurationManaging {
     
     private(set) var baseURL: URL

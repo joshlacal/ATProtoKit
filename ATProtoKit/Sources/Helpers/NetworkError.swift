@@ -16,6 +16,7 @@ public enum NetworkError: Error {
     case unknownError
     case expiredToken
     case authenticationRequired
+    case retryRequest
 }
 
 extension NetworkError: LocalizedError {
@@ -37,7 +38,8 @@ extension NetworkError: LocalizedError {
             return "Session token has expired."
         case .authenticationRequired:
             return "Reauthentication required; login again."
-
+        case .retryRequest:
+            return "Request failed, retrying."
         }
     }
 }

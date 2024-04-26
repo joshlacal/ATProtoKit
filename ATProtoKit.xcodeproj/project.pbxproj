@@ -189,6 +189,12 @@
 		21D78D9C2BD552D2005609CF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9B2BD552D2005609CF /* SessionManager.swift */; };
 		21D78D9E2BD55A23005609CF /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9D2BD55A23005609CF /* TokenManager.swift */; };
 		21D78DA02BD58E54005609CF /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78D9F2BD58E54005609CF /* Middleware.swift */; };
+		21D78DA82BD6AA4F005609CF /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78DA72BD6AA4F005609CF /* MockNetworkManager.swift */; };
+		21D78DAB2BD6AC40005609CF /* createsessionresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 21D78DA92BD6AC3F005609CF /* createsessionresponse.json */; };
+		21D78DAC2BD6AC40005609CF /* timelineresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 21D78DAA2BD6AC40005609CF /* timelineresponse.json */; };
+		21D78DAE2BD6AC5F005609CF /* postthreadresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 21D78DAD2BD6AC5F005609CF /* postthreadresponse.json */; };
+		21D78DB02BD9689D005609CF /* MiddlewareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78DAF2BD9689D005609CF /* MiddlewareService.swift */; };
+		21D78DB22BD96D13005609CF /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D78DB12BD96D13005609CF /* AuthenticationService.swift */; };
 		21E348792B84D10500542BEC /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = 21E348782B84D10500542BEC /* DomainParser */; };
 /* End PBXBuildFile section */
 
@@ -385,6 +391,12 @@
 		21D78D9B2BD552D2005609CF /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		21D78D9D2BD55A23005609CF /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		21D78D9F2BD58E54005609CF /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		21D78DA72BD6AA4F005609CF /* MockNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		21D78DA92BD6AC3F005609CF /* createsessionresponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = createsessionresponse.json; sourceTree = "<group>"; };
+		21D78DAA2BD6AC40005609CF /* timelineresponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = timelineresponse.json; sourceTree = "<group>"; };
+		21D78DAD2BD6AC5F005609CF /* postthreadresponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = postthreadresponse.json; sourceTree = "<group>"; };
+		21D78DAF2BD9689D005609CF /* MiddlewareService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddlewareService.swift; sourceTree = "<group>"; };
+		21D78DB12BD96D13005609CF /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -648,16 +660,30 @@
 		21D78D902BD54C4D005609CF /* Managerial */ = {
 			isa = PBXGroup;
 			children = (
+				21D78DA62BD6AA3E005609CF /* Mocks */,
 				21D78D992BD54DB7005609CF /* ConfigurationManager.swift */,
 				21D78D9B2BD552D2005609CF /* SessionManager.swift */,
-				21D78D912BD54C64005609CF /* AuthenticationManager.swift */,
 				210EA9532B5AFD4C00602C46 /* KeychainManager.swift */,
 				21D78D9D2BD55A23005609CF /* TokenManager.swift */,
+				21D78D912BD54C64005609CF /* AuthenticationManager.swift */,
+				21D78DB12BD96D13005609CF /* AuthenticationService.swift */,
 				21D78D932BD54C97005609CF /* NetworkManager.swift */,
+				21D78DAF2BD9689D005609CF /* MiddlewareService.swift */,
 				21D78D9F2BD58E54005609CF /* Middleware.swift */,
 				21D78D972BD54D96005609CF /* LogManager.swift */,
 			);
 			path = Managerial;
+			sourceTree = "<group>";
+		};
+		21D78DA62BD6AA3E005609CF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21D78DA72BD6AA4F005609CF /* MockNetworkManager.swift */,
+				21D78DA92BD6AC3F005609CF /* createsessionresponse.json */,
+				21D78DAA2BD6AC40005609CF /* timelineresponse.json */,
+				21D78DAD2BD6AC5F005609CF /* postthreadresponse.json */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -761,7 +787,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				210EA8392B5AFB2300602C46 /* Generator.py in Resources */,
+				21D78DAE2BD6AC5F005609CF /* postthreadresponse.json in Resources */,
+				21D78DAB2BD6AC40005609CF /* createsessionresponse.json in Resources */,
 				210EA8382B5AFB2300602C46 /* templates in Resources */,
+				21D78DAC2BD6AC40005609CF /* timelineresponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +812,7 @@
 				21C8AAAC2BBE4C9000832F22 /* AppBskyGraphGetListBlocks.swift in Sources */,
 				21C8A9E92BBE4C6500832F22 /* ComAtprotoRepoCreateRecord.swift in Sources */,
 				21C8A9EE2BBE4C6500832F22 /* ComAtprotoRepoGetRecord.swift in Sources */,
+				21D78DB22BD96D13005609CF /* AuthenticationService.swift in Sources */,
 				21C8AA042BBE4C6500832F22 /* ComAtprotoServerConfirmEmail.swift in Sources */,
 				21C8AABC2BBE4C9000832F22 /* ComAtprotoIdentityResolveHandle.swift in Sources */,
 				21C8A9E32BBE4C6500832F22 /* ComAtprotoAdminUpdateAccountHandle.swift in Sources */,
@@ -820,6 +850,7 @@
 				21C8A9ED2BBE4C6500832F22 /* ComAtprotoServerCreateAppPassword.swift in Sources */,
 				21C8AAC92BBE4C9000832F22 /* AppBskyNotificationListNotifications.swift in Sources */,
 				21C8AA7F2BBE4C9000832F22 /* AppBskyUnspeccedDefs.swift in Sources */,
+				21D78DB02BD9689D005609CF /* MiddlewareService.swift in Sources */,
 				21C8A9DD2BBE4C6500832F22 /* ComAtprotoServerRequestPasswordReset.swift in Sources */,
 				21C8A9EC2BBE4C6500832F22 /* ComAtprotoSyncGetBlob.swift in Sources */,
 				21C8AAC82BBE4C9000832F22 /* AppBskyFeedLike.swift in Sources */,
@@ -893,6 +924,7 @@
 				21C8AAAF2BBE4C9000832F22 /* ComAtprotoTempFetchLabels.swift in Sources */,
 				21C8AA852BBE4C9000832F22 /* AppBskyEmbedRecord.swift in Sources */,
 				21C8AA062BBE4C6500832F22 /* ComAtprotoServerCreateInviteCodes.swift in Sources */,
+				21D78DA82BD6AA4F005609CF /* MockNetworkManager.swift in Sources */,
 				21C8A9E02BBE4C6500832F22 /* ComAtprotoSyncListBlobs.swift in Sources */,
 				21C8AA0C2BBE4C6500832F22 /* ComAtprotoServerRequestEmailConfirmation.swift in Sources */,
 				21C8AAC32BBE4C9000832F22 /* AppBskyFeedDefs.swift in Sources */,

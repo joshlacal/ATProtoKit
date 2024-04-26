@@ -8,23 +8,47 @@
 import Foundation
 import ZippyJSON
 
-protocol NetworkServicing: AnyActor {
-    func performRequest(_ request: URLRequest) async throws -> (Data, HTTPURLResponse)
+ protocol NetworkManaging: AnyActor {
+     func performRequest(_ request: URLRequest, retryCount: Int, duringInitialSetup: Bool) async throws -> (Data, HTTPURLResponse)
     func createURLRequest(endpoint: String, method: String, headers: [String: String], body: Data?, queryItems: [URLQueryItem]?) async throws -> URLRequest
     func refreshSessionToken(refreshToken: String, tokenManager: TokenManaging) async throws -> Bool
+    func setMiddlewareService(middlewareService: MiddlewareService) async
 }
 
 
-actor NetworkManager: NetworkServicing {
-    private var middlewares: [NetworkMiddleware] = []
+public actor NetworkManager: NetworkManaging {
     private let baseURL: URL
+    private let configurationManager: ConfigurationManager
+    private let maxRetryLimit: Int = 3
 
-    init(baseURL: URL) {
+    private var middlewares: [NetworkMiddleware] = []
+    weak var middlewareService: MiddlewareService?
+
+    init(baseURL: URL, configurationManager: ConfigurationManager) {
         self.baseURL = baseURL
+        self.configurationManager = configurationManager
+    }
+    
+     func setMiddlewareService(middlewareService: MiddlewareService) {
+        self.middlewareService = middlewareService
+        configureMiddlewares()
     }
 
-    func createURLRequest(endpoint: String, method: String, headers: [String: String], body: Data?, queryItems: [URLQueryItem]?) async throws -> URLRequest {
-        var url = baseURL.appendingPathComponent(endpoint)
+    private func configureMiddlewares() {
+        if let middlewareService = middlewareService {
+            let authMiddleware = AuthenticationMiddleware(middlewareService: middlewareService)
+            let loggingMiddleware = LoggingMiddleware()
+            middlewares.append(authMiddleware)
+            middlewares.append(loggingMiddleware)
+        } else {
+            // Handle the case where middlewareService is nil, maybe log an error or set up a fallback
+            print("Error: MiddlewareService is nil")
+        }
+    }
+
+
+    public func createURLRequest(endpoint: String, method: String, headers: [String: String], body: Data?, queryItems: [URLQueryItem]?) async throws -> URLRequest {
+        var url = baseURL.appendingPathComponent("xrpc").appendingPathComponent(endpoint)
         if let queryItems = queryItems, !queryItems.isEmpty {
             var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
             components?.queryItems = queryItems
@@ -39,6 +63,10 @@ actor NetworkManager: NetworkServicing {
         for (headerField, headerValue) in headers {
             request.setValue(headerValue, forHTTPHeaderField: headerField)
         }
+        
+        if let authHeader = headers["Authorization"] {
+            LogManager.logDebug("Using Authorization Header: \(authHeader.prefix(30))")
+        }
 
         if body != nil {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -48,29 +76,55 @@ actor NetworkManager: NetworkServicing {
         return request
     }
 
-    func performRequest(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
+    public func performRequest(_ request: URLRequest, retryCount: Int = 0, duringInitialSetup: Bool = false) async throws -> (Data, HTTPURLResponse) {
+        LogManager.logDebug("NetworkManager - Preparing to perform request to \(request.url?.absoluteString ?? "unknown URL") with retryCount: \(retryCount)")
+
+        // Apply middleware conditionally
         var modifiedRequest = request
-        // Apply each middleware in sequence
-        for middleware in middlewares {
-            modifiedRequest = await middleware.prepare(request: modifiedRequest)
+        if !duringInitialSetup {
+            for middleware in middlewares {
+                LogManager.logDebug("Applying middleware: \(type(of: middleware))")
+                modifiedRequest = try await middleware.prepare(request: modifiedRequest)
+            }
+        } else {
+            LogManager.logDebug("Skipping middleware during initial setup.")
         }
 
-        let (data, response) = try await URLSession.shared.data(for: modifiedRequest)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.responseError(statusCode: 0) // Provide more specific error handling
-        }
 
-        // Process the response through each middleware in sequence
-        var finalData = data
-        var finalResponse = httpResponse
-        for middleware in middlewares {
-            (finalResponse, finalData) = await middleware.handle(response: finalResponse, data: finalData)
-        }
+        do {
+            // Perform the actual network request
+            let (data, response) = try await URLSession.shared.data(for: modifiedRequest)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw NetworkError.responseError(statusCode: 0)  // More specific error handling could be beneficial here
+            }
 
-        return (finalData, finalResponse)
+            LogManager.logDebug("NetworkManager - Received HTTP response with status code: \(httpResponse.statusCode) from \(httpResponse.url?.absoluteString ?? "unknown URL")")
+
+            // Process the response through each middleware
+            var finalData = data
+            var finalResponse = httpResponse
+            for middleware in middlewares.reversed() {
+                (finalResponse, finalData) = try await middleware.handle(response: finalResponse, data: finalData, request: modifiedRequest)
+                LogManager.logDebug("NetworkManager - Middleware \(type(of: middleware)) processed the response.")
+            }
+
+            // Retry logic for 401 Unauthorized response
+            if finalResponse.statusCode == 401 && retryCount < maxRetryLimit {
+                LogManager.logDebug("NetworkManager - Received 401 status, attempting to retry request. Retry attempt: \(retryCount + 1)")
+                return try await performRequest(modifiedRequest, retryCount: retryCount + 1)  // Ensuring modifiedRequest is used for retry
+            }
+
+            LogManager.logDebug("NetworkManager - Request to \(finalResponse.url?.absoluteString ?? "unknown URL") completed successfully with status code \(finalResponse.statusCode)")
+            return (finalData, finalResponse)
+        } catch let error {
+            LogManager.logError("NetworkManager - Request to \(modifiedRequest.url?.absoluteString ?? "unknown URL") failed with error: \(error.localizedDescription)")
+            throw error
+        }
     }
 
-    func refreshSessionToken(refreshToken: String, tokenManager: TokenManaging) async throws -> Bool {
+
+
+     func refreshSessionToken(refreshToken: String, tokenManager: TokenManaging) async throws -> Bool {
         let endpoint = "/xrpc/com.atproto.server.refreshSession"
         let url = baseURL.appendingPathComponent(endpoint)
         var request = URLRequest(url: url)
@@ -82,6 +136,8 @@ actor NetworkManager: NetworkServicing {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.unknownError
         }
+         
+         LogManager.logDebug("NetworkManager - Received response for token refresh with status code: \(httpResponse.statusCode)")
 
         if httpResponse.statusCode == 200 {
             // Decode the response using your specific output structure
@@ -94,18 +150,29 @@ actor NetworkManager: NetworkServicing {
             try await tokenManager.saveTokens(accessJwt: tokenResponse.accessJwt, refreshJwt: tokenResponse.refreshJwt)
             return true
         } else if httpResponse.statusCode == 401 {
-            // Handle token expiration or invalid token error
+            LogManager.logError("NetworkManager - Refresh token is invalid or expired")
             return false
         } else {
+            LogManager.logError("NetworkManager - Failed to refresh token with status code: \(httpResponse.statusCode)")
+
             throw NetworkError.responseError(statusCode: httpResponse.statusCode)
         }
     }
 
-    private func prepareRequestWithMiddleware(_ request: URLRequest) async -> URLRequest {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private func prepareRequestWithMiddleware(_ request: URLRequest) async throws -> URLRequest {
         var modifiedRequest = request
         // Assume middleware array
         for middleware in middlewares {
-            modifiedRequest = await middleware.prepare(request: modifiedRequest)
+            modifiedRequest = try await middleware.prepare(request: modifiedRequest)
         }
         return modifiedRequest
     }

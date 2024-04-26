@@ -27,7 +27,7 @@ extension ATProtoClient.Com.Atproto.Identity {
             queryItems: nil
         )
         
-        let (responseData, response) = try await networkManager.performRequest(urlRequest)
+        let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 3, duringInitialSetup: false)
         let responseCode = response.statusCode
 
         

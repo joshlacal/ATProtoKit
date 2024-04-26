@@ -8,10 +8,6 @@
 import Foundation
 import ZippyJSON
 
-
-import Foundation
-import ZippyJSON
-
 enum APIError: String, Error {
     case expiredToken = "ExpiredToken"
     case invalidToken
@@ -19,33 +15,61 @@ enum APIError: String, Error {
 }
 
 
-public actor ATProtoClient {
-    public let baseURL: URL
-       let config: ConfigurationManager
-       let sessionManager: SessionManager
-       let authenticationManager: AuthenticationManager
-       let networkManager: NetworkManager
-       let tokenManager: TokenManager
-       weak var authDelegate: AuthenticationDelegate?
-       
-       enum InitializationState {
-           case uninitialized
-           case initializing
-           case ready
-           case failed(Error)
-       }
+public actor ATProtoClient: AuthenticationDelegate {
+    
+    public var baseURL: URL = URL(string:"https://bsky.social")!
+    let config: ConfigurationManaging
+    let sessionManager: SessionManaging
+    var networkManager: NetworkManaging
+    let tokenManager: TokenManaging
+    let authService: AuthenticationService
+    public weak var authDelegate: AuthenticationDelegate?
+    
+    enum InitializationState {
+        case uninitialized
+        case initializing
+        case ready
+        case failed(Error)
+    }
+    
+    public enum ClientEnvironment {
+        case production
+        case testing
+    }
+    
+    private(set) var initState: InitializationState = .uninitialized
+    
+    private lazy var authenticationManager: AuthenticationManaging = {
+        let authenticationManager = AuthenticationManager(authService: self.authService, client: self)
+        Task {
+            await self.sessionManager.setSessionDelegate(with: authenticationManager)
+        }
+        return authenticationManager
+    }()
+    
+    public init(baseURL: URL, environment: ClientEnvironment) {
+        let configManager = ConfigurationManager(baseURL: baseURL)
+        let tokenManager = TokenManager()
+        self.config = configManager
+        self.tokenManager = tokenManager
+        
+        let networkManager = NetworkManager(baseURL: baseURL, configurationManager: configManager)
+        self.networkManager = networkManager
+        
+        let authService = AuthenticationService(networkManager: networkManager, tokenManager: tokenManager)
+        self.authService = authService
+        
+        let sessionManager = SessionManager(tokenManager: tokenManager, authService: authService)
+        self.sessionManager = sessionManager
+        let middlewareService = MiddlewareService(sessionManager: sessionManager, tokenManager: tokenManager, authDelegate: authDelegate, client: self)
+        
+        Task { @MainActor in
+            await networkManager.setMiddlewareService(middlewareService: middlewareService)
+        }
+    }
 
-       private(set) var initState: InitializationState = .uninitialized
 
-       public init(baseURL: URL) {
-           self.baseURL = baseURL
-           // Instantly initializing components
-           networkManager = NetworkManager(baseURL: baseURL)
-           tokenManager = TokenManager(networkService: networkManager)
-           config = ConfigurationManager(baseURL: baseURL)
-           sessionManager = SessionManager(tokenManager: tokenManager)
-           authenticationManager = AuthenticationManager(networkManager: networkManager, tokenManager: tokenManager, configManager: config)
-       }
+
 
 
     // User-related properties
@@ -81,9 +105,19 @@ public actor ATProtoClient {
         return did
     }
     
+    public func hasValidSession() async -> Bool {
+        do {
+            try await sessionManager.initializeIfNeeded()
+        } catch {
+            print("initialization failed with error: \(error)")
+        }
+        return await sessionManager.hasValidSession()
+    }
     
-    
-    
+    public func authenticationRequired(client: ATProtoClient) async {
+        print("authentication required")
+    }
+
     
     
     // MARK: Generated classes:
@@ -93,8 +127,8 @@ public actor ATProtoClient {
     }()
     
     public final class Tools: @unchecked Sendable {
-        internal let networkManager: NetworkManager
-        internal init(networkManager: NetworkManager) {
+        internal let networkManager: NetworkManaging
+        internal init(networkManager: NetworkManaging) {
             self.networkManager = networkManager
         }
         
@@ -103,8 +137,8 @@ public actor ATProtoClient {
         }()
         
         public final class Ozone: @unchecked Sendable {
-            internal let networkManager: NetworkManager
-            internal init(networkManager: NetworkManager) {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
             }
             
@@ -113,8 +147,8 @@ public actor ATProtoClient {
             }()
             
             public final class Communication: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -125,8 +159,8 @@ public actor ATProtoClient {
             }()
             
             public final class Moderation: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -141,8 +175,8 @@ public actor ATProtoClient {
     }()
     
     public final class App: @unchecked Sendable {
-        internal let networkManager: NetworkManager
-        internal init(networkManager: NetworkManager) {
+        internal let networkManager: NetworkManaging
+        internal init(networkManager: NetworkManaging) {
             self.networkManager = networkManager
         }
         
@@ -151,8 +185,8 @@ public actor ATProtoClient {
         }()
         
         public final class Bsky: @unchecked Sendable {
-            internal let networkManager: NetworkManager
-            internal init(networkManager: NetworkManager) {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
             }
             
@@ -161,8 +195,8 @@ public actor ATProtoClient {
             }()
             
             public final class Embed: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -173,8 +207,8 @@ public actor ATProtoClient {
             }()
             
             public final class Notification: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -185,8 +219,8 @@ public actor ATProtoClient {
             }()
             
             public final class Unspecced: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -197,8 +231,8 @@ public actor ATProtoClient {
             }()
             
             public final class Graph: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -209,8 +243,8 @@ public actor ATProtoClient {
             }()
             
             public final class Feed: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -221,8 +255,8 @@ public actor ATProtoClient {
             }()
             
             public final class Richtext: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -233,8 +267,8 @@ public actor ATProtoClient {
             }()
             
             public final class Actor: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -245,8 +279,8 @@ public actor ATProtoClient {
             }()
             
             public final class Labeler: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -261,8 +295,8 @@ public actor ATProtoClient {
     }()
     
     public final class Com: @unchecked Sendable {
-        internal let networkManager: NetworkManager
-        internal init(networkManager: NetworkManager) {
+        internal let networkManager: NetworkManaging
+        internal init(networkManager: NetworkManaging) {
             self.networkManager = networkManager
         }
         
@@ -271,8 +305,8 @@ public actor ATProtoClient {
         }()
         
         public final class Atproto: @unchecked Sendable {
-            internal let networkManager: NetworkManager
-            internal init(networkManager: NetworkManager) {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
             }
             
@@ -281,8 +315,8 @@ public actor ATProtoClient {
             }()
             
             public final class Temp: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -293,8 +327,8 @@ public actor ATProtoClient {
             }()
             
             public final class Identity: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -305,8 +339,8 @@ public actor ATProtoClient {
             }()
             
             public final class Admin: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -317,8 +351,8 @@ public actor ATProtoClient {
             }()
             
             public final class Label: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -329,8 +363,8 @@ public actor ATProtoClient {
             }()
             
             public final class Server: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -341,8 +375,8 @@ public actor ATProtoClient {
             }()
             
             public final class Sync: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -353,8 +387,8 @@ public actor ATProtoClient {
             }()
             
             public final class Repo: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -365,8 +399,8 @@ public actor ATProtoClient {
             }()
             
             public final class Moderation: @unchecked Sendable {
-                internal let networkManager: NetworkManager
-                internal init(networkManager: NetworkManager) {
+                internal let networkManager: NetworkManaging
+                internal init(networkManager: NetworkManaging) {
                     self.networkManager = networkManager
                 }
                 
@@ -375,5 +409,4 @@ public actor ATProtoClient {
         }
         
     }
-    
 }

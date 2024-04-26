@@ -1,0 +1,32 @@
+{
+  "did": "did:plc:7nmnou7umkr46rp7u2hbd3nb",
+  "didDoc": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/multikey/v1",
+      "https://w3id.org/security/suites/secp256k1-2019/v1"
+    ],
+    "id": "did:plc:7nmnou7umkr46rp7u2hbd3nb",
+    "alsoKnownAs": ["at://josh.uno"],
+    "verificationMethod": [
+      {
+        "id": "did:plc:7nmnou7umkr46rp7u2hbd3nb#atproto",
+        "type": "Multikey",
+        "controller": "did:plc:7nmnou7umkr46rp7u2hbd3nb",
+        "publicKeyMultibase": ""
+      }
+    ],
+    "service": [
+      {
+        "id": "#atproto_pds",
+        "type": "AtprotoPersonalDataServer",
+        "serviceEndpoint": "https://inkcap.us-east.host.bsky.network"
+      }
+    ]
+  },
+  "handle": "josh.uno",
+  "email": "joshlacal@gmail.com",
+  "emailConfirmed": true,
+  "accessJwt": "l3o8wU_rlQJBHmNZO",
+  "refreshJwt": "bNhFYdrqMnkjDmL9QBA"
+}
