@@ -19,7 +19,8 @@ jobs:
       - name: Clone external repository
         run: |
           git clone --depth=1 https://github.com/bluesky-social/atproto.git
-          mv atproto/lexicons ATProtoKit/ATProtoKit/Generator/lexicons
+          mkdir -p ATProtoKit/ATProtoKit/Generator/lexicons
+          mv atproto/lexicons/* ATProtoKit/ATProtoKit/Generator/lexicons/
 
       - name: Set up Python
         uses: actions/setup-python@v4
