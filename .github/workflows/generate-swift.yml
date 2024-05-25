@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate Swift code
         run: |
-          python ATProtoKit/Generator/Generator.py ATProtoKit/Generator/lexicons ATProtoKit/Generator/generated_swift
+          python ATProtoKit/Generator/Generator.py ATProtoKit/Generator/lexicons ATProtoKit/Sources/Generated
 
       - name: Commit and push changes
         run: |
