@@ -19,8 +19,8 @@ jobs:
       - name: Clone external repository
         run: |
           git clone --depth=1 https://github.com/bluesky-social/atproto.git
-          mkdir -p ATProtoKit/ATProtoKit/Generator/lexicons
-          mv atproto/lexicons/* ATProtoKit/ATProtoKit/Generator/lexicons/
+          mkdir -p ATProtoKit/Generator/lexicons
+          mv atproto/lexicons/* ATProtoKit/Generator/lexicons/
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -30,11 +30,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r ATProtoKit/ATProtoKit/Generator/requirements.txt
+          pip install -r ATProtoKit/Generator/requirements.txt
 
       - name: Generate Swift code
         run: |
-          python ATProtoKit/ATProtoKit/Generator/Generator.py ATProtoKit/ATProtoKit/Generator/lexicons ATProtoKit/ATProtoKit/Generator/generated_swift
+          python ATProtoKit/Generator/Generator.py ATProtoKit/Generator/lexicons ATProtoKit/Generator/generated_swift
 
       - name: Commit and push changes
         run: |
