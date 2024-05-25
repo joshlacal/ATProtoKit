@@ -32,21 +32,45 @@ final class MiddlewareService: @unchecked Sendable {
         LogManager.logDebug("MiddlewareService - Session validation and refresh needed.")
         try await sessionManager.initializeIfNeeded()
     }
+    
+    func updateTokens(accessJwt: String, refreshJwt: String) async throws {
+        do {
+            try await tokenManager.saveTokens(accessJwt: accessJwt, refreshJwt: refreshJwt)
+            LogManager.logDebug("MiddlewareService - Tokens updated successfully.")
+        } catch {
+            LogManager.logError("MiddlewareService - Failed to update tokens: \(error)")
+            throw error
+        }
+    }
 
     func getAccessToken() async throws -> String {
         LogManager.logDebug("MiddlewareService - Fetching access token.")
-        guard let token = await tokenManager.fetchAccessToken() else {
-            LogManager.logError("MiddlewareService - No access token available.")
-            throw NetworkError.authenticationRequired
-        }
-        if await tokenManager.isTokenExpired(token: token) {
+        guard let token = await tokenManager.fetchAccessToken(),
+              !(await tokenManager.isTokenExpired(token: token)) else {
+            LogManager.logInfo("MiddlewareService - Access token expired or not available, refreshing session.")
             try await validateAndRefreshSession()
             guard let refreshedToken = await tokenManager.fetchAccessToken() else {
                 throw NetworkError.authenticationRequired
             }
             return refreshedToken
         }
-        LogManager.logDebug("MiddlewareService - Access token fetched successfully.")
+        return token
+    }
+
+    func getRefreshToken() async throws -> String {
+        LogManager.logDebug("MiddlewareService - Fetching refresh token.")
+        guard let token = await tokenManager.fetchRefreshToken() else {
+            LogManager.logError("MiddlewareService - No refresh token available.")
+            throw NetworkError.authenticationRequired
+        }
+        if await tokenManager.isTokenExpired(token: token) {
+            try await validateAndRefreshSession()
+            guard let refreshedToken = await tokenManager.fetchRefreshToken() else {
+                throw NetworkError.authenticationRequired
+            }
+            return refreshedToken
+        }
+        LogManager.logDebug("MiddlewareService - Refresh token fetched successfully.")
         return token
     }
     func handleAuthenticationRequired() async {

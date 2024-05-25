@@ -7,16 +7,14 @@
 
 import Foundation
 import SwiftUI
-
-
+// MARK: OLD RICH TEXT PROCESSING:
 public enum RichTextElement {
     case mention(start: Int, end: Int, value: String)
     case link(start: Int, end: Int, value: String)
     case tag(start: Int, end: Int, value: String)
 }
 
-public final class RichTextManager {
-    
+public class RichTextManager {
     public static func processRichTextFacets(_ facets: [AppBskyRichtextFacet]) -> [RichTextElement] {
         var richTextElements: [RichTextElement] = []
         
@@ -107,8 +105,8 @@ public final class RichTextManager {
     public static func getStartEndIndices(from element: RichTextElement) -> (Int, Int) {
         switch element {
         case .mention(let start, let end, _),
-                .link(let start, let end, _),
-                .tag(let start, let end, _):
+             .link(let start, let end, _),
+             .tag(let start, let end, _):
             return (start, end)
         }
     }
@@ -123,15 +121,164 @@ public final class RichTextManager {
     }
     
     public static func extractPostTextAndFacets(from record: ATProtocolValueContainer) -> (String, [AppBskyRichtextFacet])? {
-        if case let .knownType(anyATProtocolValue) = record  {
+        if case .knownType(let anyATProtocolValue) = record {
             if let feedPost = anyATProtocolValue as? AppBskyFeedPost {
-                
                 return (feedPost.text, feedPost.facets ?? [])
             }
-        }                 else {
+        } else {
             return nil
         }
         return nil
+    }
+}
 
+// MARK: New RichText processing
+
+extension AppBskyFeedPost {
+    public var facetsAsAttributedString: AttributedString {
+        guard let facets = self.facets, !text.isEmpty else { return AttributedString(text) }
+        var attributedString = AttributedString(self.text)
+        
+        for facet in facets.sorted(by: { $0.index.byteStart < $1.index.byteStart }) {
+
+            guard let start = text.index(atUTF8Offset: facet.index.byteStart),
+                  let end = text.index(atUTF8Offset: facet.index.byteEnd),
+                  start < end else {
+                continue
+            }
+            
+            // Convert String.Index to AttributedString.Index
+            let attrStart = AttributedString.Index(start, within: attributedString)
+            let attrEnd = AttributedString.Index(end, within: attributedString)
+            
+            if let attrStart = attrStart, let attrEnd = attrEnd {
+                let range = attrStart..<attrEnd
+
+                // Apply features
+                for feature in facet.features {
+                    switch feature {
+                    case .appBskyRichtextFacetLink(let linkFeature):
+                        if let url = URL(string: linkFeature.uri.uriString()) {
+                            attributedString[range].link = url
+                        }
+                    case .appBskyRichtextFacetMention(let mentionFeature):
+                        attributedString[range].foregroundColor = .blue
+                        let atURIString = "at://did?="+mentionFeature.did
+                        if let url = URL(string: atURIString) {
+                            attributedString[range].link = url
+                        }
+                        attributedString[range].richText.mentionLink = mentionFeature.did
+                    case .appBskyRichtextFacetTag(let tagFeature):
+                        attributedString[range].foregroundColor = .blue
+                        let atURIString = "at://app.bsky/hashtag/"+tagFeature.tag
+                        if let url = URL(string: atURIString) {
+                            attributedString[range].link = url
+                        }
+                        attributedString[range].richText.tagLink = tagFeature.tag
+                    case .unexpected(let unexpected):
+                        print("Unexpected facet getting a red color: \(unexpected.textRepresentation)")
+                        attributedString[range].foregroundColor = .red
+                        
+                    }
+                }
+            }
+        }
+        
+        return attributedString
+    }
+}
+
+
+public extension String {
+    func index(atUTF8Offset offset: Int) -> String.Index? {
+        guard let utf8Index = utf8.index(utf8.startIndex, offsetBy: offset, limitedBy: utf8.endIndex) else {
+            return nil
+        }
+        return utf8Index.samePosition(in: self)
+    }
+}
+
+public struct TagLink: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
+    public typealias Value = String
+    public static var name: String = "tagLink"
+}
+
+public struct MentionLink: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
+    public typealias Value = String
+    public static var name: String = "mentionLink"
+}
+
+public extension AttributeScopes {
+    public struct RichTextAttributes: AttributeScope {
+        public let tagLink: TagLink
+        public let mentionLink: MentionLink
+    }
+    var richText: RichTextAttributes.Type { RichTextAttributes.self }
+}
+
+// MARK: AttributedString to facets (not tested):
+
+extension AttributedString {
+    public func toFacets() -> [AppBskyRichtextFacet]? {
+        var facets: [AppBskyRichtextFacet] = []
+        let fullString = String(self.characters[...])  // Convert entire AttributedString to String once for efficiency
+
+        for run in self.runs {
+            let range = run.range
+            guard let startOffset = self.utf8Offset(at: range.lowerBound, in: self, fullString: fullString),
+                  let endOffset = self.utf8Offset(at: range.upperBound, in: self, fullString: fullString),
+                  startOffset != endOffset else {
+                continue  // Skip the current iteration if offsets are nil or identical
+            }
+
+            var features: [AppBskyRichtextFacet.AppBskyRichtextFacetFeaturesUnion] = []
+
+            // Process any linked URLs to determine facet features
+            if let url = run.link {
+                let urlString = url.absoluteString
+                if urlString.starts(with: "at://did?=") {
+                    let did = String(urlString.dropFirst("at://did?=".count))
+                    features.append(.appBskyRichtextFacetMention(AppBskyRichtextFacet.Mention(did: did)))
+                } else if urlString.starts(with: "at://app.bsky/hashtag/") {
+                    let tag = String(urlString.dropFirst("at://app.bsky/hashtag/".count))
+                    features.append(.appBskyRichtextFacetTag(AppBskyRichtextFacet.Tag(tag: tag)))
+                } else {
+                    features.append(.appBskyRichtextFacetLink(AppBskyRichtextFacet.Link(uri: URI(uriString: urlString))))
+                }
+            }
+
+            if features.isEmpty {
+                continue  // Skip if no features were extracted
+            }
+
+            let byteSlice = AppBskyRichtextFacet.ByteSlice(byteStart: startOffset, byteEnd: endOffset)
+            let facet = AppBskyRichtextFacet(index: byteSlice, features: features)
+            facets.append(facet)
+        }
+
+        // Return nil if no facets were detected
+        return facets.isEmpty ? nil : facets
+    }
+
+    /// Calculates the UTF-8 byte offset of a given `AttributedString.Index` within the original `String`.
+    /// - Parameters:
+    ///   - position: The `AttributedString.Index` to find the UTF-8 offset for.
+    ///   - attributedString: The `AttributedString` derived from the original string.
+    ///   - fullString: The original `String` from which the `AttributedString` was created.
+    /// - Returns: The UTF-8 byte offset of the character at `position`, or `nil` if the index is out of range.
+    private func utf8Offset(at position: AttributedString.Index, in attributedString: AttributedString, fullString: String) -> Int? {
+        if position >= attributedString.endIndex {
+            print(position, attributedString.endIndex)
+            print("Index at or beyond endIndex, handling as a boundary case.")
+            return fullString.utf8.count  // Return the total count of UTF-8 bytes as the offset
+        }
+
+        guard let stringIndex = String.Index(position, within: fullString) else {
+            print("Invalid position conversion from AttributedString.Index to String.Index.")
+            return nil
+        }
+        
+        let utf8Offset = fullString.utf8.prefix(upTo: stringIndex).count
+        return utf8Offset
     }
 }

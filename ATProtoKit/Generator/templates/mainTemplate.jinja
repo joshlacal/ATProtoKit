@@ -4,7 +4,9 @@ import ZippyJSON
 // lexicon: {{ lexicon_version }}, id: {{ lexicon_id }}
 
 public struct {{ struct_name }}{{ conformance }} { 
+
     public static let typeIdentifier = "{{ lexicon_id }}" 
+    
     {{- main_properties }}
     {{- record_struct }}                       
     {{- lex_definitions }}

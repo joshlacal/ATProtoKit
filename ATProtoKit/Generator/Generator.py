@@ -2,7 +2,7 @@ import json
 import jinja2
 from typing import Dict, List, Any, Optional
 import re
-import os
+import os, sys
 import concurrent.futures
 
 class SwiftCodeGenerator:
@@ -18,6 +18,9 @@ class SwiftCodeGenerator:
         self.conformance = ""
         self.enums = ""
         self.generated_unions = set()
+        self.enum_definitions = {}  # New dictionary to track enum definitions
+        self.recursive_unions = {"ThreadViewPostParentUnion", "ThreadViewPostRepliesUnion", "OutputThreadUnion"}
+
         self.token_descriptions = {}
         self.generated_tokens = set()
         script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -79,6 +82,12 @@ class SwiftCodeGenerator:
         else:
             # Handle the case without '#'
             return self.convert_to_camel_case(ref)
+
+    def to_lower_camel_case(self, value: str) -> str:
+        parts = value.split('_')
+        # Capitalize each part except the first one and join them to form camelCase
+        camel_cased = parts[0].lower() + ''.join(word.capitalize() for word in parts[1:])
+        return camel_cased
         
     def enum_case_filter(self, value: str) -> str:
         # Replace invalid characters with underscores or appropriate alternatives
@@ -92,8 +101,8 @@ class SwiftCodeGenerator:
         if value[0].isdigit():
             value = 'Number' + value
 
-        # CamelCase the result if you prefer it to be more idiomatic Swift enum cases
-        value = ''.join(word.capitalize() for word in value.split('_'))
+        # Convert to lowerCamelCase
+        value = self.to_lower_camel_case(value)
 
         return value
 
@@ -136,10 +145,36 @@ class SwiftCodeGenerator:
         # Process variants to prepend lexicon_id if they start with '#'
         processed_variants = [self.lexicon_id + variant if variant.startswith('#') else variant for variant in variants]
 
+        # Track the enum definition
+        self.enum_definitions[unique_union_name] = processed_variants
+
+        # Detect if the enum is recursive
+        is_recursive = unique_union_name in self.recursive_unions or self.is_enum_recursive(unique_union_name, processed_variants)
+
         enum_template = self.env.get_template('unionEnum.jinja')
 
-        enum_code = enum_template.render(name=unique_union_name, variants=processed_variants, lexicon_id=self.lexicon_id)
+        enum_code = enum_template.render(
+            name=unique_union_name, 
+            variants=processed_variants, 
+            lexicon_id=self.lexicon_id,
+            is_recursive=is_recursive  # Pass the recursion info to the template
+        )
         self.enums += enum_code + "\n\n"
+
+    def is_enum_recursive(self, enum_name, variants):
+        """Detects if an enum is recursive."""
+        def check_recursive(name, seen):
+            if name in seen:
+                return True
+            seen.add(name)
+            for variant in self.enum_definitions.get(name, []):
+                if variant in self.enum_definitions:
+                    if check_recursive(variant, seen):
+                        return True
+            seen.remove(name)
+            return False
+        
+        return check_recursive(enum_name, set())
 
     @staticmethod
     def lowercase_first_letter(s):
@@ -148,15 +183,21 @@ class SwiftCodeGenerator:
         return s[0].lower() + s[1:]
     
 
-    def generate_enum_for_union_array(self, name: str, refs: List[str]) -> None:
-        # Create a list to store information about each ref
-        refs_info = [{'ref': (self.lexicon_id + r if r.startswith('#') else r), 
-              'swift_ref': self.convert_ref(r), 
-              'camel_case_label': self.lowercase_first_letter(self.convert_ref(r))}
-             for r in refs]
+    def generate_enum_for_union_array(self, context_struct_name, name, refs):
+        # Create a unique name incorporating the context
+        unique_union_name = self.convert_to_camel_case(name)
+        
+        # Check if we've already generated this union
+        if unique_union_name in self.generated_unions:
+            return  # Skip if this union was already generated
+
+        self.generated_unions.add(unique_union_name)
+        refs_info = [{'ref': (self.lexicon_id + r if r.startswith('#') else r),
+                    'swift_ref': self.convert_ref(r),
+                    'camel_case_label': self.lowercase_first_letter(self.convert_ref(r))}
+                    for r in refs]
         union_array_template = self.env.get_template('unionArray.jinja')
-        swift_code = union_array_template.render(array_name=name, union_name=name, refs=refs_info, lexicon_id=self.lexicon_id)
-        # Append the generated code to the main Swift code
+        swift_code = union_array_template.render(array_name=name, union_name=unique_union_name, refs=refs_info, lexicon_id=self.lexicon_id)
         self.enums += swift_code + "\n\n"
 
 
@@ -177,35 +218,32 @@ class SwiftCodeGenerator:
 
         procedure_name = self.convert_to_camel_case(lexicon_id.split('.')[-1])
 
-        # Check if input and output are present
-        has_input = 'input' in main_def and 'schema' in main_def['input'] and 'properties' in main_def['input']['schema']
-        input_struct_name = self.convert_to_camel_case(lexicon_id) + ".Input" if has_input else None
-        output_type = self.convert_to_camel_case(lexicon_id) + ".Output" if 'output' in main_def else None
-        
-        print(f"Debug: has_input = {has_input}, input_struct_name = {input_struct_name}, output_type = {output_type}")  # Debug print
+        # Check if this is an initial setup procedure, like session creation
+        during_initial_setup = 'createSession' in lexicon_id
 
-
-        # Prepare input parameters and values only if input is present
         input_parameters = ''
         input_values = ''
-        if has_input:
-            input_params = main_def.get('input', {}).get('properties', {})
-            input_parameters = ', '.join([f"{param}: {self.determine_swift_type(param, details, main_def.get('input', {}).get('required', []))}" for param, details in input_params.items()])
+        input_struct_name = None
+        if 'input' in main_def and 'schema' in main_def['input']:
+            input_params = main_def['input']['schema'].get('properties', {})
+            current_struct_name = self.convert_to_camel_case(lexicon_id)  # Use the lexicon ID to create a struct name
+            input_parameters = ', '.join([f"{param}: {self.determine_swift_type(param, details, main_def['input'].get('required', []), current_struct_name)}" for param, details in input_params.items()])
             input_values = ', '.join([f"{param}: {param}" for param in input_params.keys()])
+            input_struct_name = self.convert_to_camel_case(lexicon_id) + ".Input"
 
-        # Generate the URL
+        # Correct endpoint format
         endpoint = f"/{lexicon_id}"
 
-        # Render the procedure template
         return self.procedure_template.render(
             template_namespace_name=template_namespace_name,
             procedure_name=procedure_name,
             input_parameters=input_parameters,
             input_struct_name=input_struct_name,
             input_values=input_values,
-            output_type=output_type,
+            output_type=self.convert_to_camel_case(lexicon_id) + ".Output" if 'output' in main_def else None,
             endpoint=endpoint,
-            description=self.description
+            description=self.description,
+            during_initial_setup=during_initial_setup
         )
 
     def generate_query_function(self, lexicon_id, main_def):
@@ -227,7 +265,7 @@ class SwiftCodeGenerator:
             input_parameters = ', '.join([f"{param}: {self.determine_swift_type(param, details, main_def.get('parameters', {}).get('required', []),param)}" for param, details in input_params.items()])
             input_values = ', '.join([f"{param}: {param}" for param in input_params.keys()])
 
-        # Generate the URL
+        # Correct endpoint format
         endpoint = f"/{lexicon_id}"
 
         # Render the procedure template
@@ -427,11 +465,12 @@ class SwiftCodeGenerator:
         token_definitions = []
         for name, def_schema in self.defs.items():
             # Skip struct generation if it's a union array
+            current_struct_name = self.convert_to_camel_case(name)
+            
             if self.is_union_array(def_schema):
                 refs = def_schema['items']['refs']
-                self.generate_enum_for_union_array(name, refs)
+                self.generate_enum_for_union_array(current_struct_name, name, refs)
                 continue
-            current_struct_name = self.convert_to_camel_case(name)
             if name != 'main' and def_schema.get('type', "") == "object":
                 conformance = ": ATProtocolCodable, ATProtocolValue"
                 properties = self.generate_properties(def_schema.get('properties', {}), def_schema.get('required', []), current_struct_name)
@@ -456,7 +495,7 @@ class SwiftCodeGenerator:
                 # Handle arrays of unions
                 union_array_name = self.convert_to_camel_case(name) + ""
                 refs = def_schema['items'].get('refs', [])
-                self.generate_enum_for_union_array(union_array_name, refs)
+                self.generate_enum_for_union_array(current_struct_name, union_array_name, refs)
                 properties = [{
                     'name': self.convert_to_lower_camel_case(name),
                     'type': f'[{union_array_name}]',
@@ -527,7 +566,7 @@ class SwiftCodeGenerator:
                 if item_schema.get('type') == 'union':
                     union_name = f"{current_struct_name}{self.convert_to_camel_case(prop_name)}Union"
                     refs = [self.convert_ref(r) for r in item_schema['refs']]
-                    self.generate_enum_for_union_array(union_name, refs)
+                    self.generate_enum_for_union_array(current_struct_name, prop_name, refs)
 
     def convert(self) -> str:
         try:
@@ -616,8 +655,9 @@ print(swift_code)
 
 
 def convert_to_camel_case(name: str) -> str:
-    """Converts a string to CamelCase, ignoring empty parts."""
-    return ''.join(part[0].upper() + part[1:] for part in name.split('.') if part)
+    """Converts a string to CamelCase, ignoring empty parts and removing dots."""
+    parts = name.split('.')
+    return ''.join(part[0].upper() + part[1:] for part in parts if part)
 
 def convert_ref(ref: str) -> str:
     """Converts a reference to Swift format."""
@@ -693,17 +733,26 @@ def generate_swift_from_lexicons_recursive(folder_path: str, output_folder: str)
 
     # Generate Swift classes from the namespace hierarchy
     swift_namespace_classes = generate_swift_namespace_classes(namespace_hierarchy)
-
+    atproto_client = render_atproto_client(swift_namespace_classes)
 
     # Save the type factory code to a Swift file
     type_factory_file_path = os.path.join(output_folder, 'ATProtocolValueContainer.swift')
     with open(type_factory_file_path, 'w') as type_factory_file:
         type_factory_file.write(type_factory_code)
 
-    # Save the type factory code to a Swift file
-    class_factory_file_path = os.path.join(output_folder, 'ATProtoClientClasses.swift')
+    # Save the generated client classes to a Swift file
+    class_factory_file_path = os.path.join(output_folder, 'ATProtoClientGeneratedMain.swift')
     with open(class_factory_file_path, 'w') as class_factory_file:
-        class_factory_file.write(swift_namespace_classes)
+        class_factory_file.write(atproto_client)
+
+def render_atproto_client(generated_classes):
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    templates_dir = os.path.join(script_dir, 'templates')
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(templates_dir))
+    template = env.get_template('ATProtoClientGeneratedMain.jinja')
+
+    rendered_code = template.render(generated_classes=generated_classes)
+    return rendered_code
 
 def generate_ATProtocolValueContainer_enum(type_dict):
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -718,7 +767,7 @@ def generate_ATProtocolValueContainer_enum(type_dict):
     json_value_enum_code = template.render(type_cases=type_cases)
     return json_value_enum_code
 
-def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient", depth=0):
+def generate_swift_namespace_classes(namespace_hierarchy, network_manager="NetworkManaging", depth=0):
     swift_code = ""
     indent = "    " * depth
 
@@ -727,14 +776,14 @@ def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient"
         for namespace, sub_hierarchy in namespace_hierarchy.items():
             namespace_class = convert_to_camel_case(namespace)
             swift_code += f"public lazy var {namespace.lower()}: {namespace_class} = {{\n"
-            swift_code += f"    return {namespace_class}(parent: self)\n}}()\n\n"
+            swift_code += f"    return {namespace_class}(networkManager: self.networkManager)\n}}()\n\n"
             # Also generate the top-level class definition
             swift_code += f"public final class {namespace_class}: @unchecked Sendable {{\n"
-            swift_code += f"    internal unowned let parent: {parent}\n"
-            swift_code += f"    internal init(parent: {parent}) {{\n"
-            swift_code += f"        self.parent = parent\n    }}\n\n"
+            swift_code += f"    internal let networkManager: NetworkManaging\n"
+            swift_code += f"    internal init(networkManager: NetworkManaging) {{\n"
+            swift_code += f"        self.networkManager = networkManager\n    }}\n\n"
             # Recursively generate nested classes and their lazy vars within this top-level class
-            swift_code += generate_swift_namespace_classes(sub_hierarchy, namespace_class, depth + 1)
+            swift_code += generate_swift_namespace_classes(sub_hierarchy, network_manager, depth + 1)
             swift_code += "}\n\n"
     else:
         # Generate nested classes and their lazy vars
@@ -742,19 +791,28 @@ def generate_swift_namespace_classes(namespace_hierarchy, parent="ATProtoClient"
             class_name = convert_to_camel_case(namespace)
             # Correction: Generate a lazy var for this namespace in its parent
             swift_code += f"{indent}public lazy var {namespace.lower()}: {class_name} = {{\n"
-            swift_code += f"{indent}    return {class_name}(parent: self)\n{indent}}}()\n\n"
+            swift_code += f"{indent}    return {class_name}(networkManager: self.networkManager)\n{indent}}}()\n\n"
             swift_code += f"{indent}public final class {class_name}: @unchecked Sendable {{\n"
-            swift_code += f"{indent}    internal unowned let parent: {parent}\n"
-            swift_code += f"{indent}    internal init(parent: {parent}) {{\n"
-            swift_code += f"{indent}        self.parent = parent\n{indent}    }}\n\n"
+            swift_code += f"{indent}    internal let networkManager: NetworkManaging\n"
+            swift_code += f"{indent}    internal init(networkManager: NetworkManaging) {{\n"
+            swift_code += f"{indent}        self.networkManager = networkManager\n{indent}    }}\n\n"
             # Recurse for any further nested namespaces
             if sub_namespaces:  # Check if there are further nested namespaces
-                swift_code += generate_swift_namespace_classes(sub_namespaces, class_name, depth + 1)
+                swift_code += generate_swift_namespace_classes(sub_namespaces, network_manager, depth + 1)
             swift_code += f"{indent}}}\n\n"
 
     return swift_code
 
 
-# Usage example
-generate_swift_from_lexicons_recursive('/Users/joshlacalamito/Downloads/atproto-main/lexicons', '/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated')
 
+def main(input_dir, output_dir):
+    generate_swift_from_lexicons_recursive(input_dir, output_dir)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: script.py <input_dir> <output_dir>")
+        sys.exit(1)
+
+    input_dir = sys.argv[1]
+    output_dir = sys.argv[2]
+    main(input_dir, output_dir)

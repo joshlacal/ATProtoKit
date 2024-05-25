@@ -1,0 +1,127 @@
+//
+//  ATProtoClient.swift
+//  ATProtoKit
+//
+//  Created by Josh LaCalamito on 1/19/24.
+//
+
+import Foundation
+import ZippyJSON
+
+enum APIError: String, Error {
+    case expiredToken = "ExpiredToken"
+    case invalidToken
+    case invalidResponse
+}
+
+
+public actor ATProtoClient: AuthenticationDelegate {
+    
+    public var baseURL: URL = URL(string:"https://bsky.social")!
+    let config: ConfigurationManaging
+    let sessionManager: SessionManaging
+    var networkManager: NetworkManaging
+    let tokenManager: TokenManaging
+    let authService: AuthenticationService
+    public weak var authDelegate: AuthenticationDelegate?
+    
+    enum InitializationState {
+        case uninitialized
+        case initializing
+        case ready
+        case failed(Error)
+    }
+    
+    public enum ClientEnvironment: Sendable {
+        case production
+        case testing
+    }
+    
+    private(set) var initState: InitializationState = .uninitialized
+    
+    private lazy var authenticationManager: AuthenticationManaging = {
+        let authenticationManager = AuthenticationManager(authService: self.authService, client: self)
+        Task {
+            await self.sessionManager.setSessionDelegate(with: authenticationManager)
+        }
+        return authenticationManager
+    }()
+    
+    public init(baseURL: URL, environment: ClientEnvironment) {
+        let configManager = ConfigurationManager(baseURL: baseURL)
+        let tokenManager = TokenManager()
+        self.config = configManager
+        self.tokenManager = tokenManager
+        
+        let networkManager = NetworkManager(baseURL: baseURL, configurationManager: configManager)
+        self.networkManager = networkManager
+        
+        let authService = AuthenticationService(networkManager: networkManager, tokenManager: tokenManager)
+        self.authService = authService
+        
+        let sessionManager = SessionManager(tokenManager: tokenManager, authService: authService)
+        self.sessionManager = sessionManager
+        let middlewareService = MiddlewareService(sessionManager: sessionManager, tokenManager: tokenManager, authDelegate: authDelegate, client: self)
+
+        Task (priority: .high){
+            await tokenManager.setDelegate(sessionManager)
+            await networkManager.setMiddlewareService(middlewareService: middlewareService)
+        }
+        
+        
+    }
+
+        // User-related properties
+    var did: String?
+    var handle: String?
+    
+    public func login(identifier: String, password: String) async throws {
+        try await authenticationManager.createSession(identifier: identifier, password: password)
+    }
+    
+    public func logout() async throws {
+        do {
+            await sessionManager.clearSession()
+            try KeychainManager.delete(key: "accessJwt")
+            try KeychainManager.delete(key: "refreshJwt")
+        } catch {
+            print("Logout failed: \(error)")
+            throw error
+        }
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            await authDelegate?.authenticationRequired(client: self)
+        }
+    }
+    
+    // MARK: - Utility Functions
+    public func getHandle() -> String? {
+        return handle
+    }
+    
+    public func getDid() async -> String? {
+        return await config.getDID()
+    }
+    
+    public func hasValidSession() async -> Bool {
+//        do {
+//            try await sessionManager.initializeIfNeeded()
+//        } catch {
+//            print("initialization failed with error: \(error)")
+//        }
+        return await sessionManager.hasValidSession()
+    }
+    
+    public func authenticationRequired(client: ATProtoClient) async {
+        print("authentication required")
+    }
+
+
+// MARK: Generated classes
+
+    {{ generated_classes}}
+
+}
+
+
+

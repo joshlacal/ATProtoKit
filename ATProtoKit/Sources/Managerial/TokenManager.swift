@@ -1,4 +1,5 @@
 import Foundation
+import ZippyJSON
 
 protocol TokenManaging: AnyActor {
     func deleteTokens() async throws
@@ -9,10 +10,12 @@ protocol TokenManaging: AnyActor {
     func fetchAccessToken() async -> String?
     func decodeJWT(token: String) async -> JWTPayload?
     func isTokenExpired(token: String) async -> Bool
+    func setDelegate(_ delegate: TokenDelegate?) async
+
 }
 
 protocol TokenDelegate: AnyObject {
-    func tokenDidUpdate(accessJwt: String, refreshJwt: String)
+    func tokenDidUpdate() async
 }
 
 
@@ -20,6 +23,10 @@ public actor TokenManager: TokenManaging {
     private var accessJwt: String?
     private var refreshJwt: String?
     weak var delegate: TokenDelegate?
+    
+    func setDelegate(_ delegate: TokenDelegate?) {
+        self.delegate = delegate
+    }
 
     func hasValidTokens() -> Bool {
         LogManager.logDebug("TokenManager - Checking token validity.")
@@ -57,6 +64,8 @@ public actor TokenManager: TokenManaging {
             return false
         }
     }
+    
+
 
     func isTokenExpired(token: String) async -> Bool {
         guard let payload = await decodeJWT(token: token) else {
@@ -67,8 +76,7 @@ public actor TokenManager: TokenManaging {
         let currentDate = Date()
         let expirationDate = payload.expirationDate
         
-        LogManager.logDebug("TokenManager - the current date is \(currentDate.description).")
-        LogManager.logDebug("TokenManager - the exp date is \(expirationDate.description).")
+        LogManager.logDebug("TokenManager - the current date is \(currentDate.description). the exp date is \(expirationDate.description).")
 
         
         if currentDate >= expirationDate {
@@ -86,7 +94,7 @@ public actor TokenManager: TokenManaging {
         self.refreshJwt = refreshJwt
 
         // Notify delegate about the token update
-        delegate?.tokenDidUpdate(accessJwt: accessJwt, refreshJwt: refreshJwt)
+        await delegate?.tokenDidUpdate()
         LogManager.logInfo("Tokens updated and delegate notified.")
 
         // Log saving tokens and attempt to save them in the keychain
@@ -117,6 +125,7 @@ public actor TokenManager: TokenManaging {
     }
 
     func fetchAccessToken() -> String? {
+        
         guard let data = try? KeychainManager.retrieve(key: "accessJwt") else {
             return nil
         }
@@ -135,16 +144,32 @@ public actor TokenManager: TokenManaging {
         try KeychainManager.delete(key: "refreshJwt")
     }
     
-    public func shouldRefreshTokens() -> Bool {
-        LogManager.logDebug("Checking if refresh tokens should be refreshed")
-        guard let refreshToken = fetchRefreshToken(),
-              let payload = decodeJWT(token: refreshToken),
-              payload.expirationDate.timeIntervalSinceNow < 300 else {  // Example threshold
-            LogManager.logInfo("No need to refresh tokens yet")
+    public func shouldRefreshTokens() async -> Bool {
+        LogManager.logDebug("Checking if tokens should be refreshed.")
+        
+        guard let refreshToken = fetchRefreshToken(), let accessToken = fetchAccessToken(),
+              let refreshPayload = decodeJWT(token: refreshToken), let accessPayload = decodeJWT(token: accessToken) else {
+            LogManager.logInfo("TokenManager - One or both tokens missing or cannot be decoded.")
+            return true // Assume refresh is needed if any token is missing or cannot be decoded.
+        }
+
+        let currentTime = Date()
+        let refreshTimeToExpiration = refreshPayload.expirationDate.timeIntervalSince(currentTime)
+        let accessTimeToExpiration = accessPayload.expirationDate.timeIntervalSince(currentTime)
+
+        if accessTimeToExpiration < 0 {
+            LogManager.logInfo("TokenManager - Access token is expired.")
+            return true
+        } else if refreshTimeToExpiration < 0 {
+            LogManager.logInfo("TokenManager - Refresh token is expired.")
+            return true
+        } else if refreshTimeToExpiration < 300 {
+            LogManager.logInfo("TokenManager - Refresh token is close to expiration.")
+            return true
+        } else {
+            LogManager.logDebug("TokenManager - No need to refresh tokens yet.")
             return false
         }
-        LogManager.logInfo("Refresh tokens should be refreshed")
-        return true
     }
 
     public func decodeJWT(token: String) -> JWTPayload? {
@@ -162,13 +187,13 @@ public actor TokenManager: TokenManaging {
         let padLength = (4 - base64Payload.count % 4) % 4
         let paddedBase64Payload = base64Payload + String(repeating: "=", count: padLength)
 
-        LogManager.logDebug("Base64 segment being decoded: \(base64UrlPayload)")
+//        LogManager.logDebug("Base64 segment being decoded: \(base64UrlPayload)")
         guard let payloadData = Data(base64Encoded: paddedBase64Payload) else {
             LogManager.logError("Failed to decode JWT token: Data base64 decoding failed")
             return nil
         }
         do {
-            let payload = try JSONDecoder().decode(JWTPayload.self, from: payloadData)
+            let payload = try ZippyJSONDecoder().decode(JWTPayload.self, from: payloadData)
             LogManager.logInfo("JWT token decoded successfully")
             LogManager.logDebug("Payload \(payload)")
             return payload

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ZippyJSON
 
 protocol NetworkMiddleware: AnyActor {
     func prepare(request: URLRequest) async throws -> URLRequest
@@ -24,20 +25,36 @@ actor AuthenticationMiddleware: NetworkMiddleware {
 
     func prepare(request: URLRequest) async throws -> URLRequest {
         LogManager.logDebug("AuthenticationMiddleware - Preparing request for URL: \(request.url?.absoluteString ?? "unknown")")
-        if !(await middlewareService.isSessionValid()) {
-            try await middlewareService.validateAndRefreshSession()
-        }
-        LogManager.logDebug("Fetching token for request to \(request.url?.absoluteString ?? "unknown")")
-        let token = try await middlewareService.getAccessToken()
-        LogManager.logDebug("Token fetched and applied: \(token.prefix(10))")
         var modifiedRequest = request
-        modifiedRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        LogManager.logDebug("AuthenticationMiddleware - Authorization header added.")
+
+        // Check if the request is for refreshing session
+        if request.url?.pathComponents.contains("com.atproto.server.refreshSession") == true {
+            // This is a refresh session request, fetch and set the refresh token
+            do {
+                let refreshToken = try await middlewareService.getRefreshToken()
+                modifiedRequest.setValue("Bearer \(refreshToken)", forHTTPHeaderField: "Authorization")
+                LogManager.logDebug("Refresh token fetched and applied: \(refreshToken.prefix(10))...")
+            } catch {
+                LogManager.logError("AuthenticationMiddleware - Error fetching refresh token: \(error)")
+                throw error
+            }
+        } else {
+            // For other requests, ensure the session is valid and set the access token
+            if !(await middlewareService.isSessionValid()) {
+                try await middlewareService.validateAndRefreshSession()
+            }
+            let token = try await middlewareService.getAccessToken()
+            modifiedRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            LogManager.logDebug("Access token fetched and applied: \(token.prefix(10))...")
+        }
+
+        LogManager.logDebug("Headers after setting Authorization: \(modifiedRequest.allHTTPHeaderFields ?? [:])")
         return modifiedRequest
     }
-    
+
     func handle(response: HTTPURLResponse, data: Data, request: URLRequest) async throws -> (HTTPURLResponse, Data) {
         LogManager.logDebug("AuthenticationMiddleware - Handling response with status code: \(response.statusCode)")
+        
         if response.statusCode == 401 {
             LogManager.logDebug("AuthenticationMiddleware - 401 Unauthorized response received, attempting to refresh token.")
             try await middlewareService.validateAndRefreshSession()
@@ -50,7 +67,18 @@ actor AuthenticationMiddleware: NetworkMiddleware {
             // Perform the request again with the refreshed token
             let (retryData, retryResponse) = try await URLSession.shared.data(for: retryRequest)
             return (retryResponse as! HTTPURLResponse, retryData)
+        } else if response.statusCode == 200 && request.url?.pathComponents.contains("com.atproto.server.refreshSession") == true {
+            // If this is a successful response to a refresh session, parse the new tokens from the response
+            do {
+                let decoder = ZippyJSONDecoder()
+                let tokens = try decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: data)
+                try await middlewareService.updateTokens(accessJwt: tokens.accessJwt, refreshJwt: tokens.refreshJwt)
+            } catch {
+                LogManager.logError("Failed to parse or update tokens after refresh: \(error)")
+                throw error
+            }
         }
+        
         return (response, data)
     }
 }

@@ -1,5 +1,5 @@
             // Union Type
-            public enum {{ name }}: Codable, ATProtocolCodable, ATProtocolValue {
+            public {{ 'indirect ' if is_recursive else '' }}enum {{ name }}: Codable, ATProtocolCodable, ATProtocolValue {
                 {%- for variant in variants %}
                 case {{ variant | convertRefToSwift | lowerCamelCase }}({{ variant | convertRefToSwift }})
                 {%- endfor %}

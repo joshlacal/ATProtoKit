@@ -9,11 +9,14 @@
 import Foundation
 
 protocol ConfigurationManaging: AnyActor {
+    func updateBaseURL(_ url: URL) async
     func updateUserConfiguration(did: String, serviceEndpoint: String) async throws
+    func updateDID(did: String) async
+    func getDID() async -> String?
 }
 
 actor ConfigurationManager: ConfigurationManaging {
-    
+
     private(set) var baseURL: URL
     private var did: String?
     
@@ -55,7 +58,7 @@ actor ConfigurationManager: ConfigurationManaging {
         UserDefaults.standard.set(did, forKey: "did")
     }
     
-    func getDID() -> String? {
+    public func getDID() async -> String? {
         return did
     }
 }

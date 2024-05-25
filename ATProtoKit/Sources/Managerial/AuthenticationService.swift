@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ZippyJSON
 
 actor AuthenticationService {
     private var networkManager: NetworkManaging
@@ -31,7 +32,7 @@ actor AuthenticationService {
             LogManager.logError("AuthenticationService - Failed to create session, received status code: \(response.statusCode)")
             throw NetworkError.requestFailed
         }
-        let sessionOutput = try JSONDecoder().decode(ComAtprotoServerCreateSession.Output.self, from: data)
+        let sessionOutput = try ZippyJSONDecoder().decode(ComAtprotoServerCreateSession.Output.self, from: data)
         LogManager.logInfo("AuthenticationService - Session created successfully, tokens received.")
         
         try await tokenManager.saveTokens(accessJwt: sessionOutput.accessJwt, refreshJwt: sessionOutput.refreshJwt)
@@ -40,36 +41,78 @@ actor AuthenticationService {
     
     enum AuthenticationError: Error {
         case tokenMissingOrCorrupted
+        case tokenExpired
     }
     
     func refreshTokenIfNeeded() async throws -> Bool {
         LogManager.logInfo("AuthenticationService - Checking if token refresh is needed.")
-        guard let refreshToken = await tokenManager.fetchRefreshToken(),
-              let payload = await tokenManager.decodeJWT(token: refreshToken) else {
-            LogManager.logError("AuthenticationService - Refresh token missing or corrupted.")
+
+        // Fetch tokens from token manager
+        guard let refreshToken = await tokenManager.fetchRefreshToken() else {
+            LogManager.logError("AuthenticationService - Refresh token is missing.")
             throw AuthenticationError.tokenMissingOrCorrupted
         }
-
-        LogManager.logDebug("AuthenticationService - Refresh token payload decoded, checking expiration.")
-        if payload.expirationDate.timeIntervalSinceNow < 300 {  // 5 minutes before expiry
-            LogManager.logInfo("AuthenticationService - Token nearing expiration, attempting to refresh.")
-            do {
-                let refreshed = try await networkManager.refreshSessionToken(refreshToken: refreshToken, tokenManager: tokenManager)
-                if refreshed {
-                    LogManager.logInfo("AuthenticationService - Token refreshed successfully.")
-                    return true
-                } else {
-                    LogManager.logError("AuthenticationService - Token refresh failed.")
-                    return false
-                }
-            } catch {
-                LogManager.logError("AuthenticationService - Error occurred during token refresh: \(error)")
-                throw error
-            }
+        
+        guard let accessToken = await tokenManager.fetchAccessToken() else {
+            LogManager.logError("AuthenticationService - Access token is missing, will attempt to refresh.")
+            return try await attemptTokenRefresh(refreshToken: refreshToken)
         }
 
-        LogManager.logInfo("AuthenticationService - No need to refresh token yet.")
+        // Decode tokens to check their validity and expiration
+        let refreshPayload = await tokenManager.decodeJWT(token: refreshToken)
+        let accessPayload = await tokenManager.decodeJWT(token: accessToken)
+
+        // Check if the refresh token itself has expired
+        if let refreshPayload = refreshPayload,
+           refreshPayload.expirationDate.timeIntervalSinceNow >= 0 {
+            // Refresh token is still valid, proceed to check access token
+            if let accessPayload = accessPayload,
+               accessPayload.expirationDate.timeIntervalSinceNow < 0 {
+                // Access token has expired, refresh it
+                LogManager.logInfo("AuthenticationService - Access token expired, attempting to refresh.")
+                return try await attemptTokenRefresh(refreshToken: refreshToken)
+            } else {
+                // Access token is still valid
+                LogManager.logInfo("AuthenticationService - Access token is still valid.")
+                return false
+            }
+        } else {
+            // Refresh token has expired, throw an error to signal re-authentication is needed
+            LogManager.logError("AuthenticationService - Refresh token has expired, user must re-authenticate.")
+            throw AuthenticationError.tokenExpired
+        }
+    }
+
+    private func attemptTokenRefresh(refreshToken: String) async throws -> Bool {
+        if try await networkManager.refreshSessionToken(refreshToken: refreshToken, tokenManager: tokenManager) {
+            LogManager.logInfo("Tokens refreshed successfully.")
+            return true
+        }
         return false
     }
+
+
+//    func refreshTokenIfNeeded() async throws -> Bool {
+//        LogManager.logInfo("Attempting to refresh tokens due to server indication.")
+//        guard let refreshToken = await tokenManager.fetchRefreshToken() else {
+//            LogManager.logError("No refresh token available.")
+//            throw NetworkError.authenticationRequired // You can define this error to handle such cases.
+//        }
+//
+//        if await tokenManager.shouldRefreshTokens() {  // Decide based on previous logic or modify accordingly
+//            do {
+//                // Assume refreshTokenProcess() does the actual refreshing and handles updates
+//                if try await networkManager.refreshSessionToken(refreshToken: refreshToken, tokenManager: tokenManager) {
+//                    LogManager.logInfo("Tokens refreshed successfully.")
+//                    return true
+//                }
+//            } catch {
+//                LogManager.logError("Token refresh failed: \(error)")
+//                throw error
+//            }
+//        }
+//        return false
+//    }
+
 
 }

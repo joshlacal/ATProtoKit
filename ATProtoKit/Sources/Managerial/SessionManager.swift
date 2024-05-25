@@ -19,7 +19,7 @@ protocol SessionDelegate: AnyObject {
 }
 
 
-actor SessionManager: SessionManaging {
+actor SessionManager: SessionManaging, TokenDelegate {
     private var tokenManager: TokenManaging
     private var authService: AuthenticationService
     private var sessionState: SessionState = .uninitialized
@@ -64,19 +64,20 @@ actor SessionManager: SessionManaging {
     private var initializationTask: Task<Void, Error>?
 
     func initializeIfNeeded() async throws {
-        LogManager.logDebug("SessionManager - Initializing session if needed. Current state: \(sessionState)")
-        guard sessionState != .valid else {
-            LogManager.logDebug("SessionManager - Session already valid, no initialization needed.")
+        switch sessionState {
+        case .valid:
+            LogManager.logDebug("Session already valid.")
             return
+        case .failed(let error):
+            LogManager.logDebug("Previous initialization failed, retrying. Error: \(error)")
+            fallthrough
+        case .uninitialized, .initializing, .expired:
+            try await refreshTokenFlow()
         }
+    }
 
-        if sessionState == .initializing {
-            LogManager.logDebug("SessionManager - Waiting for ongoing session initialization to complete.")
-            try await initializationTask?.value
-            return
-        }
-
-        sessionState = .initializing
+    private func refreshTokenFlow() async throws {
+        // Use a serial task to avoid race conditions
         initializationTask = Task {
             do {
                 try await validateAndRefreshTokens()
@@ -90,40 +91,43 @@ actor SessionManager: SessionManaging {
         try await initializationTask?.value
     }
 
+    // Checks token validity and triggers a refresh if needed.
     private func validateAndRefreshTokens() async throws {
-        let tokensValid = await tokenManager.hasValidTokens()
-        if !tokensValid {
-            LogManager.logInfo("Tokens are invalid, attempting refresh.")
+        if !(await tokenManager.hasValidTokens()) {
             try await handleTokenRefresh()
         } else {
-            LogManager.logInfo("Tokens are valid, session marked as valid.")
             sessionState = .valid
         }
     }
 
+    // Refreshes tokens using authService and updates the state based on success or failure.
     private func handleTokenRefresh() async throws {
         if await tokenManager.shouldRefreshTokens() {
             do {
                 let refreshed = try await authService.refreshTokenIfNeeded()
-                if !refreshed {
-                    LogManager.logError("Token refresh attempted but failed.")
+                if refreshed {
+                    sessionState = .valid
+                } else {
                     sessionState = .expired
                     throw SessionError.tokenRefreshFailed
                 }
             } catch {
-                LogManager.logError("Error during token refresh: \(error)")
                 sessionState = .failed(error)
                 throw error
             }
         } else {
-            LogManager.logInfo("Refresh not required or possible, reauthentication needed.")
             sessionState = .expired
             throw SessionError.tokenUnavailable
         }
     }
 
+
     public func hasValidSession() async -> Bool {
         return sessionState == .valid
+    }
+    
+    func tokenDidUpdate() async {
+        sessionState = await tokenManager.hasValidTokens() ? .valid : .expired
     }
 
     public func clearSession() async {

@@ -23,6 +23,7 @@ public actor NetworkManager: NetworkManaging {
 
     private var middlewares: [NetworkMiddleware] = []
     weak var middlewareService: MiddlewareService?
+    private var isMiddlewareConfigured = false
 
     init(baseURL: URL, configurationManager: ConfigurationManager) {
         self.baseURL = baseURL
@@ -32,14 +33,16 @@ public actor NetworkManager: NetworkManaging {
      func setMiddlewareService(middlewareService: MiddlewareService) {
         self.middlewareService = middlewareService
         configureMiddlewares()
+        isMiddlewareConfigured = true
+
     }
 
     private func configureMiddlewares() {
         if let middlewareService = middlewareService {
             let authMiddleware = AuthenticationMiddleware(middlewareService: middlewareService)
             let loggingMiddleware = LoggingMiddleware()
-            middlewares.append(authMiddleware)
             middlewares.append(loggingMiddleware)
+            middlewares.append(authMiddleware)
         } else {
             // Handle the case where middlewareService is nil, maybe log an error or set up a fallback
             print("Error: MiddlewareService is nil")
@@ -77,7 +80,13 @@ public actor NetworkManager: NetworkManaging {
     }
 
     public func performRequest(_ request: URLRequest, retryCount: Int = 0, duringInitialSetup: Bool = false) async throws -> (Data, HTTPURLResponse) {
+        
+        while !isMiddlewareConfigured {
+            await Task.yield()
+        }
+
         LogManager.logDebug("NetworkManager - Preparing to perform request to \(request.url?.absoluteString ?? "unknown URL") with retryCount: \(retryCount)")
+        LogManager.logRequest(request)
 
         // Apply middleware conditionally
         var modifiedRequest = request
@@ -89,16 +98,19 @@ public actor NetworkManager: NetworkManaging {
         } else {
             LogManager.logDebug("Skipping middleware during initial setup.")
         }
+        LogManager.logDebug("NetworkManager - Middleware modified request to \(request.url?.absoluteString ?? "unknown URL") with retryCount: \(retryCount)")
+        LogManager.logRequest(modifiedRequest)
 
 
         do {
             // Perform the actual network request
             let (data, response) = try await URLSession.shared.data(for: modifiedRequest)
             guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.responseError(statusCode: 0)  // More specific error handling could be beneficial here
+                throw NetworkError.requestFailed  
             }
 
             LogManager.logDebug("NetworkManager - Received HTTP response with status code: \(httpResponse.statusCode) from \(httpResponse.url?.absoluteString ?? "unknown URL")")
+            LogManager.logResponse(httpResponse, data: data)
 
             // Process the response through each middleware
             var finalData = data
@@ -107,6 +119,8 @@ public actor NetworkManager: NetworkManaging {
                 (finalResponse, finalData) = try await middleware.handle(response: finalResponse, data: finalData, request: modifiedRequest)
                 LogManager.logDebug("NetworkManager - Middleware \(type(of: middleware)) processed the response.")
             }
+            LogManager.logResponse(finalResponse, data: finalData)
+
 
             // Retry logic for 401 Unauthorized response
             if finalResponse.statusCode == 401 && retryCount < maxRetryLimit {
@@ -132,7 +146,7 @@ public actor NetworkManager: NetworkManaging {
         request.setValue("Bearer \(refreshToken)", forHTTPHeaderField: "Authorization")
 
         // Perform the network request
-        let (responseData, response) = try await performRequest(request)
+        let (responseData, response) = try await performRequest(request, retryCount: 0, duringInitialSetup: true)
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.unknownError
         }
@@ -145,9 +159,11 @@ public actor NetworkManager: NetworkManaging {
             guard let tokenResponse = try? decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: responseData) else {
                 throw NetworkError.decodingError
             }
-
+            
+            
             // Update stored tokens using the token manager
             try await tokenManager.saveTokens(accessJwt: tokenResponse.accessJwt, refreshJwt: tokenResponse.refreshJwt)
+            try await configurationManager.updateUserConfiguration(did: tokenResponse.did, serviceEndpoint: tokenResponse.didDoc?.service.first?.serviceEndpoint ?? baseURL.absoluteString)
             return true
         } else if httpResponse.statusCode == 401 {
             LogManager.logError("NetworkManager - Refresh token is invalid or expired")

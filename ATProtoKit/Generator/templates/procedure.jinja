@@ -1,6 +1,6 @@
 extension ATProtoClient.{{ template_namespace_name }} {
     /// {{ description }}
-    public func {{ procedure_name | lowerCamelCase }}({% if input_struct_name %}input: {{ input_struct_name }}{% endif %}) async throws -> {% if output_type %}(responseCode: Int, data: {{ output_type }}?){% else %}Int{% endif %} {
+    public func {{ procedure_name | lowerCamelCase }}({% if input_struct_name %}input: {{ input_struct_name }},{% endif %} duringInitialSetup: Bool = false) async throws -> {% if output_type %}(responseCode: Int, data: {{ output_type }}?){% else %}Int{% endif %} {
         let endpoint = "{{ endpoint }}"
         
         {% if input_struct_name %}
@@ -17,7 +17,7 @@ extension ATProtoClient.{{ template_namespace_name }} {
             queryItems: nil
         )
         
-        let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 3, duringInitialSetup: false)
+        let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
 
         {% if output_type %}
@@ -25,7 +25,6 @@ extension ATProtoClient.{{ template_namespace_name }} {
         let decodedData = try? decoder.decode({{ output_type }}.self, from: responseData)
         return (responseCode, decodedData)
         {% else %}
-        // Return only the response code if no output type is expected
         return responseCode
         {% endif %}
     }

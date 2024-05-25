@@ -145,7 +145,6 @@ public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConve
 
     func isValid() -> Bool {
         // Ensure the scheme and authority are not empty as a basic validation
-        // You can add more validation rules as needed.
         return !scheme.isEmpty && !authority.isEmpty
     }
 
@@ -332,21 +331,21 @@ public struct Bytes: Codable, ATProtocolCodable, Hashable, Equatable, Sendable {
 extension AppBskyFeedDefs.FeedViewPost: Identifiable {
     public var id: String {
         if case .appBskyFeedDefsReasonRepost(let reasonRepost) = reason {
-            let reposterHandle = reasonRepost.by.handle
-            return "\(post.cid)-repostedBy-\(reposterHandle)"
+            let reposterDID = reasonRepost.by.did
+            return "\(post.uri)-repostedBy-\(reposterDID)"
         } else if let replyRef = reply {
             let rootId = extractIdentifierFrom(replyRef.root)
             let parentId = extractIdentifierFrom(replyRef.parent)
-            return "\(post.cid)-reply-root\(rootId)-parent\(parentId)"
+            return "\(post.uri)-reply-root-\(rootId)-parent-\(parentId)"
         } else {
-            return post.cid
+            return post.uri.uriString()
         }
     }
 
     private func extractIdentifierFrom(_ union: AppBskyFeedDefs.ReplyRefRootUnion) -> String {
         switch union {
         case .appBskyFeedDefsPostView(let postView):
-            return postView.cid
+            return postView.uri.uriString()
         case .appBskyFeedDefsNotFoundPost(let notFoundPost):
             return notFoundPost.uri.uriString()
         case .appBskyFeedDefsBlockedPost(let blockedPost):
@@ -359,7 +358,7 @@ extension AppBskyFeedDefs.FeedViewPost: Identifiable {
     private func extractIdentifierFrom(_ union: AppBskyFeedDefs.ReplyRefParentUnion) -> String {
         switch union {
         case .appBskyFeedDefsPostView(let postView):
-            return postView.cid
+            return postView.uri.uriString()
         case .appBskyFeedDefsNotFoundPost(let notFoundPost):
             return notFoundPost.uri.uriString()
         case .appBskyFeedDefsBlockedPost(let blockedPost):
