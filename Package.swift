@@ -4,13 +4,14 @@ import PackageDescription
 let package = Package(
     name: "ATProtoKit",
     platforms: [
-        .macOS(.v14), 
+        .macOS(.v14),
         .iOS(.v17),
     ],
     products: [
         .library(
             name: "ATProtoKit",
-            targets: ["ATProtoKit"]),
+            targets: ["ATProtoKit"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/michaeleisel/ZippyJSON.git", from: "1.0.10"),
@@ -20,7 +21,7 @@ let package = Package(
         .target(
             name: "ATProtoKit",
             dependencies: [
-                "ZippyJSON"
+                .product(name: "ZippyJSON", package: "ZippyJSON"),
             ],
             path: "ATProtoKit/Sources"
         ),

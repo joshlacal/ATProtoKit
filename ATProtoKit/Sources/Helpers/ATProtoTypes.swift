@@ -18,9 +18,9 @@ public protocol ATProtocolValue: ATProtocolCodable, Equatable, Hashable {
 public struct ATProtocolURI: ATProtocolValue, CustomStringConvertible, QueryParameterConvertible {
     
     
-    let authority: String
-    let collection: String?
-    let recordKey: String?
+    public let authority: String
+    public let collection: String?
+    public let recordKey: String?
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

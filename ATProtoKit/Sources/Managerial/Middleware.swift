@@ -18,9 +18,11 @@ import os
 
 actor AuthenticationMiddleware: NetworkMiddleware {
     private var middlewareService: MiddlewareService
+    private var configurationManager: ConfigurationManaging
 
-    init(middlewareService: MiddlewareService) {
+    init(middlewareService: MiddlewareService, configurationManager: ConfigurationManaging) {
         self.middlewareService = middlewareService
+        self.configurationManager = configurationManager
     }
 
     func prepare(request: URLRequest) async throws -> URLRequest {
@@ -71,8 +73,10 @@ actor AuthenticationMiddleware: NetworkMiddleware {
             // If this is a successful response to a refresh session, parse the new tokens from the response
             do {
                 let decoder = ZippyJSONDecoder()
-                let tokens = try decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: data)
-                try await middlewareService.updateTokens(accessJwt: tokens.accessJwt, refreshJwt: tokens.refreshJwt)
+                let refreshSessionOutput = try decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: data)
+                let currentEndpoint = await configurationManager.getServiceEndpoint()
+                try await middlewareService.updateTokens(accessJwt: refreshSessionOutput.accessJwt, refreshJwt: refreshSessionOutput.refreshJwt)
+                try await configurationManager.updateUserConfiguration(did: refreshSessionOutput.did, serviceEndpoint: refreshSessionOutput.didDoc?.service.first?.serviceEndpoint ?? currentEndpoint)
             } catch {
                 LogManager.logError("Failed to parse or update tokens after refresh: \(error)")
                 throw error

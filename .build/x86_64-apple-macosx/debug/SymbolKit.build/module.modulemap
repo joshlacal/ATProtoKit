@@ -1,0 +1,4 @@
+module SymbolKit {
+    header "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/SymbolKit.build/SymbolKit-Swift.h"
+    requires objc
+}

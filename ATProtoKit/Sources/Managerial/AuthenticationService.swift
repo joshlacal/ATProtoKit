@@ -8,13 +8,17 @@
 import Foundation
 import ZippyJSON
 
+
+
 actor AuthenticationService {
     private var networkManager: NetworkManaging
     private var tokenManager: TokenManaging
+    private var configurationManager: ConfigurationManaging
     
-    init(networkManager: NetworkManaging, tokenManager: TokenManaging) {
+    init(networkManager: NetworkManaging, tokenManager: TokenManaging, configurationManager: ConfigurationManaging) {
         self.networkManager = networkManager
         self.tokenManager = tokenManager
+        self.configurationManager = configurationManager
     }
     
     func createSession(identifier: String, password: String) async throws {
@@ -34,8 +38,10 @@ actor AuthenticationService {
         }
         let sessionOutput = try ZippyJSONDecoder().decode(ComAtprotoServerCreateSession.Output.self, from: data)
         LogManager.logInfo("AuthenticationService - Session created successfully, tokens received.")
-        
+        let currentEndpoint = await configurationManager.getServiceEndpoint()
         try await tokenManager.saveTokens(accessJwt: sessionOutput.accessJwt, refreshJwt: sessionOutput.refreshJwt)
+        try await configurationManager.updateUserConfiguration(did: sessionOutput.did, serviceEndpoint: sessionOutput.didDoc?.service.first?.serviceEndpoint ?? currentEndpoint)
+
         LogManager.logInfo("AuthenticationService - Tokens saved successfully.")
     }
     

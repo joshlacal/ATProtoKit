@@ -56,7 +56,7 @@ public actor ATProtoClient: AuthenticationDelegate {
         let networkManager = NetworkManager(baseURL: baseURL, configurationManager: configManager)
         self.networkManager = networkManager
         
-        let authService = AuthenticationService(networkManager: networkManager, tokenManager: tokenManager)
+        let authService = AuthenticationService(networkManager: networkManager, tokenManager: tokenManager, configurationManager: configManager)
         self.authService = authService
         
         let sessionManager = SessionManager(tokenManager: tokenManager, authService: authService)
@@ -116,10 +116,14 @@ public actor ATProtoClient: AuthenticationDelegate {
         print("authentication required")
     }
 
+    func baseURLDidUpdate(_ newBaseURL: URL) {
+        self.baseURL = newBaseURL
+    }
+
 
 // MARK: Generated classes
 
-    {{ generated_classes}}
+    {{ generated_classes }}
 
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MiddlewareService: @unchecked Sendable {
+final class MiddlewareService: Sendable {
     private var sessionManager: SessionManaging
     private var tokenManager: TokenManaging
     private var authDelegate: AuthenticationDelegate?

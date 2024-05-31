@@ -16,8 +16,8 @@ import ZippyJSON
 }
 
 
-public actor NetworkManager: NetworkManaging {
-    private let baseURL: URL
+public actor NetworkManager: NetworkManaging, BaseURLUpdateDelegate {
+    private var baseURL: URL
     private let configurationManager: ConfigurationManager
     private let maxRetryLimit: Int = 3
 
@@ -36,10 +36,14 @@ public actor NetworkManager: NetworkManaging {
         isMiddlewareConfigured = true
 
     }
+    
+    func baseURLDidUpdate(_ newBaseURL: URL) {
+        self.baseURL = newBaseURL
+    }
 
     private func configureMiddlewares() {
         if let middlewareService = middlewareService {
-            let authMiddleware = AuthenticationMiddleware(middlewareService: middlewareService)
+            let authMiddleware = AuthenticationMiddleware(middlewareService: middlewareService, configurationManager: configurationManager)
             let loggingMiddleware = LoggingMiddleware()
             middlewares.append(loggingMiddleware)
             middlewares.append(authMiddleware)
