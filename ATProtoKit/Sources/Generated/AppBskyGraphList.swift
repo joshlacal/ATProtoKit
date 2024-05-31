@@ -178,72 +178,73 @@ public struct AppBskyGraphList: ATProtocolCodable, ATProtocolValue {
         }
 
 
-            // Union Type
-            
+
+
+
 public enum AppBskyGraphListLabelsUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("AppBskyGraphListLabelsUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("AppBskyGraphListLabelsUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.label.defs#selfLabels":
-                        print("Decoding as com.atproto.label.defs#selfLabels")
-                        let value = try ComAtprotoLabelDefs.SelfLabels(from: decoder)
-                        self = .comAtprotoLabelDefsSelfLabels(value)
-                    default:
-                        print("AppBskyGraphListLabelsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.label.defs#selfLabels":
+            print("Decoding as com.atproto.label.defs#selfLabels")
+            let value = try ComAtprotoLabelDefs.SelfLabels(from: decoder)
+            self = .comAtprotoLabelDefsSelfLabels(value)
+        default:
+            print("AppBskyGraphListLabelsUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoLabelDefsSelfLabels(let value):
-                        print("Encoding com.atproto.label.defs#selfLabels")
-                        try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("AppBskyGraphListLabelsUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoLabelDefsSelfLabels(let value):
+            print("Encoding com.atproto.label.defs#selfLabels")
+            try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("AppBskyGraphListLabelsUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoLabelDefsSelfLabels(let value):
-                        hasher.combine("com.atproto.label.defs#selfLabels")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoLabelDefsSelfLabels(let value):
+            hasher.combine("com.atproto.label.defs#selfLabels")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? AppBskyGraphListLabelsUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? AppBskyGraphListLabelsUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoLabelDefsSelfLabels(let selfValue), 
-                            .comAtprotoLabelDefsSelfLabels(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoLabelDefsSelfLabels(let selfValue), 
+                .comAtprotoLabelDefsSelfLabels(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

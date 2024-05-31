@@ -227,102 +227,103 @@ public struct ListRule: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum AppBskyFeedThreadgateAllowUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedThreadgateMentionRule(AppBskyFeedThreadgate.MentionRule)
-                case appBskyFeedThreadgateFollowingRule(AppBskyFeedThreadgate.FollowingRule)
-                case appBskyFeedThreadgateListRule(AppBskyFeedThreadgate.ListRule)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyFeedThreadgateMentionRule(AppBskyFeedThreadgate.MentionRule)
+    case appBskyFeedThreadgateFollowingRule(AppBskyFeedThreadgate.FollowingRule)
+    case appBskyFeedThreadgateListRule(AppBskyFeedThreadgate.ListRule)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("AppBskyFeedThreadgateAllowUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("AppBskyFeedThreadgateAllowUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.threadgate#mentionRule":
-                        print("Decoding as app.bsky.feed.threadgate#mentionRule")
-                        let value = try AppBskyFeedThreadgate.MentionRule(from: decoder)
-                        self = .appBskyFeedThreadgateMentionRule(value)
-                    case "app.bsky.feed.threadgate#followingRule":
-                        print("Decoding as app.bsky.feed.threadgate#followingRule")
-                        let value = try AppBskyFeedThreadgate.FollowingRule(from: decoder)
-                        self = .appBskyFeedThreadgateFollowingRule(value)
-                    case "app.bsky.feed.threadgate#listRule":
-                        print("Decoding as app.bsky.feed.threadgate#listRule")
-                        let value = try AppBskyFeedThreadgate.ListRule(from: decoder)
-                        self = .appBskyFeedThreadgateListRule(value)
-                    default:
-                        print("AppBskyFeedThreadgateAllowUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.threadgate#mentionRule":
+            print("Decoding as app.bsky.feed.threadgate#mentionRule")
+            let value = try AppBskyFeedThreadgate.MentionRule(from: decoder)
+            self = .appBskyFeedThreadgateMentionRule(value)
+        case "app.bsky.feed.threadgate#followingRule":
+            print("Decoding as app.bsky.feed.threadgate#followingRule")
+            let value = try AppBskyFeedThreadgate.FollowingRule(from: decoder)
+            self = .appBskyFeedThreadgateFollowingRule(value)
+        case "app.bsky.feed.threadgate#listRule":
+            print("Decoding as app.bsky.feed.threadgate#listRule")
+            let value = try AppBskyFeedThreadgate.ListRule(from: decoder)
+            self = .appBskyFeedThreadgateListRule(value)
+        default:
+            print("AppBskyFeedThreadgateAllowUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedThreadgateMentionRule(let value):
-                        print("Encoding app.bsky.feed.threadgate#mentionRule")
-                        try container.encode("app.bsky.feed.threadgate#mentionRule", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedThreadgateFollowingRule(let value):
-                        print("Encoding app.bsky.feed.threadgate#followingRule")
-                        try container.encode("app.bsky.feed.threadgate#followingRule", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedThreadgateListRule(let value):
-                        print("Encoding app.bsky.feed.threadgate#listRule")
-                        try container.encode("app.bsky.feed.threadgate#listRule", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("AppBskyFeedThreadgateAllowUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyFeedThreadgateMentionRule(let value):
+            print("Encoding app.bsky.feed.threadgate#mentionRule")
+            try container.encode("app.bsky.feed.threadgate#mentionRule", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedThreadgateFollowingRule(let value):
+            print("Encoding app.bsky.feed.threadgate#followingRule")
+            try container.encode("app.bsky.feed.threadgate#followingRule", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedThreadgateListRule(let value):
+            print("Encoding app.bsky.feed.threadgate#listRule")
+            try container.encode("app.bsky.feed.threadgate#listRule", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("AppBskyFeedThreadgateAllowUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedThreadgateMentionRule(let value):
-                        hasher.combine("app.bsky.feed.threadgate#mentionRule")
-                        hasher.combine(value)
-                    case .appBskyFeedThreadgateFollowingRule(let value):
-                        hasher.combine("app.bsky.feed.threadgate#followingRule")
-                        hasher.combine(value)
-                    case .appBskyFeedThreadgateListRule(let value):
-                        hasher.combine("app.bsky.feed.threadgate#listRule")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedThreadgateMentionRule(let value):
+            hasher.combine("app.bsky.feed.threadgate#mentionRule")
+            hasher.combine(value)
+        case .appBskyFeedThreadgateFollowingRule(let value):
+            hasher.combine("app.bsky.feed.threadgate#followingRule")
+            hasher.combine(value)
+        case .appBskyFeedThreadgateListRule(let value):
+            hasher.combine("app.bsky.feed.threadgate#listRule")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? AppBskyFeedThreadgateAllowUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? AppBskyFeedThreadgateAllowUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedThreadgateMentionRule(let selfValue), 
-                            .appBskyFeedThreadgateMentionRule(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedThreadgateFollowingRule(let selfValue), 
-                            .appBskyFeedThreadgateFollowingRule(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedThreadgateListRule(let selfValue), 
-                            .appBskyFeedThreadgateListRule(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyFeedThreadgateMentionRule(let selfValue), 
+                .appBskyFeedThreadgateMentionRule(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedThreadgateFollowingRule(let selfValue), 
+                .appBskyFeedThreadgateFollowingRule(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedThreadgateListRule(let selfValue), 
+                .appBskyFeedThreadgateListRule(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

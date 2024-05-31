@@ -2395,7 +2395,41 @@ public struct LabelerPrefItem: ATProtocolCodable, ATProtocolValue {
 
 // Union Array Type
 
-public enum Preferences: Codable, ATProtocolCodable, ATProtocolValue {
+
+public struct Preferences: Codable, ATProtocolCodable, ATProtocolValue {
+    var items: [PreferencesForUnionArray]
+
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        var items = [PreferencesForUnionArray]()
+        while !container.isAtEnd {
+            let item = try container.decode(PreferencesForUnionArray.self)
+            items.append(item)
+        }
+        self.items = items
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        for item in items {
+            try container.encode(item)
+        }
+    }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let other = other as? Self else { return false }
+        
+        if self.items != other.items {
+            return false
+        }
+
+        return true
+    }
+
+}
+
+
+public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValue {
     case adultContentPref(AdultContentPref)
     case contentLabelPref(ContentLabelPref)
     case savedFeedsPref(SavedFeedsPref)
@@ -2527,7 +2561,7 @@ public enum Preferences: Codable, ATProtocolCodable, ATProtocolValue {
     }
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
-        guard let otherValue = other as? Preferences else { return false }
+        guard let otherValue = other as? PreferencesForUnionArray else { return false }
 
         switch (self, otherValue) {
         case (.adultContentPref(let selfValue), 

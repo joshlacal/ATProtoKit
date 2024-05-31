@@ -479,184 +479,186 @@ public struct TextSlice: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum AppBskyFeedPostEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyEmbedImages(AppBskyEmbedImages)
-                case appBskyEmbedExternal(AppBskyEmbedExternal)
-                case appBskyEmbedRecord(AppBskyEmbedRecord)
-                case appBskyEmbedRecordWithMedia(AppBskyEmbedRecordWithMedia)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyEmbedImages(AppBskyEmbedImages)
+    case appBskyEmbedExternal(AppBskyEmbedExternal)
+    case appBskyEmbedRecord(AppBskyEmbedRecord)
+    case appBskyEmbedRecordWithMedia(AppBskyEmbedRecordWithMedia)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("AppBskyFeedPostEmbedUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("AppBskyFeedPostEmbedUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.embed.images":
-                        print("Decoding as app.bsky.embed.images")
-                        let value = try AppBskyEmbedImages(from: decoder)
-                        self = .appBskyEmbedImages(value)
-                    case "app.bsky.embed.external":
-                        print("Decoding as app.bsky.embed.external")
-                        let value = try AppBskyEmbedExternal(from: decoder)
-                        self = .appBskyEmbedExternal(value)
-                    case "app.bsky.embed.record":
-                        print("Decoding as app.bsky.embed.record")
-                        let value = try AppBskyEmbedRecord(from: decoder)
-                        self = .appBskyEmbedRecord(value)
-                    case "app.bsky.embed.recordWithMedia":
-                        print("Decoding as app.bsky.embed.recordWithMedia")
-                        let value = try AppBskyEmbedRecordWithMedia(from: decoder)
-                        self = .appBskyEmbedRecordWithMedia(value)
-                    default:
-                        print("AppBskyFeedPostEmbedUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.embed.images":
+            print("Decoding as app.bsky.embed.images")
+            let value = try AppBskyEmbedImages(from: decoder)
+            self = .appBskyEmbedImages(value)
+        case "app.bsky.embed.external":
+            print("Decoding as app.bsky.embed.external")
+            let value = try AppBskyEmbedExternal(from: decoder)
+            self = .appBskyEmbedExternal(value)
+        case "app.bsky.embed.record":
+            print("Decoding as app.bsky.embed.record")
+            let value = try AppBskyEmbedRecord(from: decoder)
+            self = .appBskyEmbedRecord(value)
+        case "app.bsky.embed.recordWithMedia":
+            print("Decoding as app.bsky.embed.recordWithMedia")
+            let value = try AppBskyEmbedRecordWithMedia(from: decoder)
+            self = .appBskyEmbedRecordWithMedia(value)
+        default:
+            print("AppBskyFeedPostEmbedUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyEmbedImages(let value):
-                        print("Encoding app.bsky.embed.images")
-                        try container.encode("app.bsky.embed.images", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedExternal(let value):
-                        print("Encoding app.bsky.embed.external")
-                        try container.encode("app.bsky.embed.external", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecord(let value):
-                        print("Encoding app.bsky.embed.record")
-                        try container.encode("app.bsky.embed.record", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordWithMedia(let value):
-                        print("Encoding app.bsky.embed.recordWithMedia")
-                        try container.encode("app.bsky.embed.recordWithMedia", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("AppBskyFeedPostEmbedUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyEmbedImages(let value):
+            print("Encoding app.bsky.embed.images")
+            try container.encode("app.bsky.embed.images", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedExternal(let value):
+            print("Encoding app.bsky.embed.external")
+            try container.encode("app.bsky.embed.external", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecord(let value):
+            print("Encoding app.bsky.embed.record")
+            try container.encode("app.bsky.embed.record", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordWithMedia(let value):
+            print("Encoding app.bsky.embed.recordWithMedia")
+            try container.encode("app.bsky.embed.recordWithMedia", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("AppBskyFeedPostEmbedUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyEmbedImages(let value):
-                        hasher.combine("app.bsky.embed.images")
-                        hasher.combine(value)
-                    case .appBskyEmbedExternal(let value):
-                        hasher.combine("app.bsky.embed.external")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecord(let value):
-                        hasher.combine("app.bsky.embed.record")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordWithMedia(let value):
-                        hasher.combine("app.bsky.embed.recordWithMedia")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyEmbedImages(let value):
+            hasher.combine("app.bsky.embed.images")
+            hasher.combine(value)
+        case .appBskyEmbedExternal(let value):
+            hasher.combine("app.bsky.embed.external")
+            hasher.combine(value)
+        case .appBskyEmbedRecord(let value):
+            hasher.combine("app.bsky.embed.record")
+            hasher.combine(value)
+        case .appBskyEmbedRecordWithMedia(let value):
+            hasher.combine("app.bsky.embed.recordWithMedia")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? AppBskyFeedPostEmbedUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? AppBskyFeedPostEmbedUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyEmbedImages(let selfValue), 
-                            .appBskyEmbedImages(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedExternal(let selfValue), 
-                            .appBskyEmbedExternal(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecord(let selfValue), 
-                            .appBskyEmbedRecord(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordWithMedia(let selfValue), 
-                            .appBskyEmbedRecordWithMedia(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyEmbedImages(let selfValue), 
+                .appBskyEmbedImages(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedExternal(let selfValue), 
+                .appBskyEmbedExternal(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecord(let selfValue), 
+                .appBskyEmbedRecord(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordWithMedia(let selfValue), 
+                .appBskyEmbedRecordWithMedia(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum AppBskyFeedPostLabelsUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoLabelDefsSelfLabels(ComAtprotoLabelDefs.SelfLabels)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("AppBskyFeedPostLabelsUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("AppBskyFeedPostLabelsUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.label.defs#selfLabels":
-                        print("Decoding as com.atproto.label.defs#selfLabels")
-                        let value = try ComAtprotoLabelDefs.SelfLabels(from: decoder)
-                        self = .comAtprotoLabelDefsSelfLabels(value)
-                    default:
-                        print("AppBskyFeedPostLabelsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.label.defs#selfLabels":
+            print("Decoding as com.atproto.label.defs#selfLabels")
+            let value = try ComAtprotoLabelDefs.SelfLabels(from: decoder)
+            self = .comAtprotoLabelDefsSelfLabels(value)
+        default:
+            print("AppBskyFeedPostLabelsUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoLabelDefsSelfLabels(let value):
-                        print("Encoding com.atproto.label.defs#selfLabels")
-                        try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("AppBskyFeedPostLabelsUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoLabelDefsSelfLabels(let value):
+            print("Encoding com.atproto.label.defs#selfLabels")
+            try container.encode("com.atproto.label.defs#selfLabels", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("AppBskyFeedPostLabelsUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoLabelDefsSelfLabels(let value):
-                        hasher.combine("com.atproto.label.defs#selfLabels")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoLabelDefsSelfLabels(let value):
+            hasher.combine("com.atproto.label.defs#selfLabels")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? AppBskyFeedPostLabelsUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? AppBskyFeedPostLabelsUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoLabelDefsSelfLabels(let selfValue), 
-                            .comAtprotoLabelDefsSelfLabels(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoLabelDefsSelfLabels(let selfValue), 
+                .comAtprotoLabelDefsSelfLabels(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

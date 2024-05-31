@@ -549,259 +549,261 @@ public struct ViewBlocked: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyEmbedRecordViewRecord(AppBskyEmbedRecord.ViewRecord)
-                case appBskyEmbedRecordViewNotFound(AppBskyEmbedRecord.ViewNotFound)
-                case appBskyEmbedRecordViewBlocked(AppBskyEmbedRecord.ViewBlocked)
-                case appBskyFeedDefsGeneratorView(AppBskyFeedDefs.GeneratorView)
-                case appBskyGraphDefsListView(AppBskyGraphDefs.ListView)
-                case appBskyLabelerDefsLabelerView(AppBskyLabelerDefs.LabelerView)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyEmbedRecordViewRecord(AppBskyEmbedRecord.ViewRecord)
+    case appBskyEmbedRecordViewNotFound(AppBskyEmbedRecord.ViewNotFound)
+    case appBskyEmbedRecordViewBlocked(AppBskyEmbedRecord.ViewBlocked)
+    case appBskyFeedDefsGeneratorView(AppBskyFeedDefs.GeneratorView)
+    case appBskyGraphDefsListView(AppBskyGraphDefs.ListView)
+    case appBskyLabelerDefsLabelerView(AppBskyLabelerDefs.LabelerView)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ViewRecordUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ViewRecordUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.embed.record#viewRecord":
-                        print("Decoding as app.bsky.embed.record#viewRecord")
-                        let value = try AppBskyEmbedRecord.ViewRecord(from: decoder)
-                        self = .appBskyEmbedRecordViewRecord(value)
-                    case "app.bsky.embed.record#viewNotFound":
-                        print("Decoding as app.bsky.embed.record#viewNotFound")
-                        let value = try AppBskyEmbedRecord.ViewNotFound(from: decoder)
-                        self = .appBskyEmbedRecordViewNotFound(value)
-                    case "app.bsky.embed.record#viewBlocked":
-                        print("Decoding as app.bsky.embed.record#viewBlocked")
-                        let value = try AppBskyEmbedRecord.ViewBlocked(from: decoder)
-                        self = .appBskyEmbedRecordViewBlocked(value)
-                    case "app.bsky.feed.defs#generatorView":
-                        print("Decoding as app.bsky.feed.defs#generatorView")
-                        let value = try AppBskyFeedDefs.GeneratorView(from: decoder)
-                        self = .appBskyFeedDefsGeneratorView(value)
-                    case "app.bsky.graph.defs#listView":
-                        print("Decoding as app.bsky.graph.defs#listView")
-                        let value = try AppBskyGraphDefs.ListView(from: decoder)
-                        self = .appBskyGraphDefsListView(value)
-                    case "app.bsky.labeler.defs#labelerView":
-                        print("Decoding as app.bsky.labeler.defs#labelerView")
-                        let value = try AppBskyLabelerDefs.LabelerView(from: decoder)
-                        self = .appBskyLabelerDefsLabelerView(value)
-                    default:
-                        print("ViewRecordUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.embed.record#viewRecord":
+            print("Decoding as app.bsky.embed.record#viewRecord")
+            let value = try AppBskyEmbedRecord.ViewRecord(from: decoder)
+            self = .appBskyEmbedRecordViewRecord(value)
+        case "app.bsky.embed.record#viewNotFound":
+            print("Decoding as app.bsky.embed.record#viewNotFound")
+            let value = try AppBskyEmbedRecord.ViewNotFound(from: decoder)
+            self = .appBskyEmbedRecordViewNotFound(value)
+        case "app.bsky.embed.record#viewBlocked":
+            print("Decoding as app.bsky.embed.record#viewBlocked")
+            let value = try AppBskyEmbedRecord.ViewBlocked(from: decoder)
+            self = .appBskyEmbedRecordViewBlocked(value)
+        case "app.bsky.feed.defs#generatorView":
+            print("Decoding as app.bsky.feed.defs#generatorView")
+            let value = try AppBskyFeedDefs.GeneratorView(from: decoder)
+            self = .appBskyFeedDefsGeneratorView(value)
+        case "app.bsky.graph.defs#listView":
+            print("Decoding as app.bsky.graph.defs#listView")
+            let value = try AppBskyGraphDefs.ListView(from: decoder)
+            self = .appBskyGraphDefsListView(value)
+        case "app.bsky.labeler.defs#labelerView":
+            print("Decoding as app.bsky.labeler.defs#labelerView")
+            let value = try AppBskyLabelerDefs.LabelerView(from: decoder)
+            self = .appBskyLabelerDefsLabelerView(value)
+        default:
+            print("ViewRecordUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyEmbedRecordViewRecord(let value):
-                        print("Encoding app.bsky.embed.record#viewRecord")
-                        try container.encode("app.bsky.embed.record#viewRecord", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordViewNotFound(let value):
-                        print("Encoding app.bsky.embed.record#viewNotFound")
-                        try container.encode("app.bsky.embed.record#viewNotFound", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordViewBlocked(let value):
-                        print("Encoding app.bsky.embed.record#viewBlocked")
-                        try container.encode("app.bsky.embed.record#viewBlocked", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsGeneratorView(let value):
-                        print("Encoding app.bsky.feed.defs#generatorView")
-                        try container.encode("app.bsky.feed.defs#generatorView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyGraphDefsListView(let value):
-                        print("Encoding app.bsky.graph.defs#listView")
-                        try container.encode("app.bsky.graph.defs#listView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyLabelerDefsLabelerView(let value):
-                        print("Encoding app.bsky.labeler.defs#labelerView")
-                        try container.encode("app.bsky.labeler.defs#labelerView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ViewRecordUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyEmbedRecordViewRecord(let value):
+            print("Encoding app.bsky.embed.record#viewRecord")
+            try container.encode("app.bsky.embed.record#viewRecord", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordViewNotFound(let value):
+            print("Encoding app.bsky.embed.record#viewNotFound")
+            try container.encode("app.bsky.embed.record#viewNotFound", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordViewBlocked(let value):
+            print("Encoding app.bsky.embed.record#viewBlocked")
+            try container.encode("app.bsky.embed.record#viewBlocked", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsGeneratorView(let value):
+            print("Encoding app.bsky.feed.defs#generatorView")
+            try container.encode("app.bsky.feed.defs#generatorView", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyGraphDefsListView(let value):
+            print("Encoding app.bsky.graph.defs#listView")
+            try container.encode("app.bsky.graph.defs#listView", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyLabelerDefsLabelerView(let value):
+            print("Encoding app.bsky.labeler.defs#labelerView")
+            try container.encode("app.bsky.labeler.defs#labelerView", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ViewRecordUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyEmbedRecordViewRecord(let value):
-                        hasher.combine("app.bsky.embed.record#viewRecord")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordViewNotFound(let value):
-                        hasher.combine("app.bsky.embed.record#viewNotFound")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordViewBlocked(let value):
-                        hasher.combine("app.bsky.embed.record#viewBlocked")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsGeneratorView(let value):
-                        hasher.combine("app.bsky.feed.defs#generatorView")
-                        hasher.combine(value)
-                    case .appBskyGraphDefsListView(let value):
-                        hasher.combine("app.bsky.graph.defs#listView")
-                        hasher.combine(value)
-                    case .appBskyLabelerDefsLabelerView(let value):
-                        hasher.combine("app.bsky.labeler.defs#labelerView")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyEmbedRecordViewRecord(let value):
+            hasher.combine("app.bsky.embed.record#viewRecord")
+            hasher.combine(value)
+        case .appBskyEmbedRecordViewNotFound(let value):
+            hasher.combine("app.bsky.embed.record#viewNotFound")
+            hasher.combine(value)
+        case .appBskyEmbedRecordViewBlocked(let value):
+            hasher.combine("app.bsky.embed.record#viewBlocked")
+            hasher.combine(value)
+        case .appBskyFeedDefsGeneratorView(let value):
+            hasher.combine("app.bsky.feed.defs#generatorView")
+            hasher.combine(value)
+        case .appBskyGraphDefsListView(let value):
+            hasher.combine("app.bsky.graph.defs#listView")
+            hasher.combine(value)
+        case .appBskyLabelerDefsLabelerView(let value):
+            hasher.combine("app.bsky.labeler.defs#labelerView")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ViewRecordUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ViewRecordUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyEmbedRecordViewRecord(let selfValue), 
-                            .appBskyEmbedRecordViewRecord(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordViewNotFound(let selfValue), 
-                            .appBskyEmbedRecordViewNotFound(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordViewBlocked(let selfValue), 
-                            .appBskyEmbedRecordViewBlocked(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsGeneratorView(let selfValue), 
-                            .appBskyFeedDefsGeneratorView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyGraphDefsListView(let selfValue), 
-                            .appBskyGraphDefsListView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyLabelerDefsLabelerView(let selfValue), 
-                            .appBskyLabelerDefsLabelerView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyEmbedRecordViewRecord(let selfValue), 
+                .appBskyEmbedRecordViewRecord(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordViewNotFound(let selfValue), 
+                .appBskyEmbedRecordViewNotFound(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordViewBlocked(let selfValue), 
+                .appBskyEmbedRecordViewBlocked(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsGeneratorView(let selfValue), 
+                .appBskyFeedDefsGeneratorView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyGraphDefsListView(let selfValue), 
+                .appBskyGraphDefsListView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyLabelerDefsLabelerView(let selfValue), 
+                .appBskyLabelerDefsLabelerView(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ViewRecordEmbedsUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyEmbedImagesView(AppBskyEmbedImages.View)
-                case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
-                case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
-                case appBskyEmbedRecordWithMediaView(AppBskyEmbedRecordWithMedia.View)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyEmbedImagesView(AppBskyEmbedImages.View)
+    case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
+    case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
+    case appBskyEmbedRecordWithMediaView(AppBskyEmbedRecordWithMedia.View)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ViewRecordEmbedsUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ViewRecordEmbedsUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.embed.images#view":
-                        print("Decoding as app.bsky.embed.images#view")
-                        let value = try AppBskyEmbedImages.View(from: decoder)
-                        self = .appBskyEmbedImagesView(value)
-                    case "app.bsky.embed.external#view":
-                        print("Decoding as app.bsky.embed.external#view")
-                        let value = try AppBskyEmbedExternal.View(from: decoder)
-                        self = .appBskyEmbedExternalView(value)
-                    case "app.bsky.embed.record#view":
-                        print("Decoding as app.bsky.embed.record#view")
-                        let value = try AppBskyEmbedRecord.View(from: decoder)
-                        self = .appBskyEmbedRecordView(value)
-                    case "app.bsky.embed.recordWithMedia#view":
-                        print("Decoding as app.bsky.embed.recordWithMedia#view")
-                        let value = try AppBskyEmbedRecordWithMedia.View(from: decoder)
-                        self = .appBskyEmbedRecordWithMediaView(value)
-                    default:
-                        print("ViewRecordEmbedsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.embed.images#view":
+            print("Decoding as app.bsky.embed.images#view")
+            let value = try AppBskyEmbedImages.View(from: decoder)
+            self = .appBskyEmbedImagesView(value)
+        case "app.bsky.embed.external#view":
+            print("Decoding as app.bsky.embed.external#view")
+            let value = try AppBskyEmbedExternal.View(from: decoder)
+            self = .appBskyEmbedExternalView(value)
+        case "app.bsky.embed.record#view":
+            print("Decoding as app.bsky.embed.record#view")
+            let value = try AppBskyEmbedRecord.View(from: decoder)
+            self = .appBskyEmbedRecordView(value)
+        case "app.bsky.embed.recordWithMedia#view":
+            print("Decoding as app.bsky.embed.recordWithMedia#view")
+            let value = try AppBskyEmbedRecordWithMedia.View(from: decoder)
+            self = .appBskyEmbedRecordWithMediaView(value)
+        default:
+            print("ViewRecordEmbedsUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyEmbedImagesView(let value):
-                        print("Encoding app.bsky.embed.images#view")
-                        try container.encode("app.bsky.embed.images#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedExternalView(let value):
-                        print("Encoding app.bsky.embed.external#view")
-                        try container.encode("app.bsky.embed.external#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordView(let value):
-                        print("Encoding app.bsky.embed.record#view")
-                        try container.encode("app.bsky.embed.record#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordWithMediaView(let value):
-                        print("Encoding app.bsky.embed.recordWithMedia#view")
-                        try container.encode("app.bsky.embed.recordWithMedia#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ViewRecordEmbedsUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyEmbedImagesView(let value):
+            print("Encoding app.bsky.embed.images#view")
+            try container.encode("app.bsky.embed.images#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedExternalView(let value):
+            print("Encoding app.bsky.embed.external#view")
+            try container.encode("app.bsky.embed.external#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordView(let value):
+            print("Encoding app.bsky.embed.record#view")
+            try container.encode("app.bsky.embed.record#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordWithMediaView(let value):
+            print("Encoding app.bsky.embed.recordWithMedia#view")
+            try container.encode("app.bsky.embed.recordWithMedia#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ViewRecordEmbedsUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyEmbedImagesView(let value):
-                        hasher.combine("app.bsky.embed.images#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedExternalView(let value):
-                        hasher.combine("app.bsky.embed.external#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordView(let value):
-                        hasher.combine("app.bsky.embed.record#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordWithMediaView(let value):
-                        hasher.combine("app.bsky.embed.recordWithMedia#view")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyEmbedImagesView(let value):
+            hasher.combine("app.bsky.embed.images#view")
+            hasher.combine(value)
+        case .appBskyEmbedExternalView(let value):
+            hasher.combine("app.bsky.embed.external#view")
+            hasher.combine(value)
+        case .appBskyEmbedRecordView(let value):
+            hasher.combine("app.bsky.embed.record#view")
+            hasher.combine(value)
+        case .appBskyEmbedRecordWithMediaView(let value):
+            hasher.combine("app.bsky.embed.recordWithMedia#view")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ViewRecordEmbedsUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ViewRecordEmbedsUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyEmbedImagesView(let selfValue), 
-                            .appBskyEmbedImagesView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedExternalView(let selfValue), 
-                            .appBskyEmbedExternalView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordView(let selfValue), 
-                            .appBskyEmbedRecordView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordWithMediaView(let selfValue), 
-                            .appBskyEmbedRecordWithMediaView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyEmbedImagesView(let selfValue), 
+                .appBskyEmbedImagesView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedExternalView(let selfValue), 
+                .appBskyEmbedExternalView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordView(let selfValue), 
+                .appBskyEmbedRecordView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordWithMediaView(let selfValue), 
+                .appBskyEmbedRecordWithMediaView(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

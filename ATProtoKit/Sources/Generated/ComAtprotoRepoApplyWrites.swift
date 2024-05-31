@@ -307,199 +307,201 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
         }
 
 
-            // Union Type
-            
+
+
+
 public enum InputWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoRepoApplyWritesCreate(ComAtprotoRepoApplyWrites.Create)
-                case comAtprotoRepoApplyWritesUpdate(ComAtprotoRepoApplyWrites.Update)
-                case comAtprotoRepoApplyWritesDelete(ComAtprotoRepoApplyWrites.Delete)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoRepoApplyWritesCreate(ComAtprotoRepoApplyWrites.Create)
+    case comAtprotoRepoApplyWritesUpdate(ComAtprotoRepoApplyWrites.Update)
+    case comAtprotoRepoApplyWritesDelete(ComAtprotoRepoApplyWrites.Delete)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("InputWritesUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("InputWritesUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.repo.applyWrites#create":
-                        print("Decoding as com.atproto.repo.applyWrites#create")
-                        let value = try ComAtprotoRepoApplyWrites.Create(from: decoder)
-                        self = .comAtprotoRepoApplyWritesCreate(value)
-                    case "com.atproto.repo.applyWrites#update":
-                        print("Decoding as com.atproto.repo.applyWrites#update")
-                        let value = try ComAtprotoRepoApplyWrites.Update(from: decoder)
-                        self = .comAtprotoRepoApplyWritesUpdate(value)
-                    case "com.atproto.repo.applyWrites#delete":
-                        print("Decoding as com.atproto.repo.applyWrites#delete")
-                        let value = try ComAtprotoRepoApplyWrites.Delete(from: decoder)
-                        self = .comAtprotoRepoApplyWritesDelete(value)
-                    default:
-                        print("InputWritesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.repo.applyWrites#create":
+            print("Decoding as com.atproto.repo.applyWrites#create")
+            let value = try ComAtprotoRepoApplyWrites.Create(from: decoder)
+            self = .comAtprotoRepoApplyWritesCreate(value)
+        case "com.atproto.repo.applyWrites#update":
+            print("Decoding as com.atproto.repo.applyWrites#update")
+            let value = try ComAtprotoRepoApplyWrites.Update(from: decoder)
+            self = .comAtprotoRepoApplyWritesUpdate(value)
+        case "com.atproto.repo.applyWrites#delete":
+            print("Decoding as com.atproto.repo.applyWrites#delete")
+            let value = try ComAtprotoRepoApplyWrites.Delete(from: decoder)
+            self = .comAtprotoRepoApplyWritesDelete(value)
+        default:
+            print("InputWritesUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoRepoApplyWritesCreate(let value):
-                        print("Encoding com.atproto.repo.applyWrites#create")
-                        try container.encode("com.atproto.repo.applyWrites#create", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoApplyWritesUpdate(let value):
-                        print("Encoding com.atproto.repo.applyWrites#update")
-                        try container.encode("com.atproto.repo.applyWrites#update", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoApplyWritesDelete(let value):
-                        print("Encoding com.atproto.repo.applyWrites#delete")
-                        try container.encode("com.atproto.repo.applyWrites#delete", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("InputWritesUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoRepoApplyWritesCreate(let value):
+            print("Encoding com.atproto.repo.applyWrites#create")
+            try container.encode("com.atproto.repo.applyWrites#create", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoApplyWritesUpdate(let value):
+            print("Encoding com.atproto.repo.applyWrites#update")
+            try container.encode("com.atproto.repo.applyWrites#update", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoApplyWritesDelete(let value):
+            print("Encoding com.atproto.repo.applyWrites#delete")
+            try container.encode("com.atproto.repo.applyWrites#delete", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("InputWritesUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoRepoApplyWritesCreate(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#create")
-                        hasher.combine(value)
-                    case .comAtprotoRepoApplyWritesUpdate(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#update")
-                        hasher.combine(value)
-                    case .comAtprotoRepoApplyWritesDelete(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#delete")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoRepoApplyWritesCreate(let value):
+            hasher.combine("com.atproto.repo.applyWrites#create")
+            hasher.combine(value)
+        case .comAtprotoRepoApplyWritesUpdate(let value):
+            hasher.combine("com.atproto.repo.applyWrites#update")
+            hasher.combine(value)
+        case .comAtprotoRepoApplyWritesDelete(let value):
+            hasher.combine("com.atproto.repo.applyWrites#delete")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? InputWritesUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? InputWritesUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoRepoApplyWritesCreate(let selfValue), 
-                            .comAtprotoRepoApplyWritesCreate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoApplyWritesUpdate(let selfValue), 
-                            .comAtprotoRepoApplyWritesUpdate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoApplyWritesDelete(let selfValue), 
-                            .comAtprotoRepoApplyWritesDelete(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoRepoApplyWritesCreate(let selfValue), 
+                .comAtprotoRepoApplyWritesCreate(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoApplyWritesUpdate(let selfValue), 
+                .comAtprotoRepoApplyWritesUpdate(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoApplyWritesDelete(let selfValue), 
+                .comAtprotoRepoApplyWritesDelete(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ComAtprotoRepoApplyWritesWritesUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoRepoApplyWritesCreate(ComAtprotoRepoApplyWrites.Create)
-                case comAtprotoRepoApplyWritesUpdate(ComAtprotoRepoApplyWrites.Update)
-                case comAtprotoRepoApplyWritesDelete(ComAtprotoRepoApplyWrites.Delete)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoRepoApplyWritesCreate(ComAtprotoRepoApplyWrites.Create)
+    case comAtprotoRepoApplyWritesUpdate(ComAtprotoRepoApplyWrites.Update)
+    case comAtprotoRepoApplyWritesDelete(ComAtprotoRepoApplyWrites.Delete)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ComAtprotoRepoApplyWritesWritesUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ComAtprotoRepoApplyWritesWritesUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.repo.applyWrites#create":
-                        print("Decoding as com.atproto.repo.applyWrites#create")
-                        let value = try ComAtprotoRepoApplyWrites.Create(from: decoder)
-                        self = .comAtprotoRepoApplyWritesCreate(value)
-                    case "com.atproto.repo.applyWrites#update":
-                        print("Decoding as com.atproto.repo.applyWrites#update")
-                        let value = try ComAtprotoRepoApplyWrites.Update(from: decoder)
-                        self = .comAtprotoRepoApplyWritesUpdate(value)
-                    case "com.atproto.repo.applyWrites#delete":
-                        print("Decoding as com.atproto.repo.applyWrites#delete")
-                        let value = try ComAtprotoRepoApplyWrites.Delete(from: decoder)
-                        self = .comAtprotoRepoApplyWritesDelete(value)
-                    default:
-                        print("ComAtprotoRepoApplyWritesWritesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.repo.applyWrites#create":
+            print("Decoding as com.atproto.repo.applyWrites#create")
+            let value = try ComAtprotoRepoApplyWrites.Create(from: decoder)
+            self = .comAtprotoRepoApplyWritesCreate(value)
+        case "com.atproto.repo.applyWrites#update":
+            print("Decoding as com.atproto.repo.applyWrites#update")
+            let value = try ComAtprotoRepoApplyWrites.Update(from: decoder)
+            self = .comAtprotoRepoApplyWritesUpdate(value)
+        case "com.atproto.repo.applyWrites#delete":
+            print("Decoding as com.atproto.repo.applyWrites#delete")
+            let value = try ComAtprotoRepoApplyWrites.Delete(from: decoder)
+            self = .comAtprotoRepoApplyWritesDelete(value)
+        default:
+            print("ComAtprotoRepoApplyWritesWritesUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoRepoApplyWritesCreate(let value):
-                        print("Encoding com.atproto.repo.applyWrites#create")
-                        try container.encode("com.atproto.repo.applyWrites#create", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoApplyWritesUpdate(let value):
-                        print("Encoding com.atproto.repo.applyWrites#update")
-                        try container.encode("com.atproto.repo.applyWrites#update", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoApplyWritesDelete(let value):
-                        print("Encoding com.atproto.repo.applyWrites#delete")
-                        try container.encode("com.atproto.repo.applyWrites#delete", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ComAtprotoRepoApplyWritesWritesUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoRepoApplyWritesCreate(let value):
+            print("Encoding com.atproto.repo.applyWrites#create")
+            try container.encode("com.atproto.repo.applyWrites#create", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoApplyWritesUpdate(let value):
+            print("Encoding com.atproto.repo.applyWrites#update")
+            try container.encode("com.atproto.repo.applyWrites#update", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoApplyWritesDelete(let value):
+            print("Encoding com.atproto.repo.applyWrites#delete")
+            try container.encode("com.atproto.repo.applyWrites#delete", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ComAtprotoRepoApplyWritesWritesUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoRepoApplyWritesCreate(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#create")
-                        hasher.combine(value)
-                    case .comAtprotoRepoApplyWritesUpdate(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#update")
-                        hasher.combine(value)
-                    case .comAtprotoRepoApplyWritesDelete(let value):
-                        hasher.combine("com.atproto.repo.applyWrites#delete")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoRepoApplyWritesCreate(let value):
+            hasher.combine("com.atproto.repo.applyWrites#create")
+            hasher.combine(value)
+        case .comAtprotoRepoApplyWritesUpdate(let value):
+            hasher.combine("com.atproto.repo.applyWrites#update")
+            hasher.combine(value)
+        case .comAtprotoRepoApplyWritesDelete(let value):
+            hasher.combine("com.atproto.repo.applyWrites#delete")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ComAtprotoRepoApplyWritesWritesUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ComAtprotoRepoApplyWritesWritesUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoRepoApplyWritesCreate(let selfValue), 
-                            .comAtprotoRepoApplyWritesCreate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoApplyWritesUpdate(let selfValue), 
-                            .comAtprotoRepoApplyWritesUpdate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoApplyWritesDelete(let selfValue), 
-                            .comAtprotoRepoApplyWritesDelete(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoRepoApplyWritesCreate(let selfValue), 
+                .comAtprotoRepoApplyWritesCreate(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoApplyWritesUpdate(let selfValue), 
+                .comAtprotoRepoApplyWritesUpdate(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoApplyWritesDelete(let selfValue), 
+                .comAtprotoRepoApplyWritesDelete(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

@@ -50,87 +50,88 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
         }
 
 
-            // Union Type
-            
+
+
+
 public enum OutputRelationshipsUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyGraphDefsRelationship(AppBskyGraphDefs.Relationship)
-                case appBskyGraphDefsNotFoundActor(AppBskyGraphDefs.NotFoundActor)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyGraphDefsRelationship(AppBskyGraphDefs.Relationship)
+    case appBskyGraphDefsNotFoundActor(AppBskyGraphDefs.NotFoundActor)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("OutputRelationshipsUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("OutputRelationshipsUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.graph.defs#relationship":
-                        print("Decoding as app.bsky.graph.defs#relationship")
-                        let value = try AppBskyGraphDefs.Relationship(from: decoder)
-                        self = .appBskyGraphDefsRelationship(value)
-                    case "app.bsky.graph.defs#notFoundActor":
-                        print("Decoding as app.bsky.graph.defs#notFoundActor")
-                        let value = try AppBskyGraphDefs.NotFoundActor(from: decoder)
-                        self = .appBskyGraphDefsNotFoundActor(value)
-                    default:
-                        print("OutputRelationshipsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.graph.defs#relationship":
+            print("Decoding as app.bsky.graph.defs#relationship")
+            let value = try AppBskyGraphDefs.Relationship(from: decoder)
+            self = .appBskyGraphDefsRelationship(value)
+        case "app.bsky.graph.defs#notFoundActor":
+            print("Decoding as app.bsky.graph.defs#notFoundActor")
+            let value = try AppBskyGraphDefs.NotFoundActor(from: decoder)
+            self = .appBskyGraphDefsNotFoundActor(value)
+        default:
+            print("OutputRelationshipsUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyGraphDefsRelationship(let value):
-                        print("Encoding app.bsky.graph.defs#relationship")
-                        try container.encode("app.bsky.graph.defs#relationship", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyGraphDefsNotFoundActor(let value):
-                        print("Encoding app.bsky.graph.defs#notFoundActor")
-                        try container.encode("app.bsky.graph.defs#notFoundActor", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("OutputRelationshipsUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyGraphDefsRelationship(let value):
+            print("Encoding app.bsky.graph.defs#relationship")
+            try container.encode("app.bsky.graph.defs#relationship", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyGraphDefsNotFoundActor(let value):
+            print("Encoding app.bsky.graph.defs#notFoundActor")
+            try container.encode("app.bsky.graph.defs#notFoundActor", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("OutputRelationshipsUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyGraphDefsRelationship(let value):
-                        hasher.combine("app.bsky.graph.defs#relationship")
-                        hasher.combine(value)
-                    case .appBskyGraphDefsNotFoundActor(let value):
-                        hasher.combine("app.bsky.graph.defs#notFoundActor")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyGraphDefsRelationship(let value):
+            hasher.combine("app.bsky.graph.defs#relationship")
+            hasher.combine(value)
+        case .appBskyGraphDefsNotFoundActor(let value):
+            hasher.combine("app.bsky.graph.defs#notFoundActor")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? OutputRelationshipsUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? OutputRelationshipsUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyGraphDefsRelationship(let selfValue), 
-                            .appBskyGraphDefsRelationship(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyGraphDefsNotFoundActor(let selfValue), 
-                            .appBskyGraphDefsNotFoundActor(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyGraphDefsRelationship(let selfValue), 
+                .appBskyGraphDefsRelationship(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyGraphDefsNotFoundActor(let selfValue), 
+                .appBskyGraphDefsNotFoundActor(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

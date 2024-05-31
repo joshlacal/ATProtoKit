@@ -312,106 +312,141 @@ public struct ByteSlice: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyRichtextFacetMention(AppBskyRichtextFacet.Mention)
-                case appBskyRichtextFacetLink(AppBskyRichtextFacet.Link)
-                case appBskyRichtextFacetTag(AppBskyRichtextFacet.Tag)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyRichtextFacetMention(AppBskyRichtextFacet.Mention)
+    case appBskyRichtextFacetLink(AppBskyRichtextFacet.Link)
+    case appBskyRichtextFacetTag(AppBskyRichtextFacet.Tag)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("AppBskyRichtextFacetFeaturesUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("AppBskyRichtextFacetFeaturesUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.richtext.facet#mention":
-                        print("Decoding as app.bsky.richtext.facet#mention")
-                        let value = try AppBskyRichtextFacet.Mention(from: decoder)
-                        self = .appBskyRichtextFacetMention(value)
-                    case "app.bsky.richtext.facet#link":
-                        print("Decoding as app.bsky.richtext.facet#link")
-                        let value = try AppBskyRichtextFacet.Link(from: decoder)
-                        self = .appBskyRichtextFacetLink(value)
-                    case "app.bsky.richtext.facet#tag":
-                        print("Decoding as app.bsky.richtext.facet#tag")
-                        let value = try AppBskyRichtextFacet.Tag(from: decoder)
-                        self = .appBskyRichtextFacetTag(value)
-                    default:
-                        print("AppBskyRichtextFacetFeaturesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.richtext.facet#mention":
+            print("Decoding as app.bsky.richtext.facet#mention")
+            let value = try AppBskyRichtextFacet.Mention(from: decoder)
+            self = .appBskyRichtextFacetMention(value)
+        case "app.bsky.richtext.facet#link":
+            print("Decoding as app.bsky.richtext.facet#link")
+            let value = try AppBskyRichtextFacet.Link(from: decoder)
+            self = .appBskyRichtextFacetLink(value)
+        case "app.bsky.richtext.facet#tag":
+            print("Decoding as app.bsky.richtext.facet#tag")
+            let value = try AppBskyRichtextFacet.Tag(from: decoder)
+            self = .appBskyRichtextFacetTag(value)
+        default:
+            print("AppBskyRichtextFacetFeaturesUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyRichtextFacetMention(let value):
-                        print("Encoding app.bsky.richtext.facet#mention")
-                        try container.encode("app.bsky.richtext.facet#mention", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyRichtextFacetLink(let value):
-                        print("Encoding app.bsky.richtext.facet#link")
-                        try container.encode("app.bsky.richtext.facet#link", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyRichtextFacetTag(let value):
-                        print("Encoding app.bsky.richtext.facet#tag")
-                        try container.encode("app.bsky.richtext.facet#tag", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("AppBskyRichtextFacetFeaturesUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyRichtextFacetMention(let value):
+            print("Encoding app.bsky.richtext.facet#mention")
+            try container.encode("app.bsky.richtext.facet#mention", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyRichtextFacetLink(let value):
+            print("Encoding app.bsky.richtext.facet#link")
+            try container.encode("app.bsky.richtext.facet#link", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyRichtextFacetTag(let value):
+            print("Encoding app.bsky.richtext.facet#tag")
+            try container.encode("app.bsky.richtext.facet#tag", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("AppBskyRichtextFacetFeaturesUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyRichtextFacetMention(let value):
-                        hasher.combine("app.bsky.richtext.facet#mention")
-                        hasher.combine(value)
-                    case .appBskyRichtextFacetLink(let value):
-                        hasher.combine("app.bsky.richtext.facet#link")
-                        hasher.combine(value)
-                    case .appBskyRichtextFacetTag(let value):
-                        hasher.combine("app.bsky.richtext.facet#tag")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyRichtextFacetMention(let value):
+            hasher.combine("app.bsky.richtext.facet#mention")
+            hasher.combine(value)
+        case .appBskyRichtextFacetLink(let value):
+            hasher.combine("app.bsky.richtext.facet#link")
+            hasher.combine(value)
+        case .appBskyRichtextFacetTag(let value):
+            hasher.combine("app.bsky.richtext.facet#tag")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? AppBskyRichtextFacetFeaturesUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? AppBskyRichtextFacetFeaturesUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyRichtextFacetMention(let selfValue), 
-                            .appBskyRichtextFacetMention(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyRichtextFacetLink(let selfValue), 
-                            .appBskyRichtextFacetLink(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyRichtextFacetTag(let selfValue), 
-                            .appBskyRichtextFacetTag(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyRichtextFacetMention(let selfValue), 
+                .appBskyRichtextFacetMention(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyRichtextFacetLink(let selfValue), 
+                .appBskyRichtextFacetLink(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyRichtextFacetTag(let selfValue), 
+                .appBskyRichtextFacetTag(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 // Union Array Type
 
-public enum Features: Codable, ATProtocolCodable, ATProtocolValue {
+
+public struct Features: Codable, ATProtocolCodable, ATProtocolValue {
+    var items: [FeaturesForUnionArray]
+
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        var items = [FeaturesForUnionArray]()
+        while !container.isAtEnd {
+            let item = try container.decode(FeaturesForUnionArray.self)
+            items.append(item)
+        }
+        self.items = items
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        for item in items {
+            try container.encode(item)
+        }
+    }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let other = other as? Self else { return false }
+        
+        if self.items != other.items {
+            return false
+        }
+
+        return true
+    }
+
+}
+
+
+public enum FeaturesForUnionArray: Codable, ATProtocolCodable, ATProtocolValue {
     case mention(Mention)
     case link(Link)
     case tag(Tag)
@@ -473,7 +508,7 @@ public enum Features: Codable, ATProtocolCodable, ATProtocolValue {
     }
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
-        guard let otherValue = other as? Features else { return false }
+        guard let otherValue = other as? FeaturesForUnionArray else { return false }
 
         switch (self, otherValue) {
         case (.mention(let selfValue), 

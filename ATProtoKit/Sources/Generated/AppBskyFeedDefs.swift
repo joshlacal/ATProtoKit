@@ -1948,637 +1948,644 @@ public struct Interaction: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum PostViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyEmbedImagesView(AppBskyEmbedImages.View)
-                case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
-                case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
-                case appBskyEmbedRecordWithMediaView(AppBskyEmbedRecordWithMedia.View)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyEmbedImagesView(AppBskyEmbedImages.View)
+    case appBskyEmbedExternalView(AppBskyEmbedExternal.View)
+    case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
+    case appBskyEmbedRecordWithMediaView(AppBskyEmbedRecordWithMedia.View)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("PostViewEmbedUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("PostViewEmbedUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.embed.images#view":
-                        print("Decoding as app.bsky.embed.images#view")
-                        let value = try AppBskyEmbedImages.View(from: decoder)
-                        self = .appBskyEmbedImagesView(value)
-                    case "app.bsky.embed.external#view":
-                        print("Decoding as app.bsky.embed.external#view")
-                        let value = try AppBskyEmbedExternal.View(from: decoder)
-                        self = .appBskyEmbedExternalView(value)
-                    case "app.bsky.embed.record#view":
-                        print("Decoding as app.bsky.embed.record#view")
-                        let value = try AppBskyEmbedRecord.View(from: decoder)
-                        self = .appBskyEmbedRecordView(value)
-                    case "app.bsky.embed.recordWithMedia#view":
-                        print("Decoding as app.bsky.embed.recordWithMedia#view")
-                        let value = try AppBskyEmbedRecordWithMedia.View(from: decoder)
-                        self = .appBskyEmbedRecordWithMediaView(value)
-                    default:
-                        print("PostViewEmbedUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.embed.images#view":
+            print("Decoding as app.bsky.embed.images#view")
+            let value = try AppBskyEmbedImages.View(from: decoder)
+            self = .appBskyEmbedImagesView(value)
+        case "app.bsky.embed.external#view":
+            print("Decoding as app.bsky.embed.external#view")
+            let value = try AppBskyEmbedExternal.View(from: decoder)
+            self = .appBskyEmbedExternalView(value)
+        case "app.bsky.embed.record#view":
+            print("Decoding as app.bsky.embed.record#view")
+            let value = try AppBskyEmbedRecord.View(from: decoder)
+            self = .appBskyEmbedRecordView(value)
+        case "app.bsky.embed.recordWithMedia#view":
+            print("Decoding as app.bsky.embed.recordWithMedia#view")
+            let value = try AppBskyEmbedRecordWithMedia.View(from: decoder)
+            self = .appBskyEmbedRecordWithMediaView(value)
+        default:
+            print("PostViewEmbedUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyEmbedImagesView(let value):
-                        print("Encoding app.bsky.embed.images#view")
-                        try container.encode("app.bsky.embed.images#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedExternalView(let value):
-                        print("Encoding app.bsky.embed.external#view")
-                        try container.encode("app.bsky.embed.external#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordView(let value):
-                        print("Encoding app.bsky.embed.record#view")
-                        try container.encode("app.bsky.embed.record#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyEmbedRecordWithMediaView(let value):
-                        print("Encoding app.bsky.embed.recordWithMedia#view")
-                        try container.encode("app.bsky.embed.recordWithMedia#view", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("PostViewEmbedUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyEmbedImagesView(let value):
+            print("Encoding app.bsky.embed.images#view")
+            try container.encode("app.bsky.embed.images#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedExternalView(let value):
+            print("Encoding app.bsky.embed.external#view")
+            try container.encode("app.bsky.embed.external#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordView(let value):
+            print("Encoding app.bsky.embed.record#view")
+            try container.encode("app.bsky.embed.record#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyEmbedRecordWithMediaView(let value):
+            print("Encoding app.bsky.embed.recordWithMedia#view")
+            try container.encode("app.bsky.embed.recordWithMedia#view", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("PostViewEmbedUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyEmbedImagesView(let value):
-                        hasher.combine("app.bsky.embed.images#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedExternalView(let value):
-                        hasher.combine("app.bsky.embed.external#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordView(let value):
-                        hasher.combine("app.bsky.embed.record#view")
-                        hasher.combine(value)
-                    case .appBskyEmbedRecordWithMediaView(let value):
-                        hasher.combine("app.bsky.embed.recordWithMedia#view")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyEmbedImagesView(let value):
+            hasher.combine("app.bsky.embed.images#view")
+            hasher.combine(value)
+        case .appBskyEmbedExternalView(let value):
+            hasher.combine("app.bsky.embed.external#view")
+            hasher.combine(value)
+        case .appBskyEmbedRecordView(let value):
+            hasher.combine("app.bsky.embed.record#view")
+            hasher.combine(value)
+        case .appBskyEmbedRecordWithMediaView(let value):
+            hasher.combine("app.bsky.embed.recordWithMedia#view")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? PostViewEmbedUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? PostViewEmbedUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyEmbedImagesView(let selfValue), 
-                            .appBskyEmbedImagesView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedExternalView(let selfValue), 
-                            .appBskyEmbedExternalView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordView(let selfValue), 
-                            .appBskyEmbedRecordView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyEmbedRecordWithMediaView(let selfValue), 
-                            .appBskyEmbedRecordWithMediaView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyEmbedImagesView(let selfValue), 
+                .appBskyEmbedImagesView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedExternalView(let selfValue), 
+                .appBskyEmbedExternalView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordView(let selfValue), 
+                .appBskyEmbedRecordView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyEmbedRecordWithMediaView(let selfValue), 
+                .appBskyEmbedRecordWithMediaView(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum FeedViewPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsReasonRepost(AppBskyFeedDefs.ReasonRepost)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyFeedDefsReasonRepost(AppBskyFeedDefs.ReasonRepost)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("FeedViewPostReasonUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("FeedViewPostReasonUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#reasonRepost":
-                        print("Decoding as app.bsky.feed.defs#reasonRepost")
-                        let value = try AppBskyFeedDefs.ReasonRepost(from: decoder)
-                        self = .appBskyFeedDefsReasonRepost(value)
-                    default:
-                        print("FeedViewPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.defs#reasonRepost":
+            print("Decoding as app.bsky.feed.defs#reasonRepost")
+            let value = try AppBskyFeedDefs.ReasonRepost(from: decoder)
+            self = .appBskyFeedDefsReasonRepost(value)
+        default:
+            print("FeedViewPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedDefsReasonRepost(let value):
-                        print("Encoding app.bsky.feed.defs#reasonRepost")
-                        try container.encode("app.bsky.feed.defs#reasonRepost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("FeedViewPostReasonUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyFeedDefsReasonRepost(let value):
+            print("Encoding app.bsky.feed.defs#reasonRepost")
+            try container.encode("app.bsky.feed.defs#reasonRepost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("FeedViewPostReasonUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsReasonRepost(let value):
-                        hasher.combine("app.bsky.feed.defs#reasonRepost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsReasonRepost(let value):
+            hasher.combine("app.bsky.feed.defs#reasonRepost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? FeedViewPostReasonUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? FeedViewPostReasonUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsReasonRepost(let selfValue), 
-                            .appBskyFeedDefsReasonRepost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsReasonRepost(let selfValue), 
+                .appBskyFeedDefsReasonRepost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ReplyRefRootUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
-                case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
-                case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
+    case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
+    case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ReplyRefRootUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ReplyRefRootUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#postView":
-                        print("Decoding as app.bsky.feed.defs#postView")
-                        let value = try AppBskyFeedDefs.PostView(from: decoder)
-                        self = .appBskyFeedDefsPostView(value)
-                    case "app.bsky.feed.defs#notFoundPost":
-                        print("Decoding as app.bsky.feed.defs#notFoundPost")
-                        let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
-                        self = .appBskyFeedDefsNotFoundPost(value)
-                    case "app.bsky.feed.defs#blockedPost":
-                        print("Decoding as app.bsky.feed.defs#blockedPost")
-                        let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
-                        self = .appBskyFeedDefsBlockedPost(value)
-                    default:
-                        print("ReplyRefRootUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.defs#postView":
+            print("Decoding as app.bsky.feed.defs#postView")
+            let value = try AppBskyFeedDefs.PostView(from: decoder)
+            self = .appBskyFeedDefsPostView(value)
+        case "app.bsky.feed.defs#notFoundPost":
+            print("Decoding as app.bsky.feed.defs#notFoundPost")
+            let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
+            self = .appBskyFeedDefsNotFoundPost(value)
+        case "app.bsky.feed.defs#blockedPost":
+            print("Decoding as app.bsky.feed.defs#blockedPost")
+            let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
+            self = .appBskyFeedDefsBlockedPost(value)
+        default:
+            print("ReplyRefRootUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedDefsPostView(let value):
-                        print("Encoding app.bsky.feed.defs#postView")
-                        try container.encode("app.bsky.feed.defs#postView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        print("Encoding app.bsky.feed.defs#notFoundPost")
-                        try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        print("Encoding app.bsky.feed.defs#blockedPost")
-                        try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ReplyRefRootUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyFeedDefsPostView(let value):
+            print("Encoding app.bsky.feed.defs#postView")
+            try container.encode("app.bsky.feed.defs#postView", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            print("Encoding app.bsky.feed.defs#notFoundPost")
+            try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsBlockedPost(let value):
+            print("Encoding app.bsky.feed.defs#blockedPost")
+            try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ReplyRefRootUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsPostView(let value):
-                        hasher.combine("app.bsky.feed.defs#postView")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        hasher.combine("app.bsky.feed.defs#notFoundPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        hasher.combine("app.bsky.feed.defs#blockedPost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsPostView(let value):
+            hasher.combine("app.bsky.feed.defs#postView")
+            hasher.combine(value)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            hasher.combine("app.bsky.feed.defs#notFoundPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsBlockedPost(let value):
+            hasher.combine("app.bsky.feed.defs#blockedPost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ReplyRefRootUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ReplyRefRootUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsPostView(let selfValue), 
-                            .appBskyFeedDefsPostView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsNotFoundPost(let selfValue), 
-                            .appBskyFeedDefsNotFoundPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsBlockedPost(let selfValue), 
-                            .appBskyFeedDefsBlockedPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsPostView(let selfValue), 
+                .appBskyFeedDefsPostView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsNotFoundPost(let selfValue), 
+                .appBskyFeedDefsNotFoundPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsBlockedPost(let selfValue), 
+                .appBskyFeedDefsBlockedPost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ReplyRefParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
-                case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
-                case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyFeedDefsPostView(AppBskyFeedDefs.PostView)
+    case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
+    case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ReplyRefParentUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ReplyRefParentUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#postView":
-                        print("Decoding as app.bsky.feed.defs#postView")
-                        let value = try AppBskyFeedDefs.PostView(from: decoder)
-                        self = .appBskyFeedDefsPostView(value)
-                    case "app.bsky.feed.defs#notFoundPost":
-                        print("Decoding as app.bsky.feed.defs#notFoundPost")
-                        let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
-                        self = .appBskyFeedDefsNotFoundPost(value)
-                    case "app.bsky.feed.defs#blockedPost":
-                        print("Decoding as app.bsky.feed.defs#blockedPost")
-                        let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
-                        self = .appBskyFeedDefsBlockedPost(value)
-                    default:
-                        print("ReplyRefParentUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.defs#postView":
+            print("Decoding as app.bsky.feed.defs#postView")
+            let value = try AppBskyFeedDefs.PostView(from: decoder)
+            self = .appBskyFeedDefsPostView(value)
+        case "app.bsky.feed.defs#notFoundPost":
+            print("Decoding as app.bsky.feed.defs#notFoundPost")
+            let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
+            self = .appBskyFeedDefsNotFoundPost(value)
+        case "app.bsky.feed.defs#blockedPost":
+            print("Decoding as app.bsky.feed.defs#blockedPost")
+            let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
+            self = .appBskyFeedDefsBlockedPost(value)
+        default:
+            print("ReplyRefParentUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedDefsPostView(let value):
-                        print("Encoding app.bsky.feed.defs#postView")
-                        try container.encode("app.bsky.feed.defs#postView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        print("Encoding app.bsky.feed.defs#notFoundPost")
-                        try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        print("Encoding app.bsky.feed.defs#blockedPost")
-                        try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ReplyRefParentUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyFeedDefsPostView(let value):
+            print("Encoding app.bsky.feed.defs#postView")
+            try container.encode("app.bsky.feed.defs#postView", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            print("Encoding app.bsky.feed.defs#notFoundPost")
+            try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsBlockedPost(let value):
+            print("Encoding app.bsky.feed.defs#blockedPost")
+            try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ReplyRefParentUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsPostView(let value):
-                        hasher.combine("app.bsky.feed.defs#postView")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        hasher.combine("app.bsky.feed.defs#notFoundPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        hasher.combine("app.bsky.feed.defs#blockedPost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsPostView(let value):
+            hasher.combine("app.bsky.feed.defs#postView")
+            hasher.combine(value)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            hasher.combine("app.bsky.feed.defs#notFoundPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsBlockedPost(let value):
+            hasher.combine("app.bsky.feed.defs#blockedPost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ReplyRefParentUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ReplyRefParentUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsPostView(let selfValue), 
-                            .appBskyFeedDefsPostView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsNotFoundPost(let selfValue), 
-                            .appBskyFeedDefsNotFoundPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsBlockedPost(let selfValue), 
-                            .appBskyFeedDefsBlockedPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsPostView(let selfValue), 
+                .appBskyFeedDefsPostView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsNotFoundPost(let selfValue), 
+                .appBskyFeedDefsNotFoundPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsBlockedPost(let selfValue), 
+                .appBskyFeedDefsBlockedPost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
-                case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
-                case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ThreadViewPostParentUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#threadViewPost":
-                        print("Decoding as app.bsky.feed.defs#threadViewPost")
-                        let value = try AppBskyFeedDefs.ThreadViewPost(from: decoder)
-                        self = .appBskyFeedDefsThreadViewPost(value)
-                    case "app.bsky.feed.defs#notFoundPost":
-                        print("Decoding as app.bsky.feed.defs#notFoundPost")
-                        let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
-                        self = .appBskyFeedDefsNotFoundPost(value)
-                    case "app.bsky.feed.defs#blockedPost":
-                        print("Decoding as app.bsky.feed.defs#blockedPost")
-                        let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
-                        self = .appBskyFeedDefsBlockedPost(value)
-                    default:
-                        print("ThreadViewPostParentUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+public indirect enum ThreadViewPostParentUnion: Codable, ATProtocolCodable, ATProtocolValue {
+    case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
+    case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
+    case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
+    case unexpected(ATProtocolValueContainer)
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ThreadViewPostParentUnion decoding: \(typeValue)")
 
-                    switch self {
-                    case .appBskyFeedDefsThreadViewPost(let value):
-                        print("Encoding app.bsky.feed.defs#threadViewPost")
-                        try container.encode("app.bsky.feed.defs#threadViewPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        print("Encoding app.bsky.feed.defs#notFoundPost")
-                        try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        print("Encoding app.bsky.feed.defs#blockedPost")
-                        try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ThreadViewPostParentUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.defs#threadViewPost":
+            print("Decoding as app.bsky.feed.defs#threadViewPost")
+            let value = try AppBskyFeedDefs.ThreadViewPost(from: decoder)
+            self = .appBskyFeedDefsThreadViewPost(value)
+        case "app.bsky.feed.defs#notFoundPost":
+            print("Decoding as app.bsky.feed.defs#notFoundPost")
+            let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
+            self = .appBskyFeedDefsNotFoundPost(value)
+        case "app.bsky.feed.defs#blockedPost":
+            print("Decoding as app.bsky.feed.defs#blockedPost")
+            let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
+            self = .appBskyFeedDefsBlockedPost(value)
+        default:
+            print("ThreadViewPostParentUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsThreadViewPost(let value):
-                        hasher.combine("app.bsky.feed.defs#threadViewPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        hasher.combine("app.bsky.feed.defs#notFoundPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        hasher.combine("app.bsky.feed.defs#blockedPost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ThreadViewPostParentUnion else { return false }
+        switch self {
+        case .appBskyFeedDefsThreadViewPost(let value):
+            print("Encoding app.bsky.feed.defs#threadViewPost")
+            try container.encode("app.bsky.feed.defs#threadViewPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            print("Encoding app.bsky.feed.defs#notFoundPost")
+            try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsBlockedPost(let value):
+            print("Encoding app.bsky.feed.defs#blockedPost")
+            try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ThreadViewPostParentUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsThreadViewPost(let selfValue), 
-                            .appBskyFeedDefsThreadViewPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsNotFoundPost(let selfValue), 
-                            .appBskyFeedDefsNotFoundPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsBlockedPost(let selfValue), 
-                            .appBskyFeedDefsBlockedPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsThreadViewPost(let value):
+            hasher.combine("app.bsky.feed.defs#threadViewPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            hasher.combine("app.bsky.feed.defs#notFoundPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsBlockedPost(let value):
+            hasher.combine("app.bsky.feed.defs#blockedPost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-            // Union Type
-            public indirect enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
-                case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
-                case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
-                case unexpected(ATProtocolValueContainer)
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ThreadViewPostParentUnion else { return false }
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ThreadViewPostRepliesUnion decoding: \(typeValue)")
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsThreadViewPost(let selfValue), 
+                .appBskyFeedDefsThreadViewPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsNotFoundPost(let selfValue), 
+                .appBskyFeedDefsNotFoundPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsBlockedPost(let selfValue), 
+                .appBskyFeedDefsBlockedPost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#threadViewPost":
-                        print("Decoding as app.bsky.feed.defs#threadViewPost")
-                        let value = try AppBskyFeedDefs.ThreadViewPost(from: decoder)
-                        self = .appBskyFeedDefsThreadViewPost(value)
-                    case "app.bsky.feed.defs#notFoundPost":
-                        print("Decoding as app.bsky.feed.defs#notFoundPost")
-                        let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
-                        self = .appBskyFeedDefsNotFoundPost(value)
-                    case "app.bsky.feed.defs#blockedPost":
-                        print("Decoding as app.bsky.feed.defs#blockedPost")
-                        let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
-                        self = .appBskyFeedDefsBlockedPost(value)
-                    default:
-                        print("ThreadViewPostRepliesUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedDefsThreadViewPost(let value):
-                        print("Encoding app.bsky.feed.defs#threadViewPost")
-                        try container.encode("app.bsky.feed.defs#threadViewPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        print("Encoding app.bsky.feed.defs#notFoundPost")
-                        try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        print("Encoding app.bsky.feed.defs#blockedPost")
-                        try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ThreadViewPostRepliesUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+public indirect enum ThreadViewPostRepliesUnion: Codable, ATProtocolCodable, ATProtocolValue {
+    case appBskyFeedDefsThreadViewPost(AppBskyFeedDefs.ThreadViewPost)
+    case appBskyFeedDefsNotFoundPost(AppBskyFeedDefs.NotFoundPost)
+    case appBskyFeedDefsBlockedPost(AppBskyFeedDefs.BlockedPost)
+    case unexpected(ATProtocolValueContainer)
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsThreadViewPost(let value):
-                        hasher.combine("app.bsky.feed.defs#threadViewPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsNotFoundPost(let value):
-                        hasher.combine("app.bsky.feed.defs#notFoundPost")
-                        hasher.combine(value)
-                    case .appBskyFeedDefsBlockedPost(let value):
-                        hasher.combine("app.bsky.feed.defs#blockedPost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ThreadViewPostRepliesUnion decoding: \(typeValue)")
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ThreadViewPostRepliesUnion else { return false }
+        switch typeValue {
+        case "app.bsky.feed.defs#threadViewPost":
+            print("Decoding as app.bsky.feed.defs#threadViewPost")
+            let value = try AppBskyFeedDefs.ThreadViewPost(from: decoder)
+            self = .appBskyFeedDefsThreadViewPost(value)
+        case "app.bsky.feed.defs#notFoundPost":
+            print("Decoding as app.bsky.feed.defs#notFoundPost")
+            let value = try AppBskyFeedDefs.NotFoundPost(from: decoder)
+            self = .appBskyFeedDefsNotFoundPost(value)
+        case "app.bsky.feed.defs#blockedPost":
+            print("Decoding as app.bsky.feed.defs#blockedPost")
+            let value = try AppBskyFeedDefs.BlockedPost(from: decoder)
+            self = .appBskyFeedDefsBlockedPost(value)
+        default:
+            print("ThreadViewPostRepliesUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsThreadViewPost(let selfValue), 
-                            .appBskyFeedDefsThreadViewPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsNotFoundPost(let selfValue), 
-                            .appBskyFeedDefsNotFoundPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.appBskyFeedDefsBlockedPost(let selfValue), 
-                            .appBskyFeedDefsBlockedPost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-            // Union Type
-            
+        switch self {
+        case .appBskyFeedDefsThreadViewPost(let value):
+            print("Encoding app.bsky.feed.defs#threadViewPost")
+            try container.encode("app.bsky.feed.defs#threadViewPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            print("Encoding app.bsky.feed.defs#notFoundPost")
+            try container.encode("app.bsky.feed.defs#notFoundPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .appBskyFeedDefsBlockedPost(let value):
+            print("Encoding app.bsky.feed.defs#blockedPost")
+            try container.encode("app.bsky.feed.defs#blockedPost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ThreadViewPostRepliesUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsThreadViewPost(let value):
+            hasher.combine("app.bsky.feed.defs#threadViewPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsNotFoundPost(let value):
+            hasher.combine("app.bsky.feed.defs#notFoundPost")
+            hasher.combine(value)
+        case .appBskyFeedDefsBlockedPost(let value):
+            hasher.combine("app.bsky.feed.defs#blockedPost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ThreadViewPostRepliesUnion else { return false }
+
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsThreadViewPost(let selfValue), 
+                .appBskyFeedDefsThreadViewPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsNotFoundPost(let selfValue), 
+                .appBskyFeedDefsNotFoundPost(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyFeedDefsBlockedPost(let selfValue), 
+                .appBskyFeedDefsBlockedPost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
+
+
+
+
 public enum SkeletonFeedPostReasonUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case appBskyFeedDefsSkeletonReasonRepost(AppBskyFeedDefs.SkeletonReasonRepost)
-                case unexpected(ATProtocolValueContainer)
+    case appBskyFeedDefsSkeletonReasonRepost(AppBskyFeedDefs.SkeletonReasonRepost)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("SkeletonFeedPostReasonUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("SkeletonFeedPostReasonUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "app.bsky.feed.defs#skeletonReasonRepost":
-                        print("Decoding as app.bsky.feed.defs#skeletonReasonRepost")
-                        let value = try AppBskyFeedDefs.SkeletonReasonRepost(from: decoder)
-                        self = .appBskyFeedDefsSkeletonReasonRepost(value)
-                    default:
-                        print("SkeletonFeedPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "app.bsky.feed.defs#skeletonReasonRepost":
+            print("Decoding as app.bsky.feed.defs#skeletonReasonRepost")
+            let value = try AppBskyFeedDefs.SkeletonReasonRepost(from: decoder)
+            self = .appBskyFeedDefsSkeletonReasonRepost(value)
+        default:
+            print("SkeletonFeedPostReasonUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .appBskyFeedDefsSkeletonReasonRepost(let value):
-                        print("Encoding app.bsky.feed.defs#skeletonReasonRepost")
-                        try container.encode("app.bsky.feed.defs#skeletonReasonRepost", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("SkeletonFeedPostReasonUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .appBskyFeedDefsSkeletonReasonRepost(let value):
+            print("Encoding app.bsky.feed.defs#skeletonReasonRepost")
+            try container.encode("app.bsky.feed.defs#skeletonReasonRepost", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("SkeletonFeedPostReasonUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .appBskyFeedDefsSkeletonReasonRepost(let value):
-                        hasher.combine("app.bsky.feed.defs#skeletonReasonRepost")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .appBskyFeedDefsSkeletonReasonRepost(let value):
+            hasher.combine("app.bsky.feed.defs#skeletonReasonRepost")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? SkeletonFeedPostReasonUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? SkeletonFeedPostReasonUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.appBskyFeedDefsSkeletonReasonRepost(let selfValue), 
-                            .appBskyFeedDefsSkeletonReasonRepost(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.appBskyFeedDefsSkeletonReasonRepost(let selfValue), 
+                .appBskyFeedDefsSkeletonReasonRepost(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }

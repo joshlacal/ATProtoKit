@@ -1,5 +1,38 @@
 // Union Array Type
-public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, ATProtocolValue {
+
+public struct {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, ATProtocolValue {
+    var items: [{{ union_name | convertRefToSwift }}ForUnionArray]
+
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        var items = [{{ union_name | convertRefToSwift }}ForUnionArray]()
+        while !container.isAtEnd {
+            let item = try container.decode({{ union_name | convertRefToSwift }}ForUnionArray.self)
+            items.append(item)
+        }
+        self.items = items
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        for item in items {
+            try container.encode(item)
+        }
+    }
+
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let other = other as? Self else { return false }
+        
+        if self.items != other.items {
+            return false
+        }
+
+        return true
+    }
+
+}
+
+public enum {{ union_name | convertRefToSwift }}ForUnionArray: Codable, ATProtocolCodable, ATProtocolValue {
     {%- for ref in refs %}
     case {{ ref.camel_case_label | lowerCamelCase }}({{ ref.swift_ref }})
     {%- endfor %}
@@ -49,7 +82,7 @@ public enum {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, AT
     }
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
-        guard let otherValue = other as? {{ union_name | convertRefToSwift }} else { return false }
+        guard let otherValue = other as? {{ union_name | convertRefToSwift }}ForUnionArray else { return false }
 
         switch (self, otherValue) {
         {%- for ref in refs %}

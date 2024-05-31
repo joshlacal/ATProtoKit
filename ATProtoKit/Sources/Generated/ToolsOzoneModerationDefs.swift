@@ -3576,820 +3576,825 @@ public struct VideoDetails: ATProtocolCodable, ATProtocolValue {
     }
 
 
-            // Union Type
-            
+
+
+
 public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case toolsOzoneModerationDefsModEventTakedown(ToolsOzoneModerationDefs.ModEventTakedown)
-                case toolsOzoneModerationDefsModEventReverseTakedown(ToolsOzoneModerationDefs.ModEventReverseTakedown)
-                case toolsOzoneModerationDefsModEventComment(ToolsOzoneModerationDefs.ModEventComment)
-                case toolsOzoneModerationDefsModEventReport(ToolsOzoneModerationDefs.ModEventReport)
-                case toolsOzoneModerationDefsModEventLabel(ToolsOzoneModerationDefs.ModEventLabel)
-                case toolsOzoneModerationDefsModEventAcknowledge(ToolsOzoneModerationDefs.ModEventAcknowledge)
-                case toolsOzoneModerationDefsModEventEscalate(ToolsOzoneModerationDefs.ModEventEscalate)
-                case toolsOzoneModerationDefsModEventMute(ToolsOzoneModerationDefs.ModEventMute)
-                case toolsOzoneModerationDefsModEventUnmute(ToolsOzoneModerationDefs.ModEventUnmute)
-                case toolsOzoneModerationDefsModEventMuteReporter(ToolsOzoneModerationDefs.ModEventMuteReporter)
-                case toolsOzoneModerationDefsModEventUnmuteReporter(ToolsOzoneModerationDefs.ModEventUnmuteReporter)
-                case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
-                case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
-                case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
-                case unexpected(ATProtocolValueContainer)
+    case toolsOzoneModerationDefsModEventTakedown(ToolsOzoneModerationDefs.ModEventTakedown)
+    case toolsOzoneModerationDefsModEventReverseTakedown(ToolsOzoneModerationDefs.ModEventReverseTakedown)
+    case toolsOzoneModerationDefsModEventComment(ToolsOzoneModerationDefs.ModEventComment)
+    case toolsOzoneModerationDefsModEventReport(ToolsOzoneModerationDefs.ModEventReport)
+    case toolsOzoneModerationDefsModEventLabel(ToolsOzoneModerationDefs.ModEventLabel)
+    case toolsOzoneModerationDefsModEventAcknowledge(ToolsOzoneModerationDefs.ModEventAcknowledge)
+    case toolsOzoneModerationDefsModEventEscalate(ToolsOzoneModerationDefs.ModEventEscalate)
+    case toolsOzoneModerationDefsModEventMute(ToolsOzoneModerationDefs.ModEventMute)
+    case toolsOzoneModerationDefsModEventUnmute(ToolsOzoneModerationDefs.ModEventUnmute)
+    case toolsOzoneModerationDefsModEventMuteReporter(ToolsOzoneModerationDefs.ModEventMuteReporter)
+    case toolsOzoneModerationDefsModEventUnmuteReporter(ToolsOzoneModerationDefs.ModEventUnmuteReporter)
+    case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
+    case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
+    case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ModEventViewEventUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ModEventViewEventUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "tools.ozone.moderation.defs#modEventTakedown":
-                        print("Decoding as tools.ozone.moderation.defs#modEventTakedown")
-                        let value = try ToolsOzoneModerationDefs.ModEventTakedown(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventTakedown(value)
-                    case "tools.ozone.moderation.defs#modEventReverseTakedown":
-                        print("Decoding as tools.ozone.moderation.defs#modEventReverseTakedown")
-                        let value = try ToolsOzoneModerationDefs.ModEventReverseTakedown(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventReverseTakedown(value)
-                    case "tools.ozone.moderation.defs#modEventComment":
-                        print("Decoding as tools.ozone.moderation.defs#modEventComment")
-                        let value = try ToolsOzoneModerationDefs.ModEventComment(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventComment(value)
-                    case "tools.ozone.moderation.defs#modEventReport":
-                        print("Decoding as tools.ozone.moderation.defs#modEventReport")
-                        let value = try ToolsOzoneModerationDefs.ModEventReport(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventReport(value)
-                    case "tools.ozone.moderation.defs#modEventLabel":
-                        print("Decoding as tools.ozone.moderation.defs#modEventLabel")
-                        let value = try ToolsOzoneModerationDefs.ModEventLabel(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventLabel(value)
-                    case "tools.ozone.moderation.defs#modEventAcknowledge":
-                        print("Decoding as tools.ozone.moderation.defs#modEventAcknowledge")
-                        let value = try ToolsOzoneModerationDefs.ModEventAcknowledge(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventAcknowledge(value)
-                    case "tools.ozone.moderation.defs#modEventEscalate":
-                        print("Decoding as tools.ozone.moderation.defs#modEventEscalate")
-                        let value = try ToolsOzoneModerationDefs.ModEventEscalate(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventEscalate(value)
-                    case "tools.ozone.moderation.defs#modEventMute":
-                        print("Decoding as tools.ozone.moderation.defs#modEventMute")
-                        let value = try ToolsOzoneModerationDefs.ModEventMute(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventMute(value)
-                    case "tools.ozone.moderation.defs#modEventUnmute":
-                        print("Decoding as tools.ozone.moderation.defs#modEventUnmute")
-                        let value = try ToolsOzoneModerationDefs.ModEventUnmute(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventUnmute(value)
-                    case "tools.ozone.moderation.defs#modEventMuteReporter":
-                        print("Decoding as tools.ozone.moderation.defs#modEventMuteReporter")
-                        let value = try ToolsOzoneModerationDefs.ModEventMuteReporter(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventMuteReporter(value)
-                    case "tools.ozone.moderation.defs#modEventUnmuteReporter":
-                        print("Decoding as tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        let value = try ToolsOzoneModerationDefs.ModEventUnmuteReporter(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventUnmuteReporter(value)
-                    case "tools.ozone.moderation.defs#modEventEmail":
-                        print("Decoding as tools.ozone.moderation.defs#modEventEmail")
-                        let value = try ToolsOzoneModerationDefs.ModEventEmail(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventEmail(value)
-                    case "tools.ozone.moderation.defs#modEventResolveAppeal":
-                        print("Decoding as tools.ozone.moderation.defs#modEventResolveAppeal")
-                        let value = try ToolsOzoneModerationDefs.ModEventResolveAppeal(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventResolveAppeal(value)
-                    case "tools.ozone.moderation.defs#modEventDivert":
-                        print("Decoding as tools.ozone.moderation.defs#modEventDivert")
-                        let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventDivert(value)
-                    default:
-                        print("ModEventViewEventUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "tools.ozone.moderation.defs#modEventTakedown":
+            print("Decoding as tools.ozone.moderation.defs#modEventTakedown")
+            let value = try ToolsOzoneModerationDefs.ModEventTakedown(from: decoder)
+            self = .toolsOzoneModerationDefsModEventTakedown(value)
+        case "tools.ozone.moderation.defs#modEventReverseTakedown":
+            print("Decoding as tools.ozone.moderation.defs#modEventReverseTakedown")
+            let value = try ToolsOzoneModerationDefs.ModEventReverseTakedown(from: decoder)
+            self = .toolsOzoneModerationDefsModEventReverseTakedown(value)
+        case "tools.ozone.moderation.defs#modEventComment":
+            print("Decoding as tools.ozone.moderation.defs#modEventComment")
+            let value = try ToolsOzoneModerationDefs.ModEventComment(from: decoder)
+            self = .toolsOzoneModerationDefsModEventComment(value)
+        case "tools.ozone.moderation.defs#modEventReport":
+            print("Decoding as tools.ozone.moderation.defs#modEventReport")
+            let value = try ToolsOzoneModerationDefs.ModEventReport(from: decoder)
+            self = .toolsOzoneModerationDefsModEventReport(value)
+        case "tools.ozone.moderation.defs#modEventLabel":
+            print("Decoding as tools.ozone.moderation.defs#modEventLabel")
+            let value = try ToolsOzoneModerationDefs.ModEventLabel(from: decoder)
+            self = .toolsOzoneModerationDefsModEventLabel(value)
+        case "tools.ozone.moderation.defs#modEventAcknowledge":
+            print("Decoding as tools.ozone.moderation.defs#modEventAcknowledge")
+            let value = try ToolsOzoneModerationDefs.ModEventAcknowledge(from: decoder)
+            self = .toolsOzoneModerationDefsModEventAcknowledge(value)
+        case "tools.ozone.moderation.defs#modEventEscalate":
+            print("Decoding as tools.ozone.moderation.defs#modEventEscalate")
+            let value = try ToolsOzoneModerationDefs.ModEventEscalate(from: decoder)
+            self = .toolsOzoneModerationDefsModEventEscalate(value)
+        case "tools.ozone.moderation.defs#modEventMute":
+            print("Decoding as tools.ozone.moderation.defs#modEventMute")
+            let value = try ToolsOzoneModerationDefs.ModEventMute(from: decoder)
+            self = .toolsOzoneModerationDefsModEventMute(value)
+        case "tools.ozone.moderation.defs#modEventUnmute":
+            print("Decoding as tools.ozone.moderation.defs#modEventUnmute")
+            let value = try ToolsOzoneModerationDefs.ModEventUnmute(from: decoder)
+            self = .toolsOzoneModerationDefsModEventUnmute(value)
+        case "tools.ozone.moderation.defs#modEventMuteReporter":
+            print("Decoding as tools.ozone.moderation.defs#modEventMuteReporter")
+            let value = try ToolsOzoneModerationDefs.ModEventMuteReporter(from: decoder)
+            self = .toolsOzoneModerationDefsModEventMuteReporter(value)
+        case "tools.ozone.moderation.defs#modEventUnmuteReporter":
+            print("Decoding as tools.ozone.moderation.defs#modEventUnmuteReporter")
+            let value = try ToolsOzoneModerationDefs.ModEventUnmuteReporter(from: decoder)
+            self = .toolsOzoneModerationDefsModEventUnmuteReporter(value)
+        case "tools.ozone.moderation.defs#modEventEmail":
+            print("Decoding as tools.ozone.moderation.defs#modEventEmail")
+            let value = try ToolsOzoneModerationDefs.ModEventEmail(from: decoder)
+            self = .toolsOzoneModerationDefsModEventEmail(value)
+        case "tools.ozone.moderation.defs#modEventResolveAppeal":
+            print("Decoding as tools.ozone.moderation.defs#modEventResolveAppeal")
+            let value = try ToolsOzoneModerationDefs.ModEventResolveAppeal(from: decoder)
+            self = .toolsOzoneModerationDefsModEventResolveAppeal(value)
+        case "tools.ozone.moderation.defs#modEventDivert":
+            print("Decoding as tools.ozone.moderation.defs#modEventDivert")
+            let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
+            self = .toolsOzoneModerationDefsModEventDivert(value)
+        default:
+            print("ModEventViewEventUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .toolsOzoneModerationDefsModEventTakedown(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventTakedown")
-                        try container.encode("tools.ozone.moderation.defs#modEventTakedown", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventReverseTakedown")
-                        try container.encode("tools.ozone.moderation.defs#modEventReverseTakedown", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventComment(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventComment")
-                        try container.encode("tools.ozone.moderation.defs#modEventComment", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventReport(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventReport")
-                        try container.encode("tools.ozone.moderation.defs#modEventReport", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventLabel(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventLabel")
-                        try container.encode("tools.ozone.moderation.defs#modEventLabel", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventAcknowledge(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventAcknowledge")
-                        try container.encode("tools.ozone.moderation.defs#modEventAcknowledge", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventEscalate(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventEscalate")
-                        try container.encode("tools.ozone.moderation.defs#modEventEscalate", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventMute(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventMute")
-                        try container.encode("tools.ozone.moderation.defs#modEventMute", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventUnmute(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventUnmute")
-                        try container.encode("tools.ozone.moderation.defs#modEventUnmute", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventMuteReporter(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventMuteReporter")
-                        try container.encode("tools.ozone.moderation.defs#modEventMuteReporter", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        try container.encode("tools.ozone.moderation.defs#modEventUnmuteReporter", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventEmail(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventEmail")
-                        try container.encode("tools.ozone.moderation.defs#modEventEmail", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventResolveAppeal")
-                        try container.encode("tools.ozone.moderation.defs#modEventResolveAppeal", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventDivert(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventDivert")
-                        try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ModEventViewEventUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .toolsOzoneModerationDefsModEventTakedown(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventTakedown")
+            try container.encode("tools.ozone.moderation.defs#modEventTakedown", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventReverseTakedown")
+            try container.encode("tools.ozone.moderation.defs#modEventReverseTakedown", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventComment(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventComment")
+            try container.encode("tools.ozone.moderation.defs#modEventComment", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventReport(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventReport")
+            try container.encode("tools.ozone.moderation.defs#modEventReport", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventLabel(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventLabel")
+            try container.encode("tools.ozone.moderation.defs#modEventLabel", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventAcknowledge(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventAcknowledge")
+            try container.encode("tools.ozone.moderation.defs#modEventAcknowledge", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventEscalate(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventEscalate")
+            try container.encode("tools.ozone.moderation.defs#modEventEscalate", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventMute(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventMute")
+            try container.encode("tools.ozone.moderation.defs#modEventMute", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventUnmute(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventUnmute")
+            try container.encode("tools.ozone.moderation.defs#modEventUnmute", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventMuteReporter(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventMuteReporter")
+            try container.encode("tools.ozone.moderation.defs#modEventMuteReporter", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventUnmuteReporter")
+            try container.encode("tools.ozone.moderation.defs#modEventUnmuteReporter", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventEmail(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventEmail")
+            try container.encode("tools.ozone.moderation.defs#modEventEmail", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventResolveAppeal")
+            try container.encode("tools.ozone.moderation.defs#modEventResolveAppeal", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventDivert(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventDivert")
+            try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ModEventViewEventUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .toolsOzoneModerationDefsModEventTakedown(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventTakedown")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventReverseTakedown")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventComment(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventComment")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventReport(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventReport")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventLabel(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventLabel")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventAcknowledge(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventAcknowledge")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventEscalate(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventEscalate")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventMute(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventMute")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventUnmute(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventUnmute")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventMuteReporter(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventMuteReporter")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventEmail(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventEmail")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventResolveAppeal")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventDivert(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventDivert")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .toolsOzoneModerationDefsModEventTakedown(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventTakedown")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventReverseTakedown")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventComment(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventComment")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventReport(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventReport")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventLabel(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventLabel")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventAcknowledge(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventAcknowledge")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventEscalate(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventEscalate")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventMute(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventMute")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventUnmute(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventUnmute")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventMuteReporter(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventMuteReporter")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventUnmuteReporter")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventEmail(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventEmail")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventResolveAppeal")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventDivert(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventDivert")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ModEventViewEventUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ModEventViewEventUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.toolsOzoneModerationDefsModEventTakedown(let selfValue), 
-                            .toolsOzoneModerationDefsModEventTakedown(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventReverseTakedown(let selfValue), 
-                            .toolsOzoneModerationDefsModEventReverseTakedown(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventComment(let selfValue), 
-                            .toolsOzoneModerationDefsModEventComment(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventReport(let selfValue), 
-                            .toolsOzoneModerationDefsModEventReport(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventLabel(let selfValue), 
-                            .toolsOzoneModerationDefsModEventLabel(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventAcknowledge(let selfValue), 
-                            .toolsOzoneModerationDefsModEventAcknowledge(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventEscalate(let selfValue), 
-                            .toolsOzoneModerationDefsModEventEscalate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventMute(let selfValue), 
-                            .toolsOzoneModerationDefsModEventMute(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventUnmute(let selfValue), 
-                            .toolsOzoneModerationDefsModEventUnmute(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventMuteReporter(let selfValue), 
-                            .toolsOzoneModerationDefsModEventMuteReporter(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventUnmuteReporter(let selfValue), 
-                            .toolsOzoneModerationDefsModEventUnmuteReporter(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventEmail(let selfValue), 
-                            .toolsOzoneModerationDefsModEventEmail(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventResolveAppeal(let selfValue), 
-                            .toolsOzoneModerationDefsModEventResolveAppeal(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
-                            .toolsOzoneModerationDefsModEventDivert(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.toolsOzoneModerationDefsModEventTakedown(let selfValue), 
+                .toolsOzoneModerationDefsModEventTakedown(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventReverseTakedown(let selfValue), 
+                .toolsOzoneModerationDefsModEventReverseTakedown(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventComment(let selfValue), 
+                .toolsOzoneModerationDefsModEventComment(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventReport(let selfValue), 
+                .toolsOzoneModerationDefsModEventReport(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventLabel(let selfValue), 
+                .toolsOzoneModerationDefsModEventLabel(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventAcknowledge(let selfValue), 
+                .toolsOzoneModerationDefsModEventAcknowledge(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventEscalate(let selfValue), 
+                .toolsOzoneModerationDefsModEventEscalate(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventMute(let selfValue), 
+                .toolsOzoneModerationDefsModEventMute(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventUnmute(let selfValue), 
+                .toolsOzoneModerationDefsModEventUnmute(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventMuteReporter(let selfValue), 
+                .toolsOzoneModerationDefsModEventMuteReporter(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventUnmuteReporter(let selfValue), 
+                .toolsOzoneModerationDefsModEventUnmuteReporter(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventEmail(let selfValue), 
+                .toolsOzoneModerationDefsModEventEmail(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventResolveAppeal(let selfValue), 
+                .toolsOzoneModerationDefsModEventResolveAppeal(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
+                .toolsOzoneModerationDefsModEventDivert(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ModEventViewSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoAdminDefsRepoRef(ComAtprotoAdminDefs.RepoRef)
-                case comAtprotoRepoStrongRef(ComAtprotoRepoStrongRef)
-                case chatBskyConvoDefsMessageRef(ChatBskyConvoDefs.MessageRef)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoAdminDefsRepoRef(ComAtprotoAdminDefs.RepoRef)
+    case comAtprotoRepoStrongRef(ComAtprotoRepoStrongRef)
+    case chatBskyConvoDefsMessageRef(ChatBskyConvoDefs.MessageRef)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ModEventViewSubjectUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ModEventViewSubjectUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.admin.defs#repoRef":
-                        print("Decoding as com.atproto.admin.defs#repoRef")
-                        let value = try ComAtprotoAdminDefs.RepoRef(from: decoder)
-                        self = .comAtprotoAdminDefsRepoRef(value)
-                    case "com.atproto.repo.strongRef":
-                        print("Decoding as com.atproto.repo.strongRef")
-                        let value = try ComAtprotoRepoStrongRef(from: decoder)
-                        self = .comAtprotoRepoStrongRef(value)
-                    case "chat.bsky.convo.defs#messageRef":
-                        print("Decoding as chat.bsky.convo.defs#messageRef")
-                        let value = try ChatBskyConvoDefs.MessageRef(from: decoder)
-                        self = .chatBskyConvoDefsMessageRef(value)
-                    default:
-                        print("ModEventViewSubjectUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.admin.defs#repoRef":
+            print("Decoding as com.atproto.admin.defs#repoRef")
+            let value = try ComAtprotoAdminDefs.RepoRef(from: decoder)
+            self = .comAtprotoAdminDefsRepoRef(value)
+        case "com.atproto.repo.strongRef":
+            print("Decoding as com.atproto.repo.strongRef")
+            let value = try ComAtprotoRepoStrongRef(from: decoder)
+            self = .comAtprotoRepoStrongRef(value)
+        case "chat.bsky.convo.defs#messageRef":
+            print("Decoding as chat.bsky.convo.defs#messageRef")
+            let value = try ChatBskyConvoDefs.MessageRef(from: decoder)
+            self = .chatBskyConvoDefsMessageRef(value)
+        default:
+            print("ModEventViewSubjectUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoAdminDefsRepoRef(let value):
-                        print("Encoding com.atproto.admin.defs#repoRef")
-                        try container.encode("com.atproto.admin.defs#repoRef", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoStrongRef(let value):
-                        print("Encoding com.atproto.repo.strongRef")
-                        try container.encode("com.atproto.repo.strongRef", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .chatBskyConvoDefsMessageRef(let value):
-                        print("Encoding chat.bsky.convo.defs#messageRef")
-                        try container.encode("chat.bsky.convo.defs#messageRef", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ModEventViewSubjectUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoAdminDefsRepoRef(let value):
+            print("Encoding com.atproto.admin.defs#repoRef")
+            try container.encode("com.atproto.admin.defs#repoRef", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoStrongRef(let value):
+            print("Encoding com.atproto.repo.strongRef")
+            try container.encode("com.atproto.repo.strongRef", forKey: .type)
+            try value.encode(to: encoder)
+        case .chatBskyConvoDefsMessageRef(let value):
+            print("Encoding chat.bsky.convo.defs#messageRef")
+            try container.encode("chat.bsky.convo.defs#messageRef", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ModEventViewSubjectUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoAdminDefsRepoRef(let value):
-                        hasher.combine("com.atproto.admin.defs#repoRef")
-                        hasher.combine(value)
-                    case .comAtprotoRepoStrongRef(let value):
-                        hasher.combine("com.atproto.repo.strongRef")
-                        hasher.combine(value)
-                    case .chatBskyConvoDefsMessageRef(let value):
-                        hasher.combine("chat.bsky.convo.defs#messageRef")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoAdminDefsRepoRef(let value):
+            hasher.combine("com.atproto.admin.defs#repoRef")
+            hasher.combine(value)
+        case .comAtprotoRepoStrongRef(let value):
+            hasher.combine("com.atproto.repo.strongRef")
+            hasher.combine(value)
+        case .chatBskyConvoDefsMessageRef(let value):
+            hasher.combine("chat.bsky.convo.defs#messageRef")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ModEventViewSubjectUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ModEventViewSubjectUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoAdminDefsRepoRef(let selfValue), 
-                            .comAtprotoAdminDefsRepoRef(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoStrongRef(let selfValue), 
-                            .comAtprotoRepoStrongRef(let otherValue)):
-                            return selfValue == otherValue
-                        case (.chatBskyConvoDefsMessageRef(let selfValue), 
-                            .chatBskyConvoDefsMessageRef(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoAdminDefsRepoRef(let selfValue), 
+                .comAtprotoAdminDefsRepoRef(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoStrongRef(let selfValue), 
+                .comAtprotoRepoStrongRef(let otherValue)):
+                return selfValue == otherValue
+            case (.chatBskyConvoDefsMessageRef(let selfValue), 
+                .chatBskyConvoDefsMessageRef(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case toolsOzoneModerationDefsModEventTakedown(ToolsOzoneModerationDefs.ModEventTakedown)
-                case toolsOzoneModerationDefsModEventReverseTakedown(ToolsOzoneModerationDefs.ModEventReverseTakedown)
-                case toolsOzoneModerationDefsModEventComment(ToolsOzoneModerationDefs.ModEventComment)
-                case toolsOzoneModerationDefsModEventReport(ToolsOzoneModerationDefs.ModEventReport)
-                case toolsOzoneModerationDefsModEventLabel(ToolsOzoneModerationDefs.ModEventLabel)
-                case toolsOzoneModerationDefsModEventAcknowledge(ToolsOzoneModerationDefs.ModEventAcknowledge)
-                case toolsOzoneModerationDefsModEventEscalate(ToolsOzoneModerationDefs.ModEventEscalate)
-                case toolsOzoneModerationDefsModEventMute(ToolsOzoneModerationDefs.ModEventMute)
-                case toolsOzoneModerationDefsModEventUnmute(ToolsOzoneModerationDefs.ModEventUnmute)
-                case toolsOzoneModerationDefsModEventMuteReporter(ToolsOzoneModerationDefs.ModEventMuteReporter)
-                case toolsOzoneModerationDefsModEventUnmuteReporter(ToolsOzoneModerationDefs.ModEventUnmuteReporter)
-                case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
-                case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
-                case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
-                case unexpected(ATProtocolValueContainer)
+    case toolsOzoneModerationDefsModEventTakedown(ToolsOzoneModerationDefs.ModEventTakedown)
+    case toolsOzoneModerationDefsModEventReverseTakedown(ToolsOzoneModerationDefs.ModEventReverseTakedown)
+    case toolsOzoneModerationDefsModEventComment(ToolsOzoneModerationDefs.ModEventComment)
+    case toolsOzoneModerationDefsModEventReport(ToolsOzoneModerationDefs.ModEventReport)
+    case toolsOzoneModerationDefsModEventLabel(ToolsOzoneModerationDefs.ModEventLabel)
+    case toolsOzoneModerationDefsModEventAcknowledge(ToolsOzoneModerationDefs.ModEventAcknowledge)
+    case toolsOzoneModerationDefsModEventEscalate(ToolsOzoneModerationDefs.ModEventEscalate)
+    case toolsOzoneModerationDefsModEventMute(ToolsOzoneModerationDefs.ModEventMute)
+    case toolsOzoneModerationDefsModEventUnmute(ToolsOzoneModerationDefs.ModEventUnmute)
+    case toolsOzoneModerationDefsModEventMuteReporter(ToolsOzoneModerationDefs.ModEventMuteReporter)
+    case toolsOzoneModerationDefsModEventUnmuteReporter(ToolsOzoneModerationDefs.ModEventUnmuteReporter)
+    case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
+    case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
+    case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ModEventViewDetailEventUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ModEventViewDetailEventUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "tools.ozone.moderation.defs#modEventTakedown":
-                        print("Decoding as tools.ozone.moderation.defs#modEventTakedown")
-                        let value = try ToolsOzoneModerationDefs.ModEventTakedown(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventTakedown(value)
-                    case "tools.ozone.moderation.defs#modEventReverseTakedown":
-                        print("Decoding as tools.ozone.moderation.defs#modEventReverseTakedown")
-                        let value = try ToolsOzoneModerationDefs.ModEventReverseTakedown(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventReverseTakedown(value)
-                    case "tools.ozone.moderation.defs#modEventComment":
-                        print("Decoding as tools.ozone.moderation.defs#modEventComment")
-                        let value = try ToolsOzoneModerationDefs.ModEventComment(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventComment(value)
-                    case "tools.ozone.moderation.defs#modEventReport":
-                        print("Decoding as tools.ozone.moderation.defs#modEventReport")
-                        let value = try ToolsOzoneModerationDefs.ModEventReport(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventReport(value)
-                    case "tools.ozone.moderation.defs#modEventLabel":
-                        print("Decoding as tools.ozone.moderation.defs#modEventLabel")
-                        let value = try ToolsOzoneModerationDefs.ModEventLabel(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventLabel(value)
-                    case "tools.ozone.moderation.defs#modEventAcknowledge":
-                        print("Decoding as tools.ozone.moderation.defs#modEventAcknowledge")
-                        let value = try ToolsOzoneModerationDefs.ModEventAcknowledge(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventAcknowledge(value)
-                    case "tools.ozone.moderation.defs#modEventEscalate":
-                        print("Decoding as tools.ozone.moderation.defs#modEventEscalate")
-                        let value = try ToolsOzoneModerationDefs.ModEventEscalate(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventEscalate(value)
-                    case "tools.ozone.moderation.defs#modEventMute":
-                        print("Decoding as tools.ozone.moderation.defs#modEventMute")
-                        let value = try ToolsOzoneModerationDefs.ModEventMute(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventMute(value)
-                    case "tools.ozone.moderation.defs#modEventUnmute":
-                        print("Decoding as tools.ozone.moderation.defs#modEventUnmute")
-                        let value = try ToolsOzoneModerationDefs.ModEventUnmute(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventUnmute(value)
-                    case "tools.ozone.moderation.defs#modEventMuteReporter":
-                        print("Decoding as tools.ozone.moderation.defs#modEventMuteReporter")
-                        let value = try ToolsOzoneModerationDefs.ModEventMuteReporter(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventMuteReporter(value)
-                    case "tools.ozone.moderation.defs#modEventUnmuteReporter":
-                        print("Decoding as tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        let value = try ToolsOzoneModerationDefs.ModEventUnmuteReporter(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventUnmuteReporter(value)
-                    case "tools.ozone.moderation.defs#modEventEmail":
-                        print("Decoding as tools.ozone.moderation.defs#modEventEmail")
-                        let value = try ToolsOzoneModerationDefs.ModEventEmail(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventEmail(value)
-                    case "tools.ozone.moderation.defs#modEventResolveAppeal":
-                        print("Decoding as tools.ozone.moderation.defs#modEventResolveAppeal")
-                        let value = try ToolsOzoneModerationDefs.ModEventResolveAppeal(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventResolveAppeal(value)
-                    case "tools.ozone.moderation.defs#modEventDivert":
-                        print("Decoding as tools.ozone.moderation.defs#modEventDivert")
-                        let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
-                        self = .toolsOzoneModerationDefsModEventDivert(value)
-                    default:
-                        print("ModEventViewDetailEventUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "tools.ozone.moderation.defs#modEventTakedown":
+            print("Decoding as tools.ozone.moderation.defs#modEventTakedown")
+            let value = try ToolsOzoneModerationDefs.ModEventTakedown(from: decoder)
+            self = .toolsOzoneModerationDefsModEventTakedown(value)
+        case "tools.ozone.moderation.defs#modEventReverseTakedown":
+            print("Decoding as tools.ozone.moderation.defs#modEventReverseTakedown")
+            let value = try ToolsOzoneModerationDefs.ModEventReverseTakedown(from: decoder)
+            self = .toolsOzoneModerationDefsModEventReverseTakedown(value)
+        case "tools.ozone.moderation.defs#modEventComment":
+            print("Decoding as tools.ozone.moderation.defs#modEventComment")
+            let value = try ToolsOzoneModerationDefs.ModEventComment(from: decoder)
+            self = .toolsOzoneModerationDefsModEventComment(value)
+        case "tools.ozone.moderation.defs#modEventReport":
+            print("Decoding as tools.ozone.moderation.defs#modEventReport")
+            let value = try ToolsOzoneModerationDefs.ModEventReport(from: decoder)
+            self = .toolsOzoneModerationDefsModEventReport(value)
+        case "tools.ozone.moderation.defs#modEventLabel":
+            print("Decoding as tools.ozone.moderation.defs#modEventLabel")
+            let value = try ToolsOzoneModerationDefs.ModEventLabel(from: decoder)
+            self = .toolsOzoneModerationDefsModEventLabel(value)
+        case "tools.ozone.moderation.defs#modEventAcknowledge":
+            print("Decoding as tools.ozone.moderation.defs#modEventAcknowledge")
+            let value = try ToolsOzoneModerationDefs.ModEventAcknowledge(from: decoder)
+            self = .toolsOzoneModerationDefsModEventAcknowledge(value)
+        case "tools.ozone.moderation.defs#modEventEscalate":
+            print("Decoding as tools.ozone.moderation.defs#modEventEscalate")
+            let value = try ToolsOzoneModerationDefs.ModEventEscalate(from: decoder)
+            self = .toolsOzoneModerationDefsModEventEscalate(value)
+        case "tools.ozone.moderation.defs#modEventMute":
+            print("Decoding as tools.ozone.moderation.defs#modEventMute")
+            let value = try ToolsOzoneModerationDefs.ModEventMute(from: decoder)
+            self = .toolsOzoneModerationDefsModEventMute(value)
+        case "tools.ozone.moderation.defs#modEventUnmute":
+            print("Decoding as tools.ozone.moderation.defs#modEventUnmute")
+            let value = try ToolsOzoneModerationDefs.ModEventUnmute(from: decoder)
+            self = .toolsOzoneModerationDefsModEventUnmute(value)
+        case "tools.ozone.moderation.defs#modEventMuteReporter":
+            print("Decoding as tools.ozone.moderation.defs#modEventMuteReporter")
+            let value = try ToolsOzoneModerationDefs.ModEventMuteReporter(from: decoder)
+            self = .toolsOzoneModerationDefsModEventMuteReporter(value)
+        case "tools.ozone.moderation.defs#modEventUnmuteReporter":
+            print("Decoding as tools.ozone.moderation.defs#modEventUnmuteReporter")
+            let value = try ToolsOzoneModerationDefs.ModEventUnmuteReporter(from: decoder)
+            self = .toolsOzoneModerationDefsModEventUnmuteReporter(value)
+        case "tools.ozone.moderation.defs#modEventEmail":
+            print("Decoding as tools.ozone.moderation.defs#modEventEmail")
+            let value = try ToolsOzoneModerationDefs.ModEventEmail(from: decoder)
+            self = .toolsOzoneModerationDefsModEventEmail(value)
+        case "tools.ozone.moderation.defs#modEventResolveAppeal":
+            print("Decoding as tools.ozone.moderation.defs#modEventResolveAppeal")
+            let value = try ToolsOzoneModerationDefs.ModEventResolveAppeal(from: decoder)
+            self = .toolsOzoneModerationDefsModEventResolveAppeal(value)
+        case "tools.ozone.moderation.defs#modEventDivert":
+            print("Decoding as tools.ozone.moderation.defs#modEventDivert")
+            let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
+            self = .toolsOzoneModerationDefsModEventDivert(value)
+        default:
+            print("ModEventViewDetailEventUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .toolsOzoneModerationDefsModEventTakedown(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventTakedown")
-                        try container.encode("tools.ozone.moderation.defs#modEventTakedown", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventReverseTakedown")
-                        try container.encode("tools.ozone.moderation.defs#modEventReverseTakedown", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventComment(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventComment")
-                        try container.encode("tools.ozone.moderation.defs#modEventComment", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventReport(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventReport")
-                        try container.encode("tools.ozone.moderation.defs#modEventReport", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventLabel(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventLabel")
-                        try container.encode("tools.ozone.moderation.defs#modEventLabel", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventAcknowledge(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventAcknowledge")
-                        try container.encode("tools.ozone.moderation.defs#modEventAcknowledge", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventEscalate(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventEscalate")
-                        try container.encode("tools.ozone.moderation.defs#modEventEscalate", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventMute(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventMute")
-                        try container.encode("tools.ozone.moderation.defs#modEventMute", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventUnmute(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventUnmute")
-                        try container.encode("tools.ozone.moderation.defs#modEventUnmute", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventMuteReporter(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventMuteReporter")
-                        try container.encode("tools.ozone.moderation.defs#modEventMuteReporter", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        try container.encode("tools.ozone.moderation.defs#modEventUnmuteReporter", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventEmail(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventEmail")
-                        try container.encode("tools.ozone.moderation.defs#modEventEmail", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventResolveAppeal")
-                        try container.encode("tools.ozone.moderation.defs#modEventResolveAppeal", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsModEventDivert(let value):
-                        print("Encoding tools.ozone.moderation.defs#modEventDivert")
-                        try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ModEventViewDetailEventUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .toolsOzoneModerationDefsModEventTakedown(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventTakedown")
+            try container.encode("tools.ozone.moderation.defs#modEventTakedown", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventReverseTakedown")
+            try container.encode("tools.ozone.moderation.defs#modEventReverseTakedown", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventComment(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventComment")
+            try container.encode("tools.ozone.moderation.defs#modEventComment", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventReport(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventReport")
+            try container.encode("tools.ozone.moderation.defs#modEventReport", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventLabel(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventLabel")
+            try container.encode("tools.ozone.moderation.defs#modEventLabel", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventAcknowledge(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventAcknowledge")
+            try container.encode("tools.ozone.moderation.defs#modEventAcknowledge", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventEscalate(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventEscalate")
+            try container.encode("tools.ozone.moderation.defs#modEventEscalate", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventMute(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventMute")
+            try container.encode("tools.ozone.moderation.defs#modEventMute", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventUnmute(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventUnmute")
+            try container.encode("tools.ozone.moderation.defs#modEventUnmute", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventMuteReporter(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventMuteReporter")
+            try container.encode("tools.ozone.moderation.defs#modEventMuteReporter", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventUnmuteReporter")
+            try container.encode("tools.ozone.moderation.defs#modEventUnmuteReporter", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventEmail(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventEmail")
+            try container.encode("tools.ozone.moderation.defs#modEventEmail", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventResolveAppeal")
+            try container.encode("tools.ozone.moderation.defs#modEventResolveAppeal", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventDivert(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventDivert")
+            try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ModEventViewDetailEventUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .toolsOzoneModerationDefsModEventTakedown(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventTakedown")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventReverseTakedown")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventComment(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventComment")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventReport(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventReport")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventLabel(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventLabel")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventAcknowledge(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventAcknowledge")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventEscalate(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventEscalate")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventMute(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventMute")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventUnmute(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventUnmute")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventMuteReporter(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventMuteReporter")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventUnmuteReporter")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventEmail(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventEmail")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventResolveAppeal")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsModEventDivert(let value):
-                        hasher.combine("tools.ozone.moderation.defs#modEventDivert")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .toolsOzoneModerationDefsModEventTakedown(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventTakedown")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventReverseTakedown(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventReverseTakedown")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventComment(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventComment")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventReport(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventReport")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventLabel(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventLabel")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventAcknowledge(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventAcknowledge")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventEscalate(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventEscalate")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventMute(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventMute")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventUnmute(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventUnmute")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventMuteReporter(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventMuteReporter")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventUnmuteReporter(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventUnmuteReporter")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventEmail(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventEmail")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventResolveAppeal(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventResolveAppeal")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventDivert(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventDivert")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ModEventViewDetailEventUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ModEventViewDetailEventUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.toolsOzoneModerationDefsModEventTakedown(let selfValue), 
-                            .toolsOzoneModerationDefsModEventTakedown(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventReverseTakedown(let selfValue), 
-                            .toolsOzoneModerationDefsModEventReverseTakedown(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventComment(let selfValue), 
-                            .toolsOzoneModerationDefsModEventComment(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventReport(let selfValue), 
-                            .toolsOzoneModerationDefsModEventReport(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventLabel(let selfValue), 
-                            .toolsOzoneModerationDefsModEventLabel(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventAcknowledge(let selfValue), 
-                            .toolsOzoneModerationDefsModEventAcknowledge(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventEscalate(let selfValue), 
-                            .toolsOzoneModerationDefsModEventEscalate(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventMute(let selfValue), 
-                            .toolsOzoneModerationDefsModEventMute(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventUnmute(let selfValue), 
-                            .toolsOzoneModerationDefsModEventUnmute(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventMuteReporter(let selfValue), 
-                            .toolsOzoneModerationDefsModEventMuteReporter(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventUnmuteReporter(let selfValue), 
-                            .toolsOzoneModerationDefsModEventUnmuteReporter(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventEmail(let selfValue), 
-                            .toolsOzoneModerationDefsModEventEmail(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventResolveAppeal(let selfValue), 
-                            .toolsOzoneModerationDefsModEventResolveAppeal(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
-                            .toolsOzoneModerationDefsModEventDivert(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.toolsOzoneModerationDefsModEventTakedown(let selfValue), 
+                .toolsOzoneModerationDefsModEventTakedown(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventReverseTakedown(let selfValue), 
+                .toolsOzoneModerationDefsModEventReverseTakedown(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventComment(let selfValue), 
+                .toolsOzoneModerationDefsModEventComment(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventReport(let selfValue), 
+                .toolsOzoneModerationDefsModEventReport(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventLabel(let selfValue), 
+                .toolsOzoneModerationDefsModEventLabel(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventAcknowledge(let selfValue), 
+                .toolsOzoneModerationDefsModEventAcknowledge(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventEscalate(let selfValue), 
+                .toolsOzoneModerationDefsModEventEscalate(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventMute(let selfValue), 
+                .toolsOzoneModerationDefsModEventMute(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventUnmute(let selfValue), 
+                .toolsOzoneModerationDefsModEventUnmute(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventMuteReporter(let selfValue), 
+                .toolsOzoneModerationDefsModEventMuteReporter(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventUnmuteReporter(let selfValue), 
+                .toolsOzoneModerationDefsModEventUnmuteReporter(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventEmail(let selfValue), 
+                .toolsOzoneModerationDefsModEventEmail(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventResolveAppeal(let selfValue), 
+                .toolsOzoneModerationDefsModEventResolveAppeal(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
+                .toolsOzoneModerationDefsModEventDivert(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum ModEventViewDetailSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case toolsOzoneModerationDefsRepoView(ToolsOzoneModerationDefs.RepoView)
-                case toolsOzoneModerationDefsRepoViewNotFound(ToolsOzoneModerationDefs.RepoViewNotFound)
-                case toolsOzoneModerationDefsRecordView(ToolsOzoneModerationDefs.RecordView)
-                case toolsOzoneModerationDefsRecordViewNotFound(ToolsOzoneModerationDefs.RecordViewNotFound)
-                case unexpected(ATProtocolValueContainer)
+    case toolsOzoneModerationDefsRepoView(ToolsOzoneModerationDefs.RepoView)
+    case toolsOzoneModerationDefsRepoViewNotFound(ToolsOzoneModerationDefs.RepoViewNotFound)
+    case toolsOzoneModerationDefsRecordView(ToolsOzoneModerationDefs.RecordView)
+    case toolsOzoneModerationDefsRecordViewNotFound(ToolsOzoneModerationDefs.RecordViewNotFound)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("ModEventViewDetailSubjectUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("ModEventViewDetailSubjectUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "tools.ozone.moderation.defs#repoView":
-                        print("Decoding as tools.ozone.moderation.defs#repoView")
-                        let value = try ToolsOzoneModerationDefs.RepoView(from: decoder)
-                        self = .toolsOzoneModerationDefsRepoView(value)
-                    case "tools.ozone.moderation.defs#repoViewNotFound":
-                        print("Decoding as tools.ozone.moderation.defs#repoViewNotFound")
-                        let value = try ToolsOzoneModerationDefs.RepoViewNotFound(from: decoder)
-                        self = .toolsOzoneModerationDefsRepoViewNotFound(value)
-                    case "tools.ozone.moderation.defs#recordView":
-                        print("Decoding as tools.ozone.moderation.defs#recordView")
-                        let value = try ToolsOzoneModerationDefs.RecordView(from: decoder)
-                        self = .toolsOzoneModerationDefsRecordView(value)
-                    case "tools.ozone.moderation.defs#recordViewNotFound":
-                        print("Decoding as tools.ozone.moderation.defs#recordViewNotFound")
-                        let value = try ToolsOzoneModerationDefs.RecordViewNotFound(from: decoder)
-                        self = .toolsOzoneModerationDefsRecordViewNotFound(value)
-                    default:
-                        print("ModEventViewDetailSubjectUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "tools.ozone.moderation.defs#repoView":
+            print("Decoding as tools.ozone.moderation.defs#repoView")
+            let value = try ToolsOzoneModerationDefs.RepoView(from: decoder)
+            self = .toolsOzoneModerationDefsRepoView(value)
+        case "tools.ozone.moderation.defs#repoViewNotFound":
+            print("Decoding as tools.ozone.moderation.defs#repoViewNotFound")
+            let value = try ToolsOzoneModerationDefs.RepoViewNotFound(from: decoder)
+            self = .toolsOzoneModerationDefsRepoViewNotFound(value)
+        case "tools.ozone.moderation.defs#recordView":
+            print("Decoding as tools.ozone.moderation.defs#recordView")
+            let value = try ToolsOzoneModerationDefs.RecordView(from: decoder)
+            self = .toolsOzoneModerationDefsRecordView(value)
+        case "tools.ozone.moderation.defs#recordViewNotFound":
+            print("Decoding as tools.ozone.moderation.defs#recordViewNotFound")
+            let value = try ToolsOzoneModerationDefs.RecordViewNotFound(from: decoder)
+            self = .toolsOzoneModerationDefsRecordViewNotFound(value)
+        default:
+            print("ModEventViewDetailSubjectUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .toolsOzoneModerationDefsRepoView(let value):
-                        print("Encoding tools.ozone.moderation.defs#repoView")
-                        try container.encode("tools.ozone.moderation.defs#repoView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsRepoViewNotFound(let value):
-                        print("Encoding tools.ozone.moderation.defs#repoViewNotFound")
-                        try container.encode("tools.ozone.moderation.defs#repoViewNotFound", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsRecordView(let value):
-                        print("Encoding tools.ozone.moderation.defs#recordView")
-                        try container.encode("tools.ozone.moderation.defs#recordView", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsRecordViewNotFound(let value):
-                        print("Encoding tools.ozone.moderation.defs#recordViewNotFound")
-                        try container.encode("tools.ozone.moderation.defs#recordViewNotFound", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("ModEventViewDetailSubjectUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .toolsOzoneModerationDefsRepoView(let value):
+            print("Encoding tools.ozone.moderation.defs#repoView")
+            try container.encode("tools.ozone.moderation.defs#repoView", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsRepoViewNotFound(let value):
+            print("Encoding tools.ozone.moderation.defs#repoViewNotFound")
+            try container.encode("tools.ozone.moderation.defs#repoViewNotFound", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsRecordView(let value):
+            print("Encoding tools.ozone.moderation.defs#recordView")
+            try container.encode("tools.ozone.moderation.defs#recordView", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsRecordViewNotFound(let value):
+            print("Encoding tools.ozone.moderation.defs#recordViewNotFound")
+            try container.encode("tools.ozone.moderation.defs#recordViewNotFound", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("ModEventViewDetailSubjectUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .toolsOzoneModerationDefsRepoView(let value):
-                        hasher.combine("tools.ozone.moderation.defs#repoView")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsRepoViewNotFound(let value):
-                        hasher.combine("tools.ozone.moderation.defs#repoViewNotFound")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsRecordView(let value):
-                        hasher.combine("tools.ozone.moderation.defs#recordView")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsRecordViewNotFound(let value):
-                        hasher.combine("tools.ozone.moderation.defs#recordViewNotFound")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .toolsOzoneModerationDefsRepoView(let value):
+            hasher.combine("tools.ozone.moderation.defs#repoView")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsRepoViewNotFound(let value):
+            hasher.combine("tools.ozone.moderation.defs#repoViewNotFound")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsRecordView(let value):
+            hasher.combine("tools.ozone.moderation.defs#recordView")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsRecordViewNotFound(let value):
+            hasher.combine("tools.ozone.moderation.defs#recordViewNotFound")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? ModEventViewDetailSubjectUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? ModEventViewDetailSubjectUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.toolsOzoneModerationDefsRepoView(let selfValue), 
-                            .toolsOzoneModerationDefsRepoView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsRepoViewNotFound(let selfValue), 
-                            .toolsOzoneModerationDefsRepoViewNotFound(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsRecordView(let selfValue), 
-                            .toolsOzoneModerationDefsRecordView(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsRecordViewNotFound(let selfValue), 
-                            .toolsOzoneModerationDefsRecordViewNotFound(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.toolsOzoneModerationDefsRepoView(let selfValue), 
+                .toolsOzoneModerationDefsRepoView(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsRepoViewNotFound(let selfValue), 
+                .toolsOzoneModerationDefsRepoViewNotFound(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsRecordView(let selfValue), 
+                .toolsOzoneModerationDefsRecordView(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsRecordViewNotFound(let selfValue), 
+                .toolsOzoneModerationDefsRecordViewNotFound(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
-            // Union Type
-            
+
+
+
 public enum SubjectStatusViewSubjectUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case comAtprotoAdminDefsRepoRef(ComAtprotoAdminDefs.RepoRef)
-                case comAtprotoRepoStrongRef(ComAtprotoRepoStrongRef)
-                case unexpected(ATProtocolValueContainer)
+    case comAtprotoAdminDefsRepoRef(ComAtprotoAdminDefs.RepoRef)
+    case comAtprotoRepoStrongRef(ComAtprotoRepoStrongRef)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("SubjectStatusViewSubjectUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("SubjectStatusViewSubjectUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "com.atproto.admin.defs#repoRef":
-                        print("Decoding as com.atproto.admin.defs#repoRef")
-                        let value = try ComAtprotoAdminDefs.RepoRef(from: decoder)
-                        self = .comAtprotoAdminDefsRepoRef(value)
-                    case "com.atproto.repo.strongRef":
-                        print("Decoding as com.atproto.repo.strongRef")
-                        let value = try ComAtprotoRepoStrongRef(from: decoder)
-                        self = .comAtprotoRepoStrongRef(value)
-                    default:
-                        print("SubjectStatusViewSubjectUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "com.atproto.admin.defs#repoRef":
+            print("Decoding as com.atproto.admin.defs#repoRef")
+            let value = try ComAtprotoAdminDefs.RepoRef(from: decoder)
+            self = .comAtprotoAdminDefsRepoRef(value)
+        case "com.atproto.repo.strongRef":
+            print("Decoding as com.atproto.repo.strongRef")
+            let value = try ComAtprotoRepoStrongRef(from: decoder)
+            self = .comAtprotoRepoStrongRef(value)
+        default:
+            print("SubjectStatusViewSubjectUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .comAtprotoAdminDefsRepoRef(let value):
-                        print("Encoding com.atproto.admin.defs#repoRef")
-                        try container.encode("com.atproto.admin.defs#repoRef", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .comAtprotoRepoStrongRef(let value):
-                        print("Encoding com.atproto.repo.strongRef")
-                        try container.encode("com.atproto.repo.strongRef", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("SubjectStatusViewSubjectUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .comAtprotoAdminDefsRepoRef(let value):
+            print("Encoding com.atproto.admin.defs#repoRef")
+            try container.encode("com.atproto.admin.defs#repoRef", forKey: .type)
+            try value.encode(to: encoder)
+        case .comAtprotoRepoStrongRef(let value):
+            print("Encoding com.atproto.repo.strongRef")
+            try container.encode("com.atproto.repo.strongRef", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("SubjectStatusViewSubjectUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .comAtprotoAdminDefsRepoRef(let value):
-                        hasher.combine("com.atproto.admin.defs#repoRef")
-                        hasher.combine(value)
-                    case .comAtprotoRepoStrongRef(let value):
-                        hasher.combine("com.atproto.repo.strongRef")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .comAtprotoAdminDefsRepoRef(let value):
+            hasher.combine("com.atproto.admin.defs#repoRef")
+            hasher.combine(value)
+        case .comAtprotoRepoStrongRef(let value):
+            hasher.combine("com.atproto.repo.strongRef")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? SubjectStatusViewSubjectUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? SubjectStatusViewSubjectUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.comAtprotoAdminDefsRepoRef(let selfValue), 
-                            .comAtprotoAdminDefsRepoRef(let otherValue)):
-                            return selfValue == otherValue
-                        case (.comAtprotoRepoStrongRef(let selfValue), 
-                            .comAtprotoRepoStrongRef(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.comAtprotoAdminDefsRepoRef(let selfValue), 
+                .comAtprotoAdminDefsRepoRef(let otherValue)):
+                return selfValue == otherValue
+            case (.comAtprotoRepoStrongRef(let selfValue), 
+                .comAtprotoRepoStrongRef(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
         
 public enum SubjectReviewState: String, Codable, ATProtocolCodable, ATProtocolValue {
@@ -4408,87 +4413,88 @@ public enum SubjectReviewState: String, Codable, ATProtocolCodable, ATProtocolVa
             }
         }
 
-            // Union Type
-            
+
+
+
 public enum BlobViewDetailsUnion: Codable, ATProtocolCodable, ATProtocolValue {
-                case toolsOzoneModerationDefsImageDetails(ToolsOzoneModerationDefs.ImageDetails)
-                case toolsOzoneModerationDefsVideoDetails(ToolsOzoneModerationDefs.VideoDetails)
-                case unexpected(ATProtocolValueContainer)
+    case toolsOzoneModerationDefsImageDetails(ToolsOzoneModerationDefs.ImageDetails)
+    case toolsOzoneModerationDefsVideoDetails(ToolsOzoneModerationDefs.VideoDetails)
+    case unexpected(ATProtocolValueContainer)
 
-                public init(from decoder: Decoder) throws {
-                    let container = try decoder.container(keyedBy: CodingKeys.self)
-                    let typeValue = try container.decode(String.self, forKey: .type)
-                    print("BlobViewDetailsUnion decoding: \(typeValue)")
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let typeValue = try container.decode(String.self, forKey: .type)
+        print("BlobViewDetailsUnion decoding: \(typeValue)")
 
-                    switch typeValue {
-                    case "tools.ozone.moderation.defs#imageDetails":
-                        print("Decoding as tools.ozone.moderation.defs#imageDetails")
-                        let value = try ToolsOzoneModerationDefs.ImageDetails(from: decoder)
-                        self = .toolsOzoneModerationDefsImageDetails(value)
-                    case "tools.ozone.moderation.defs#videoDetails":
-                        print("Decoding as tools.ozone.moderation.defs#videoDetails")
-                        let value = try ToolsOzoneModerationDefs.VideoDetails(from: decoder)
-                        self = .toolsOzoneModerationDefsVideoDetails(value)
-                    default:
-                        print("BlobViewDetailsUnion decoding encountered an unexpected type: \(typeValue)")
-                        let unknownValue = try ATProtocolValueContainer(from: decoder)
-                        self = .unexpected(unknownValue)
-                    }
-                }
+        switch typeValue {
+        case "tools.ozone.moderation.defs#imageDetails":
+            print("Decoding as tools.ozone.moderation.defs#imageDetails")
+            let value = try ToolsOzoneModerationDefs.ImageDetails(from: decoder)
+            self = .toolsOzoneModerationDefsImageDetails(value)
+        case "tools.ozone.moderation.defs#videoDetails":
+            print("Decoding as tools.ozone.moderation.defs#videoDetails")
+            let value = try ToolsOzoneModerationDefs.VideoDetails(from: decoder)
+            self = .toolsOzoneModerationDefsVideoDetails(value)
+        default:
+            print("BlobViewDetailsUnion decoding encountered an unexpected type: \(typeValue)")
+            let unknownValue = try ATProtocolValueContainer(from: decoder)
+            self = .unexpected(unknownValue)
+        }
+    }
 
-                public func encode(to encoder: Encoder) throws {
-                    var container = encoder.container(keyedBy: CodingKeys.self)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
 
-                    switch self {
-                    case .toolsOzoneModerationDefsImageDetails(let value):
-                        print("Encoding tools.ozone.moderation.defs#imageDetails")
-                        try container.encode("tools.ozone.moderation.defs#imageDetails", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .toolsOzoneModerationDefsVideoDetails(let value):
-                        print("Encoding tools.ozone.moderation.defs#videoDetails")
-                        try container.encode("tools.ozone.moderation.defs#videoDetails", forKey: .type)
-                        try value.encode(to: encoder)
-                    case .unexpected(let ATProtocolValueContainer):
-                        print("BlobViewDetailsUnion encoding unexpected value")
-                        try ATProtocolValueContainer.encode(to: encoder)
-                    }
-                }
+        switch self {
+        case .toolsOzoneModerationDefsImageDetails(let value):
+            print("Encoding tools.ozone.moderation.defs#imageDetails")
+            try container.encode("tools.ozone.moderation.defs#imageDetails", forKey: .type)
+            try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsVideoDetails(let value):
+            print("Encoding tools.ozone.moderation.defs#videoDetails")
+            try container.encode("tools.ozone.moderation.defs#videoDetails", forKey: .type)
+            try value.encode(to: encoder)
+        case .unexpected(let ATProtocolValueContainer):
+            print("BlobViewDetailsUnion encoding unexpected value")
+            try ATProtocolValueContainer.encode(to: encoder)
+        }
+    }
 
-                public func hash(into hasher: inout Hasher) {
-                    switch self {
-                    case .toolsOzoneModerationDefsImageDetails(let value):
-                        hasher.combine("tools.ozone.moderation.defs#imageDetails")
-                        hasher.combine(value)
-                    case .toolsOzoneModerationDefsVideoDetails(let value):
-                        hasher.combine("tools.ozone.moderation.defs#videoDetails")
-                        hasher.combine(value)
-                    case .unexpected(let ATProtocolValueContainer):
-                        hasher.combine("unexpected")
-                        hasher.combine(ATProtocolValueContainer)
-                    }
-                }
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case .toolsOzoneModerationDefsImageDetails(let value):
+            hasher.combine("tools.ozone.moderation.defs#imageDetails")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsVideoDetails(let value):
+            hasher.combine("tools.ozone.moderation.defs#videoDetails")
+            hasher.combine(value)
+        case .unexpected(let ATProtocolValueContainer):
+            hasher.combine("unexpected")
+            hasher.combine(ATProtocolValueContainer)
+        }
+    }
 
-                private enum CodingKeys: String, CodingKey {
-                    case type = "$type"
-                }
-                
-                public func isEqual(to other: any ATProtocolValue) -> Bool {
-                    guard let otherValue = other as? BlobViewDetailsUnion else { return false }
+    private enum CodingKeys: String, CodingKey {
+        case type = "$type"
+    }
+    
+    public func isEqual(to other: any ATProtocolValue) -> Bool {
+        guard let otherValue = other as? BlobViewDetailsUnion else { return false }
 
-                    switch (self, otherValue) {
-                        case (.toolsOzoneModerationDefsImageDetails(let selfValue), 
-                            .toolsOzoneModerationDefsImageDetails(let otherValue)):
-                            return selfValue == otherValue
-                        case (.toolsOzoneModerationDefsVideoDetails(let selfValue), 
-                            .toolsOzoneModerationDefsVideoDetails(let otherValue)):
-                            return selfValue == otherValue
-                        case (.unexpected(let selfValue), .unexpected(let otherValue)):
-                            return selfValue.isEqual(to: otherValue)
-                        default:
-                            return false
-                    }
-                }
-            }
+        switch (self, otherValue) {
+            case (.toolsOzoneModerationDefsImageDetails(let selfValue), 
+                .toolsOzoneModerationDefsImageDetails(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsVideoDetails(let selfValue), 
+                .toolsOzoneModerationDefsVideoDetails(let otherValue)):
+                return selfValue == otherValue
+            case (.unexpected(let selfValue), .unexpected(let otherValue)):
+                return selfValue.isEqual(to: otherValue)
+            default:
+                return false
+        }
+    }
+}
 
 
 }
