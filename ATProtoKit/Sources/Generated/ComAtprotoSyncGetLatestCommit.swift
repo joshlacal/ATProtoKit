@@ -41,6 +41,9 @@ public struct Output: ATProtocolCodable {
             
 public enum Error: String, Swift.Error, CustomStringConvertible {
                 case repoNotFound = "RepoNotFound."
+                case repoTakendown = "RepoTakendown."
+                case repoSuspended = "RepoSuspended."
+                case repoDeactivated = "RepoDeactivated."
             public var description: String {
                 return self.rawValue
             }

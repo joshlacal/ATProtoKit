@@ -1161,7 +1161,7 @@ public enum MessageInputEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue 
 
 
 public enum MessageViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
-    case appBskyEmbedRecord(AppBskyEmbedRecord)
+    case appBskyEmbedRecordView(AppBskyEmbedRecord.View)
     case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
@@ -1170,10 +1170,10 @@ public enum MessageViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
         print("MessageViewEmbedUnion decoding: \(typeValue)")
 
         switch typeValue {
-        case "app.bsky.embed.record":
-            print("Decoding as app.bsky.embed.record")
-            let value = try AppBskyEmbedRecord(from: decoder)
-            self = .appBskyEmbedRecord(value)
+        case "app.bsky.embed.record#view":
+            print("Decoding as app.bsky.embed.record#view")
+            let value = try AppBskyEmbedRecord.View(from: decoder)
+            self = .appBskyEmbedRecordView(value)
         default:
             print("MessageViewEmbedUnion decoding encountered an unexpected type: \(typeValue)")
             let unknownValue = try ATProtocolValueContainer(from: decoder)
@@ -1185,9 +1185,9 @@ public enum MessageViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         switch self {
-        case .appBskyEmbedRecord(let value):
-            print("Encoding app.bsky.embed.record")
-            try container.encode("app.bsky.embed.record", forKey: .type)
+        case .appBskyEmbedRecordView(let value):
+            print("Encoding app.bsky.embed.record#view")
+            try container.encode("app.bsky.embed.record#view", forKey: .type)
             try value.encode(to: encoder)
         case .unexpected(let ATProtocolValueContainer):
             print("MessageViewEmbedUnion encoding unexpected value")
@@ -1197,8 +1197,8 @@ public enum MessageViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
 
     public func hash(into hasher: inout Hasher) {
         switch self {
-        case .appBskyEmbedRecord(let value):
-            hasher.combine("app.bsky.embed.record")
+        case .appBskyEmbedRecordView(let value):
+            hasher.combine("app.bsky.embed.record#view")
             hasher.combine(value)
         case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
@@ -1214,8 +1214,8 @@ public enum MessageViewEmbedUnion: Codable, ATProtocolCodable, ATProtocolValue {
         guard let otherValue = other as? MessageViewEmbedUnion else { return false }
 
         switch (self, otherValue) {
-            case (.appBskyEmbedRecord(let selfValue), 
-                .appBskyEmbedRecord(let otherValue)):
+            case (.appBskyEmbedRecordView(let selfValue), 
+                .appBskyEmbedRecordView(let otherValue)):
                 return selfValue == otherValue
             case (.unexpected(let selfValue), .unexpected(let otherValue)):
                 return selfValue.isEqual(to: otherValue)
