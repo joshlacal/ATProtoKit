@@ -13,15 +13,19 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
             public let did: String
             public let head: String
             public let rev: String
+            public let active: Bool?
+            public let status: String?
 
         // Standard initializer
         public init(
-            did: String, head: String, rev: String
+            did: String, head: String, rev: String, active: Bool?, status: String?
         ) {
             
             self.did = did
             self.head = head
             self.rev = rev
+            self.active = active
+            self.status = status
         }
 
         // Codable initializer
@@ -51,6 +55,22 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'rev': \(error)")
                 throw error
             }
+            do {
+                
+                self.active = try container.decodeIfPresent(Bool.self, forKey: .active)
+                
+            } catch {
+                print("Decoding error for property 'active': \(error)")
+                throw error
+            }
+            do {
+                
+                self.status = try container.decodeIfPresent(String.self, forKey: .status)
+                
+            } catch {
+                print("Decoding error for property 'status': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -65,12 +85,32 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
             
             try container.encode(rev, forKey: .rev)
             
+            
+            if let value = active {
+                try container.encode(value, forKey: .active)
+            }
+            
+            
+            if let value = status {
+                try container.encode(value, forKey: .status)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
             hasher.combine(did)
             hasher.combine(head)
             hasher.combine(rev)
+            if let value = active {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = status {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
         }
 
         public func isEqual(to other: any ATProtocolValue) -> Bool {
@@ -90,6 +130,16 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if active != other.active {
+                return false
+            }
+            
+            
+            if status != other.status {
+                return false
+            }
+            
             return true
         }
 
@@ -102,6 +152,8 @@ public struct Repo: ATProtocolCodable, ATProtocolValue {
             case did
             case head
             case rev
+            case active
+            case status
         }
     }    
 public struct Parameters: Parametrizable {
