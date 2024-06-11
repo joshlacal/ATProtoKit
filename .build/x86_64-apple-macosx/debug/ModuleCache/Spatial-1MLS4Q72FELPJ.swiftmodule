@@ -1,0 +1,36 @@
+---
+path:            '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/15.0/Spatial.swiftmodule/x86_64-apple-macos.swiftmodule'
+dependencies:
+  - mtime:           1717258747000000000
+    path:            '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/15.0/Spatial.swiftmodule/x86_64-apple-macos.swiftmodule'
+    size:            541072
+  - mtime:           1716759809000000000
+    path:            'usr/lib/swift/Swift.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            2262698
+    sdk_relative:    true
+  - mtime:           1717026805000000000
+    path:            'usr/include/Darwin.apinotes'
+    size:            1133
+    sdk_relative:    true
+  - mtime:           1717026825000000000
+    path:            'usr/lib/swift/Darwin.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            57508
+    sdk_relative:    true
+  - mtime:           1716761903000000000
+    path:            'usr/lib/swift/_Concurrency.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            302605
+    sdk_relative:    true
+  - mtime:           1716762257000000000
+    path:            'usr/lib/swift/_StringProcessing.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            28445
+    sdk_relative:    true
+  - mtime:           1717026872000000000
+    path:            'usr/lib/swift/simd.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            218595
+    sdk_relative:    true
+  - mtime:           1717027027000000000
+    path:            'usr/lib/swift/Spatial.swiftmodule/x86_64-apple-macos.swiftinterface'
+    size:            108156
+    sdk_relative:    true
+version:         1
+...

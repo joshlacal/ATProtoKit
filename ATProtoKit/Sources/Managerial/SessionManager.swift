@@ -14,7 +14,7 @@ protocol SessionManaging: AnyActor {
     func setSessionDelegate(with delegate: SessionDelegate) async
 }
 
-protocol SessionDelegate: AnyObject {
+protocol SessionDelegate: AnyActor {
     func sessionRequiresReauthentication(sessionManager: SessionManager) async throws
 }
 
@@ -23,7 +23,7 @@ actor SessionManager: SessionManaging, TokenDelegate {
     private var tokenManager: TokenManaging
     private var authService: AuthenticationService
     private var sessionState: SessionState = .uninitialized
-    weak var sessionDelegate: SessionDelegate?
+    var sessionDelegate: SessionDelegate?
 
     init(tokenManager: TokenManaging, authService: AuthenticationService) {
         self.tokenManager = tokenManager

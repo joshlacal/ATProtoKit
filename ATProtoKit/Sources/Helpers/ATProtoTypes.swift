@@ -69,7 +69,7 @@ public struct ATProtocolURI: ATProtocolValue, CustomStringConvertible, QueryPara
         return uriString()
     }
 
-    func uriString() -> String {
+    public func uriString() -> String {
         var uri = "at://\(authority)"
         if let collection = collection {
             uri += "/\(collection)"
@@ -101,6 +101,8 @@ public struct ATProtocolURI: ATProtocolValue, CustomStringConvertible, QueryPara
     }
 
 }
+
+
 
 public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConvertible, ExpressibleByStringLiteral {
     let scheme: String

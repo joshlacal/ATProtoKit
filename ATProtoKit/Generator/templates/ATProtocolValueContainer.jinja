@@ -11,24 +11,35 @@ public indirect enum ATProtocolValueContainer: ATProtocolCodable, ATProtocolValu
     case bytes(Bytes)
     case unknownType(String, ATProtocolValueContainer)
     case decodeError(String)
+    
+    // A factory for resolving decoders based on type string
+    struct TypeDecoderFactory {
+        typealias DecoderFunction = @Sendable (Decoder) throws -> ATProtocolValueContainer
 
-    typealias DecoderFunction = (Decoder) throws -> ATProtocolValueContainer
+        private let decoders: [String: DecoderFunction]
 
-    private static let typeDecoders: [String: DecoderFunction] = {
-        var decoders: [String: DecoderFunction] = [:]
-        {% for type_key, swift_type in type_cases %}
-        decoders["{{ type_key }}"] = { decoder in
-            do {
-                let decodedObject = try {{ swift_type }}(from: decoder)
-                return .knownType(decodedObject)
-            } catch {
-                print("Error decoding {{ swift_type }}: \(error)")
-                return .decodeError("Error decoding {{ swift_type }}: \(error)")
+        init() {
+            var decoders: [String: DecoderFunction] = [:]
+            {% for type_key, swift_type in type_cases %}
+            decoders["{{ type_key }}"] = { decoder in
+                do {
+                    let decodedObject = try {{ swift_type }}(from: decoder)
+                    return .knownType(decodedObject)
+                } catch {
+                    print("Error decoding {{ swift_type }}: \(error)")
+                    return .decodeError("Error decoding {{ swift_type }}: \(error)")
+                }
             }
+            {% endfor %}
+            self.decoders = decoders
         }
-        {% endfor %}
-        return decoders
-    }()
+
+        func decoder(for type: String) -> DecoderFunction? {
+            return decoders[type]
+        }
+    }
+
+    private static let decoderFactory = TypeDecoderFactory()
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
@@ -37,7 +48,7 @@ public indirect enum ATProtocolValueContainer: ATProtocolCodable, ATProtocolValu
 
             print("Attempting to decode type: \(typeValue)")
 
-            if let decoderFunction = ATProtocolValueContainer.typeDecoders[typeValue] {
+            if let decoderFunction = ATProtocolValueContainer.decoderFactory.decoder(for: typeValue) {
                 self = try decoderFunction(decoder)
                 print("Successfully decoded \(typeValue)")
             } else {
@@ -57,7 +68,7 @@ public indirect enum ATProtocolValueContainer: ATProtocolCodable, ATProtocolValu
 
     private static func decodeSingleValue(from decoder: Decoder) throws -> ATProtocolValueContainer {
         let container = try decoder.singleValueContainer()
-        
+
         print("Attempting to decode as String")
         if let stringValue = try? container.decode(String.self) {
             return .string(stringValue)
@@ -78,22 +89,20 @@ public indirect enum ATProtocolValueContainer: ATProtocolCodable, ATProtocolValu
         if container.decodeNil() {
             return .null
         }
-        
+
         print("Failed to decode as basic type, attempting to decode as Array or Object")
-        
+
         if var arrayContainer = try? decoder.unkeyedContainer() {
             return .array(try decodeAny(from: &arrayContainer))
         }
-        
+
         if let nestedContainer = try? decoder.container(keyedBy: DynamicCodingKeys.self) {
             return try decodeAny(from: nestedContainer)
         }
-        
+
         print("Failed to decode as Array or Object, throwing DecodingError.dataCorruptedError")
         throw DecodingError.dataCorruptedError(in: container, debugDescription: "ATProtocolValueContainer cannot be decoded")
     }
-
-
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()

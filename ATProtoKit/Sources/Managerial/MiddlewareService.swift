@@ -8,10 +8,10 @@
 import Foundation
 
 final class MiddlewareService: Sendable {
-    private var sessionManager: SessionManaging
-    private var tokenManager: TokenManaging
-    private var authDelegate: AuthenticationDelegate?
-    private weak var client: ATProtoClient?
+    private let sessionManager: SessionManaging
+    private let tokenManager: TokenManaging
+    private let authDelegate: AuthenticationDelegate?
+    private let client: ATProtoClient?
 
     init(sessionManager: SessionManaging, tokenManager: TokenManaging, authDelegate: AuthenticationDelegate?, client: ATProtoClient?) {
         self.sessionManager = sessionManager

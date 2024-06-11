@@ -2397,7 +2397,7 @@ public struct LabelerPrefItem: ATProtocolCodable, ATProtocolValue {
 
 
 public struct Preferences: Codable, ATProtocolCodable, ATProtocolValue {
-    var items: [PreferencesForUnionArray]
+    public let items: [PreferencesForUnionArray]
 
     public init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()

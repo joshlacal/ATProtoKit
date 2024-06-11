@@ -9,7 +9,7 @@ import Foundation
 import os.log
 
 class LogManager {
-    private static var logger = os.Logger(subsystem: "com.joshlacalamito.ATProtoKit", category: "Network")
+    private static let logger = os.Logger(subsystem: "com.joshlacalamito.ATProtoKit", category: "Network")
 
     static func logInfo(_ message: String) {
         logger.info("\(message, privacy: .public)")

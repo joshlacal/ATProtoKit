@@ -21,7 +21,7 @@ protocol ConfigurationManaging: AnyActor {
 }
 
 actor ConfigurationManager: ConfigurationManaging {
-    weak var delegate: BaseURLUpdateDelegate?
+    var delegate: BaseURLUpdateDelegate?
 
 
     private var baseURL: URL

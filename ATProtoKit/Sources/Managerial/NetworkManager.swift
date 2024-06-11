@@ -22,7 +22,7 @@ public actor NetworkManager: NetworkManaging, BaseURLUpdateDelegate {
     private let maxRetryLimit: Int = 3
 
     private var middlewares: [NetworkMiddleware] = []
-    weak var middlewareService: MiddlewareService?
+    var middlewareService: MiddlewareService?
     private var isMiddlewareConfigured = false
 
     init(baseURL: URL, configurationManager: ConfigurationManager) {

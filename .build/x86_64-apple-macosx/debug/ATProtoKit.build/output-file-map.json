@@ -1,0 +1,1205 @@
+{
+  "": {
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/master.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/ATProtoClient.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClient.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtoClientGeneratedMain.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClientGeneratedMain.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClientGeneratedMain.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClientGeneratedMain~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoClientGeneratedMain.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ATProtocolValueContainer.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainer.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainer.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainer~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainer.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetPreferences.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetPreferences.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetPreferences.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetPreferences~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetPreferences.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetProfile.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfile.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfile.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfile~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfile.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetProfiles.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfiles.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfiles.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfiles~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetProfiles.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorGetSuggestions.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetSuggestions.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetSuggestions.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetSuggestions~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorGetSuggestions.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorProfile.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorProfile.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorProfile.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorProfile~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorProfile.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorPutPreferences.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorPutPreferences.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorPutPreferences.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorPutPreferences~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorPutPreferences.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorSearchActors.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActors.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActors.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActors~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActors.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyActorSearchActorsTypeahead.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActorsTypeahead.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActorsTypeahead.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActorsTypeahead~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyActorSearchActorsTypeahead.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyEmbedExternal.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedExternal.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedExternal.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedExternal~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedExternal.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyEmbedImages.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedImages.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedImages.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedImages~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedImages.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyEmbedRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyEmbedRecordWithMedia.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecordWithMedia.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecordWithMedia.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecordWithMedia~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyEmbedRecordWithMedia.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedDescribeFeedGenerator.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDescribeFeedGenerator.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDescribeFeedGenerator.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDescribeFeedGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedDescribeFeedGenerator.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGenerator.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGenerator.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGenerator.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGenerator.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetActorFeeds.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorFeeds.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorFeeds.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorFeeds~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorFeeds.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetActorLikes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorLikes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorLikes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorLikes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetActorLikes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetAuthorFeed.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetAuthorFeed.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetAuthorFeed.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetAuthorFeed~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetAuthorFeed.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetFeed.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeed.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeed.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeed~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeed.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetFeedGenerator.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerator.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerator.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerator.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetFeedGenerators.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerators.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerators.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerators~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedGenerators.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetFeedSkeleton.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedSkeleton.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedSkeleton.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedSkeleton~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetFeedSkeleton.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetLikes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetLikes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetLikes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetLikes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetLikes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetListFeed.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetListFeed.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetListFeed.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetListFeed~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetListFeed.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetPostThread.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPostThread.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPostThread.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPostThread~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPostThread.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetPosts.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPosts.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPosts.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPosts~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetPosts.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetRepostedBy.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetRepostedBy.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetRepostedBy.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetRepostedBy~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetRepostedBy.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetSuggestedFeeds.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetSuggestedFeeds.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetSuggestedFeeds.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetSuggestedFeeds~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetSuggestedFeeds.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedGetTimeline.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetTimeline.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetTimeline.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetTimeline~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedGetTimeline.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedLike.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedLike.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedLike.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedLike~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedLike.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedPost.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedPost.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedPost.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedPost~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedPost.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedRepost.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedRepost.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedRepost.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedRepost~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedRepost.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedSearchPosts.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSearchPosts.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSearchPosts.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSearchPosts~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSearchPosts.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedSendInteractions.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSendInteractions.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSendInteractions.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSendInteractions~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedSendInteractions.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyFeedThreadgate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedThreadgate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedThreadgate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedThreadgate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyFeedThreadgate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphBlock.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphBlock.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphBlock.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphBlock~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphBlock.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphFollow.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphFollow.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphFollow.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphFollow~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphFollow.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetBlocks.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetBlocks.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetBlocks.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetBlocks~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetBlocks.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetFollowers.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollowers.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollowers.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollowers~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollowers.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetFollows.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollows.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollows.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollows~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetFollows.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetList.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetList.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetList.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetList~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetList.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetListBlocks.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListBlocks.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListBlocks.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListBlocks~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListBlocks.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetListMutes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListMutes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListMutes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListMutes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetListMutes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetLists.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetLists.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetLists.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetLists~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetLists.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetMutes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetMutes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetMutes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetMutes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetMutes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetRelationships.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetRelationships.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetRelationships.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetRelationships~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetRelationships.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphGetSuggestedFollowsByActor.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetSuggestedFollowsByActor.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetSuggestedFollowsByActor.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetSuggestedFollowsByActor~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphGetSuggestedFollowsByActor.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphList.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphList.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphList.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphList~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphList.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphListblock.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListblock.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListblock.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListblock~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListblock.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphListitem.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListitem.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListitem.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListitem~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphListitem.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphMuteActor.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActor.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActor.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActor~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActor.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphMuteActorList.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActorList.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActorList.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActorList~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphMuteActorList.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphUnmuteActor.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActor.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActor.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActor~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActor.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyGraphUnmuteActorList.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActorList.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActorList.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActorList~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyGraphUnmuteActorList.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyLabelerDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyLabelerGetServices.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerGetServices.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerGetServices.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerGetServices~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerGetServices.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyLabelerService.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerService.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerService.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerService~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyLabelerService.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyNotificationGetUnreadCount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationGetUnreadCount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationGetUnreadCount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationGetUnreadCount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationGetUnreadCount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyNotificationListNotifications.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationListNotifications.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationListNotifications.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationListNotifications~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationListNotifications.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyNotificationRegisterPush.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationRegisterPush.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationRegisterPush.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationRegisterPush~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationRegisterPush.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyNotificationUpdateSeen.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationUpdateSeen.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationUpdateSeen.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationUpdateSeen~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyNotificationUpdateSeen.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyRichtextFacet.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyRichtextFacet.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyRichtextFacet.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyRichtextFacet~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyRichtextFacet.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedGetPopularFeedGenerators.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetPopularFeedGenerators.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetPopularFeedGenerators.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetPopularFeedGenerators~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetPopularFeedGenerators.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedGetSuggestionsSkeleton.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetSuggestionsSkeleton.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetSuggestionsSkeleton.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetSuggestionsSkeleton~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetSuggestionsSkeleton.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedGetTaggedSuggestions.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetTaggedSuggestions.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetTaggedSuggestions.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetTaggedSuggestions~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedGetTaggedSuggestions.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedSearchActorsSkeleton.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchActorsSkeleton.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchActorsSkeleton.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchActorsSkeleton~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchActorsSkeleton.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/AppBskyUnspeccedSearchPostsSkeleton.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchPostsSkeleton.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchPostsSkeleton.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchPostsSkeleton~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AppBskyUnspeccedSearchPostsSkeleton.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyActorDeclaration.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeclaration.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeclaration.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeclaration~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeclaration.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyActorDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyActorDeleteAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeleteAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeleteAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeleteAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorDeleteAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyActorExportAccountData.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorExportAccountData.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorExportAccountData.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorExportAccountData~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyActorExportAccountData.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoDeleteMessageForSelf.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDeleteMessageForSelf.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDeleteMessageForSelf.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDeleteMessageForSelf~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoDeleteMessageForSelf.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoGetConvo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoGetConvoForMembers.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvoForMembers.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvoForMembers.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvoForMembers~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetConvoForMembers.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoGetLog.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetLog.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetLog.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetLog~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetLog.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoGetMessages.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetMessages.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetMessages.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetMessages~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoGetMessages.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoLeaveConvo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoLeaveConvo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoLeaveConvo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoLeaveConvo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoLeaveConvo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoListConvos.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoListConvos.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoListConvos.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoListConvos~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoListConvos.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoMuteConvo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoMuteConvo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoMuteConvo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoMuteConvo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoMuteConvo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoSendMessage.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessage.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessage.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessage~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessage.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoSendMessageBatch.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessageBatch.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessageBatch.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessageBatch~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoSendMessageBatch.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoUnmuteConvo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUnmuteConvo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUnmuteConvo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUnmuteConvo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUnmuteConvo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyConvoUpdateRead.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUpdateRead.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUpdateRead.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUpdateRead~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyConvoUpdateRead.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyModerationGetActorMetadata.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetActorMetadata.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetActorMetadata.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetActorMetadata~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetActorMetadata.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyModerationGetMessageContext.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetMessageContext.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetMessageContext.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetMessageContext~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationGetMessageContext.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ChatBskyModerationUpdateActorAccess.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationUpdateActorAccess.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationUpdateActorAccess.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationUpdateActorAccess~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ChatBskyModerationUpdateActorAccess.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminDeleteAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDeleteAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDeleteAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDeleteAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDeleteAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminDisableAccountInvites.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableAccountInvites.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableAccountInvites.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableAccountInvites~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableAccountInvites.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminDisableInviteCodes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableInviteCodes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableInviteCodes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableInviteCodes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminDisableInviteCodes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminEnableAccountInvites.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminEnableAccountInvites.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminEnableAccountInvites.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminEnableAccountInvites~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminEnableAccountInvites.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminGetAccountInfo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminGetAccountInfos.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfos.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfos.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfos~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetAccountInfos.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminGetInviteCodes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetInviteCodes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetInviteCodes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetInviteCodes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetInviteCodes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminGetSubjectStatus.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetSubjectStatus.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetSubjectStatus.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetSubjectStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminGetSubjectStatus.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminSendEmail.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminSendEmail.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminSendEmail.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminSendEmail~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminSendEmail.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminUpdateAccountEmail.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountEmail.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountEmail.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountEmail~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountEmail.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminUpdateAccountHandle.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountHandle.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountHandle.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountHandle~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountHandle.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminUpdateAccountPassword.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountPassword.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountPassword.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountPassword~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateAccountPassword.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoAdminUpdateSubjectStatus.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateSubjectStatus.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateSubjectStatus.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateSubjectStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoAdminUpdateSubjectStatus.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentityGetRecommendedDidCredentials.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityGetRecommendedDidCredentials.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityGetRecommendedDidCredentials.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityGetRecommendedDidCredentials~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityGetRecommendedDidCredentials.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentityRequestPlcOperationSignature.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityRequestPlcOperationSignature.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityRequestPlcOperationSignature.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityRequestPlcOperationSignature~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityRequestPlcOperationSignature.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentityResolveHandle.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityResolveHandle.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityResolveHandle.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityResolveHandle~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityResolveHandle.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentitySignPlcOperation.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySignPlcOperation.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySignPlcOperation.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySignPlcOperation~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySignPlcOperation.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentitySubmitPlcOperation.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySubmitPlcOperation.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySubmitPlcOperation.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySubmitPlcOperation~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentitySubmitPlcOperation.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoIdentityUpdateHandle.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityUpdateHandle.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityUpdateHandle.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityUpdateHandle~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoIdentityUpdateHandle.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoLabelDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoLabelQueryLabels.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelQueryLabels.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelQueryLabels.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelQueryLabels~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoLabelQueryLabels.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoModerationCreateReport.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationCreateReport.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationCreateReport.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationCreateReport~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationCreateReport.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoModerationDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoModerationDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoApplyWrites.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoApplyWrites.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoApplyWrites.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoApplyWrites~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoApplyWrites.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoCreateRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoCreateRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoCreateRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoCreateRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoCreateRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoDeleteRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDeleteRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDeleteRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDeleteRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDeleteRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoDescribeRepo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDescribeRepo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDescribeRepo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDescribeRepo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoDescribeRepo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoGetRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoGetRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoGetRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoGetRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoGetRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoImportRepo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoImportRepo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoImportRepo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoImportRepo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoImportRepo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoListMissingBlobs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListMissingBlobs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListMissingBlobs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListMissingBlobs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListMissingBlobs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoListRecords.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListRecords.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListRecords.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListRecords~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoListRecords.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoPutRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoPutRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoPutRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoPutRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoPutRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoStrongRef.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoStrongRef.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoStrongRef.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoStrongRef~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoStrongRef.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoRepoUploadBlob.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoUploadBlob.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoUploadBlob.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoUploadBlob~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoRepoUploadBlob.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerActivateAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerActivateAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerActivateAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerActivateAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerActivateAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCheckAccountStatus.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCheckAccountStatus.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCheckAccountStatus.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCheckAccountStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCheckAccountStatus.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerConfirmEmail.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerConfirmEmail.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerConfirmEmail.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerConfirmEmail~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerConfirmEmail.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCreateAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCreateAppPassword.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAppPassword.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAppPassword.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAppPassword~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateAppPassword.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCreateInviteCode.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCode.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCode.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCode~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCode.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCreateInviteCodes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCodes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCodes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCodes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateInviteCodes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerCreateSession.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateSession.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateSession.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateSession~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerCreateSession.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerDeactivateAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeactivateAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeactivateAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeactivateAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeactivateAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerDeleteAccount.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteAccount.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteAccount.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteAccount~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteAccount.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerDeleteSession.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteSession.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteSession.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteSession~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDeleteSession.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerDescribeServer.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDescribeServer.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDescribeServer.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDescribeServer~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerDescribeServer.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerGetAccountInviteCodes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetAccountInviteCodes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetAccountInviteCodes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetAccountInviteCodes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetAccountInviteCodes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerGetServiceAuth.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetServiceAuth.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetServiceAuth.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetServiceAuth~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetServiceAuth.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerGetSession.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetSession.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetSession.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetSession~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerGetSession.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerListAppPasswords.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerListAppPasswords.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerListAppPasswords.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerListAppPasswords~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerListAppPasswords.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRefreshSession.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRefreshSession.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRefreshSession.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRefreshSession~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRefreshSession.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRequestAccountDelete.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestAccountDelete.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestAccountDelete.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestAccountDelete~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestAccountDelete.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRequestEmailConfirmation.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailConfirmation.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailConfirmation.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailConfirmation~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailConfirmation.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRequestEmailUpdate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailUpdate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailUpdate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailUpdate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestEmailUpdate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRequestPasswordReset.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestPasswordReset.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestPasswordReset.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestPasswordReset~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRequestPasswordReset.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerReserveSigningKey.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerReserveSigningKey.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerReserveSigningKey.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerReserveSigningKey~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerReserveSigningKey.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerResetPassword.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerResetPassword.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerResetPassword.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerResetPassword~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerResetPassword.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerRevokeAppPassword.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRevokeAppPassword.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRevokeAppPassword.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRevokeAppPassword~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerRevokeAppPassword.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoServerUpdateEmail.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerUpdateEmail.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerUpdateEmail.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerUpdateEmail~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoServerUpdateEmail.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetBlob.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlob.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlob.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlob~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlob.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetBlocks.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlocks.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlocks.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlocks~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetBlocks.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetCheckout.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetCheckout.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetCheckout.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetCheckout~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetCheckout.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetHead.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetHead.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetHead.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetHead~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetHead.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetLatestCommit.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetLatestCommit.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetLatestCommit.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetLatestCommit~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetLatestCommit.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetRepo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncListBlobs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncListRepos.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListRepos.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListRepos.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListRepos~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListRepos.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncNotifyOfUpdate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncNotifyOfUpdate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncNotifyOfUpdate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncNotifyOfUpdate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncNotifyOfUpdate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncRequestCrawl.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncRequestCrawl.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncRequestCrawl.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncRequestCrawl~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncRequestCrawl.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoTempCheckSignupQueue.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempCheckSignupQueue.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempCheckSignupQueue.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempCheckSignupQueue~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempCheckSignupQueue.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoTempFetchLabels.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempFetchLabels.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempFetchLabels.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempFetchLabels~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempFetchLabels.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoTempRequestPhoneVerification.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempRequestPhoneVerification.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempRequestPhoneVerification.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempRequestPhoneVerification~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoTempRequestPhoneVerification.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneCommunicationCreateTemplate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationCreateTemplate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationCreateTemplate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationCreateTemplate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationCreateTemplate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneCommunicationDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneCommunicationDeleteTemplate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDeleteTemplate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDeleteTemplate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDeleteTemplate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationDeleteTemplate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneCommunicationListTemplates.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationListTemplates.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationListTemplates.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationListTemplates~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationListTemplates.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneCommunicationUpdateTemplate.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationUpdateTemplate.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationUpdateTemplate.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationUpdateTemplate~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneCommunicationUpdateTemplate.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationDefs.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationDefs.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationDefs.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationDefs~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationDefs.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationEmitEvent.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationEmitEvent.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationEmitEvent.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationEmitEvent~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationEmitEvent.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationGetEvent.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetEvent.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetEvent.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetEvent~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetEvent.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationGetRecord.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRecord.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRecord.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRecord~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRecord.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationGetRepo.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRepo.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRepo.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRepo~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationGetRepo.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationQueryEvents.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryEvents.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryEvents.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryEvents~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryEvents.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationQueryStatuses.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryStatuses.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryStatuses.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryStatuses~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationQueryStatuses.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ToolsOzoneModerationSearchRepos.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationSearchRepos.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationSearchRepos.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationSearchRepos~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ToolsOzoneModerationSearchRepos.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/ATProtoTypes.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoTypes.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoTypes.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoTypes~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtoTypes.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/ATProtocolValueContainerHelpers.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainerHelpers.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainerHelpers.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainerHelpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ATProtocolValueContainerHelpers.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/DIDDocHandler.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DIDDocHandler.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DIDDocHandler.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DIDDocHandler~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DIDDocHandler.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/DateValidation.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DateValidation.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DateValidation.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DateValidation~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/DateValidation.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/Languages.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Languages.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Languages.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Languages~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Languages.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/NetworkError.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkError.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkError.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkError~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkError.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/QueryParameters.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/QueryParameters.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/QueryParameters.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/QueryParameters~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/QueryParameters.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Helpers/RichText.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/RichText.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/RichText.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/RichText~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/RichText.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/AuthenticationManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/AuthenticationService.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationService.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationService.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationService~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/AuthenticationService.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/ConfigurationManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ConfigurationManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ConfigurationManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ConfigurationManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ConfigurationManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/KeychainManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/KeychainManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/KeychainManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/KeychainManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/KeychainManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/LogManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/LogManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/LogManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/LogManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/LogManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/Middleware.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Middleware.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Middleware.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Middleware~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/Middleware.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/MiddlewareService.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MiddlewareService.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MiddlewareService.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MiddlewareService~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MiddlewareService.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/Mocks/MockNetworkManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MockNetworkManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MockNetworkManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MockNetworkManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/MockNetworkManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/NetworkManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/NetworkManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/SessionManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/SessionManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/SessionManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/SessionManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/SessionManager.swiftdeps"
+  },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Managerial/TokenManager.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/TokenManager.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/TokenManager.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/TokenManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/TokenManager.swiftdeps"
+  }
+}

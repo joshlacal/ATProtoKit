@@ -200,12 +200,12 @@ public extension String {
 
 public struct TagLink: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
     public typealias Value = String
-    public static var name: String = "tagLink"
+    public static let name: String = "tagLink"
 }
 
 public struct MentionLink: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
     public typealias Value = String
-    public static var name: String = "mentionLink"
+    public static let name: String = "mentionLink"
 }
 
 public extension AttributeScopes {

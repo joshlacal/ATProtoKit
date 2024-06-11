@@ -14,7 +14,7 @@ protocol TokenManaging: AnyActor {
 
 }
 
-protocol TokenDelegate: AnyObject {
+protocol TokenDelegate: AnyActor {
     func tokenDidUpdate() async
 }
 
@@ -22,7 +22,7 @@ protocol TokenDelegate: AnyObject {
 public actor TokenManager: TokenManaging {
     private var accessJwt: String?
     private var refreshJwt: String?
-    weak var delegate: TokenDelegate?
+    var delegate: TokenDelegate?
     
     func setDelegate(_ delegate: TokenDelegate?) {
         self.delegate = delegate
