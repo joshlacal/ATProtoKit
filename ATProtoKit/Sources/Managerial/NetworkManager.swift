@@ -37,7 +37,7 @@ public actor NetworkManager: NetworkManaging, BaseURLUpdateDelegate {
 
     }
     
-    func baseURLDidUpdate(_ newBaseURL: URL) {
+    func baseURLDidUpdate(_ newBaseURL: URL) async {
         self.baseURL = newBaseURL
     }
 

@@ -14,7 +14,8 @@ public indirect enum ATProtocolValueContainer: ATProtocolCodable, ATProtocolValu
 
     typealias DecoderFunction = (Decoder) throws -> ATProtocolValueContainer
 
-    private static let typeDecoders: [String: DecoderFunction] = {
+    // this is static
+    nonisolated(unsafe) private static let typeDecoders: [String: DecoderFunction] = {
         var decoders: [String: DecoderFunction] = [:]
         
         decoders["tools.ozone.moderation.defs#modEventView"] = { decoder in

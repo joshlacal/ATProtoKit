@@ -123,11 +123,27 @@ actor SessionManager: SessionManaging, TokenDelegate {
 
 
     public func hasValidSession() async -> Bool {
+        LogManager.logDebug("SessionManager - Checking for valid session")
+        let tokensValid = await tokenManager.hasValidTokens()
+        if tokensValid {
+            if sessionState != .valid {
+                LogManager.logInfo("SessionManager - Tokens are valid, updating session state")
+                sessionState = .valid
+            }
+        } else {
+            if sessionState == .valid {
+                LogManager.logInfo("SessionManager - Tokens are invalid, updating session state")
+                sessionState = .expired
+            }
+        }
+        LogManager.logDebug("SessionManager - Session is \(sessionState == .valid ? "valid" : "invalid")")
         return sessionState == .valid
     }
+
     
     func tokenDidUpdate() async {
-        sessionState = await tokenManager.hasValidTokens() ? .valid : .expired
+        LogManager.logDebug("SessionManager - Tokens updated, rechecking session validity")
+        _ = await hasValidSession()
     }
 
     public func clearSession() async {

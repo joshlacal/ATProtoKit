@@ -64,6 +64,7 @@ public actor ATProtoClient: AuthenticationDelegate {
         let middlewareService = MiddlewareService(sessionManager: sessionManager, tokenManager: tokenManager, authDelegate: authDelegate, client: self)
 
         Task (priority: .high){
+            await configManager.setDelegate(networkManager)
             await tokenManager.setDelegate(sessionManager)
             await networkManager.setMiddlewareService(middlewareService: middlewareService)
         }
@@ -79,6 +80,7 @@ public actor ATProtoClient: AuthenticationDelegate {
         try await authenticationManager.createSession(identifier: identifier, password: password)
     }
     
+
     public func logout() async throws {
         do {
             await sessionManager.clearSession()
@@ -103,15 +105,50 @@ public actor ATProtoClient: AuthenticationDelegate {
         return await config.getDID()
     }
     
-    public func hasValidSession() async -> Bool {
-//        do {
-//            try await sessionManager.initializeIfNeeded()
-//        } catch {
-//            print("initialization failed with error: \(error)")
-//        }
-        return await sessionManager.hasValidSession()
+    public func refreshToken() async throws -> Bool {
+        do {
+            return try await authService.refreshTokenIfNeeded()
+        } catch {
+            LogManager.logError("ATProtoClient - Failed to refresh token: \(error)")
+            throw error
+        }
     }
-    
+
+    public func hasValidSession() async -> Bool {
+        LogManager.logDebug("ATProtoClient - Checking for valid session")
+        do {
+            let isValid = await sessionManager.hasValidSession()
+            if !isValid {
+                // Attempt to refresh the token if the session is not valid
+                return try await refreshToken()
+            }
+            LogManager.logInfo("ATProtoClient - Session is valid")
+            return true
+        } catch {
+            LogManager.logError("ATProtoClient - Session is invalid and token refresh failed: \(error)")
+            return false
+        }
+    }
+
+    public func initializeSession() async throws {
+        LogManager.logInfo("ATProtoClient - Initializing session")
+        do {
+            try await sessionManager.initializeIfNeeded()
+            let isValid = await hasValidSession() // This now includes an attempt to refresh if needed
+            if isValid {
+                LogManager.logInfo("ATProtoClient - Valid session established")
+                self.did = await config.getDID()
+                self.handle = await config.getHandle()
+            } else {
+                LogManager.logInfo("ATProtoClient - No valid session, authentication required")
+                await authDelegate?.authenticationRequired(client: self)
+            }
+        } catch {
+            LogManager.logError("ATProtoClient - Failed to initialize session: \(error)")
+            throw error
+        }
+    }
+
     public func authenticationRequired(client: ATProtoClient) async {
         print("authentication required")
     }
@@ -119,7 +156,6 @@ public actor ATProtoClient: AuthenticationDelegate {
     func baseURLDidUpdate(_ newBaseURL: URL) {
         self.baseURL = newBaseURL
     }
-
 
 // MARK: Generated classes
 

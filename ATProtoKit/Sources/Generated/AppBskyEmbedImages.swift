@@ -76,7 +76,8 @@ public struct AppBskyEmbedImages: ATProtocolCodable, ATProtocolValue {
                 throw error
             }
             do {
-                self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
+                self.aspectRatio = try container
+                    .decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
                 
             } catch {
                 print("Decoding error for property 'aspectRatio': \(error)")
@@ -223,7 +224,8 @@ public struct AppBskyEmbedImages: ATProtocolCodable, ATProtocolValue {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             do {
-                self.images = try container.decode([ViewImage].self, forKey: .images)
+                self.images = try container
+                    .decode([ViewImage].self, forKey: .images)
                 
             } catch {
                 print("Decoding error for property 'images': \(error)")
@@ -290,7 +292,8 @@ public struct AppBskyEmbedImages: ATProtocolCodable, ATProtocolValue {
                 throw error
             }
             do {
-                self.fullsize = try container.decode(URI.self, forKey: .fullsize)
+                self.fullsize = try container
+                    .decode(URI.self, forKey: .fullsize)
                 
             } catch {
                 print("Decoding error for property 'fullsize': \(error)")
@@ -304,7 +307,8 @@ public struct AppBskyEmbedImages: ATProtocolCodable, ATProtocolValue {
                 throw error
             }
             do {
-                self.aspectRatio = try container.decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
+                self.aspectRatio = try container
+                    .decodeIfPresent(AspectRatio.self, forKey: .aspectRatio)
                 
             } catch {
                 print("Decoding error for property 'aspectRatio': \(error)")

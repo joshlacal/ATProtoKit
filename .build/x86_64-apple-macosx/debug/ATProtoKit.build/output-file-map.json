@@ -968,6 +968,12 @@
     "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo~partial.swiftmodule",
     "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepo.swiftdeps"
   },
+  "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncGetRepoStatus.swift": {
+    "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepoStatus.d",
+    "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepoStatus.swift.o",
+    "swiftmodule": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepoStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncGetRepoStatus.swiftdeps"
+  },
   "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/ATProtoKit/Sources/Generated/ComAtprotoSyncListBlobs.swift": {
     "dependencies": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs.d",
     "object": "/Users/joshlacalamito/Documents/GitHub/ATProtoKit/.build/x86_64-apple-macosx/debug/ATProtoKit.build/ComAtprotoSyncListBlobs.swift.o",

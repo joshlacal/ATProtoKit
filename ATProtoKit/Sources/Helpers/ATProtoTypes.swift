@@ -16,8 +16,6 @@ public protocol ATProtocolValue: ATProtocolCodable, Equatable, Hashable {
  // MARK: URIs
 
 public struct ATProtocolURI: ATProtocolValue, CustomStringConvertible, QueryParameterConvertible {
-    
-    
     public let authority: String
     public let collection: String?
     public let recordKey: String?
@@ -110,83 +108,105 @@ public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConve
     let path: String?
     let query: String?
     let fragment: String?
-    
+    let isDID: Bool
+
     enum URIError: Error {
         case invalidScheme
         case invalidURI
+        case invalidDID
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let uriString = try container.decode(String.self)
 
-        let urlComponents = URLComponents(string: uriString)
-
-        self.scheme = urlComponents?.scheme ?? ""
-        self.authority = urlComponents?.host ?? ""
-        if let pathComponent = urlComponents?.path, !pathComponent.isEmpty {
-            self.path = pathComponent
+        if uriString.starts(with: "did:") {
+            self.isDID = true
+            let components = uriString.split(separator: ":")
+            guard components.count >= 3 else {
+                throw URIError.invalidDID
+            }
+            self.scheme = String(components[0])
+            self.authority = String(components[1])
+            self.path = components.dropFirst(2).joined(separator: ":")
+            self.query = nil
+            self.fragment = nil
         } else {
-            self.path = nil
+            self.isDID = false
+            let urlComponents = URLComponents(string: uriString)
+            self.scheme = urlComponents?.scheme ?? ""
+            self.authority = urlComponents?.host ?? ""
+            self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
+            self.query = urlComponents?.query
+            self.fragment = urlComponents?.fragment
         }
-        self.query = urlComponents?.query
-        self.fragment = urlComponents?.fragment
     }
 
     init(uriString: String) {
-        let urlComponents = URLComponents(string: uriString)
-
-        // Fallback to a default scheme if necessary or handle the error appropriately.
-        let defaultScheme = "https"
-        self.scheme = urlComponents?.scheme ?? defaultScheme
-        self.authority = urlComponents?.host ?? ""
-        self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
-        self.query = urlComponents?.query
-        self.fragment = urlComponents?.fragment
+        if uriString.starts(with: "did:") {
+            self.isDID = true
+            let components = uriString.split(separator: ":")
+            self.scheme = "did"
+            self.authority = String(components[1])
+            self.path = components.count > 2 ? components.dropFirst(2).joined(separator: ":") : nil
+            self.query = nil
+            self.fragment = nil
+        } else {
+            self.isDID = false
+            let urlComponents = URLComponents(string: uriString)
+            let defaultScheme = "https"
+            self.scheme = urlComponents?.scheme ?? defaultScheme
+            self.authority = urlComponents?.host ?? ""
+            self.path = urlComponents?.path.isEmpty ?? true ? nil : urlComponents?.path
+            self.query = urlComponents?.query
+            self.fragment = urlComponents?.fragment
+        }
     }
 
     func isValid() -> Bool {
-        // Ensure the scheme and authority are not empty as a basic validation
-        return !scheme.isEmpty && !authority.isEmpty
+        if isDID {
+            return scheme == "did" && !authority.isEmpty
+        } else {
+            return !scheme.isEmpty && !authority.isEmpty
+        }
     }
 
     func asQueryItem(name: String) -> URLQueryItem? {
-        // Validate the URI before converting it to a string.
         guard self.isValid() else {
             return nil
         }
-        // Since uriString is not throwing, we can use it directly.
         return URLQueryItem(name: name, value: self.uriString())
     }
 
     public func uriString() -> String {
-        // Construct the URI string without error throwing.
-        // This will use the existing logic but won't throw errors.
-        var components = URLComponents()
-        components.scheme = scheme.isEmpty ? nil : scheme
-        components.host = authority
-        components.path = path ?? ""
-        components.query = query
-        components.fragment = fragment
-        // If the URI components are not valid, return an empty string or some form of indication.
-        return components.string ?? "invalid-uri"
+        if isDID {
+            var didString = "did:\(authority)"
+            if let path = path {
+                didString += ":\(path)"
+            }
+            return didString
+        } else {
+            var components = URLComponents()
+            components.scheme = scheme.isEmpty ? nil : scheme
+            components.host = authority
+            components.path = path ?? ""
+            components.query = query
+            components.fragment = fragment
+            return components.string ?? "invalid-uri"
+        }
     }
 
-    // Conform to ExpressibleByStringLiteral
     public init(stringLiteral value: String) {
         self.init(uriString: value)
     }
 
-    // Conform to LosslessStringConvertible
     public init?(_ description: String) {
         self.init(uriString: description)
     }
 
-    // Update the description property to return the uriString directly
     public var description: String {
         return uriString()
     }
-
 
     public func isEqual(to other: any ATProtocolValue) -> Bool {
         guard let otherURI = other as? URI else {
@@ -196,7 +216,8 @@ public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConve
                authority == otherURI.authority &&
                path == otherURI.path &&
                query == otherURI.query &&
-               fragment == otherURI.fragment
+               fragment == otherURI.fragment &&
+               isDID == otherURI.isDID
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -204,8 +225,6 @@ public struct URI: ATProtocolValue, CustomStringConvertible, QueryParameterConve
         let uriString = self.uriString()
         try container.encode(uriString)
     }
-    
-
 }
 
 // MARK: Blob

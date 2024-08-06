@@ -17,16 +17,19 @@ protocol ConfigurationManaging: AnyActor {
     func updateUserConfiguration(did: String, serviceEndpoint: String) async throws
     func updateDID(did: String) async
     func getDID() async -> String?
+    func getHandle() async -> String?
     func getServiceEndpoint() async -> String
 }
 
 actor ConfigurationManager: ConfigurationManaging {
+    
     var delegate: BaseURLUpdateDelegate?
 
 
     private var baseURL: URL
     private var did: String?
-    
+    private var handle: String?
+
     init(baseURL: URL) {
         self.baseURL = baseURL
         Task {
@@ -69,6 +72,11 @@ actor ConfigurationManager: ConfigurationManaging {
         self.did = did
         UserDefaults.standard.set(did, forKey: "did")
     }
+    
+    func getHandle() async -> String? {
+        return handle
+    }
+
     
     public func getDID() async -> String? {
         return did

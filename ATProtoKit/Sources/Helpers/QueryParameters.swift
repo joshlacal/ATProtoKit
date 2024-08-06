@@ -13,15 +13,19 @@ public protocol Parametrizable {
 extension Parametrizable {
     public func asQueryItems() -> [URLQueryItem] {
         let mirror = Mirror(reflecting: self)
-        return mirror.children.compactMap { child in
-            guard let label = child.label, let value = child.value as? QueryParameterConvertible else {
-                return nil
+        return mirror.children.flatMap { child -> [URLQueryItem] in
+            guard let label = child.label else { return [] }
+            
+            if let array = child.value as? [QueryParameterConvertible] {
+                return array.map { $0.asQueryItem(name: label) }.compactMap { $0 }
+            } else if let value = child.value as? QueryParameterConvertible {
+                return [value.asQueryItem(name: label)].compactMap { $0 }
             }
-            return value.asQueryItem(name: label)
+            
+            return []
         }
     }
 }
-
 
 protocol QueryParameterConvertible {
     func asQueryItem(name: String) -> URLQueryItem?
@@ -55,4 +59,3 @@ extension Optional where Wrapped: QueryParameterConvertible {
         }
     }
 }
-

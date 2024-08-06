@@ -1,3 +1,11 @@
+//
+//  ImageMetadataStripper.swift
+//  ATProtoKit
+//
+//  Created by Josh LaCalamito on 8/6/24.
+//
+
+
 import Foundation
 import ImageIO
 import MobileCoreServices

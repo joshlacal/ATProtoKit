@@ -45,7 +45,7 @@ actor AuthenticationService {
         LogManager.logInfo("AuthenticationService - Tokens saved successfully.")
     }
     
-    enum AuthenticationError: Error {
+    public enum AuthenticationError: Error {
         case tokenMissingOrCorrupted
         case tokenExpired
     }

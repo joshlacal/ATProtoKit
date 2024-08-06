@@ -22,8 +22,12 @@ public struct LanguageCodeContainer: Codable, ATProtocolCodable, Hashable, Senda
         self.lang = Locale.Language(bcp47LanguageTag: languageTag)
     }
     
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(lang.languageCode?.identifier ?? lang.minimalIdentifier)
+    }
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(lang)
     }
-
 }

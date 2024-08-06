@@ -215,11 +215,13 @@ class SwiftCodeGenerator:
     def generate_procedure_function(self, lexicon_id, main_def):
         template_namespace_parts = lexicon_id.split('.')[:-1]  # Everything except the last part
         template_namespace_name = '.'.join(self.convert_to_camel_case(part) for part in template_namespace_parts)
-
         procedure_name = self.convert_to_camel_case(lexicon_id.split('.')[-1])
 
         # Check if this is an initial setup procedure, like session creation
         during_initial_setup = 'createSession' in lexicon_id
+
+        # Check if this is a blob upload procedure
+        is_blob_upload = 'input' in main_def and main_def['input'].get('encoding') == '*/*'
 
         input_parameters = ''
         input_values = ''
@@ -243,7 +245,8 @@ class SwiftCodeGenerator:
             output_type=self.convert_to_camel_case(lexicon_id) + ".Output" if 'output' in main_def else None,
             endpoint=endpoint,
             description=self.description,
-            during_initial_setup=during_initial_setup
+            during_initial_setup=during_initial_setup,
+            is_blob_upload=is_blob_upload
         )
 
     def generate_query_function(self, lexicon_id, main_def):

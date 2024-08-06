@@ -1,5 +1,27 @@
 extension ATProtoClient.{{ template_namespace_name }} {
     /// {{ description }}
+    {% if is_blob_upload %}
+    public func {{ procedure_name | lowerCamelCase }}(data: Data, mimeType: String, stripMetadata: Bool = true, duringInitialSetup: Bool = false) async throws -> {% if output_type %}(responseCode: Int, data: {{ output_type }}?){% else %}Int{% endif %} {
+        let endpoint = "{{ endpoint }}"
+        
+        var dataToUpload = data
+        
+        if stripMetadata && mimeType.starts(with: "image/") {
+            if let strippedData = ImageMetadataStripper.stripMetadata(from: data) {
+                dataToUpload = strippedData
+            } else {
+                print("Warning: Failed to strip metadata. Proceeding with original data.")
+            }
+        }
+        
+        let urlRequest = try await networkManager.createURLRequest(
+            endpoint: endpoint, 
+            method: "POST", 
+            headers: ["Content-Type": mimeType],
+            body: dataToUpload,
+            queryItems: nil
+        )
+    {% else %}
     public func {{ procedure_name | lowerCamelCase }}({% if input_struct_name %}input: {{ input_struct_name }},{% endif %} duringInitialSetup: Bool = false) async throws -> {% if output_type %}(responseCode: Int, data: {{ output_type }}?){% else %}Int{% endif %} {
         let endpoint = "{{ endpoint }}"
         
@@ -16,10 +38,10 @@ extension ATProtoClient.{{ template_namespace_name }} {
             body: requestData,
             queryItems: nil
         )
+    {% endif %}
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         {% if output_type %}
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode({{ output_type }}.self, from: responseData)
