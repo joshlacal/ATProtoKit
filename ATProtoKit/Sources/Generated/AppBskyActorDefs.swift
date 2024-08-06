@@ -2857,8 +2857,8 @@ public struct Preferences: Codable, ATProtocolCodable, ATProtocolValue {
     public let items: [PreferencesForUnionArray]
 
     public init(from decoder: Decoder) throws {
-        let container = try decoder.unkeyedContainer()
-        let items = [PreferencesForUnionArray]()
+        var container = try decoder.unkeyedContainer()
+        var items = [PreferencesForUnionArray]()
         while !container.isAtEnd {
             let item = try container.decode(PreferencesForUnionArray.self)
             items.append(item)

@@ -417,8 +417,8 @@ public struct Features: Codable, ATProtocolCodable, ATProtocolValue {
     public let items: [FeaturesForUnionArray]
 
     public init(from decoder: Decoder) throws {
-        let container = try decoder.unkeyedContainer()
-        let items = [FeaturesForUnionArray]()
+        var container = try decoder.unkeyedContainer()
+        var items = [FeaturesForUnionArray]()
         while !container.isAtEnd {
             let item = try container.decode(FeaturesForUnionArray.self)
             items.append(item)
