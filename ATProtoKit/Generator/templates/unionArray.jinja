@@ -4,8 +4,8 @@ public struct {{ union_name | convertRefToSwift }}: Codable, ATProtocolCodable, 
     public let items: [{{ union_name | convertRefToSwift }}ForUnionArray]
 
     public init(from decoder: Decoder) throws {
-        let container = try decoder.unkeyedContainer()
-        let items = [{{ union_name | convertRefToSwift }}ForUnionArray]()
+        var container = try decoder.unkeyedContainer()
+        var items = [{{ union_name | convertRefToSwift }}ForUnionArray]()
         while !container.isAtEnd {
             let item = try container.decode({{ union_name | convertRefToSwift }}ForUnionArray.self)
             items.append(item)
