@@ -238,15 +238,18 @@ public struct Notification: ATProtocolCodable, ATProtocolValue {
     }    
 public struct Parameters: Parametrizable {
         public let limit: Int?
+        public let priority: Bool?
         public let cursor: String?
         public let seenAt: ATProtocolDate?
         
         public init(
             limit: Int? = nil, 
+            priority: Bool? = nil, 
             cursor: String? = nil, 
             seenAt: ATProtocolDate? = nil
             ) {
             self.limit = limit
+            self.priority = priority
             self.cursor = cursor
             self.seenAt = seenAt
             
@@ -259,6 +262,8 @@ public struct Output: ATProtocolCodable {
         
         public let notifications: [Notification]
         
+        public let priority: Bool?
+        
         public let seenAt: ATProtocolDate?
         
         
@@ -268,12 +273,16 @@ public struct Output: ATProtocolCodable {
         
             notifications: [Notification], 
         
+            priority: Bool? = nil, 
+        
             seenAt: ATProtocolDate? = nil
         ) {
             
             self.cursor = cursor
             
             self.notifications = notifications
+            
+            self.priority = priority
             
             self.seenAt = seenAt
             

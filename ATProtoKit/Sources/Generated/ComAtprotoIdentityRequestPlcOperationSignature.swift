@@ -13,6 +13,7 @@ public struct ComAtprotoIdentityRequestPlcOperationSignature {
 }
 extension ATProtoClient.Com.Atproto.Identity {
     /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
+    
     public func requestPlcOperationSignature( duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.identity.requestPlcOperationSignature"
         
@@ -27,10 +28,10 @@ extension ATProtoClient.Com.Atproto.Identity {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

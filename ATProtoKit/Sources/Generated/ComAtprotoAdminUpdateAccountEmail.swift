@@ -24,6 +24,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Admin {
     /// Administrative action to update an account's email.
+    
     public func updateAccountEmail(input: ComAtprotoAdminUpdateAccountEmail.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.admin.updateAccountEmail"
         
@@ -38,10 +39,10 @@ extension ATProtoClient.Com.Atproto.Admin {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

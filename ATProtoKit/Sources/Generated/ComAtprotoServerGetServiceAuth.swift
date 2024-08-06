@@ -9,11 +9,17 @@ public struct ComAtprotoServerGetServiceAuth {
     public static let typeIdentifier = "com.atproto.server.getServiceAuth"    
 public struct Parameters: Parametrizable {
         public let aud: String
+        public let exp: Int?
+        public let lxm: String?
         
         public init(
-            aud: String
+            aud: String, 
+            exp: Int? = nil, 
+            lxm: String? = nil
             ) {
             self.aud = aud
+            self.exp = exp
+            self.lxm = lxm
             
         }
     }    
@@ -32,7 +38,13 @@ public struct Output: ATProtocolCodable {
             
         }
     }
-    
+            
+public enum Error: String, Swift.Error, CustomStringConvertible {
+                case badExpiration = "BadExpiration.Indicates that the requested expiration date is not a valid. May be in the past or may be reliant on the requested scopes."
+            public var description: String {
+                return self.rawValue
+            }
+        }
 
 
 

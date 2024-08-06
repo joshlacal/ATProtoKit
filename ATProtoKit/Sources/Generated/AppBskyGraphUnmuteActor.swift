@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Graph {
     /// Unmutes the specified account. Requires auth.
+    
     public func unmuteActor(input: AppBskyGraphUnmuteActor.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/app.bsky.graph.unmuteActor"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.App.Bsky.Graph {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

@@ -13,6 +13,7 @@ public struct ComAtprotoServerDeleteSession {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Delete the current session. Requires auth.
+    
     public func deleteSession( duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.deleteSession"
         
@@ -27,10 +28,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

@@ -157,6 +157,7 @@ public actor ATProtoClient: AuthenticationDelegate {
         self.baseURL = newBaseURL
     }
 
+
 // MARK: Generated classes
 
     public lazy var tools: Tools = {
@@ -179,11 +180,35 @@ public final class Tools: @unchecked Sendable {
             self.networkManager = networkManager
         }
 
+        public lazy var team: Team = {
+            return Team(networkManager: self.networkManager)
+        }()
+
+        public final class Team: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
         public lazy var moderation: Moderation = {
             return Moderation(networkManager: self.networkManager)
         }()
 
         public final class Moderation: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var server: Server = {
+            return Server(networkManager: self.networkManager)
+        }()
+
+        public final class Server: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
@@ -196,186 +221,6 @@ public final class Tools: @unchecked Sendable {
         }()
 
         public final class Communication: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-    }
-
-}
-
-public lazy var chat: Chat = {
-    return Chat(networkManager: self.networkManager)
-}()
-
-public final class Chat: @unchecked Sendable {
-    internal let networkManager: NetworkManaging
-    internal init(networkManager: NetworkManaging) {
-        self.networkManager = networkManager
-    }
-
-    public lazy var bsky: Bsky = {
-        return Bsky(networkManager: self.networkManager)
-    }()
-
-    public final class Bsky: @unchecked Sendable {
-        internal let networkManager: NetworkManaging
-        internal init(networkManager: NetworkManaging) {
-            self.networkManager = networkManager
-        }
-
-        public lazy var moderation: Moderation = {
-            return Moderation(networkManager: self.networkManager)
-        }()
-
-        public final class Moderation: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var convo: Convo = {
-            return Convo(networkManager: self.networkManager)
-        }()
-
-        public final class Convo: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var actor: Actor = {
-            return Actor(networkManager: self.networkManager)
-        }()
-
-        public final class Actor: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-    }
-
-}
-
-public lazy var app: App = {
-    return App(networkManager: self.networkManager)
-}()
-
-public final class App: @unchecked Sendable {
-    internal let networkManager: NetworkManaging
-    internal init(networkManager: NetworkManaging) {
-        self.networkManager = networkManager
-    }
-
-    public lazy var bsky: Bsky = {
-        return Bsky(networkManager: self.networkManager)
-    }()
-
-    public final class Bsky: @unchecked Sendable {
-        internal let networkManager: NetworkManaging
-        internal init(networkManager: NetworkManaging) {
-            self.networkManager = networkManager
-        }
-
-        public lazy var richtext: Richtext = {
-            return Richtext(networkManager: self.networkManager)
-        }()
-
-        public final class Richtext: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var unspecced: Unspecced = {
-            return Unspecced(networkManager: self.networkManager)
-        }()
-
-        public final class Unspecced: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var graph: Graph = {
-            return Graph(networkManager: self.networkManager)
-        }()
-
-        public final class Graph: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var embed: Embed = {
-            return Embed(networkManager: self.networkManager)
-        }()
-
-        public final class Embed: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var actor: Actor = {
-            return Actor(networkManager: self.networkManager)
-        }()
-
-        public final class Actor: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var notification: Notification = {
-            return Notification(networkManager: self.networkManager)
-        }()
-
-        public final class Notification: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var feed: Feed = {
-            return Feed(networkManager: self.networkManager)
-        }()
-
-        public final class Feed: @unchecked Sendable {
-            internal let networkManager: NetworkManaging
-            internal init(networkManager: NetworkManaging) {
-                self.networkManager = networkManager
-            }
-
-        }
-
-        public lazy var labeler: Labeler = {
-            return Labeler(networkManager: self.networkManager)
-        }()
-
-        public final class Labeler: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
@@ -407,6 +252,42 @@ public final class Com: @unchecked Sendable {
             self.networkManager = networkManager
         }
 
+        public lazy var sync: Sync = {
+            return Sync(networkManager: self.networkManager)
+        }()
+
+        public final class Sync: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var repo: Repo = {
+            return Repo(networkManager: self.networkManager)
+        }()
+
+        public final class Repo: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var admin: Admin = {
+            return Admin(networkManager: self.networkManager)
+        }()
+
+        public final class Admin: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
         public lazy var moderation: Moderation = {
             return Moderation(networkManager: self.networkManager)
         }()
@@ -431,11 +312,11 @@ public final class Com: @unchecked Sendable {
 
         }
 
-        public lazy var repo: Repo = {
-            return Repo(networkManager: self.networkManager)
+        public lazy var temp: Temp = {
+            return Temp(networkManager: self.networkManager)
         }()
 
-        public final class Repo: @unchecked Sendable {
+        public final class Temp: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
@@ -467,11 +348,35 @@ public final class Com: @unchecked Sendable {
 
         }
 
-        public lazy var temp: Temp = {
-            return Temp(networkManager: self.networkManager)
+    }
+
+}
+
+public lazy var app: App = {
+    return App(networkManager: self.networkManager)
+}()
+
+public final class App: @unchecked Sendable {
+    internal let networkManager: NetworkManaging
+    internal init(networkManager: NetworkManaging) {
+        self.networkManager = networkManager
+    }
+
+    public lazy var bsky: Bsky = {
+        return Bsky(networkManager: self.networkManager)
+    }()
+
+    public final class Bsky: @unchecked Sendable {
+        internal let networkManager: NetworkManaging
+        internal init(networkManager: NetworkManaging) {
+            self.networkManager = networkManager
+        }
+
+        public lazy var embed: Embed = {
+            return Embed(networkManager: self.networkManager)
         }()
 
-        public final class Temp: @unchecked Sendable {
+        public final class Embed: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
@@ -479,11 +384,11 @@ public final class Com: @unchecked Sendable {
 
         }
 
-        public lazy var admin: Admin = {
-            return Admin(networkManager: self.networkManager)
+        public lazy var feed: Feed = {
+            return Feed(networkManager: self.networkManager)
         }()
 
-        public final class Admin: @unchecked Sendable {
+        public final class Feed: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager
@@ -491,11 +396,131 @@ public final class Com: @unchecked Sendable {
 
         }
 
-        public lazy var sync: Sync = {
-            return Sync(networkManager: self.networkManager)
+        public lazy var unspecced: Unspecced = {
+            return Unspecced(networkManager: self.networkManager)
         }()
 
-        public final class Sync: @unchecked Sendable {
+        public final class Unspecced: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var notification: Notification = {
+            return Notification(networkManager: self.networkManager)
+        }()
+
+        public final class Notification: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var richtext: Richtext = {
+            return Richtext(networkManager: self.networkManager)
+        }()
+
+        public final class Richtext: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var graph: Graph = {
+            return Graph(networkManager: self.networkManager)
+        }()
+
+        public final class Graph: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var actor: Actor = {
+            return Actor(networkManager: self.networkManager)
+        }()
+
+        public final class Actor: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var labeler: Labeler = {
+            return Labeler(networkManager: self.networkManager)
+        }()
+
+        public final class Labeler: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+    }
+
+}
+
+public lazy var chat: Chat = {
+    return Chat(networkManager: self.networkManager)
+}()
+
+public final class Chat: @unchecked Sendable {
+    internal let networkManager: NetworkManaging
+    internal init(networkManager: NetworkManaging) {
+        self.networkManager = networkManager
+    }
+
+    public lazy var bsky: Bsky = {
+        return Bsky(networkManager: self.networkManager)
+    }()
+
+    public final class Bsky: @unchecked Sendable {
+        internal let networkManager: NetworkManaging
+        internal init(networkManager: NetworkManaging) {
+            self.networkManager = networkManager
+        }
+
+        public lazy var convo: Convo = {
+            return Convo(networkManager: self.networkManager)
+        }()
+
+        public final class Convo: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var moderation: Moderation = {
+            return Moderation(networkManager: self.networkManager)
+        }()
+
+        public final class Moderation: @unchecked Sendable {
+            internal let networkManager: NetworkManaging
+            internal init(networkManager: NetworkManaging) {
+                self.networkManager = networkManager
+            }
+
+        }
+
+        public lazy var actor: Actor = {
+            return Actor(networkManager: self.networkManager)
+        }()
+
+        public final class Actor: @unchecked Sendable {
             internal let networkManager: NetworkManaging
             internal init(networkManager: NetworkManaging) {
                 self.networkManager = networkManager

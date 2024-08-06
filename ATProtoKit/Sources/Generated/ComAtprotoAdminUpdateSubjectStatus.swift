@@ -10,11 +10,13 @@ public struct ComAtprotoAdminUpdateSubjectStatus {
 public struct Input: ATProtocolCodable {
             public let subject: InputSubjectUnion
             public let takedown: ComAtprotoAdminDefs.StatusAttr?
+            public let deactivated: ComAtprotoAdminDefs.StatusAttr?
 
             // Standard public initializer
-            public init(subject: InputSubjectUnion, takedown: ComAtprotoAdminDefs.StatusAttr? = nil) {
+            public init(subject: InputSubjectUnion, takedown: ComAtprotoAdminDefs.StatusAttr? = nil, deactivated: ComAtprotoAdminDefs.StatusAttr? = nil) {
                 self.subject = subject
                 self.takedown = takedown
+                self.deactivated = deactivated
                 
             }
         }    
@@ -340,6 +342,7 @@ public enum ComAtprotoAdminUpdateSubjectStatusSubjectUnion: Codable, ATProtocolC
 }
 extension ATProtoClient.Com.Atproto.Admin {
     /// Update the service-specific admin status of a subject (account, record, or blob).
+    
     public func updateSubjectStatus(input: ComAtprotoAdminUpdateSubjectStatus.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoAdminUpdateSubjectStatus.Output?) {
         let endpoint = "/com.atproto.admin.updateSubjectStatus"
         
@@ -354,10 +357,10 @@ extension ATProtoClient.Com.Atproto.Admin {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoAdminUpdateSubjectStatus.Output.self, from: responseData)

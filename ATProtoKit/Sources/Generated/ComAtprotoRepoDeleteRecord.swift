@@ -36,6 +36,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Repo {
     /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
+    
     public func deleteRecord(input: ComAtprotoRepoDeleteRecord.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.repo.deleteRecord"
         
@@ -50,10 +51,10 @@ extension ATProtoClient.Com.Atproto.Repo {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

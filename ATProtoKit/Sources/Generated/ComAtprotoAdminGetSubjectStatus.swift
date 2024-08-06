@@ -30,17 +30,23 @@ public struct Output: ATProtocolCodable {
         
         public let takedown: ComAtprotoAdminDefs.StatusAttr?
         
+        public let deactivated: ComAtprotoAdminDefs.StatusAttr?
+        
         
         // Standard public initializer
         public init(
             subject: OutputSubjectUnion, 
         
-            takedown: ComAtprotoAdminDefs.StatusAttr? = nil
+            takedown: ComAtprotoAdminDefs.StatusAttr? = nil, 
+        
+            deactivated: ComAtprotoAdminDefs.StatusAttr? = nil
         ) {
             
             self.subject = subject
             
             self.takedown = takedown
+            
+            self.deactivated = deactivated
             
         }
     }

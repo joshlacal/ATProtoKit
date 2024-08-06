@@ -32,6 +32,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Feed {
     /// Send information about interactions with feed items back to the feed generator that served them.
+    
     public func sendInteractions(input: AppBskyFeedSendInteractions.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: AppBskyFeedSendInteractions.Output?) {
         let endpoint = "/app.bsky.feed.sendInteractions"
         
@@ -46,10 +47,10 @@ extension ATProtoClient.App.Bsky.Feed {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(AppBskyFeedSendInteractions.Output.self, from: responseData)

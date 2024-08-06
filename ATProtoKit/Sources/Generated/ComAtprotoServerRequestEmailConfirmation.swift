@@ -13,6 +13,7 @@ public struct ComAtprotoServerRequestEmailConfirmation {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Request an email with a code to confirm ownership of email.
+    
     public func requestEmailConfirmation( duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.requestEmailConfirmation"
         
@@ -27,10 +28,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

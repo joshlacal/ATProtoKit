@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Sync {
     /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
+    
     public func notifyOfUpdate(input: ComAtprotoSyncNotifyOfUpdate.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.sync.notifyOfUpdate"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Sync {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

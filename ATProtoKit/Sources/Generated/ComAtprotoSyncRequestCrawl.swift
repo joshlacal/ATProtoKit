@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Sync {
     /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
+    
     public func requestCrawl(input: ComAtprotoSyncRequestCrawl.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.sync.requestCrawl"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Sync {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

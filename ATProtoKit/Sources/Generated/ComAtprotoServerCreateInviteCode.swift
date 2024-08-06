@@ -40,6 +40,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Create an invite code.
+    
     public func createInviteCode(input: ComAtprotoServerCreateInviteCode.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoServerCreateInviteCode.Output?) {
         let endpoint = "/com.atproto.server.createInviteCode"
         
@@ -54,10 +55,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerCreateInviteCode.Output.self, from: responseData)

@@ -63,7 +63,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 
 extension ATProtoClient.Com.Atproto.Sync {
-    /// List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
+    /// List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
     public func listBlobs(input: ComAtprotoSyncListBlobs.Parameters) async throws -> (responseCode: Int, data: ComAtprotoSyncListBlobs.Output?) {
         let endpoint = "/com.atproto.sync.listBlobs"
         

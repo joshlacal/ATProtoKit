@@ -414,11 +414,11 @@ public enum AppBskyRichtextFacetFeaturesUnion: Codable, ATProtocolCodable, ATPro
 
 
 public struct Features: Codable, ATProtocolCodable, ATProtocolValue {
-    var items: [FeaturesForUnionArray]
+    public let items: [FeaturesForUnionArray]
 
     public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        var items = [FeaturesForUnionArray]()
+        let container = try decoder.unkeyedContainer()
+        let items = [FeaturesForUnionArray]()
         while !container.isAtEnd {
             let item = try container.decode(FeaturesForUnionArray.self)
             items.append(item)

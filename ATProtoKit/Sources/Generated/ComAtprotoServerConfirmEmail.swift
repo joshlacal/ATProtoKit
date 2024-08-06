@@ -33,6 +33,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
+    
     public func confirmEmail(input: ComAtprotoServerConfirmEmail.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.confirmEmail"
         
@@ -47,10 +48,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

@@ -29,6 +29,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Request a token in order to update email.
+    
     public func requestEmailUpdate( duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoServerRequestEmailUpdate.Output?) {
         let endpoint = "/com.atproto.server.requestEmailUpdate"
         
@@ -43,10 +44,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerRequestEmailUpdate.Output.self, from: responseData)

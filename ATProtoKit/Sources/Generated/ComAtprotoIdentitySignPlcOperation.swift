@@ -46,6 +46,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Identity {
     /// Signs a PLC operation to update some value(s) in the requesting DID's document.
+    
     public func signPlcOperation(input: ComAtprotoIdentitySignPlcOperation.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoIdentitySignPlcOperation.Output?) {
         let endpoint = "/com.atproto.identity.signPlcOperation"
         
@@ -60,10 +61,10 @@ extension ATProtoClient.Com.Atproto.Identity {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoIdentitySignPlcOperation.Output.self, from: responseData)

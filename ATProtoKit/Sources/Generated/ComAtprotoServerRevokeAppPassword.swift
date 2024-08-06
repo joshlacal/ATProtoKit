@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Revoke an App Password by name.
+    
     public func revokeAppPassword(input: ComAtprotoServerRevokeAppPassword.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.revokeAppPassword"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

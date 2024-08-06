@@ -26,6 +26,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Chat.Bsky.Moderation {
     /// 
+    
     public func updateActorAccess(input: ChatBskyModerationUpdateActorAccess.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/chat.bsky.moderation.updateActorAccess"
         
@@ -40,10 +41,10 @@ extension ATProtoClient.Chat.Bsky.Moderation {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

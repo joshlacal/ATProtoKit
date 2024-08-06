@@ -11,15 +11,18 @@ public struct Parameters: Parametrizable {
         public let viewer: String?
         public let limit: Int?
         public let cursor: String?
+        public let relativeToDid: String?
         
         public init(
             viewer: String? = nil, 
             limit: Int? = nil, 
-            cursor: String? = nil
+            cursor: String? = nil, 
+            relativeToDid: String? = nil
             ) {
             self.viewer = viewer
             self.limit = limit
             self.cursor = cursor
+            self.relativeToDid = relativeToDid
             
         }
     }    

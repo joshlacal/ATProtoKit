@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Notification {
     /// Notify server that the requesting account has seen notifications. Requires auth.
+    
     public func updateSeen(input: AppBskyNotificationUpdateSeen.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/app.bsky.notification.updateSeen"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.App.Bsky.Notification {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Graph {
     /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
+    
     public func muteActorList(input: AppBskyGraphMuteActorList.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/app.bsky.graph.muteActorList"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.App.Bsky.Graph {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

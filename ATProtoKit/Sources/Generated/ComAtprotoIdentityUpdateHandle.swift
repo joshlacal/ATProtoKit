@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Identity {
     /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
+    
     public func updateHandle(input: ComAtprotoIdentityUpdateHandle.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.identity.updateHandle"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Identity {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

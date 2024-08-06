@@ -17,10 +17,11 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
             public let associated: ProfileAssociated?
             public let viewer: ViewerState?
             public let labels: [ComAtprotoLabelDefs.Label]?
+            public let createdAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            did: String, handle: String, displayName: String?, avatar: URI?, associated: ProfileAssociated?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?
+            did: String, handle: String, displayName: String?, avatar: URI?, associated: ProfileAssociated?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?, createdAt: ATProtocolDate?
         ) {
             
             self.did = did
@@ -30,6 +31,7 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
             self.associated = associated
             self.viewer = viewer
             self.labels = labels
+            self.createdAt = createdAt
         }
 
         // Codable initializer
@@ -91,6 +93,14 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'labels': \(error)")
                 throw error
             }
+            do {
+                
+                self.createdAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -127,6 +137,11 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
                 try container.encode(value, forKey: .labels)
             }
             
+            
+            if let value = createdAt {
+                try container.encode(value, forKey: .createdAt)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -153,6 +168,11 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = labels {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = createdAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -196,6 +216,11 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if createdAt != other.createdAt {
+                return false
+            }
+            
             return true
         }
 
@@ -212,6 +237,7 @@ public struct ProfileViewBasic: ATProtocolCodable, ATProtocolValue {
             case associated
             case viewer
             case labels
+            case createdAt
         }
     }
         
@@ -224,12 +250,13 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             public let avatar: URI?
             public let associated: ProfileAssociated?
             public let indexedAt: ATProtocolDate?
+            public let createdAt: ATProtocolDate?
             public let viewer: ViewerState?
             public let labels: [ComAtprotoLabelDefs.Label]?
 
         // Standard initializer
         public init(
-            did: String, handle: String, displayName: String?, description: String?, avatar: URI?, associated: ProfileAssociated?, indexedAt: ATProtocolDate?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?
+            did: String, handle: String, displayName: String?, description: String?, avatar: URI?, associated: ProfileAssociated?, indexedAt: ATProtocolDate?, createdAt: ATProtocolDate?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?
         ) {
             
             self.did = did
@@ -239,6 +266,7 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             self.avatar = avatar
             self.associated = associated
             self.indexedAt = indexedAt
+            self.createdAt = createdAt
             self.viewer = viewer
             self.labels = labels
         }
@@ -304,6 +332,14 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
+                self.createdAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
+                throw error
+            }
+            do {
+                
                 self.viewer = try container.decodeIfPresent(ViewerState.self, forKey: .viewer)
                 
             } catch {
@@ -355,6 +391,11 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = createdAt {
+                try container.encode(value, forKey: .createdAt)
+            }
+            
+            
             if let value = viewer {
                 try container.encode(value, forKey: .viewer)
             }
@@ -390,6 +431,11 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = indexedAt {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = createdAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -444,6 +490,11 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if createdAt != other.createdAt {
+                return false
+            }
+            
+            
             if viewer != other.viewer {
                 return false
             }
@@ -469,6 +520,7 @@ public struct ProfileView: ATProtocolCodable, ATProtocolValue {
             case avatar
             case associated
             case indexedAt
+            case createdAt
             case viewer
             case labels
         }
@@ -486,13 +538,15 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             public let followsCount: Int?
             public let postsCount: Int?
             public let associated: ProfileAssociated?
+            public let joinedViaStarterPack: AppBskyGraphDefs.StarterPackViewBasic?
             public let indexedAt: ATProtocolDate?
+            public let createdAt: ATProtocolDate?
             public let viewer: ViewerState?
             public let labels: [ComAtprotoLabelDefs.Label]?
 
         // Standard initializer
         public init(
-            did: String, handle: String, displayName: String?, description: String?, avatar: URI?, banner: URI?, followersCount: Int?, followsCount: Int?, postsCount: Int?, associated: ProfileAssociated?, indexedAt: ATProtocolDate?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?
+            did: String, handle: String, displayName: String?, description: String?, avatar: URI?, banner: URI?, followersCount: Int?, followsCount: Int?, postsCount: Int?, associated: ProfileAssociated?, joinedViaStarterPack: AppBskyGraphDefs.StarterPackViewBasic?, indexedAt: ATProtocolDate?, createdAt: ATProtocolDate?, viewer: ViewerState?, labels: [ComAtprotoLabelDefs.Label]?
         ) {
             
             self.did = did
@@ -505,7 +559,9 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             self.followsCount = followsCount
             self.postsCount = postsCount
             self.associated = associated
+            self.joinedViaStarterPack = joinedViaStarterPack
             self.indexedAt = indexedAt
+            self.createdAt = createdAt
             self.viewer = viewer
             self.labels = labels
         }
@@ -595,10 +651,26 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
+                self.joinedViaStarterPack = try container.decodeIfPresent(AppBskyGraphDefs.StarterPackViewBasic.self, forKey: .joinedViaStarterPack)
+                
+            } catch {
+                print("Decoding error for property 'joinedViaStarterPack': \(error)")
+                throw error
+            }
+            do {
+                
                 self.indexedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .indexedAt)
                 
             } catch {
                 print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+            do {
+                
+                self.createdAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .createdAt)
+                
+            } catch {
+                print("Decoding error for property 'createdAt': \(error)")
                 throw error
             }
             do {
@@ -669,8 +741,18 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = joinedViaStarterPack {
+                try container.encode(value, forKey: .joinedViaStarterPack)
+            }
+            
+            
             if let value = indexedAt {
                 try container.encode(value, forKey: .indexedAt)
+            }
+            
+            
+            if let value = createdAt {
+                try container.encode(value, forKey: .createdAt)
             }
             
             
@@ -728,7 +810,17 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             } else {
                 hasher.combine(nil as Int?)
             }
+            if let value = joinedViaStarterPack {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
             if let value = indexedAt {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = createdAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -798,7 +890,17 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if joinedViaStarterPack != other.joinedViaStarterPack {
+                return false
+            }
+            
+            
             if indexedAt != other.indexedAt {
+                return false
+            }
+            
+            
+            if createdAt != other.createdAt {
                 return false
             }
             
@@ -831,7 +933,9 @@ public struct ProfileViewDetailed: ATProtocolCodable, ATProtocolValue {
             case followsCount
             case postsCount
             case associated
+            case joinedViaStarterPack
             case indexedAt
+            case createdAt
             case viewer
             case labels
         }
@@ -841,16 +945,18 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "app.bsky.actor.defs#profileAssociated"
             public let lists: Int?
             public let feedgens: Int?
+            public let starterPacks: Int?
             public let labeler: Bool?
             public let chat: ProfileAssociatedChat?
 
         // Standard initializer
         public init(
-            lists: Int?, feedgens: Int?, labeler: Bool?, chat: ProfileAssociatedChat?
+            lists: Int?, feedgens: Int?, starterPacks: Int?, labeler: Bool?, chat: ProfileAssociatedChat?
         ) {
             
             self.lists = lists
             self.feedgens = feedgens
+            self.starterPacks = starterPacks
             self.labeler = labeler
             self.chat = chat
         }
@@ -872,6 +978,14 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
                 
             } catch {
                 print("Decoding error for property 'feedgens': \(error)")
+                throw error
+            }
+            do {
+                
+                self.starterPacks = try container.decodeIfPresent(Int.self, forKey: .starterPacks)
+                
+            } catch {
+                print("Decoding error for property 'starterPacks': \(error)")
                 throw error
             }
             do {
@@ -906,6 +1020,11 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = starterPacks {
+                try container.encode(value, forKey: .starterPacks)
+            }
+            
+            
             if let value = labeler {
                 try container.encode(value, forKey: .labeler)
             }
@@ -924,6 +1043,11 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = feedgens {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = starterPacks {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -953,6 +1077,11 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if starterPacks != other.starterPacks {
+                return false
+            }
+            
+            
             if labeler != other.labeler {
                 return false
             }
@@ -973,6 +1102,7 @@ public struct ProfileAssociated: ATProtocolCodable, ATProtocolValue {
             case typeIdentifier = "$type"
             case lists
             case feedgens
+            case starterPacks
             case labeler
             case chat
         }
@@ -1044,10 +1174,11 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
             public let blockingByList: AppBskyGraphDefs.ListViewBasic?
             public let following: ATProtocolURI?
             public let followedBy: ATProtocolURI?
+            public let knownFollowers: KnownFollowers?
 
         // Standard initializer
         public init(
-            muted: Bool?, mutedByList: AppBskyGraphDefs.ListViewBasic?, blockedBy: Bool?, blocking: ATProtocolURI?, blockingByList: AppBskyGraphDefs.ListViewBasic?, following: ATProtocolURI?, followedBy: ATProtocolURI?
+            muted: Bool?, mutedByList: AppBskyGraphDefs.ListViewBasic?, blockedBy: Bool?, blocking: ATProtocolURI?, blockingByList: AppBskyGraphDefs.ListViewBasic?, following: ATProtocolURI?, followedBy: ATProtocolURI?, knownFollowers: KnownFollowers?
         ) {
             
             self.muted = muted
@@ -1057,6 +1188,7 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
             self.blockingByList = blockingByList
             self.following = following
             self.followedBy = followedBy
+            self.knownFollowers = knownFollowers
         }
 
         // Codable initializer
@@ -1118,6 +1250,14 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'followedBy': \(error)")
                 throw error
             }
+            do {
+                
+                self.knownFollowers = try container.decodeIfPresent(KnownFollowers.self, forKey: .knownFollowers)
+                
+            } catch {
+                print("Decoding error for property 'knownFollowers': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -1158,6 +1298,11 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
                 try container.encode(value, forKey: .followedBy)
             }
             
+            
+            if let value = knownFollowers {
+                try container.encode(value, forKey: .knownFollowers)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -1192,6 +1337,11 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = followedBy {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = knownFollowers {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -1235,6 +1385,11 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if knownFollowers != other.knownFollowers {
+                return false
+            }
+            
             return true
         }
 
@@ -1251,6 +1406,84 @@ public struct ViewerState: ATProtocolCodable, ATProtocolValue {
             case blockingByList
             case following
             case followedBy
+            case knownFollowers
+        }
+    }
+        
+public struct KnownFollowers: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "app.bsky.actor.defs#knownFollowers"
+            public let count: Int
+            public let followers: [ProfileViewBasic]
+
+        // Standard initializer
+        public init(
+            count: Int, followers: [ProfileViewBasic]
+        ) {
+            
+            self.count = count
+            self.followers = followers
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.count = try container.decode(Int.self, forKey: .count)
+                
+            } catch {
+                print("Decoding error for property 'count': \(error)")
+                throw error
+            }
+            do {
+                
+                self.followers = try container.decode([ProfileViewBasic].self, forKey: .followers)
+                
+            } catch {
+                print("Decoding error for property 'followers': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            try container.encode(count, forKey: .count)
+            
+            
+            try container.encode(followers, forKey: .followers)
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(count)
+            hasher.combine(followers)
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if self.count != other.count {
+                return false
+            }
+            
+            
+            if self.followers != other.followers {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case count
+            case followers
         }
     }
         
@@ -2089,21 +2322,35 @@ public struct InterestsPref: ATProtocolCodable, ATProtocolValue {
         
 public struct MutedWord: ATProtocolCodable, ATProtocolValue {
             public static let typeIdentifier = "app.bsky.actor.defs#mutedWord"
+            public let id: String?
             public let value: String
             public let targets: [AppBskyActorDefs.MutedWordTarget]
+            public let actorTarget: String?
+            public let expiresAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            value: String, targets: [AppBskyActorDefs.MutedWordTarget]
+            id: String?, value: String, targets: [AppBskyActorDefs.MutedWordTarget], actorTarget: String?, expiresAt: ATProtocolDate?
         ) {
             
+            self.id = id
             self.value = value
             self.targets = targets
+            self.actorTarget = actorTarget
+            self.expiresAt = expiresAt
         }
 
         // Codable initializer
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.id = try container.decodeIfPresent(String.self, forKey: .id)
+                
+            } catch {
+                print("Decoding error for property 'id': \(error)")
+                throw error
+            }
             do {
                 
                 self.value = try container.decode(String.self, forKey: .value)
@@ -2120,26 +2367,77 @@ public struct MutedWord: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'targets': \(error)")
                 throw error
             }
+            do {
+                
+                self.actorTarget = try container.decodeIfPresent(String.self, forKey: .actorTarget)
+                
+            } catch {
+                print("Decoding error for property 'actorTarget': \(error)")
+                throw error
+            }
+            do {
+                
+                self.expiresAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .expiresAt)
+                
+            } catch {
+                print("Decoding error for property 'expiresAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
             
+            if let value = id {
+                try container.encode(value, forKey: .id)
+            }
+            
+            
             try container.encode(value, forKey: .value)
             
             
             try container.encode(targets, forKey: .targets)
             
+            
+            if let value = actorTarget {
+                try container.encode(value, forKey: .actorTarget)
+            }
+            
+            
+            if let value = expiresAt {
+                try container.encode(value, forKey: .expiresAt)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
+            if let value = id {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
             hasher.combine(value)
             hasher.combine(targets)
+            if let value = actorTarget {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = expiresAt {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
         }
 
         public func isEqual(to other: any ATProtocolValue) -> Bool {
             guard let other = other as? Self else { return false }
+            
+            if id != other.id {
+                return false
+            }
+            
             
             if self.value != other.value {
                 return false
@@ -2147,6 +2445,16 @@ public struct MutedWord: ATProtocolCodable, ATProtocolValue {
             
             
             if self.targets != other.targets {
+                return false
+            }
+            
+            
+            if actorTarget != other.actorTarget {
+                return false
+            }
+            
+            
+            if expiresAt != other.expiresAt {
                 return false
             }
             
@@ -2159,8 +2467,11 @@ public struct MutedWord: ATProtocolCodable, ATProtocolValue {
 
         private enum CodingKeys: String, CodingKey {
             case typeIdentifier = "$type"
+            case id
             case value
             case targets
+            case actorTarget
+            case expiresAt
         }
     }
         
@@ -2391,6 +2702,152 @@ public struct LabelerPrefItem: ATProtocolCodable, ATProtocolValue {
             case did
         }
     }
+        
+public struct BskyAppStatePref: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "app.bsky.actor.defs#bskyAppStatePref"
+            public let activeProgressGuide: BskyAppProgressGuide?
+            public let queuedNudges: [String]?
+
+        // Standard initializer
+        public init(
+            activeProgressGuide: BskyAppProgressGuide?, queuedNudges: [String]?
+        ) {
+            
+            self.activeProgressGuide = activeProgressGuide
+            self.queuedNudges = queuedNudges
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.activeProgressGuide = try container.decodeIfPresent(BskyAppProgressGuide.self, forKey: .activeProgressGuide)
+                
+            } catch {
+                print("Decoding error for property 'activeProgressGuide': \(error)")
+                throw error
+            }
+            do {
+                
+                self.queuedNudges = try container.decodeIfPresent([String].self, forKey: .queuedNudges)
+                
+            } catch {
+                print("Decoding error for property 'queuedNudges': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            if let value = activeProgressGuide {
+                try container.encode(value, forKey: .activeProgressGuide)
+            }
+            
+            
+            if let value = queuedNudges {
+                try container.encode(value, forKey: .queuedNudges)
+            }
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            if let value = activeProgressGuide {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = queuedNudges {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if activeProgressGuide != other.activeProgressGuide {
+                return false
+            }
+            
+            
+            if queuedNudges != other.queuedNudges {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case activeProgressGuide
+            case queuedNudges
+        }
+    }
+        
+public struct BskyAppProgressGuide: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "app.bsky.actor.defs#bskyAppProgressGuide"
+            public let guide: String
+
+        // Standard initializer
+        public init(
+            guide: String
+        ) {
+            
+            self.guide = guide
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.guide = try container.decode(String.self, forKey: .guide)
+                
+            } catch {
+                print("Decoding error for property 'guide': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            try container.encode(guide, forKey: .guide)
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(guide)
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if self.guide != other.guide {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case guide
+        }
+    }
 
 
 // Union Array Type
@@ -2400,8 +2857,8 @@ public struct Preferences: Codable, ATProtocolCodable, ATProtocolValue {
     public let items: [PreferencesForUnionArray]
 
     public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        var items = [PreferencesForUnionArray]()
+        let container = try decoder.unkeyedContainer()
+        let items = [PreferencesForUnionArray]()
         while !container.isAtEnd {
             let item = try container.decode(PreferencesForUnionArray.self)
             items.append(item)
@@ -2440,6 +2897,8 @@ public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValu
     case interestsPref(InterestsPref)
     case mutedWordsPref(MutedWordsPref)
     case hiddenPostsPref(HiddenPostsPref)
+    case bskyAppStatePref(BskyAppStatePref)
+    case labelersPref(LabelersPref)
     case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
@@ -2477,6 +2936,12 @@ public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValu
         case "app.bsky.actor.defs#hiddenPostsPref":
             let value = try HiddenPostsPref(from: decoder)
             self = .hiddenPostsPref(value)
+        case "app.bsky.actor.defs#bskyAppStatePref":
+            let value = try BskyAppStatePref(from: decoder)
+            self = .bskyAppStatePref(value)
+        case "app.bsky.actor.defs#labelersPref":
+            let value = try LabelersPref(from: decoder)
+            self = .labelersPref(value)
         default:
             let unknownValue = try ATProtocolValueContainer(from: decoder)
             self = .unexpected(unknownValue)
@@ -2517,6 +2982,12 @@ public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValu
         case .hiddenPostsPref(let value):
             try container.encode("app.bsky.actor.defs#hiddenPostsPref", forKey: .type)
             try value.encode(to: encoder)
+        case .bskyAppStatePref(let value):
+            try container.encode("app.bsky.actor.defs#bskyAppStatePref", forKey: .type)
+            try value.encode(to: encoder)
+        case .labelersPref(let value):
+            try container.encode("app.bsky.actor.defs#labelersPref", forKey: .type)
+            try value.encode(to: encoder)
         case .unexpected(let ATProtocolValueContainer):
             try ATProtocolValueContainer.encode(to: encoder)
         }
@@ -2553,6 +3024,12 @@ public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValu
             hasher.combine(value)
         case .hiddenPostsPref(let value):
             hasher.combine("app.bsky.actor.defs#hiddenPostsPref")
+            hasher.combine(value)
+        case .bskyAppStatePref(let value):
+            hasher.combine("app.bsky.actor.defs#bskyAppStatePref")
+            hasher.combine(value)
+        case .labelersPref(let value):
+            hasher.combine("app.bsky.actor.defs#labelersPref")
             hasher.combine(value)
         case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
@@ -2593,6 +3070,12 @@ public enum PreferencesForUnionArray: Codable, ATProtocolCodable, ATProtocolValu
             return selfValue == otherValue
         case (.hiddenPostsPref(let selfValue), 
               .hiddenPostsPref(let otherValue)):
+            return selfValue == otherValue
+        case (.bskyAppStatePref(let selfValue), 
+              .bskyAppStatePref(let otherValue)):
+            return selfValue == otherValue
+        case (.labelersPref(let selfValue), 
+              .labelersPref(let otherValue)):
             return selfValue == otherValue
         case (.unexpected(let selfValue), .unexpected(let otherValue)):
             return selfValue.isEqual(to: otherValue)

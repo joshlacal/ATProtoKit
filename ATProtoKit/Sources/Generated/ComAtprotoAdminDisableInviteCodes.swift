@@ -24,6 +24,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Admin {
     /// Disable some set of codes and/or all codes associated with a set of users.
+    
     public func disableInviteCodes(input: ComAtprotoAdminDisableInviteCodes.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.admin.disableInviteCodes"
         
@@ -38,10 +39,10 @@ extension ATProtoClient.Com.Atproto.Admin {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

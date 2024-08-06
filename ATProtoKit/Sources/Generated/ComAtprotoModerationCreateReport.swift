@@ -321,6 +321,7 @@ public enum ComAtprotoModerationCreateReportSubjectUnion: Codable, ATProtocolCod
 }
 extension ATProtoClient.Com.Atproto.Moderation {
     /// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
+    
     public func createReport(input: ComAtprotoModerationCreateReport.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoModerationCreateReport.Output?) {
         let endpoint = "/com.atproto.moderation.createReport"
         
@@ -335,10 +336,10 @@ extension ATProtoClient.Com.Atproto.Moderation {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoModerationCreateReport.Output.self, from: responseData)

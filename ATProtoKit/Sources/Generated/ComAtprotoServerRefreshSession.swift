@@ -20,6 +20,10 @@ public struct Output: ATProtocolCodable {
         
         public let didDoc: DIDDocument?
         
+        public let active: Bool?
+        
+        public let status: String?
+        
         
         // Standard public initializer
         public init(
@@ -31,7 +35,11 @@ public struct Output: ATProtocolCodable {
         
             did: String, 
         
-            didDoc: DIDDocument? = nil
+            didDoc: DIDDocument? = nil, 
+        
+            active: Bool? = nil, 
+        
+            status: String? = nil
         ) {
             
             self.accessJwt = accessJwt
@@ -43,6 +51,10 @@ public struct Output: ATProtocolCodable {
             self.did = did
             
             self.didDoc = didDoc
+            
+            self.active = active
+            
+            self.status = status
             
         }
     }
@@ -59,6 +71,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+    
     public func refreshSession( duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoServerRefreshSession.Output?) {
         let endpoint = "/com.atproto.server.refreshSession"
         
@@ -73,10 +86,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerRefreshSession.Output.self, from: responseData)

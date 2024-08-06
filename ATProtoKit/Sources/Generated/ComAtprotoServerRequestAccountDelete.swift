@@ -13,6 +13,7 @@ public struct ComAtprotoServerRequestAccountDelete {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Initiate a user account deletion via email.
+    
     public func requestAccountDelete( duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.requestAccountDelete"
         
@@ -27,10 +28,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

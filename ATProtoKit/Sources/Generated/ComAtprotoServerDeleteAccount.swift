@@ -33,6 +33,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+    
     public func deleteAccount(input: ComAtprotoServerDeleteAccount.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.deleteAccount"
         
@@ -47,10 +48,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

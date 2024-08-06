@@ -24,6 +24,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Admin {
     /// Re-enable an account's ability to receive invite codes.
+    
     public func enableAccountInvites(input: ComAtprotoAdminEnableAccountInvites.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.admin.enableAccountInvites"
         
@@ -38,10 +39,10 @@ extension ATProtoClient.Com.Atproto.Admin {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

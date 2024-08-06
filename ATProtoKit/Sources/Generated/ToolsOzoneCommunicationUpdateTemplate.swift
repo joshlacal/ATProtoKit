@@ -34,6 +34,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Tools.Ozone.Communication {
     /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
+    
     public func updateTemplate(input: ToolsOzoneCommunicationUpdateTemplate.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ToolsOzoneCommunicationUpdateTemplate.Output?) {
         let endpoint = "/tools.ozone.communication.updateTemplate"
         
@@ -48,10 +49,10 @@ extension ATProtoClient.Tools.Ozone.Communication {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ToolsOzoneCommunicationUpdateTemplate.Output.self, from: responseData)

@@ -38,6 +38,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Chat.Bsky.Convo {
     /// 
+    
     public func muteConvo(input: ChatBskyConvoMuteConvo.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ChatBskyConvoMuteConvo.Output?) {
         let endpoint = "/chat.bsky.convo.muteConvo"
         
@@ -52,10 +53,10 @@ extension ATProtoClient.Chat.Bsky.Convo {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ChatBskyConvoMuteConvo.Output.self, from: responseData)

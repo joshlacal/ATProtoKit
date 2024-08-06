@@ -38,6 +38,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
+    
     public func reserveSigningKey(input: ComAtprotoServerReserveSigningKey.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoServerReserveSigningKey.Output?) {
         let endpoint = "/com.atproto.server.reserveSigningKey"
         
@@ -52,10 +53,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerReserveSigningKey.Output.self, from: responseData)

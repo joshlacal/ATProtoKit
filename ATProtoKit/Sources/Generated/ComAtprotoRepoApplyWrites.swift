@@ -507,6 +507,7 @@ public enum ComAtprotoRepoApplyWritesWritesUnion: Codable, ATProtocolCodable, AT
 }
 extension ATProtoClient.Com.Atproto.Repo {
     /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
+    
     public func applyWrites(input: ComAtprotoRepoApplyWrites.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.repo.applyWrites"
         
@@ -521,10 +522,10 @@ extension ATProtoClient.Com.Atproto.Repo {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

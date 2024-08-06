@@ -8,11 +8,14 @@ public struct AppBskyNotificationGetUnreadCount {
 
     public static let typeIdentifier = "app.bsky.notification.getUnreadCount"    
 public struct Parameters: Parametrizable {
+        public let priority: Bool?
         public let seenAt: ATProtocolDate?
         
         public init(
+            priority: Bool? = nil, 
             seenAt: ATProtocolDate? = nil
             ) {
+            self.priority = priority
             self.seenAt = seenAt
             
         }

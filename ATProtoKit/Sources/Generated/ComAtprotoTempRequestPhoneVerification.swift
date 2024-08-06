@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Temp {
     /// Request a verification code to be sent to the supplied phone number
+    
     public func requestPhoneVerification(input: ComAtprotoTempRequestPhoneVerification.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.temp.requestPhoneVerification"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Temp {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

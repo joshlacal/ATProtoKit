@@ -103,10 +103,11 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
             public let invitesDisabled: Bool?
             public let emailConfirmedAt: ATProtocolDate?
             public let inviteNote: String?
+            public let deactivatedAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer]?, indexedAt: ATProtocolDate, invitedBy: ComAtprotoServerDefs.InviteCode?, invites: [ComAtprotoServerDefs.InviteCode]?, invitesDisabled: Bool?, emailConfirmedAt: ATProtocolDate?, inviteNote: String?
+            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer]?, indexedAt: ATProtocolDate, invitedBy: ComAtprotoServerDefs.InviteCode?, invites: [ComAtprotoServerDefs.InviteCode]?, invitesDisabled: Bool?, emailConfirmedAt: ATProtocolDate?, inviteNote: String?, deactivatedAt: ATProtocolDate?
         ) {
             
             self.did = did
@@ -119,6 +120,7 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
             self.invitesDisabled = invitesDisabled
             self.emailConfirmedAt = emailConfirmedAt
             self.inviteNote = inviteNote
+            self.deactivatedAt = deactivatedAt
         }
 
         // Codable initializer
@@ -204,6 +206,14 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'inviteNote': \(error)")
                 throw error
             }
+            do {
+                
+                self.deactivatedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .deactivatedAt)
+                
+            } catch {
+                print("Decoding error for property 'deactivatedAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -253,6 +263,11 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
                 try container.encode(value, forKey: .inviteNote)
             }
             
+            
+            if let value = deactivatedAt {
+                try container.encode(value, forKey: .deactivatedAt)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -290,6 +305,11 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = inviteNote {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = deactivatedAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -348,6 +368,11 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if deactivatedAt != other.deactivatedAt {
+                return false
+            }
+            
             return true
         }
 
@@ -367,6 +392,7 @@ public struct AccountView: ATProtocolCodable, ATProtocolValue {
             case invitesDisabled
             case emailConfirmedAt
             case inviteNote
+            case deactivatedAt
         }
     }
         

@@ -34,6 +34,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Update an account's email.
+    
     public func updateEmail(input: ComAtprotoServerUpdateEmail.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.updateEmail"
         
@@ -48,10 +49,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

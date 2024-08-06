@@ -15,13 +15,14 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             public let name: String
             public let purpose: ListPurpose
             public let avatar: URI?
+            public let listItemCount: Int?
             public let labels: [ComAtprotoLabelDefs.Label]?
             public let viewer: ListViewerState?
             public let indexedAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, name: String, purpose: ListPurpose, avatar: URI?, labels: [ComAtprotoLabelDefs.Label]?, viewer: ListViewerState?, indexedAt: ATProtocolDate?
+            uri: ATProtocolURI, cid: String, name: String, purpose: ListPurpose, avatar: URI?, listItemCount: Int?, labels: [ComAtprotoLabelDefs.Label]?, viewer: ListViewerState?, indexedAt: ATProtocolDate?
         ) {
             
             self.uri = uri
@@ -29,6 +30,7 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             self.name = name
             self.purpose = purpose
             self.avatar = avatar
+            self.listItemCount = listItemCount
             self.labels = labels
             self.viewer = viewer
             self.indexedAt = indexedAt
@@ -79,6 +81,14 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
+                self.listItemCount = try container.decodeIfPresent(Int.self, forKey: .listItemCount)
+                
+            } catch {
+                print("Decoding error for property 'listItemCount': \(error)")
+                throw error
+            }
+            do {
+                
                 self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
                 
             } catch {
@@ -124,6 +134,11 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = listItemCount {
+                try container.encode(value, forKey: .listItemCount)
+            }
+            
+            
             if let value = labels {
                 try container.encode(value, forKey: .labels)
             }
@@ -146,6 +161,11 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             hasher.combine(name)
             hasher.combine(purpose)
             if let value = avatar {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = listItemCount {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -195,6 +215,11 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if listItemCount != other.listItemCount {
+                return false
+            }
+            
+            
             if labels != other.labels {
                 return false
             }
@@ -223,6 +248,7 @@ public struct ListViewBasic: ATProtocolCodable, ATProtocolValue {
             case name
             case purpose
             case avatar
+            case listItemCount
             case labels
             case viewer
             case indexedAt
@@ -239,13 +265,14 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             public let description: String?
             public let descriptionFacets: [AppBskyRichtextFacet]?
             public let avatar: URI?
+            public let listItemCount: Int?
             public let labels: [ComAtprotoLabelDefs.Label]?
             public let viewer: ListViewerState?
             public let indexedAt: ATProtocolDate
 
         // Standard initializer
         public init(
-            uri: ATProtocolURI, cid: String, creator: AppBskyActorDefs.ProfileView, name: String, purpose: ListPurpose, description: String?, descriptionFacets: [AppBskyRichtextFacet]?, avatar: URI?, labels: [ComAtprotoLabelDefs.Label]?, viewer: ListViewerState?, indexedAt: ATProtocolDate
+            uri: ATProtocolURI, cid: String, creator: AppBskyActorDefs.ProfileView, name: String, purpose: ListPurpose, description: String?, descriptionFacets: [AppBskyRichtextFacet]?, avatar: URI?, listItemCount: Int?, labels: [ComAtprotoLabelDefs.Label]?, viewer: ListViewerState?, indexedAt: ATProtocolDate
         ) {
             
             self.uri = uri
@@ -256,6 +283,7 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             self.description = description
             self.descriptionFacets = descriptionFacets
             self.avatar = avatar
+            self.listItemCount = listItemCount
             self.labels = labels
             self.viewer = viewer
             self.indexedAt = indexedAt
@@ -330,6 +358,14 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             }
             do {
                 
+                self.listItemCount = try container.decodeIfPresent(Int.self, forKey: .listItemCount)
+                
+            } catch {
+                print("Decoding error for property 'listItemCount': \(error)")
+                throw error
+            }
+            do {
+                
                 self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
                 
             } catch {
@@ -388,6 +424,11 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if let value = listItemCount {
+                try container.encode(value, forKey: .listItemCount)
+            }
+            
+            
             if let value = labels {
                 try container.encode(value, forKey: .labels)
             }
@@ -419,6 +460,11 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = avatar {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = listItemCount {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -479,6 +525,11 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             }
             
             
+            if listItemCount != other.listItemCount {
+                return false
+            }
+            
+            
             if labels != other.labels {
                 return false
             }
@@ -510,6 +561,7 @@ public struct ListView: ATProtocolCodable, ATProtocolValue {
             case description
             case descriptionFacets
             case avatar
+            case listItemCount
             case labels
             case viewer
             case indexedAt
@@ -590,6 +642,540 @@ public struct ListItemView: ATProtocolCodable, ATProtocolValue {
             case typeIdentifier = "$type"
             case uri
             case subject
+        }
+    }
+        
+public struct StarterPackView: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "app.bsky.graph.defs#starterPackView"
+            public let uri: ATProtocolURI
+            public let cid: String
+            public let record: ATProtocolValueContainer
+            public let creator: AppBskyActorDefs.ProfileViewBasic
+            public let list: ListViewBasic?
+            public let listItemsSample: [ListItemView]?
+            public let feeds: [AppBskyFeedDefs.GeneratorView]?
+            public let joinedWeekCount: Int?
+            public let joinedAllTimeCount: Int?
+            public let labels: [ComAtprotoLabelDefs.Label]?
+            public let indexedAt: ATProtocolDate
+
+        // Standard initializer
+        public init(
+            uri: ATProtocolURI, cid: String, record: ATProtocolValueContainer, creator: AppBskyActorDefs.ProfileViewBasic, list: ListViewBasic?, listItemsSample: [ListItemView]?, feeds: [AppBskyFeedDefs.GeneratorView]?, joinedWeekCount: Int?, joinedAllTimeCount: Int?, labels: [ComAtprotoLabelDefs.Label]?, indexedAt: ATProtocolDate
+        ) {
+            
+            self.uri = uri
+            self.cid = cid
+            self.record = record
+            self.creator = creator
+            self.list = list
+            self.listItemsSample = listItemsSample
+            self.feeds = feeds
+            self.joinedWeekCount = joinedWeekCount
+            self.joinedAllTimeCount = joinedAllTimeCount
+            self.labels = labels
+            self.indexedAt = indexedAt
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cid = try container.decode(String.self, forKey: .cid)
+                
+            } catch {
+                print("Decoding error for property 'cid': \(error)")
+                throw error
+            }
+            do {
+                
+                self.record = try container.decode(ATProtocolValueContainer.self, forKey: .record)
+                
+            } catch {
+                print("Decoding error for property 'record': \(error)")
+                throw error
+            }
+            do {
+                
+                self.creator = try container.decode(AppBskyActorDefs.ProfileViewBasic.self, forKey: .creator)
+                
+            } catch {
+                print("Decoding error for property 'creator': \(error)")
+                throw error
+            }
+            do {
+                
+                self.list = try container.decodeIfPresent(ListViewBasic.self, forKey: .list)
+                
+            } catch {
+                print("Decoding error for property 'list': \(error)")
+                throw error
+            }
+            do {
+                
+                self.listItemsSample = try container.decodeIfPresent([ListItemView].self, forKey: .listItemsSample)
+                
+            } catch {
+                print("Decoding error for property 'listItemsSample': \(error)")
+                throw error
+            }
+            do {
+                
+                self.feeds = try container.decodeIfPresent([AppBskyFeedDefs.GeneratorView].self, forKey: .feeds)
+                
+            } catch {
+                print("Decoding error for property 'feeds': \(error)")
+                throw error
+            }
+            do {
+                
+                self.joinedWeekCount = try container.decodeIfPresent(Int.self, forKey: .joinedWeekCount)
+                
+            } catch {
+                print("Decoding error for property 'joinedWeekCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.joinedAllTimeCount = try container.decodeIfPresent(Int.self, forKey: .joinedAllTimeCount)
+                
+            } catch {
+                print("Decoding error for property 'joinedAllTimeCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
+            do {
+                
+                self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            try container.encode(uri, forKey: .uri)
+            
+            
+            try container.encode(cid, forKey: .cid)
+            
+            
+            try container.encode(record, forKey: .record)
+            
+            
+            try container.encode(creator, forKey: .creator)
+            
+            
+            if let value = list {
+                try container.encode(value, forKey: .list)
+            }
+            
+            
+            if let value = listItemsSample {
+                try container.encode(value, forKey: .listItemsSample)
+            }
+            
+            
+            if let value = feeds {
+                try container.encode(value, forKey: .feeds)
+            }
+            
+            
+            if let value = joinedWeekCount {
+                try container.encode(value, forKey: .joinedWeekCount)
+            }
+            
+            
+            if let value = joinedAllTimeCount {
+                try container.encode(value, forKey: .joinedAllTimeCount)
+            }
+            
+            
+            if let value = labels {
+                try container.encode(value, forKey: .labels)
+            }
+            
+            
+            try container.encode(indexedAt, forKey: .indexedAt)
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(uri)
+            hasher.combine(cid)
+            hasher.combine(record)
+            hasher.combine(creator)
+            if let value = list {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = listItemsSample {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = feeds {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = joinedWeekCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = joinedAllTimeCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = labels {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            hasher.combine(indexedAt)
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if self.uri != other.uri {
+                return false
+            }
+            
+            
+            if self.cid != other.cid {
+                return false
+            }
+            
+            
+            if self.record != other.record {
+                return false
+            }
+            
+            
+            if self.creator != other.creator {
+                return false
+            }
+            
+            
+            if list != other.list {
+                return false
+            }
+            
+            
+            if listItemsSample != other.listItemsSample {
+                return false
+            }
+            
+            
+            if feeds != other.feeds {
+                return false
+            }
+            
+            
+            if joinedWeekCount != other.joinedWeekCount {
+                return false
+            }
+            
+            
+            if joinedAllTimeCount != other.joinedAllTimeCount {
+                return false
+            }
+            
+            
+            if labels != other.labels {
+                return false
+            }
+            
+            
+            if self.indexedAt != other.indexedAt {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case uri
+            case cid
+            case record
+            case creator
+            case list
+            case listItemsSample
+            case feeds
+            case joinedWeekCount
+            case joinedAllTimeCount
+            case labels
+            case indexedAt
+        }
+    }
+        
+public struct StarterPackViewBasic: ATProtocolCodable, ATProtocolValue {
+            public static let typeIdentifier = "app.bsky.graph.defs#starterPackViewBasic"
+            public let uri: ATProtocolURI
+            public let cid: String
+            public let record: ATProtocolValueContainer
+            public let creator: AppBskyActorDefs.ProfileViewBasic
+            public let listItemCount: Int?
+            public let joinedWeekCount: Int?
+            public let joinedAllTimeCount: Int?
+            public let labels: [ComAtprotoLabelDefs.Label]?
+            public let indexedAt: ATProtocolDate
+
+        // Standard initializer
+        public init(
+            uri: ATProtocolURI, cid: String, record: ATProtocolValueContainer, creator: AppBskyActorDefs.ProfileViewBasic, listItemCount: Int?, joinedWeekCount: Int?, joinedAllTimeCount: Int?, labels: [ComAtprotoLabelDefs.Label]?, indexedAt: ATProtocolDate
+        ) {
+            
+            self.uri = uri
+            self.cid = cid
+            self.record = record
+            self.creator = creator
+            self.listItemCount = listItemCount
+            self.joinedWeekCount = joinedWeekCount
+            self.joinedAllTimeCount = joinedAllTimeCount
+            self.labels = labels
+            self.indexedAt = indexedAt
+        }
+
+        // Codable initializer
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            do {
+                
+                self.uri = try container.decode(ATProtocolURI.self, forKey: .uri)
+                
+            } catch {
+                print("Decoding error for property 'uri': \(error)")
+                throw error
+            }
+            do {
+                
+                self.cid = try container.decode(String.self, forKey: .cid)
+                
+            } catch {
+                print("Decoding error for property 'cid': \(error)")
+                throw error
+            }
+            do {
+                
+                self.record = try container.decode(ATProtocolValueContainer.self, forKey: .record)
+                
+            } catch {
+                print("Decoding error for property 'record': \(error)")
+                throw error
+            }
+            do {
+                
+                self.creator = try container.decode(AppBskyActorDefs.ProfileViewBasic.self, forKey: .creator)
+                
+            } catch {
+                print("Decoding error for property 'creator': \(error)")
+                throw error
+            }
+            do {
+                
+                self.listItemCount = try container.decodeIfPresent(Int.self, forKey: .listItemCount)
+                
+            } catch {
+                print("Decoding error for property 'listItemCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.joinedWeekCount = try container.decodeIfPresent(Int.self, forKey: .joinedWeekCount)
+                
+            } catch {
+                print("Decoding error for property 'joinedWeekCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.joinedAllTimeCount = try container.decodeIfPresent(Int.self, forKey: .joinedAllTimeCount)
+                
+            } catch {
+                print("Decoding error for property 'joinedAllTimeCount': \(error)")
+                throw error
+            }
+            do {
+                
+                self.labels = try container.decodeIfPresent([ComAtprotoLabelDefs.Label].self, forKey: .labels)
+                
+            } catch {
+                print("Decoding error for property 'labels': \(error)")
+                throw error
+            }
+            do {
+                
+                self.indexedAt = try container.decode(ATProtocolDate.self, forKey: .indexedAt)
+                
+            } catch {
+                print("Decoding error for property 'indexedAt': \(error)")
+                throw error
+            }
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(Self.typeIdentifier, forKey: .typeIdentifier)
+            
+            try container.encode(uri, forKey: .uri)
+            
+            
+            try container.encode(cid, forKey: .cid)
+            
+            
+            try container.encode(record, forKey: .record)
+            
+            
+            try container.encode(creator, forKey: .creator)
+            
+            
+            if let value = listItemCount {
+                try container.encode(value, forKey: .listItemCount)
+            }
+            
+            
+            if let value = joinedWeekCount {
+                try container.encode(value, forKey: .joinedWeekCount)
+            }
+            
+            
+            if let value = joinedAllTimeCount {
+                try container.encode(value, forKey: .joinedAllTimeCount)
+            }
+            
+            
+            if let value = labels {
+                try container.encode(value, forKey: .labels)
+            }
+            
+            
+            try container.encode(indexedAt, forKey: .indexedAt)
+            
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(uri)
+            hasher.combine(cid)
+            hasher.combine(record)
+            hasher.combine(creator)
+            if let value = listItemCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = joinedWeekCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = joinedAllTimeCount {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = labels {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            hasher.combine(indexedAt)
+        }
+
+        public func isEqual(to other: any ATProtocolValue) -> Bool {
+            guard let other = other as? Self else { return false }
+            
+            if self.uri != other.uri {
+                return false
+            }
+            
+            
+            if self.cid != other.cid {
+                return false
+            }
+            
+            
+            if self.record != other.record {
+                return false
+            }
+            
+            
+            if self.creator != other.creator {
+                return false
+            }
+            
+            
+            if listItemCount != other.listItemCount {
+                return false
+            }
+            
+            
+            if joinedWeekCount != other.joinedWeekCount {
+                return false
+            }
+            
+            
+            if joinedAllTimeCount != other.joinedAllTimeCount {
+                return false
+            }
+            
+            
+            if labels != other.labels {
+                return false
+            }
+            
+            
+            if self.indexedAt != other.indexedAt {
+                return false
+            }
+            
+            return true
+        }
+
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.isEqual(to: rhs)
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case typeIdentifier = "$type"
+            case uri
+            case cid
+            case record
+            case creator
+            case listItemCount
+            case joinedWeekCount
+            case joinedAllTimeCount
+            case labels
+            case indexedAt
         }
     }
         
@@ -875,6 +1461,8 @@ public enum ListPurpose: String, Codable, ATProtocolCodable, ATProtocolValue {
             case appbskygraphdefsmodlist = "app.bsky.graph.defs#modlist"
             // 
             case appbskygraphdefscuratelist = "app.bsky.graph.defs#curatelist"
+            // 
+            case appbskygraphdefsreferencelist = "app.bsky.graph.defs#referencelist"
 
             public func isEqual(to other: any ATProtocolValue) -> Bool {
                 guard let otherEnum = other as? ListPurpose else { return false }

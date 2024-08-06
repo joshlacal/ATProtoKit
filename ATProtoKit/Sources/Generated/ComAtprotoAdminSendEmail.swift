@@ -46,6 +46,7 @@ public struct Output: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Admin {
     /// Send email to a user's account email address.
+    
     public func sendEmail(input: ComAtprotoAdminSendEmail.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoAdminSendEmail.Output?) {
         let endpoint = "/com.atproto.admin.sendEmail"
         
@@ -60,10 +61,10 @@ extension ATProtoClient.Com.Atproto.Admin {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoAdminSendEmail.Output.self, from: responseData)

@@ -90,6 +90,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Create an account. Implemented by PDS.
+    
     public func createAccount(input: ComAtprotoServerCreateAccount.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoServerCreateAccount.Output?) {
         let endpoint = "/com.atproto.server.createAccount"
         
@@ -104,10 +105,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoServerCreateAccount.Output.self, from: responseData)

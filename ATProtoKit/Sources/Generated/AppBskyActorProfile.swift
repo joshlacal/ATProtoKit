@@ -12,9 +12,11 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
         public let avatar: Blob?
         public let banner: Blob?
         public let labels: AppBskyActorProfileLabelsUnion?
+        public let joinedViaStarterPack: ComAtprotoRepoStrongRef?
+        public let createdAt: ATProtocolDate?
 
         // Standard initializer
-        public init(displayName: String?, description: String?, avatar: Blob?, banner: Blob?, labels: AppBskyActorProfileLabelsUnion?) {
+        public init(displayName: String?, description: String?, avatar: Blob?, banner: Blob?, labels: AppBskyActorProfileLabelsUnion?, joinedViaStarterPack: ComAtprotoRepoStrongRef?, createdAt: ATProtocolDate?) {
             
             self.displayName = displayName
             
@@ -25,6 +27,10 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             self.banner = banner
             
             self.labels = labels
+            
+            self.joinedViaStarterPack = joinedViaStarterPack
+            
+            self.createdAt = createdAt
             
         }
 
@@ -45,6 +51,12 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             
             
             self.labels = try container.decodeIfPresent(AppBskyActorProfileLabelsUnion.self, forKey: .labels)
+            
+            
+            self.joinedViaStarterPack = try container.decodeIfPresent(ComAtprotoRepoStrongRef.self, forKey: .joinedViaStarterPack)
+            
+            
+            self.createdAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .createdAt)
             
         }
 
@@ -75,6 +87,16 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             
             if let value = labels {
                 try container.encode(value, forKey: .labels)
+            }
+            
+            
+            if let value = joinedViaStarterPack {
+                try container.encode(value, forKey: .joinedViaStarterPack)
+            }
+            
+            
+            if let value = createdAt {
+                try container.encode(value, forKey: .createdAt)
             }
             
         }
@@ -110,6 +132,16 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if joinedViaStarterPack != other.joinedViaStarterPack {
+                return false
+            }
+            
+            
+            if createdAt != other.createdAt {
+                return false
+            }
+            
             return true
         }
         
@@ -140,6 +172,16 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             } else {
                 hasher.combine(nil as Int?) // Placeholder for nil
             }
+            if let value = joinedViaStarterPack {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?) // Placeholder for nil
+            }
+            if let value = createdAt {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?) // Placeholder for nil
+            }
         }
 
         private enum CodingKeys: String, CodingKey {
@@ -149,6 +191,8 @@ public struct AppBskyActorProfile: ATProtocolCodable, ATProtocolValue {
             case avatar
             case banner
             case labels
+            case joinedViaStarterPack
+            case createdAt
         }
 
 

@@ -60,6 +60,7 @@ public enum Error: String, Swift.Error, CustomStringConvertible {
 }
 extension ATProtoClient.Com.Atproto.Repo {
     /// Create a single new repository record. Requires auth, implemented by PDS.
+    
     public func createRecord(input: ComAtprotoRepoCreateRecord.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ComAtprotoRepoCreateRecord.Output?) {
         let endpoint = "/com.atproto.repo.createRecord"
         
@@ -74,10 +75,10 @@ extension ATProtoClient.Com.Atproto.Repo {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ComAtprotoRepoCreateRecord.Output.self, from: responseData)

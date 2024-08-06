@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Tools.Ozone.Communication {
     /// Delete a communication template.
+    
     public func deleteTemplate(input: ToolsOzoneCommunicationDeleteTemplate.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/tools.ozone.communication.deleteTemplate"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Tools.Ozone.Communication {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

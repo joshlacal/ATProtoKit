@@ -13,6 +13,7 @@ public struct ComAtprotoServerActivateAccount {
 }
 extension ATProtoClient.Com.Atproto.Server {
     /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+    
     public func activateAccount( duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.server.activateAccount"
         
@@ -27,10 +28,10 @@ extension ATProtoClient.Com.Atproto.Server {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

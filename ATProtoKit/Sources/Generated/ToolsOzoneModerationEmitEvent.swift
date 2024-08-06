@@ -698,6 +698,7 @@ public enum ToolsOzoneModerationEmitEventSubjectUnion: Codable, ATProtocolCodabl
 }
 extension ATProtoClient.Tools.Ozone.Moderation {
     /// Take a moderation action on an actor.
+    
     public func emitEvent(input: ToolsOzoneModerationEmitEvent.Input, duringInitialSetup: Bool = false) async throws -> (responseCode: Int, data: ToolsOzoneModerationEmitEvent.Output?) {
         let endpoint = "/tools.ozone.moderation.emitEvent"
         
@@ -712,10 +713,10 @@ extension ATProtoClient.Tools.Ozone.Moderation {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         let decoder = ZippyJSONDecoder()
         let decodedData = try? decoder.decode(ToolsOzoneModerationEmitEvent.Output.self, from: responseData)

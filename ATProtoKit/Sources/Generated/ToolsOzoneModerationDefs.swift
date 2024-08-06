@@ -2063,10 +2063,11 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
             public let invitedBy: ComAtprotoServerDefs.InviteCode?
             public let invitesDisabled: Bool?
             public let inviteNote: String?
+            public let deactivatedAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer], indexedAt: ATProtocolDate, moderation: Moderation, invitedBy: ComAtprotoServerDefs.InviteCode?, invitesDisabled: Bool?, inviteNote: String?
+            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer], indexedAt: ATProtocolDate, moderation: Moderation, invitedBy: ComAtprotoServerDefs.InviteCode?, invitesDisabled: Bool?, inviteNote: String?, deactivatedAt: ATProtocolDate?
         ) {
             
             self.did = did
@@ -2078,6 +2079,7 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
             self.invitedBy = invitedBy
             self.invitesDisabled = invitesDisabled
             self.inviteNote = inviteNote
+            self.deactivatedAt = deactivatedAt
         }
 
         // Codable initializer
@@ -2155,6 +2157,14 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'inviteNote': \(error)")
                 throw error
             }
+            do {
+                
+                self.deactivatedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .deactivatedAt)
+                
+            } catch {
+                print("Decoding error for property 'deactivatedAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -2195,6 +2205,11 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
                 try container.encode(value, forKey: .inviteNote)
             }
             
+            
+            if let value = deactivatedAt {
+                try container.encode(value, forKey: .deactivatedAt)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -2219,6 +2234,11 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = inviteNote {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = deactivatedAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -2272,6 +2292,11 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if deactivatedAt != other.deactivatedAt {
+                return false
+            }
+            
             return true
         }
 
@@ -2290,6 +2315,7 @@ public struct RepoView: ATProtocolCodable, ATProtocolValue {
             case invitedBy
             case invitesDisabled
             case inviteNote
+            case deactivatedAt
         }
     }
         
@@ -2307,10 +2333,11 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
             public let invitesDisabled: Bool?
             public let inviteNote: String?
             public let emailConfirmedAt: ATProtocolDate?
+            public let deactivatedAt: ATProtocolDate?
 
         // Standard initializer
         public init(
-            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer], indexedAt: ATProtocolDate, moderation: ModerationDetail, labels: [ComAtprotoLabelDefs.Label]?, invitedBy: ComAtprotoServerDefs.InviteCode?, invites: [ComAtprotoServerDefs.InviteCode]?, invitesDisabled: Bool?, inviteNote: String?, emailConfirmedAt: ATProtocolDate?
+            did: String, handle: String, email: String?, relatedRecords: [ATProtocolValueContainer], indexedAt: ATProtocolDate, moderation: ModerationDetail, labels: [ComAtprotoLabelDefs.Label]?, invitedBy: ComAtprotoServerDefs.InviteCode?, invites: [ComAtprotoServerDefs.InviteCode]?, invitesDisabled: Bool?, inviteNote: String?, emailConfirmedAt: ATProtocolDate?, deactivatedAt: ATProtocolDate?
         ) {
             
             self.did = did
@@ -2325,6 +2352,7 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
             self.invitesDisabled = invitesDisabled
             self.inviteNote = inviteNote
             self.emailConfirmedAt = emailConfirmedAt
+            self.deactivatedAt = deactivatedAt
         }
 
         // Codable initializer
@@ -2426,6 +2454,14 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
                 print("Decoding error for property 'emailConfirmedAt': \(error)")
                 throw error
             }
+            do {
+                
+                self.deactivatedAt = try container.decodeIfPresent(ATProtocolDate.self, forKey: .deactivatedAt)
+                
+            } catch {
+                print("Decoding error for property 'deactivatedAt': \(error)")
+                throw error
+            }
         }
 
         public func encode(to encoder: Encoder) throws {
@@ -2481,6 +2517,11 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
                 try container.encode(value, forKey: .emailConfirmedAt)
             }
             
+            
+            if let value = deactivatedAt {
+                try container.encode(value, forKey: .deactivatedAt)
+            }
+            
         }
 
         public func hash(into hasher: inout Hasher) {
@@ -2520,6 +2561,11 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
                 hasher.combine(nil as Int?)
             }
             if let value = emailConfirmedAt {
+                hasher.combine(value)
+            } else {
+                hasher.combine(nil as Int?)
+            }
+            if let value = deactivatedAt {
                 hasher.combine(value)
             } else {
                 hasher.combine(nil as Int?)
@@ -2588,6 +2634,11 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
                 return false
             }
             
+            
+            if deactivatedAt != other.deactivatedAt {
+                return false
+            }
+            
             return true
         }
 
@@ -2609,6 +2660,7 @@ public struct RepoViewDetail: ATProtocolCodable, ATProtocolValue {
             case invitesDisabled
             case inviteNote
             case emailConfirmedAt
+            case deactivatedAt
         }
     }
         
@@ -3594,6 +3646,7 @@ public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue 
     case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
     case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
     case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
+    case toolsOzoneModerationDefsModEventTag(ToolsOzoneModerationDefs.ModEventTag)
     case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
@@ -3658,6 +3711,10 @@ public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue 
             print("Decoding as tools.ozone.moderation.defs#modEventDivert")
             let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
             self = .toolsOzoneModerationDefsModEventDivert(value)
+        case "tools.ozone.moderation.defs#modEventTag":
+            print("Decoding as tools.ozone.moderation.defs#modEventTag")
+            let value = try ToolsOzoneModerationDefs.ModEventTag(from: decoder)
+            self = .toolsOzoneModerationDefsModEventTag(value)
         default:
             print("ModEventViewEventUnion decoding encountered an unexpected type: \(typeValue)")
             let unknownValue = try ATProtocolValueContainer(from: decoder)
@@ -3725,6 +3782,10 @@ public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue 
             print("Encoding tools.ozone.moderation.defs#modEventDivert")
             try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
             try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventTag(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventTag")
+            try container.encode("tools.ozone.moderation.defs#modEventTag", forKey: .type)
+            try value.encode(to: encoder)
         case .unexpected(let ATProtocolValueContainer):
             print("ModEventViewEventUnion encoding unexpected value")
             try ATProtocolValueContainer.encode(to: encoder)
@@ -3774,6 +3835,9 @@ public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue 
             hasher.combine(value)
         case .toolsOzoneModerationDefsModEventDivert(let value):
             hasher.combine("tools.ozone.moderation.defs#modEventDivert")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventTag(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventTag")
             hasher.combine(value)
         case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
@@ -3830,6 +3894,9 @@ public enum ModEventViewEventUnion: Codable, ATProtocolCodable, ATProtocolValue 
                 return selfValue == otherValue
             case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
                 .toolsOzoneModerationDefsModEventDivert(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventTag(let selfValue), 
+                .toolsOzoneModerationDefsModEventTag(let otherValue)):
                 return selfValue == otherValue
             case (.unexpected(let selfValue), .unexpected(let otherValue)):
                 return selfValue.isEqual(to: otherValue)
@@ -3955,6 +4022,7 @@ public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocol
     case toolsOzoneModerationDefsModEventEmail(ToolsOzoneModerationDefs.ModEventEmail)
     case toolsOzoneModerationDefsModEventResolveAppeal(ToolsOzoneModerationDefs.ModEventResolveAppeal)
     case toolsOzoneModerationDefsModEventDivert(ToolsOzoneModerationDefs.ModEventDivert)
+    case toolsOzoneModerationDefsModEventTag(ToolsOzoneModerationDefs.ModEventTag)
     case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
@@ -4019,6 +4087,10 @@ public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocol
             print("Decoding as tools.ozone.moderation.defs#modEventDivert")
             let value = try ToolsOzoneModerationDefs.ModEventDivert(from: decoder)
             self = .toolsOzoneModerationDefsModEventDivert(value)
+        case "tools.ozone.moderation.defs#modEventTag":
+            print("Decoding as tools.ozone.moderation.defs#modEventTag")
+            let value = try ToolsOzoneModerationDefs.ModEventTag(from: decoder)
+            self = .toolsOzoneModerationDefsModEventTag(value)
         default:
             print("ModEventViewDetailEventUnion decoding encountered an unexpected type: \(typeValue)")
             let unknownValue = try ATProtocolValueContainer(from: decoder)
@@ -4086,6 +4158,10 @@ public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocol
             print("Encoding tools.ozone.moderation.defs#modEventDivert")
             try container.encode("tools.ozone.moderation.defs#modEventDivert", forKey: .type)
             try value.encode(to: encoder)
+        case .toolsOzoneModerationDefsModEventTag(let value):
+            print("Encoding tools.ozone.moderation.defs#modEventTag")
+            try container.encode("tools.ozone.moderation.defs#modEventTag", forKey: .type)
+            try value.encode(to: encoder)
         case .unexpected(let ATProtocolValueContainer):
             print("ModEventViewDetailEventUnion encoding unexpected value")
             try ATProtocolValueContainer.encode(to: encoder)
@@ -4135,6 +4211,9 @@ public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocol
             hasher.combine(value)
         case .toolsOzoneModerationDefsModEventDivert(let value):
             hasher.combine("tools.ozone.moderation.defs#modEventDivert")
+            hasher.combine(value)
+        case .toolsOzoneModerationDefsModEventTag(let value):
+            hasher.combine("tools.ozone.moderation.defs#modEventTag")
             hasher.combine(value)
         case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
@@ -4191,6 +4270,9 @@ public enum ModEventViewDetailEventUnion: Codable, ATProtocolCodable, ATProtocol
                 return selfValue == otherValue
             case (.toolsOzoneModerationDefsModEventDivert(let selfValue), 
                 .toolsOzoneModerationDefsModEventDivert(let otherValue)):
+                return selfValue == otherValue
+            case (.toolsOzoneModerationDefsModEventTag(let selfValue), 
+                .toolsOzoneModerationDefsModEventTag(let otherValue)):
                 return selfValue == otherValue
             case (.unexpected(let selfValue), .unexpected(let otherValue)):
                 return selfValue.isEqual(to: otherValue)

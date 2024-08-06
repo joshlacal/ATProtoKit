@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.Com.Atproto.Identity {
     /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+    
     public func submitPlcOperation(input: ComAtprotoIdentitySubmitPlcOperation.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/com.atproto.identity.submitPlcOperation"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.Com.Atproto.Identity {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

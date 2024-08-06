@@ -559,6 +559,7 @@ public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
     case appBskyFeedDefsGeneratorView(AppBskyFeedDefs.GeneratorView)
     case appBskyGraphDefsListView(AppBskyGraphDefs.ListView)
     case appBskyLabelerDefsLabelerView(AppBskyLabelerDefs.LabelerView)
+    case appBskyGraphDefsStarterPackViewBasic(AppBskyGraphDefs.StarterPackViewBasic)
     case unexpected(ATProtocolValueContainer)
 
     public init(from decoder: Decoder) throws {
@@ -591,6 +592,10 @@ public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
             print("Decoding as app.bsky.labeler.defs#labelerView")
             let value = try AppBskyLabelerDefs.LabelerView(from: decoder)
             self = .appBskyLabelerDefsLabelerView(value)
+        case "app.bsky.graph.defs#starterPackViewBasic":
+            print("Decoding as app.bsky.graph.defs#starterPackViewBasic")
+            let value = try AppBskyGraphDefs.StarterPackViewBasic(from: decoder)
+            self = .appBskyGraphDefsStarterPackViewBasic(value)
         default:
             print("ViewRecordUnion decoding encountered an unexpected type: \(typeValue)")
             let unknownValue = try ATProtocolValueContainer(from: decoder)
@@ -626,6 +631,10 @@ public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
             print("Encoding app.bsky.labeler.defs#labelerView")
             try container.encode("app.bsky.labeler.defs#labelerView", forKey: .type)
             try value.encode(to: encoder)
+        case .appBskyGraphDefsStarterPackViewBasic(let value):
+            print("Encoding app.bsky.graph.defs#starterPackViewBasic")
+            try container.encode("app.bsky.graph.defs#starterPackViewBasic", forKey: .type)
+            try value.encode(to: encoder)
         case .unexpected(let ATProtocolValueContainer):
             print("ViewRecordUnion encoding unexpected value")
             try ATProtocolValueContainer.encode(to: encoder)
@@ -651,6 +660,9 @@ public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
             hasher.combine(value)
         case .appBskyLabelerDefsLabelerView(let value):
             hasher.combine("app.bsky.labeler.defs#labelerView")
+            hasher.combine(value)
+        case .appBskyGraphDefsStarterPackViewBasic(let value):
+            hasher.combine("app.bsky.graph.defs#starterPackViewBasic")
             hasher.combine(value)
         case .unexpected(let ATProtocolValueContainer):
             hasher.combine("unexpected")
@@ -683,6 +695,9 @@ public enum ViewRecordUnion: Codable, ATProtocolCodable, ATProtocolValue {
                 return selfValue == otherValue
             case (.appBskyLabelerDefsLabelerView(let selfValue), 
                 .appBskyLabelerDefsLabelerView(let otherValue)):
+                return selfValue == otherValue
+            case (.appBskyGraphDefsStarterPackViewBasic(let selfValue), 
+                .appBskyGraphDefsStarterPackViewBasic(let otherValue)):
                 return selfValue == otherValue
             case (.unexpected(let selfValue), .unexpected(let otherValue)):
                 return selfValue.isEqual(to: otherValue)

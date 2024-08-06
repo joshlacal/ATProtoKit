@@ -28,6 +28,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Notification {
     /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
+    
     public func registerPush(input: AppBskyNotificationRegisterPush.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/app.bsky.notification.registerPush"
         
@@ -42,10 +43,10 @@ extension ATProtoClient.App.Bsky.Notification {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

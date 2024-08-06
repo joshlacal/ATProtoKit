@@ -22,6 +22,7 @@ public struct Input: ATProtocolCodable {
 }
 extension ATProtoClient.App.Bsky.Actor {
     /// Set the private preferences attached to the account.
+    
     public func putPreferences(input: AppBskyActorPutPreferences.Input, duringInitialSetup: Bool = false) async throws -> Int {
         let endpoint = "/app.bsky.actor.putPreferences"
         
@@ -36,10 +37,10 @@ extension ATProtoClient.App.Bsky.Actor {
             body: requestData,
             queryItems: nil
         )
+    
         
         let (responseData, response) = try await networkManager.performRequest(urlRequest, retryCount: 0, duringInitialSetup: duringInitialSetup)
         let responseCode = response.statusCode
-
         
         return responseCode
         

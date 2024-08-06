@@ -22,6 +22,10 @@ public struct Output: ATProtocolCodable {
         
         public let didDoc: DIDDocument?
         
+        public let active: Bool?
+        
+        public let status: String?
+        
         
         // Standard public initializer
         public init(
@@ -35,7 +39,11 @@ public struct Output: ATProtocolCodable {
         
             emailAuthFactor: Bool? = nil, 
         
-            didDoc: DIDDocument? = nil
+            didDoc: DIDDocument? = nil, 
+        
+            active: Bool? = nil, 
+        
+            status: String? = nil
         ) {
             
             self.handle = handle
@@ -49,6 +57,10 @@ public struct Output: ATProtocolCodable {
             self.emailAuthFactor = emailAuthFactor
             
             self.didDoc = didDoc
+            
+            self.active = active
+            
+            self.status = status
             
         }
     }
